@@ -6,7 +6,7 @@ To use @deriv-com/ui in your project, add it as a dependency:
 npm i @deriv-com/ui
 ```
 
-##Usage
+## Usage
 
 ```
 import { Button } from '@deriv-com/ui/dist/components/Button';
