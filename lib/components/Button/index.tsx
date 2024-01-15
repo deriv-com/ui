@@ -41,12 +41,12 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
     const isContained = variant === 'contained';
 
     const buttonClassNames = classNames(
-        'wallets-button',
-        `wallets-button__size--${size}`,
-        `wallets-button__variant--${variant}`,
-        `wallets-button__rounded--${rounded}`,
-        isContained && `wallets-button__color--${color}`,
-        isFullWidth && 'wallets-button__full-width'
+        'derivs-button',
+        `derivs-button__size--${size}`,
+        `derivs-button__variant--${variant}`,
+        `derivs-button__rounded--${rounded}`,
+        isContained && `derivs-button__color--${color}`,
+        isFullWidth && 'derivs-button__full-width'
     );
 
     type TButtonFontColor = {
@@ -98,7 +98,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
             type={type}
         >
             {isLoading && (
-                <div className='wallets-button__loader'>
+                <div className='derivs-button__loader'>
                     <Loader color={isContained ? loaderColorMapper[color] : '#85ACB0'} isFullScreen={false} />
                 </div>
             )}

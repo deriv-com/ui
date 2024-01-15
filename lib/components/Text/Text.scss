@@ -133,7 +133,7 @@ $font-style-map: (
     normal: normal,
 );
 
-.wallets-text {
+.derivs-text {
     @each $color, $value in $color-map {
         &__color--#{$color} {
             color: $value;
