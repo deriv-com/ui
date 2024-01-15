@@ -29,13 +29,13 @@ export const Text: React.FC<TextProps> = ({
     className
 }) => {
     const textClassNames = classNames(
-        'wallet-text',
-        `wallets-text__size--${size}`,
-        `wallets-text__weight--${weight}`,
-        `wallets-text__align--${align}`,
-        `wallets-text__color--${color}`,
-        `wallets-text__line-height--${lineHeight}`,
-        `wallets-text__font-style--${fontStyle}`,
+        'deriv-text',
+        `derivs-text__size--${size}`,
+        `derivs-text__weight--${weight}`,
+        `derivs-text__align--${align}`,
+        `derivs-text__color--${color}`,
+        `derivs-text__line-height--${lineHeight}`,
+        `derivs-text__font-style--${fontStyle}`,
         className
     );
 

@@ -33,7 +33,7 @@ $size-map: (
     ),
 );
 
-.wallets-button {
+.derivs-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,7 +98,7 @@ $size-map: (
     }
 
     &__loader {
-        .wallets-loader {
+        .derivs-loader {
             width: 5rem;
             height: 1.2rem;
 

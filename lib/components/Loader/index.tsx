@@ -10,13 +10,13 @@ type TProps = {
 
 export const Loader: React.FC<TProps> = ({ color = '#85ACB0', isFullScreen = true, className }) => (
     <div
-        className={classNames('wallets-loader', { 'wallets-loader--fullscreen': isFullScreen }, className)}
-        data-testid='dt_wallets-loader'
+        className={classNames('derivs-loader', { 'derivs-loader--fullscreen': isFullScreen }, className)}
+        data-testid='dt_derivs-loader'
     >
-        <span className='wallets-loader__element' role='span' style={{ backgroundColor: color }} />
-        <span className='wallets-loader__element' style={{ backgroundColor: color }} />
-        <span className='wallets-loader__element' style={{ backgroundColor: color }} />
-        <span className='wallets-loader__element' style={{ backgroundColor: color }} />
-        <span className='wallets-loader__element' style={{ backgroundColor: color }} />
+        <span className='derivs-loader__element' role='span' style={{ backgroundColor: color }} />
+        <span className='derivs-loader__element' style={{ backgroundColor: color }} />
+        <span className='derivs-loader__element' style={{ backgroundColor: color }} />
+        <span className='derivs-loader__element' style={{ backgroundColor: color }} />
+        <span className='derivs-loader__element' style={{ backgroundColor: color }} />
     </div>
 );
