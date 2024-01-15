@@ -21,6 +21,7 @@ interface ButtonProps {
     textSize?: ComponentProps<typeof Text>['size'];
     type?: ComponentProps<'button'>['type'];
     variant?: TVariant;
+    className?: string;
 }
 
 export const Button: FC<PropsWithChildren<ButtonProps>> = ({
@@ -37,6 +38,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
     textSize,
     type,
     variant = 'contained',
+    className
 }) => {
     const isContained = variant === 'contained';
 
@@ -46,7 +48,8 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
         `wallets-button__variant--${variant}`,
         `wallets-button__rounded--${rounded}`,
         isContained && `wallets-button__color--${color}`,
-        isFullWidth && 'wallets-button__full-width'
+        isFullWidth && 'wallets-button__full-width',
+        className
     );
 
     type TButtonFontColor = {

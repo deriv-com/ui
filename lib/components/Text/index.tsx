@@ -14,6 +14,7 @@ export interface TextProps {
     lineHeight?: TGenericSizes;
     size?: Exclude<TGenericSizes, '3xs' | '6xl' | '7xl'>;
     weight?: CSSProperties['fontWeight'];
+    className?: string;
 }
 
 export const Text: React.FC<TextProps> = ({
@@ -25,6 +26,7 @@ export const Text: React.FC<TextProps> = ({
     lineHeight,
     size = 'md',
     weight = 'normal',
+    className
 }) => {
     const textClassNames = classNames(
         'wallet-text',
@@ -33,7 +35,8 @@ export const Text: React.FC<TextProps> = ({
         `wallets-text__align--${align}`,
         `wallets-text__color--${color}`,
         `wallets-text__line-height--${lineHeight}`,
-        `wallets-text__font-style--${fontStyle}`
+        `wallets-text__font-style--${fontStyle}`,
+        className
     );
 
     const Tag = as;
