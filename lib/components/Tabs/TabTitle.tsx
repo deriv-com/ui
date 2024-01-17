@@ -6,7 +6,7 @@ export type TabTitleProps = {
     icon?: React.ReactNode;
     activeTab: string;
     isActive?: boolean;
-    setSelectedTab: (label: string) => void;
+    setSelectedTab: (title: string) => void;
     title: string;
     className?: string;
     variant: 'primary' | 'secondary';
