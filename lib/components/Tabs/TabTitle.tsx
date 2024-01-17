@@ -4,18 +4,19 @@ import { Text } from '../Text';
 
 export type TabTitleProps = {
     icon?: React.ReactNode;
-    index: number;
+    activeTab: string;
     isActive?: boolean;
-    setSelectedTab: (index: number) => void;
+    setSelectedTab: (label: string) => void;
     title: string;
     className?: string;
     variant: 'primary' | 'secondary';
 };
 
-const TabTitle: FC<TabTitleProps> = ({ icon, index, isActive, setSelectedTab, title,className,variant }) => {
-    const handleOnClick = useCallback(() => {
-        setSelectedTab(index);
-    }, [setSelectedTab, index]);
+const TabTitle: FC<TabTitleProps> = ({ icon, activeTab, isActive, setSelectedTab, title,className,variant }) => {
+    const handleOnClick = useCallback((title: string) => {
+        console.log('title',title);
+        setSelectedTab(title);
+    }, [setSelectedTab, activeTab]);
 
     const classNameVariants = {
         primary : `derivs-primary-tabs__btn--active`,
@@ -27,7 +28,7 @@ const TabTitle: FC<TabTitleProps> = ({ icon, index, isActive, setSelectedTab, ti
             className={clsx(`derivs-${variant + '-'}tabs__btn`,{
                 [classNameVariants[variant]] : isActive,
             }, className)}
-            onClick={handleOnClick}
+            onClick={()=>handleOnClick(title)}
         >
             {icon}
             <Text weight={isActive ? 'bold' : 'normal'}>{title}</Text>

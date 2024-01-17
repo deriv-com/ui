@@ -5,31 +5,33 @@ import './Tabs.scss';
 
 type TabsProps = {
     children: ReactElement<TabTitleProps>[];
-    preSelectedTab?: number;
+    activeTab: string;
     wrapperClassName?: string;
     className?: string;
     variant?: 'primary' | 'secondary';
 };
 
-const Tabs: FC<TabsProps> = ({ children, preSelectedTab, wrapperClassName, className, variant='primary' }): JSX.Element => {
-    const [selectedTabIndex, setSelectedTabIndex] = useState(preSelectedTab || 0);
+const Tabs: FC<TabsProps> = ({ children, activeTab, wrapperClassName, className, variant = 'primary' }): JSX.Element => {
+    const [selectedTab, setSelectedTab] = useState(activeTab);
 
     return (
         <div className={wrapperClassName}>
-            <div className={clsx(`derivs-${variant+'-'}tabs`,className)}>
-                {children.map((item, index) => (
-                    <TabTitle
-                        icon={item.props.icon}
-                        index={index}
-                        isActive={index === selectedTabIndex}
-                        key={`derivs-${variant+'-'}tab-${item.props.title}`}
-                        setSelectedTab={setSelectedTabIndex}
-                        title={item.props.title}
-                        variant={variant}
-                    />
-                ))}
+            <div className={clsx(`derivs-${variant + '-'}tabs`, className)}>
+                {children.map((item) => {
+                    return (
+                        <TabTitle
+                            icon={item.props.icon}
+                            activeTab={selectedTab}
+                            isActive={item.props.title === selectedTab}
+                            key={`derivs-${variant + '-'}tab-${item.props.title}`}
+                            setSelectedTab={setSelectedTab}
+                            title={item.props.title}
+                            variant={variant}
+                        />
+                    )
+                })}
             </div>
-            {children[selectedTabIndex]}
+            {children.find((item) => item.props.title === selectedTab)}
         </div>
     );
 };

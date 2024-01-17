@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <Button> button </Button>
       <Text color='blue' size='lg'>this is a Text</Text>
 
-      <Tabs variant='primary' preSelectedTab={1} >
+      <Tabs variant='primary' activeTab='secondary tab 2' >
         <Tab title='secondary tab 1'>
           test data for tab 1
         </Tab>
@@ -23,7 +23,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         </Tab>
       </Tabs>
 
-      <Tabs variant='secondary' preSelectedTab={1} >
+      <Tabs variant='secondary' activeTab='secondary tab 1' >
         <Tab title='secondary tab 1'>
           test data for tab 1
         </Tab>
