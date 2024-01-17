@@ -1,7 +1,7 @@
 {
   "name": "@deriv-com/ui",
   "private": false,
-  "version": "0.0.1-beta.3",
+  "version": "0.0.1-beta.4",
   "type": "module",
   "main": "dist/main.js",
   "files": [
@@ -13,12 +13,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --p ./tsconfig-build.json && vite build",
-    "prepublishOnly": "npm run build",
+    "prepublish": "npm run build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
-  },
-  "peerDependencies": {
-    "classnames": "^2.5.1"
   },
   "devDependencies": {
     "@types/node": "^20.10.7",
@@ -27,6 +24,7 @@
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
     "@vitejs/plugin-react": "^4.2.1",
+    "clsx": "^2.1.0",
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
