@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import './Loader.scss';
 
 type TProps = {
@@ -10,7 +10,7 @@ type TProps = {
 
 export const Loader: React.FC<TProps> = ({ color = '#85ACB0', isFullScreen = true, className }) => (
     <div
-        className={classNames('derivs-loader', { 'derivs-loader--fullscreen': isFullScreen }, className)}
+        className={clsx('derivs-loader', { 'derivs-loader--fullscreen': isFullScreen }, className)}
         data-testid='dt_derivs-loader'
     >
         <span className='derivs-loader__element' role='span' style={{ backgroundColor: color }} />

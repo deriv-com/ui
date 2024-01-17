@@ -32,7 +32,7 @@ export default defineConfig({
     },
     copyPublicDir: false,
     rollupOptions: {
-      external: ['react', 'react/jsx-runtime', 'classnames'],
+      external: ['react', 'react/jsx-runtime'],
       input: Object.fromEntries(
         glob.sync('lib/**/*.{ts,tsx}').map(file => {
           return [
