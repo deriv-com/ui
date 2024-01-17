@@ -5,7 +5,7 @@ import './Tabs.scss';
 
 type TabsProps = {
     children: ReactElement<TabTitleProps>[];
-    activeTab: string;
+    activeTab?: string;
     wrapperClassName?: string;
     className?: string;
     variant?: 'primary' | 'secondary';
