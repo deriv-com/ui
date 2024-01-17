@@ -1,5 +1,5 @@
 import React, { FC, useCallback } from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { Text } from '../Text';
 
 export type TabTitleProps = {
@@ -8,18 +8,25 @@ export type TabTitleProps = {
     isActive?: boolean;
     setSelectedTab: (index: number) => void;
     title: string;
+    className?: string;
+    variant: 'primary' | 'secondary';
 };
 
-const TabTitle: FC<TabTitleProps> = ({ icon, index, isActive, setSelectedTab, title }) => {
+const TabTitle: FC<TabTitleProps> = ({ icon, index, isActive, setSelectedTab, title,className,variant }) => {
     const handleOnClick = useCallback(() => {
         setSelectedTab(index);
     }, [setSelectedTab, index]);
 
+    const classNameVariants = {
+        primary : `derivs-primary-tabs__btn--active`,
+        secondary : `derivs-secondary-tabs__btn--active`,
+    }
+
     return (
         <button
-            className={classNames('derivs-tabs__btn', {
-                'derivs-tabs__btn--active': isActive,
-            })}
+            className={clsx(`derivs-${variant + '-'}tabs__btn`,{
+                [classNameVariants[variant]] : isActive,
+            }, className)}
             onClick={handleOnClick}
         >
             {icon}

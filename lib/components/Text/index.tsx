@@ -1,5 +1,5 @@
 import React, { CSSProperties, ElementType, ReactNode } from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import './Text.scss';
 
@@ -28,7 +28,7 @@ export const Text: React.FC<TextProps> = ({
     weight = 'normal',
     className
 }) => {
-    const textClassNames = classNames(
+    const textClassNames = clsx(
         'deriv-text',
         `derivs-text__size--${size}`,
         `derivs-text__weight--${weight}`,

@@ -1,5 +1,5 @@
 import { ComponentProps, CSSProperties, FC, PropsWithChildren, ReactElement } from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { TGenericSizes } from '../../types';
 import { Loader } from '../Loader';
 import { Text } from '../Text';
@@ -42,7 +42,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
 }) => {
     const isContained = variant === 'contained';
 
-    const buttonClassNames = classNames(
+    const buttonClassNames = clsx(
         'derivs-button',
         `derivs-button__size--${size}`,
         `derivs-button__variant--${variant}`,

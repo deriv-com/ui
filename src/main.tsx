@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client'
 import { Loader } from '../dist/components/Loader';
 import { Button } from '../dist/components/Button';
 import { Text } from '../dist/components/Text';
-import { Tabs, Tab } from '../dist/components/Tabs';
-import {PrimaryTabList, PrimaryTabPanel, PrimaryTabPanels, PrimaryTabs} from '../dist/components/PrimaryTabs';
+import { Tab, Tabs } from '../dist/components/Tabs';
+// import {PrimaryTab, PrimaryTabs} from '../dist/components/PrimaryTabs';
+import './style.scss'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -13,27 +14,23 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <Button> button </Button>
       <Text color='blue' size='lg'>this is a Text</Text>
 
-      <Tabs preSelectedTab={0} >
-        <Tab title='tab1'>
+      <Tabs variant='primary' preSelectedTab={1} >
+        <Tab title='secondary tab 1'>
           test data for tab 1
         </Tab>
-        <Tab title='tab2'>
+        <Tab title='secondary tab 2'>
           test data for tab 2
         </Tab>
       </Tabs>
 
-
-      <PrimaryTabs className='derivs-accounts-list'>
-                <PrimaryTabList list={['primary tab 1', 'primary tab 2']} />
-                <PrimaryTabPanels>
-                    <PrimaryTabPanel>
-                        primary tab 1 content
-                    </PrimaryTabPanel>
-                    <PrimaryTabPanel>
-                        primary tab 2 content
-                    </PrimaryTabPanel>
-                </PrimaryTabPanels>
-            </PrimaryTabs>
+      <Tabs variant='secondary' preSelectedTab={1} >
+        <Tab title='secondary tab 1'>
+          test data for tab 1
+        </Tab>
+        <Tab title='secondary tab 2'>
+          test data for tab 2
+        </Tab>
+      </Tabs>
     </>
 
 
