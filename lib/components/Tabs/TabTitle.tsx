@@ -14,7 +14,6 @@ export type TabTitleProps = {
 
 const TabTitle: FC<TabTitleProps> = ({ icon, activeTab, isActive, setSelectedTab, title,className,variant }) => {
     const handleOnClick = useCallback((title: string) => {
-        console.log('title',title);
         setSelectedTab(title);
     }, [setSelectedTab, activeTab]);
 
