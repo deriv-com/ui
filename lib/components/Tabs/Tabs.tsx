@@ -12,7 +12,7 @@ type TabsProps = {
 };
 
 const Tabs: FC<TabsProps> = ({ children, activeTab, wrapperClassName, className, variant = 'primary' }): JSX.Element => {
-    const [selectedTab, setSelectedTab] = useState(activeTab);
+    const [selectedTab, setSelectedTab] = useState(activeTab || children[0].props.title);
 
     return (
         <div className={wrapperClassName}>
