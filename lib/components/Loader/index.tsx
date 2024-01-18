@@ -8,7 +8,7 @@ type TProps = {
     className?: string;
 };
 
-export const Loader: React.FC<TProps> = ({ color = '#85ACB0', isFullScreen = true, className }) => (
+export const Loader = ({ color = '#85ACB0', isFullScreen = true, className }: TProps) => (
     <div
         className={clsx('derivs-loader', { 'derivs-loader--fullscreen': isFullScreen }, className)}
         data-testid='dt_derivs-loader'

@@ -1,4 +1,4 @@
-import { ComponentProps, CSSProperties, FC, PropsWithChildren, ReactElement } from 'react';
+import { ComponentProps, CSSProperties, PropsWithChildren, ReactElement } from 'react';
 import clsx from 'clsx';
 import { TGenericSizes } from '../../types';
 import { Loader } from '../Loader';
@@ -24,7 +24,7 @@ interface ButtonProps {
     className?: string;
 }
 
-export const Button: FC<PropsWithChildren<ButtonProps>> = ({
+export const Button = ({
     ariaLabel,
     children,
     color = 'primary',
@@ -39,7 +39,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
     type,
     variant = 'contained',
     className
-}) => {
+}: PropsWithChildren<ButtonProps>) => {
     const isContained = variant === 'contained';
 
     const buttonClassNames = clsx(

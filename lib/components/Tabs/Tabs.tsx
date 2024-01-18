@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import TabTitle, { TabTitleProps } from './TabTitle';
 import clsx from 'clsx';
 import './Tabs.scss';
@@ -11,7 +11,7 @@ type TabsProps = {
     variant?: 'primary' | 'secondary';
 };
 
-const Tabs: FC<TabsProps> = ({ children, activeTab, wrapperClassName, className, variant = 'primary' }): JSX.Element => {
+const Tabs = ({ children, activeTab, wrapperClassName, className, variant = 'primary' }: TabsProps): JSX.Element => {
     const [selectedTab, setSelectedTab] = useState(activeTab || children[0].props.title);
 
     return (
