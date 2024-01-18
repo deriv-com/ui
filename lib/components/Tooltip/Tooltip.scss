@@ -51,7 +51,7 @@ $arrow-size: 8px;
 
 // Position Classes
 
-.top {
+.deriv-top {
   bottom: calc(100% + 18px);
   left: 50%;
   transform: translateX(-50%);
@@ -73,8 +73,8 @@ $arrow-size: 8px;
   }
 }
 
-.right,
-.left {
+.deriv-right,
+.deriv-left {
   top: 50%;
   transform: translateY(-50%);
 
@@ -85,7 +85,7 @@ $arrow-size: 8px;
   }
 }
 
-.right {
+.deriv-right {
   left: calc(100% + 18px);
 
   .deriv-arrow {
@@ -102,7 +102,7 @@ $arrow-size: 8px;
   }
 }
 
-.left {
+.deriv-left {
   right: calc(100% + 18px);
 
   .deriv-arrow {
@@ -119,7 +119,7 @@ $arrow-size: 8px;
   }
 }
 
-.bottom {
+.deriv-bottom {
   top: calc(100% + 18px);
   left: 50%;
   transform: translateX(-50%);

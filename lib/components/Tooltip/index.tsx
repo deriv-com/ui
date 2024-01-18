@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useRef, useState } from "react";
+import React, { ReactNode, useRef, useState } from "react";
 import clsx from "clsx";
 import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 import "./Tooltip.scss";
@@ -7,23 +7,23 @@ type TooltipPositionType = "top" | "bottom" | "left" | "right";
 type TooltipTriggerActionType = "hover" | "click";
 type TooltipVariantType = "general" | "dark" | "error";
 
-interface TProps {
+type TooltipProps = {
   children?: ReactNode;
   className?: string;
   message: ReactNode;
   position?: TooltipPositionType;
   triggerAction?: TooltipTriggerActionType;
   variant?: TooltipVariantType;
-}
+};
 
-export const Tooltip: FC<TProps> = ({
+export const Tooltip = ({
   children,
   className,
   message,
   position = "top",
   triggerAction = "hover",
   variant = "general",
-}) => {
+}: TooltipProps) => {
   const [active, setActive] = useState(false);
   const targetRef = useRef<HTMLDivElement>(null);
 
@@ -64,6 +64,13 @@ export const Tooltip: FC<TProps> = ({
     general: "deriv-tooltip--general",
   };
 
+  const TooltipPositionClass: Record<TooltipPositionType, string> = {
+    top: "deriv-top",
+    bottom: "deriv-bottom",
+    right: "deriv-right",
+    left: "deriv-left",
+  };
+
   const TooltipArrowVariantClass: Record<TooltipVariantType, string> = {
     dark: "deriv-arrow--dark",
     error: "deriv-arrow--error",
@@ -83,7 +90,7 @@ export const Tooltip: FC<TProps> = ({
         <div
           className={clsx(
             "deriv-tooltip",
-            position,
+            TooltipPositionClass[position],
             TooltipVariantClass[variant],
             className
           )}
