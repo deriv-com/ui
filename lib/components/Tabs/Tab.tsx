@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 type TabProps = {
     children: ReactNode;
@@ -6,6 +6,6 @@ type TabProps = {
     title: string;
 };
 
-const Tab: FC<TabProps> = ({ children }) => <>{children}</>;
+const Tab = ({ children }: TabProps) => <>{children}</>;
 
 export default Tab;

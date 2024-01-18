@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import clsx from 'clsx';
 import { Text } from '../Text';
 
@@ -12,7 +12,7 @@ export type TabTitleProps = {
     variant: 'primary' | 'secondary';
 };
 
-const TabTitle: FC<TabTitleProps> = ({ icon, activeTab, isActive, setSelectedTab, title,className,variant }) => {
+const TabTitle = ({ icon, activeTab, isActive, setSelectedTab, title,className,variant }: TabTitleProps) => {
     const handleOnClick = useCallback((title: string) => {
         setSelectedTab(title);
     }, [setSelectedTab, activeTab]);
