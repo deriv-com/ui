@@ -1,24 +1,28 @@
 import React, { FC, ReactNode, useRef, useState } from "react";
+import clsx from "clsx";
 import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 import "./Tooltip.scss";
 
 type TooltipPositionType = "top" | "bottom" | "left" | "right";
-type TooltipTriggerAction = "hover" | "click";
+type TooltipTriggerActionType = "hover" | "click";
+type TooltipVariantType = "general" | "dark" | "error";
 
 interface TProps {
-  triggerAction?: TooltipTriggerAction;
   children?: ReactNode;
   className?: string;
   message: string;
   position?: TooltipPositionType;
+  triggerAction?: TooltipTriggerActionType;
+  variant?: TooltipVariantType;
 }
 
 export const Tooltip: FC<TProps> = ({
-  triggerAction = "hover",
   children,
   className,
   message,
   position = "top",
+  triggerAction = "hover",
+  variant = "general",
 }) => {
   const [active, setActive] = useState(false);
   const targetRef = useRef<HTMLDivElement>(null);
@@ -54,9 +58,15 @@ export const Tooltip: FC<TProps> = ({
 
   useOnClickOutside(targetRef, (e) => handleClickOutside(e));
 
+  const TooltipVariantClass: Record<TooltipVariantType, string> = {
+    dark: "dark",
+    error: "error",
+    general: "general",
+  };
+
   return (
     <div
-      className="wallets-tooltip"
+      className={clsx("tooltip-container")}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
@@ -65,14 +75,15 @@ export const Tooltip: FC<TProps> = ({
       {children}
       {active && (
         <div
-          className={`wallets-tooltip__content wallets-tooltip__content--${position} ${
-            className ?? ""
-          }`}
+          className={clsx(
+            "tooltip",
+            position,
+            TooltipVariantClass[variant],
+            className
+          )}
         >
-          <div
-            className={`wallets-tooltip__arrow wallets-tooltip__arrow--${position}`}
-          />
-          <div className="wallets-tooltip__message">{message}</div>
+          <span className="arrow"></span>
+          {message}
         </div>
       )}
     </div>
