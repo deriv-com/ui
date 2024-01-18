@@ -29,6 +29,18 @@ $arrow-size: 8px;
   width: max-content;
   max-width: 280px;
   animation: fadeIn ease-in-out 0.2s;
+  &--general {
+    background-color: $general-background;
+    color: $general-text;
+  }
+  &--dark {
+    background-color: $dark-background;
+    color: $dark-text;
+  }
+  &--error {
+    background-color: $error-background;
+    color: $error-text;
+  }
 }
 
 .arrow {
@@ -45,11 +57,19 @@ $arrow-size: 8px;
   transform: translateX(-50%);
 
   .arrow {
-    bottom: -$arrow-size;
+    bottom: calc(1px + $arrow-size * -1);
     left: calc(50% - $arrow-size);
     border-right: $border transparent;
     border-left: $border transparent;
-    border-top: $border;
+    &--general {
+      border-top: $border $general-background;
+    }
+    &--dark {
+      border-top: $border $dark-background;
+    }
+    &--error {
+      border-top: $border $error-background;
+    }
   }
 }
 
@@ -70,7 +90,15 @@ $arrow-size: 8px;
 
   .arrow {
     left: -$arrow-size;
-    border-right: $border;
+    &--general {
+      border-right: $border $general-background;
+    }
+    &--dark {
+      border-right: $border $dark-background;
+    }
+    &--error {
+      border-right: $border $error-background;
+    }
   }
 }
 
@@ -79,7 +107,15 @@ $arrow-size: 8px;
 
   .arrow {
     right: -$arrow-size;
-    border-left: $border;
+    &--general {
+      border-left: $border $general-background;
+    }
+    &--dark {
+      border-left: $border $dark-background;
+    }
+    &--error {
+      border-left: $border $error-background;
+    }
   }
 }
 
@@ -89,13 +125,23 @@ $arrow-size: 8px;
   transform: translateX(-50%);
 
   .arrow {
-    top: -$arrow-size;
+    top: calc(1px + $arrow-size * -1);
     left: calc(50% - $arrow-size);
     border-right: $border transparent;
     border-left: $border transparent;
-    border-bottom: $border;
+    &--general {
+      border-bottom: $border $general-background;
+    }
+    &--dark {
+      border-bottom: $border $dark-background;
+    }
+    &--error {
+      border-bottom: $border $error-background;
+    }
   }
 }
+
+// Tooltip popup animation
 
 @keyframes fadeIn {
   0% {
@@ -103,68 +149,5 @@ $arrow-size: 8px;
   }
   100% {
     opacity: 1;
-  }
-}
-
-// Variant Classes
-
-.general {
-  background-color: $general-background;
-  color: $general-text;
-
-  .top .arrow {
-    border-top-color: $general-background;
-  }
-
-  .right .arrow {
-    border-right-color: $general-background;
-  }
-
-  .bottom .arrow {
-    border-bottom-color: $general-background;
-  }
-
-  .left .arrow {
-    border-left-color: $general-background;
-  }
-}
-.dark {
-  background-color: $dark-background;
-  color: $dark-text;
-
-  .top .arrow {
-    border-top-color: $dark-background;
-  }
-
-  .right .arrow {
-    border-right-color: $dark-background;
-  }
-
-  .bottom .arrow {
-    border-bottom-color: $dark-background;
-  }
-
-  .left .arrow {
-    border-left-color: $dark-background;
-  }
-}
-.error {
-  background-color: $error-background;
-  color: $error-text;
-
-  .top .arrow {
-    border-top-color: $error-background;
-  }
-
-  .right .arrow {
-    border-right-color: $error-background;
-  }
-
-  .bottom .arrow {
-    border-bottom-color: $error-background;
-  }
-
-  .left .arrow {
-    border-left-color: $error-background;
   }
 }

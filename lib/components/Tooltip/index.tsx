@@ -59,9 +59,15 @@ export const Tooltip: FC<TProps> = ({
   useOnClickOutside(targetRef, (e) => handleClickOutside(e));
 
   const TooltipVariantClass: Record<TooltipVariantType, string> = {
-    dark: "dark",
-    error: "error",
-    general: "general",
+    dark: "tooltip--dark",
+    error: "tooltip--error",
+    general: "tooltip--general",
+  };
+
+  const TooltipArrowVariantClass: Record<TooltipVariantType, string> = {
+    dark: "arrow--dark",
+    error: "arrow--error",
+    general: "arrow--general",
   };
 
   return (
@@ -82,7 +88,9 @@ export const Tooltip: FC<TProps> = ({
             className
           )}
         >
-          <span className="arrow"></span>
+          <span
+            className={clsx("arrow", TooltipArrowVariantClass[variant])}
+          ></span>
           {message}
         </div>
       )}
