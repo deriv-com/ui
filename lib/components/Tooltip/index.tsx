@@ -10,7 +10,7 @@ type TooltipVariantType = "general" | "dark" | "error";
 interface TProps {
   children?: ReactNode;
   className?: string;
-  message: string;
+  message: ReactNode;
   position?: TooltipPositionType;
   triggerAction?: TooltipTriggerActionType;
   variant?: TooltipVariantType;
@@ -59,20 +59,20 @@ export const Tooltip: FC<TProps> = ({
   useOnClickOutside(targetRef, (e) => handleClickOutside(e));
 
   const TooltipVariantClass: Record<TooltipVariantType, string> = {
-    dark: "tooltip--dark",
-    error: "tooltip--error",
-    general: "tooltip--general",
+    dark: "deriv-tooltip--dark",
+    error: "deriv-tooltip--error",
+    general: "deriv-tooltip--general",
   };
 
   const TooltipArrowVariantClass: Record<TooltipVariantType, string> = {
-    dark: "arrow--dark",
-    error: "arrow--error",
-    general: "arrow--general",
+    dark: "deriv-arrow--dark",
+    error: "deriv-arrow--error",
+    general: "deriv-arrow--general",
   };
 
   return (
     <div
-      className={clsx("tooltip-container")}
+      className="deriv-tooltip-container"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
@@ -82,14 +82,14 @@ export const Tooltip: FC<TProps> = ({
       {active && (
         <div
           className={clsx(
-            "tooltip",
+            "deriv-tooltip",
             position,
             TooltipVariantClass[variant],
             className
           )}
         >
           <span
-            className={clsx("arrow", TooltipArrowVariantClass[variant])}
+            className={clsx("deriv-arrow", TooltipArrowVariantClass[variant])}
           ></span>
           {message}
         </div>

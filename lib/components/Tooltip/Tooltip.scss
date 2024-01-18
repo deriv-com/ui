@@ -9,7 +9,7 @@ $arrow-size: 8px;
 
 // Tooltip Classes
 
-.tooltip-container {
+.deriv-tooltip-container {
   position: relative;
   display: inline-flex;
   user-select: none;
@@ -18,7 +18,7 @@ $arrow-size: 8px;
   -webkit-tap-highlight-color: transparent;
 }
 
-.tooltip {
+.deriv-tooltip {
   z-index: 999;
   position: absolute;
   padding: 8px;
@@ -43,7 +43,7 @@ $arrow-size: 8px;
   }
 }
 
-.arrow {
+.deriv-arrow {
   position: absolute;
   width: 0;
   height: 0;
@@ -56,7 +56,7 @@ $arrow-size: 8px;
   left: 50%;
   transform: translateX(-50%);
 
-  .arrow {
+  .deriv-arrow {
     bottom: calc(1px + $arrow-size * -1);
     left: calc(50% - $arrow-size);
     border-right: $border transparent;
@@ -78,7 +78,7 @@ $arrow-size: 8px;
   top: 50%;
   transform: translateY(-50%);
 
-  .arrow {
+  .deriv-arrow {
     top: calc(50% - $arrow-size);
     border-top: $border transparent;
     border-bottom: $border transparent;
@@ -88,7 +88,7 @@ $arrow-size: 8px;
 .right {
   left: calc(100% + 18px);
 
-  .arrow {
+  .deriv-arrow {
     left: -$arrow-size;
     &--general {
       border-right: $border $general-background;
@@ -105,7 +105,7 @@ $arrow-size: 8px;
 .left {
   right: calc(100% + 18px);
 
-  .arrow {
+  .deriv-arrow {
     right: -$arrow-size;
     &--general {
       border-left: $border $general-background;
@@ -124,7 +124,7 @@ $arrow-size: 8px;
   left: 50%;
   transform: translateX(-50%);
 
-  .arrow {
+  .deriv-arrow {
     top: calc(1px + $arrow-size * -1);
     left: calc(50% - $arrow-size);
     border-right: $border transparent;
