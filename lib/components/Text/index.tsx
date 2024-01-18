@@ -17,7 +17,7 @@ export interface TextProps {
     className?: string;
 }
 
-export const Text: React.FC<TextProps> = ({
+export const Text = ({
     align = 'left',
     as = 'span',
     children,
@@ -27,7 +27,7 @@ export const Text: React.FC<TextProps> = ({
     size = 'md',
     weight = 'normal',
     className
-}) => {
+}: TextProps) => {
     const textClassNames = clsx(
         'deriv-text',
         `derivs-text__size--${size}`,
