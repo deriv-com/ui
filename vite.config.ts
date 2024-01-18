@@ -20,7 +20,7 @@ export default defineConfig({
       scss: {
         implementation: sass,
         additionalData: [
-          '@use "./lib/styles/wallet/styles/devices.scss" as *;',
+          '@use "./lib/styles/index.scss" as *;',
         ],
       },
     },
