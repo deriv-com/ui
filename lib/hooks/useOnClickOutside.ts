@@ -1,3 +1,4 @@
+// Code from: https://usehooks-typescript.com/react-hook/use-on-click-outside
 import { RefObject } from "react";
 import { useEventListener } from "./useEventListener";
 
