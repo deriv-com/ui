@@ -2,11 +2,11 @@ $inactive_field: #d6dadb;
 $active_field: #85acb0;
 $success_field: #4bb4b3;
 $error_field: #ec3f3f;
-$general_text: #999999;
+$inactive_text: #999999;
 $border: 1px solid;
 
 .deriv-input-container {
-  display: block;
+  display: inline-block;
   position: relative;
 }
 
@@ -18,6 +18,7 @@ $border: 1px solid;
   border-radius: 4px;
   width: 328px;
   box-sizing: border-box;
+  display: inline-flex;
 }
 
 .deriv-input-label {
@@ -28,6 +29,7 @@ $border: 1px solid;
   display: flex;
   align-items: center;
   pointer-events: none;
+  color: $inactive_text;
 }
 
 .deriv-input-field,
@@ -35,6 +37,7 @@ $border: 1px solid;
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
+  text-align: left;
 }
 
 .deriv-input-field:focus {
