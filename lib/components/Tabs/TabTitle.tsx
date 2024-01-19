@@ -17,7 +17,7 @@ const TabTitle = ({ icon, activeTab, isActive, setSelectedTab, title,className,v
         setSelectedTab(title);
     }, [setSelectedTab, activeTab]);
 
-    const classNameVariants = {
+    const classNameVariants: Record<TabTitleProps['variant'], string> = {
         primary : `derivs-primary-tabs__btn--active`,
         secondary : `derivs-secondary-tabs__btn--active`,
     }
