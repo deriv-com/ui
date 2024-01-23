@@ -1,74 +1,81 @@
-$inactive_field: #d6dadb;
-$active_field: #85acb0;
-$success_field: #4bb4b3;
+$disabled_color: #d6d6d6;
+$inactive_color: #999999;
+$active_color: #85acb0;
+$success_color: #4bb4b3;
 $error_field: #ec3f3f;
-$inactive_text: #999999;
+$inactive_color: #999999;
 $border: 1px solid;
 
-.deriv-input-container {
+.deriv-input {
   display: inline-block;
   position: relative;
+
+  &--field {
+    width: 100%;
+    padding: 10px 16px;
+    outline: none;
+    border-radius: 4px;
+    width: 328px;
+    box-sizing: border-box;
+    outline: none;
+    border: $border $inactive_color;
+    text-align: left;
+    &:disabled {
+      border: $border $disabled_color;
+      color: $inactive_color;
+    }
+
+    &:focus {
+      border: $border $active_color;
+    }
+
+    &:focus,
+    &:not(:focus):not([value=""]) {
+      & ~ label {
+        font-size: 10px;
+        transform: translate(0, -50%);
+        background-color: #ffffff;
+        padding: 0px 4px;
+        height: fit-content;
+      }
+    }
+
+    &__error {
+      border: $border $error_field;
+      &:focus {
+        border: $border $error_field;
+      }
+    }
+  }
+
+  &--label {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 16px;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    color: $inactive_color;
+    text-transform: capitalize;
+    transition: all 0.15s ease-out;
+    padding: 0;
+    &__error {
+      color: $error_field;
+    }
+  }
 }
 
-.deriv-input-field {
-  width: 100%;
-  padding: 10px 16px;
-  border: $border $inactive_field;
-  outline: none;
-  border-radius: 4px;
-  width: 328px;
-  box-sizing: border-box;
-  display: inline-flex;
+.deriv-input--field:disabled + .deriv-input--label {
+  color: $inactive_color;
+  cursor: not-allowed;
 }
 
-.deriv-input-label {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 16px;
-  display: flex;
-  align-items: center;
-  pointer-events: none;
-  color: $inactive_text;
+.deriv-input--field:focus + .deriv-input--label {
+  color: $active_color;
 }
 
-.deriv-input-field,
-.deriv-input-label .deriv-input-label-text {
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 400;
-  text-align: left;
-}
-
-.deriv-input-field:focus {
-  outline: none;
-  border: $border $active_field;
-}
-
-.deriv-input-field:focus + .deriv-input-label .deriv-input-label-text {
-  font-size: 10px;
-  transform: translate(0, -100%);
-  background-color: white;
-  padding-left: 4px;
-  padding-right: 4px;
-  color: $active_field;
-}
-
-.deriv-input-label .deriv-input-label-text {
-  transition: all 0.15s ease-out;
-}
-
-.deriv-input-field:focus + .deriv-input-label .deriv-input-label-text,
-:not(.deriv-input-field[value=""])
-  + .deriv-input-label
-  .deriv-input-label-text {
-  font-size: 10px;
-  transform: translate(0, -100%);
-  background-color: white;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-.deriv-input-field:focus + .deriv-input-label .deriv-input-label-text {
-  color: $active_field;
+.deriv-input--field__error:focus + .deriv-input--label {
+  color: $error_field;
 }
