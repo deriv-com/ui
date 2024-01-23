@@ -65,6 +65,12 @@ $border: 1px solid;
       color: $error_field;
     }
   }
+
+  &--helper-message {
+    position: absolute;
+    left: 16px;
+    margin-top: 2px;
+  }
 }
 
 .deriv-input--field:disabled + .deriv-input--label {
@@ -78,4 +84,15 @@ $border: 1px solid;
 
 .deriv-input--field__error:focus + .deriv-input--label {
   color: $error_field;
+}
+
+.deriv-helper-message {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: $inactive_color;
+  &__error {
+    color: $error_field;
+  }
 }
