@@ -1,16 +1,31 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import clsx from "clsx";
+import { InputVariants } from ".";
 import "./Input.scss";
 
 export interface HelperMessageProps {
-  message?: string;
-  hasError?: boolean;
+  error?: boolean;
+  message?: ReactNode;
+  variant?: InputVariants;
+  disabled?: boolean;
 }
 
-const HelperMessage = ({ message, hasError }: HelperMessageProps) => (
+const MessageVariant: Record<InputVariants, string> = {
+  general: "deriv-helper-message__general",
+  success: "deriv-helper-message__success",
+  error: "deriv-helper-message__error",
+};
+
+const HelperMessage = ({
+  error,
+  message,
+  variant = "general",
+  disabled,
+}: HelperMessageProps) => (
   <p
     className={clsx("deriv-helper-message", {
-      "deriv-helper-message__error": hasError,
+      [MessageVariant["general"]]: disabled,
+      [MessageVariant[error ? "error" : variant]]: !disabled,
     })}
   >
     {message}

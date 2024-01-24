@@ -18,17 +18,11 @@ $border: 1px solid;
     width: 328px;
     box-sizing: border-box;
     outline: none;
-    border: $border $inactive_color;
     text-align: left;
     &:disabled {
       border: $border $disabled_color;
       color: $inactive_color;
     }
-
-    &:focus {
-      border: $border $active_color;
-    }
-
     &:focus,
     &:not(:focus):not([value=""]) {
       & ~ label {
@@ -39,11 +33,22 @@ $border: 1px solid;
         height: fit-content;
       }
     }
-
+    &__general {
+      border: $border $inactive_color;
+      &:focus {
+        border: $border $active_color;
+      }
+    }
     &__error {
       border: $border $error_field;
       &:focus {
         border: $border $error_field;
+      }
+    }
+    &__success {
+      border: $border $success_color;
+      &:focus {
+        border: $border $success_color;
       }
     }
   }
@@ -57,12 +62,17 @@ $border: 1px solid;
     display: flex;
     align-items: center;
     pointer-events: none;
-    color: $inactive_color;
     text-transform: capitalize;
     transition: all 0.15s ease-out;
     padding: 0;
+    &__general {
+      color: $inactive_color;
+    }
     &__error {
       color: $error_field;
+    }
+    &__success {
+      color: $success_color;
     }
   }
 
@@ -73,7 +83,9 @@ $border: 1px solid;
   }
 }
 
-.deriv-input--field:disabled + .deriv-input--label {
+.deriv-input--field__general:disabled + .deriv-input--label,
+.deriv-input--field__error:disabled + .deriv-input--label,
+.deriv-input--field__success:disabled + .deriv-input--label {
   color: $inactive_color;
   cursor: not-allowed;
 }
@@ -86,12 +98,21 @@ $border: 1px solid;
   color: $error_field;
 }
 
+.deriv-input--field__success:focus + .deriv-input--label {
+  color: $success_color;
+}
+
 .deriv-helper-message {
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
-  color: $inactive_color;
+  &__general {
+    color: $inactive_color;
+  }
+  &__success {
+    color: $success_color;
+  }
   &__error {
     color: $error_field;
   }
