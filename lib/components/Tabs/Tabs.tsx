@@ -29,6 +29,7 @@ const Tabs = ({ children, activeTab, wrapperClassName, className, variant = 'pri
                             title={item.props.title}
                             variant={variant}
                             onClickHandler={onClickHandler}
+                            className={item.props.className}
                         />
                     )
                 })}
