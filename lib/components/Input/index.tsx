@@ -7,7 +7,7 @@ export type InputVariants = "general" | "success" | "error";
 interface InputProps
   extends Omit<ComponentProps<"input">, "style" | "placeholder"> {
   label?: string;
-  hasRightPlaceholder?: ReactNode;
+  rightPlaceholder?: ReactNode;
   error?: boolean;
   variant?: InputVariants;
   message?: ReactNode;
@@ -30,7 +30,7 @@ export const Input = ({
   id,
   error,
   message,
-  hasRightPlaceholder,
+  rightPlaceholder,
   variant = "general",
   className,
   disabled,
@@ -57,8 +57,8 @@ export const Input = ({
       >
         {label}
       </label>
-      {hasRightPlaceholder && (
-        <div className="deriv-input--right-content">{hasRightPlaceholder}</div>
+      {rightPlaceholder && (
+        <div className="deriv-input--right-content">{rightPlaceholder}</div>
       )}
       <div className="deriv-input--helper-message">
         {message && (
