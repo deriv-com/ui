@@ -10,13 +10,13 @@ export type TabTitleProps = {
     title: string;
     className?: string;
     variant: 'primary' | 'secondary';
-    onClickHandler?: () => void;
+    onChange?: () => void;
 };
 
-const TabTitle = ({ icon, activeTab, isActive, setSelectedTab, title,className,variant, onClickHandler }: TabTitleProps) => {
+const TabTitle = ({ icon, activeTab, isActive, setSelectedTab, title,className,variant, onChange }: TabTitleProps) => {
     const handleOnClick = useCallback((title: string) => {
         setSelectedTab(title);
-        onClickHandler?.();
+        onChange?.();
     }, [setSelectedTab, activeTab]);
 
     const classNameVariants: Record<TabTitleProps['variant'], string> = {

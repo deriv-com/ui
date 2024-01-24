@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <Button> button </Button>
       <Text color='blue' size='lg'>this is a Text</Text>
 
-      <Tabs variant='primary' activeTab='primary tab 2' >
+      <Tabs variant='primary' activeTab='primary tab 2' onChange={(index)=>console.log(index)}  >
         <Tab title='primary tab 1'>
           test data for tab 1
         </Tab>
