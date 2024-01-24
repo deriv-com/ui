@@ -1,0 +1,128 @@
+$disabled_color: #d6d6d6;
+$inactive_color: #999999;
+$active_color: #85acb0;
+$success_color: #4bb4b3;
+$error_field: #ec3f3f;
+$inactive_color: #999999;
+$border: 1px solid;
+
+.deriv-input {
+  display: inline-block;
+  position: relative;
+
+  &--field {
+    width: 100%;
+    padding: 10px 16px;
+    outline: none;
+    border-radius: 4px;
+    width: 328px;
+    box-sizing: border-box;
+    outline: none;
+    text-align: left;
+    &:disabled {
+      border: $border $disabled_color;
+      color: $inactive_color;
+    }
+    &::placeholder {
+      visibility: hidden;
+    }
+    &:focus,
+    &:not(:placeholder-shown) {
+      & ~ label {
+        font-size: 10px;
+        transform: translate(0, -50%);
+        background-color: #ffffff;
+        padding: 0px 4px;
+        height: fit-content;
+      }
+    }
+    &__general {
+      border: $border $inactive_color;
+      &:focus {
+        border: $border $active_color;
+      }
+    }
+    &__error {
+      border: $border $error_field;
+      &:focus {
+        border: $border $error_field;
+      }
+    }
+    &__success {
+      border: $border $success_color;
+      &:focus {
+        border: $border $success_color;
+      }
+    }
+  }
+
+  &--label {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 16px;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    text-transform: capitalize;
+    transition: all 0.15s ease-out;
+    padding: 0;
+    &__general {
+      color: $inactive_color;
+    }
+    &__error {
+      color: $error_field;
+    }
+    &__success {
+      color: $success_color;
+    }
+  }
+
+  &--helper-message {
+    position: absolute;
+    left: 16px;
+    margin-top: 2px;
+  }
+
+  &--right-content {
+    position: absolute;
+    right: 16px;
+    bottom: 25%;
+  }
+}
+
+.deriv-input--field__general:disabled + .deriv-input--label,
+.deriv-input--field__error:disabled + .deriv-input--label,
+.deriv-input--field__success:disabled + .deriv-input--label {
+  color: $inactive_color;
+  cursor: not-allowed;
+}
+
+.deriv-input--field:focus + .deriv-input--label {
+  color: $active_color;
+}
+
+.deriv-input--field__error:focus + .deriv-input--label {
+  color: $error_field;
+}
+
+.deriv-input--field__success:focus + .deriv-input--label {
+  color: $success_color;
+}
+
+.deriv-helper-message {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  &__general {
+    color: $inactive_color;
+  }
+  &__success {
+    color: $success_color;
+  }
+  &__error {
+    color: $error_field;
+  }
+}
