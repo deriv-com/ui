@@ -32,6 +32,8 @@ export const Input = ({
   message,
   hasRightPlaceholder,
   variant = "general",
+  className,
+  disabled,
   ...rest
 }: InputProps) => {
   return (
@@ -40,7 +42,7 @@ export const Input = ({
         placeholder={label}
         className={clsx(
           "deriv-input--field",
-          { className: rest.className },
+          className,
           InputVariant[error ? "error" : variant]
         )}
         id={id}
@@ -64,7 +66,7 @@ export const Input = ({
             message={message}
             variant={variant}
             error={error}
-            disabled={rest.disabled}
+            disabled={disabled}
           />
         )}
       </div>
