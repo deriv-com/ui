@@ -9,9 +9,10 @@ type TabsProps = {
     wrapperClassName?: string;
     className?: string;
     variant?: 'primary' | 'secondary';
+    onClickHandler?: () => void;
 };
 
-const Tabs = ({ children, activeTab, wrapperClassName, className, variant = 'primary' }: TabsProps): JSX.Element => {
+const Tabs = ({ children, activeTab, wrapperClassName, className, variant = 'primary', onClickHandler }: TabsProps): JSX.Element => {
     const [selectedTab, setSelectedTab] = useState(activeTab || children[0].props.title);
 
     return (
@@ -27,6 +28,7 @@ const Tabs = ({ children, activeTab, wrapperClassName, className, variant = 'pri
                             setSelectedTab={setSelectedTab}
                             title={item.props.title}
                             variant={variant}
+                            onClickHandler={onClickHandler}
                         />
                     )
                 })}

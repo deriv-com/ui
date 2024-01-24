@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 
 type TabProps = {
-    children: ReactNode;
+    children?: ReactNode;
     icon?: ReactNode;
     title: string;
 };
