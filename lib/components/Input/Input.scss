@@ -23,8 +23,11 @@ $border: 1px solid;
       border: $border $disabled_color;
       color: $inactive_color;
     }
+    &::placeholder {
+      visibility: hidden;
+    }
     &:focus,
-    &:not(:focus):not([value=""]) {
+    &:not(:placeholder-shown) {
       & ~ label {
         font-size: 10px;
         transform: translate(0, -50%);
@@ -80,6 +83,12 @@ $border: 1px solid;
     position: absolute;
     left: 16px;
     margin-top: 2px;
+  }
+
+  &--right-content {
+    position: absolute;
+    right: 16px;
+    bottom: 25%;
   }
 }
 

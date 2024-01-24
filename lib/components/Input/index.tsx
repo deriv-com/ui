@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ComponentProps, ReactNode, useState } from "react";
+import React, { ComponentProps, ReactNode } from "react";
 import clsx from "clsx";
 import HelperMessage from "./HelperMessage";
 import "./Input.scss";
@@ -34,23 +34,16 @@ export const Input = ({
   variant = "general",
   ...rest
 }: InputProps) => {
-  const [value, setValue] = useState("");
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-    rest.onChange?.(e);
-  };
-
   return (
     <div className="deriv-input">
       <input
+        placeholder={label}
         className={clsx(
           "deriv-input--field",
           { className: rest.className },
           InputVariant[error ? "error" : variant]
         )}
         id={id}
-        value={value}
-        onChange={handleChange}
         {...rest}
       />
       <label
