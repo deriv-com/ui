@@ -1,0 +1,28 @@
+.layout {
+    width: 100%;
+    height: calc(100vh - 8.4rem);
+    display: flex;
+    justify-content: space-around;
+
+    padding: 1.5rem;
+    background: white;
+
+    &__left {
+        display: flex;
+        justify-content: center;
+        background: lightgreen;
+    }
+
+    &__content {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background: lightsalmon;
+    }
+
+    &__right {
+        display: flex;
+        justify-content: center;
+        background: lightseagreen;
+    }
+}
