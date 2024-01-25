@@ -2,12 +2,12 @@ import React from 'react';
 import { useDevice } from '../../hooks/useDevice';
 import './PageLayout.scss';
 
-type TLayout = {
+type PageLayoutProps = {
     left?: JSX.Element;
     right?: JSX.Element;
 };
 
-export const PageLayout: React.FC<React.PropsWithChildren<TLayout>> = ({children, left, right}) => {
+export const PageLayout: React.FC<React.PropsWithChildren<PageLayoutProps>> = ({children, left, right}) => {
     const {isMobile} = useDevice();
 
     return <div className="layout">

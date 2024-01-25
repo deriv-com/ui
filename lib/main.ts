@@ -1,7 +1,7 @@
 export { Button } from "./components/Button";
+export { Input } from "./components/Input";
 export { PageLayout } from "./components/Layout";
 export { Loader } from "./components/Loader";
-export { Text } from "./components/Text";
 export { Tab, Tabs } from "./components/Tabs";
+export { Text } from "./components/Text";
 export { Tooltip } from "./components/Tooltip";
-export { Input } from "./components/Input";

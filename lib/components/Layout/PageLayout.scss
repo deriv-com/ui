@@ -3,7 +3,6 @@
     display: flex;
     gap: 1.5rem;
     padding-top: 1.5rem;
-    background: white;
 
     @include mobile {
         flex-direction: column;
@@ -12,19 +11,15 @@
     &__left {
         display: flex;
         flex-direction: column;
-        background: lightgreen;
     }
 
     &__content {
         display: flex;
         flex-direction: column;
-        align-self: stretch;
-        background: lightsalmon;
     }
 
     &__right {
         display: flex;
         flex-direction: column;
-        background: lightseagreen;
     }
 }
