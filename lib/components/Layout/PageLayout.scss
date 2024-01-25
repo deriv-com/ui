@@ -1,28 +1,30 @@
 .layout {
     width: 100%;
-    height: calc(100vh - 8.4rem);
     display: flex;
-    justify-content: space-around;
-
-    padding: 1.5rem;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
     background: white;
+
+    @include mobile {
+        flex-direction: column;
+    }
 
     &__left {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         background: lightgreen;
     }
 
     &__content {
-        width: 100%;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-self: stretch;
         background: lightsalmon;
     }
 
     &__right {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         background: lightseagreen;
     }
 }
