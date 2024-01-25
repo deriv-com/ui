@@ -9,16 +9,16 @@ type TabsProps = {
     wrapperClassName?: string;
     className?: string;
     variant?: 'primary' | 'secondary';
-    onClickHandler?: () => void;
+    onChange?: (index: number) => void;
 };
 
-const Tabs = ({ children, activeTab, wrapperClassName, className, variant = 'primary', onClickHandler }: TabsProps): JSX.Element => {
+const Tabs = ({ children, activeTab, wrapperClassName, className, variant = 'primary', onChange }: TabsProps): JSX.Element => {
     const [selectedTab, setSelectedTab] = useState(activeTab || children[0].props.title);
 
     return (
         <div className={wrapperClassName}>
             <div className={clsx(`derivs-${variant + '-'}tabs`, className)}>
-                {children.map((item) => {
+                {children.map((item, index) => {
                     return (
                         <TabTitle
                             icon={item.props.icon}
@@ -28,7 +28,9 @@ const Tabs = ({ children, activeTab, wrapperClassName, className, variant = 'pri
                             setSelectedTab={setSelectedTab}
                             title={item.props.title}
                             variant={variant}
-                            onClickHandler={onClickHandler}
+                            onChange={()=>onChange?.(index)}
+                            className={item.props.className}
+
                         />
                     )
                 })}
