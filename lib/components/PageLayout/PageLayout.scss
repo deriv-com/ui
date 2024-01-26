@@ -1,0 +1,25 @@
+.page-layout {
+    width: 100%;
+    display: flex;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+
+    @include mobile {
+        flex-direction: column;
+    }
+
+    &__left {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+    }
+}
