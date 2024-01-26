@@ -55,5 +55,8 @@
     "extends": [
       "plugin:storybook/recommended"
     ]
+  },
+  "dependencies": {
+    "downshift": "^8.3.1"
   }
 }

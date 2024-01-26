@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 import './Text.scss';
 
-type TGenericSizes = '2xl' | '2xs' | '3xl' | '3xs' | '4xl' | '5xl' | '6xl' | 'lg' | 'md' | 'sm' | 'xl' | 'xs';
+export type TGenericSizes = '2xl' | '2xs' | '3xl' | '3xs' | '4xl' | '5xl' | '6xl' | 'lg' | 'md' | 'sm' | 'xl' | 'xs';
 
 export interface TextProps {
     align?: CSSProperties['textAlign'];
@@ -43,4 +43,3 @@ export const Text = ({
 
     return <Tag className={textClassNames}>{children}</Tag>;
 };
-
