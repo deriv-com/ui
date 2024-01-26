@@ -1,3 +1,4 @@
+// Code from: https://usehooks-ts.com/react-hook/use-media-query
 import { useEffect, useState } from "react";
 
 const getMatches = (query: string): boolean => {
@@ -8,6 +9,7 @@ const getMatches = (query: string): boolean => {
     return false;
 };
 
+/** Can be used to retrieve window dimensions with this React Hook which also works onResize. (Source: https://usehooks-ts.com/react-hook/use-media-query) */
 export function useMediaQuery(query: string): boolean {
     const [matches, setMatches] = useState<boolean>(getMatches(query));
 
