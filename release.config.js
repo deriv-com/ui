@@ -1,4 +1,4 @@
-import { customTransform } from './release.utils.js';
+import customTransform from './release.utils.js';
 
 module.exports = {
   branches: [
