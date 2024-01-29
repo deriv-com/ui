@@ -206,4 +206,4 @@ const types = {
     return commit;
   };
   
-  module.exports = customTransform;
+export default customTransform
