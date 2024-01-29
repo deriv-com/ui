@@ -58,6 +58,12 @@
     "vite-plugin-lib-inject-css": "^1.3.0"
   },
   "eslintConfig": {
+    "env": {
+      "es6": true
+    },
+    "parserOptions": {
+      "sourceType": "module"
+    },
     "extends": [
       "plugin:storybook/recommended"
     ]
