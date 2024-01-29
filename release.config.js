@@ -1,4 +1,4 @@
-import { transformer } from './release.utils.js';
+import { customTransform } from './release.utils.js';
 
 module.exports = {
   branches: [
@@ -53,7 +53,7 @@ module.exports = {
           mergePattern: /^Merge pull request #(\d+) from (.*)$/,
           mergeCorrespondence: ['id', 'source'],
         },
-        writerOpts: { transform: transformer },
+        writerOpts: { transform: customTransform },
       },
     ],
     '@semantic-release/changelog',
