@@ -1,4 +1,4 @@
-import customTransform from './release.utils.cjs';
+const transform = require('./release.utils.cjs');
 
 module.exports = {
   branches: [
@@ -53,7 +53,7 @@ module.exports = {
           mergePattern: /^Merge pull request #(\d+) from (.*)$/,
           mergeCorrespondence: ['id', 'source'],
         },
-        writerOpts: { transform: customTransform },
+        writerOpts: { transform: transform },
       },
     ],
     '@semantic-release/changelog',
