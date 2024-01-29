@@ -4,7 +4,6 @@ import { Loader } from '../dist/components/Loader';
 import { Button } from '../dist/components/Button';
 import { Text } from '../dist/components/Text';
 import { Tab, Tabs } from '../dist/components/Tabs';
-import MyParentComponent from './testDrop';
 // import {PrimaryTab, PrimaryTabs} from '../dist/components/PrimaryTabs';
 import './style.scss'
 
@@ -14,7 +13,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <Loader color='red' />
       <Button> button </Button>
       <Text color='blue' size='lg'>this is a Text</Text>
-      <MyParentComponent/>
 
       <Tabs variant='primary' activeTab='primary tab 2' onChange={(index)=>console.log(index)}  >
         <Tab title='primary tab 1'>
