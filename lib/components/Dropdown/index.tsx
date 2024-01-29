@@ -3,9 +3,10 @@ import clsx from 'clsx';
 import { useCombobox } from 'downshift';
 import { TGenericSizes } from '../Text';
 import { Text } from '../Text';
-import  {Input, InputProps } from '../Input/index';
+import  {Input } from '../Input/index';
 import './Dropdown.scss';
 
+type InputProps = React.ComponentProps<typeof Input>;
 type TProps = {
     disabled?: boolean;
     dropdownIcon: React.ReactNode;
