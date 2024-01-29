@@ -14,7 +14,6 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
     environment: Production
     permissions:
       contents: write # to be able to publish a GitHub release
