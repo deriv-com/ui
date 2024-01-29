@@ -13,7 +13,7 @@ export default defineConfig({
   plugins: [
     react(),
     libInjectCss(),
-    dts({ include: ['lib/components'] }),
+    dts({ include: ['lib'] }),
   ],
   css: {
     preprocessorOptions: {
