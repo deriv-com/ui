@@ -37,51 +37,51 @@ const meta = {
             </Pane>
         ),
         right: <Pane name="Right">The content on the right.</Pane>,
-        children: <Pane name="Content">
-        <div style={{ fontWeight: "bold" }}>
-            The content is rendered here. The content can be passed
-            as children.
-        </div>
-        <div style={{ textWrap: "wrap" }}>
-            Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has
-            survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged.
-            It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and
-            more recently with desktop publishing software like
-            Aldus PageMaker including versions of Lorem Ipsum.
-        </div>
-    </Pane>
+        children: (
+            <Pane name="Content">
+                <div style={{ fontWeight: "bold" }}>
+                    The content is rendered here. The content can be passed as
+                    children.
+                </div>
+                <div style={{ textWrap: "wrap" }}>
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a
+                    type specimen book. It has survived not only five centuries,
+                    but also the leap into electronic typesetting, remaining
+                    essentially unchanged. It was popularised in the 1960s with
+                    the release of Letraset sheets containing Lorem Ipsum
+                    passages, and more recently with desktop publishing software
+                    like Aldus PageMaker including versions of Lorem Ipsum.
+                </div>
+            </Pane>
+        ),
     },
     argTypes: {
         left: {
-            controls: {
-                type: "Element"
-            },
-            description: "JSX element to be rendered on the left of the content as render-prop."
+            control: false,
+            description:
+                "JSX element to be rendered on the left of the content as render-prop.",
+        },
+        right: {
+            control: false,
+            description:
+                "JSX element to be rendered on the right of the content as render-prop.",
+        },
+        children: {
+            control: false,
+            description: "Children to be rendered as the content.",
         },
     },
     parameters: {
         layout: "centered",
     },
     tags: ["autodocs"],
-    render: ({children, left, right}) => (
-        <div
-            style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                background: "lightgrey",
-            }}
-        >
-            <PageLayout left={left} right={right}>
-                {children}
-            </PageLayout>
-        </div>
+    render: ({ children, left, right }) => (
+        <PageLayout left={left} right={right}>
+            {children}
+        </PageLayout>
     ),
 } satisfies Meta<typeof PageLayout>;
 
