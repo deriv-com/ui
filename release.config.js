@@ -1,4 +1,4 @@
-const transformer = require('./release.utils.js'); 
+import { transformer } from './release.utils.js';
 
 module.exports = {
   branches: [
