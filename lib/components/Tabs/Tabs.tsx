@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import TabTitle, { TabTitleProps } from './TabTitle';
 import clsx from 'clsx';
 import './Tabs.scss';
@@ -14,6 +14,12 @@ type TabsProps = {
 
 const Tabs = ({ children, activeTab, wrapperClassName, className, variant = 'primary', onChange }: TabsProps): JSX.Element => {
     const [selectedTab, setSelectedTab] = useState(activeTab || children[0].props.title);
+
+    useEffect(() => {
+        if (activeTab) {
+            setSelectedTab(activeTab);
+        }
+    }, [activeTab]);
 
     return (
         <div className={wrapperClassName}>
