@@ -25,6 +25,10 @@ const Pane: React.FC<
 const meta = {
     title: "Components/PageLayout",
     component: PageLayout,
+    parameters: {
+        layout: 'centered'
+    },
+    tags: ['autodocs'],
     render: () => (
         <div
             style={{
