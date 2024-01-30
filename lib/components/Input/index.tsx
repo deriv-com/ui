@@ -4,7 +4,7 @@ import HelperMessage from "./HelperMessage";
 import "./Input.scss";
 
 export type InputVariants = "general" | "success" | "error";
-export interface InputProps
+  interface InputProps
   extends Omit<ComponentProps<"input">, "style" | "placeholder"> {
   label?: string;
   leftPlaceholder?: ReactNode;

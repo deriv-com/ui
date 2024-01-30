@@ -1,7 +1,7 @@
 import React, { isValidElement, useCallback, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { useCombobox } from 'downshift';
-import { TGenericSizes } from '../Text';
+import { TGenericSizes } from "../../types";
 import { Text } from '../Text';
 import  {Input } from '../Input/index';
 import './Dropdown.scss';
@@ -26,7 +26,7 @@ type TProps = {
     variant?: 'comboBox' | 'prompt';
 };
 
-export const Dropdown: React.FC<TProps> = ({
+export const Dropdown = ({
     disabled,
     dropdownIcon,
     errorMessage,
@@ -39,7 +39,7 @@ export const Dropdown: React.FC<TProps> = ({
     onSelect,
     value,
     variant = 'prompt',
-}) => {
+}:TProps) => {
     const [items, setItems] = useState(list);
     const [shouldFilterList, setShouldFilterList] = useState(false);
     const clearFilter = useCallback(() => {
