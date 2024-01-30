@@ -50,7 +50,7 @@ export const PasswordInput = ({ ...props }: PasswordInputProps) => {
   const PasswordVariant: Record<TScore, PasswordInputProps["variant"]> = {
     0: "general",
     1: "error",
-    2: "error",
+    2: "warning",
     3: "success",
     4: "success",
   };

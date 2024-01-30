@@ -3,7 +3,7 @@ import clsx from "clsx";
 import HelperMessage from "./HelperMessage";
 import "./Input.scss";
 
-export type InputVariants = "general" | "success" | "error";
+export type InputVariants = "general" | "success" | "error" | "warning";
 interface InputProps
   extends Omit<ComponentProps<"input">, "style" | "placeholder"> {
   label?: string;
@@ -16,12 +16,14 @@ interface InputProps
 const InputVariant: Record<InputVariants, string> = {
   general: "deriv-input--field__general",
   success: "deriv-input--field__success",
+  warning: "deriv-input--field__general",
   error: "deriv-input--field__error",
 };
 
 const LabelVariant: Record<InputVariants, string> = {
   general: "deriv-input--label__general",
   success: "deriv-input--label__success",
+  warning: "deriv-input--label__general",
   error: "deriv-input--label__error",
 };
 

@@ -13,6 +13,7 @@ export interface HelperMessageProps {
 const MessageVariant: Record<InputVariants, string> = {
   general: "deriv-helper-message__general",
   success: "deriv-helper-message__success",
+  warning: "deriv-helper-message__warning",
   error: "deriv-helper-message__error",
 };
 

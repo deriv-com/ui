@@ -2,6 +2,7 @@ $disabled_color: #d6d6d6;
 $inactive_color: #999999;
 $active_color: #85acb0;
 $success_color: #4bb4b3;
+$warning_color: #ffad3a;
 $error_field: #ec3f3f;
 $inactive_color: #999999;
 $border: 1px solid;
@@ -83,6 +84,7 @@ $border: 1px solid;
     position: absolute;
     left: 16px;
     margin-top: 2px;
+    line-height: 1;
   }
 
   &--right-content {
@@ -121,6 +123,9 @@ $border: 1px solid;
   }
   &__success {
     color: $success_color;
+  }
+  &__warning {
+    color: $warning_color;
   }
   &__error {
     color: $error_field;
