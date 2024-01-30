@@ -5,5 +5,5 @@ export { Loader } from "./components/Loader";
 export { Tab, Tabs } from "./components/Tabs";
 export { Text } from "./components/Text";
 export { Tooltip } from "./components/Tooltip";
-export {ToggleSwitch} from "./components/ToggleSwitch"
-
+export { ToggleSwitch } from "./components/ToggleSwitch";
+export { PasswordInput } from "./components/PasswordInput";
