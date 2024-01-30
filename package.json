@@ -1,7 +1,7 @@
 {
   "name": "@deriv-com/ui",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "main": "dist/main.js",
   "files": [
@@ -17,6 +17,10 @@
   "sideEffects": [
     "**/*.css"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deriv-com/ui"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -p ./tsconfig-build.json && vite build",

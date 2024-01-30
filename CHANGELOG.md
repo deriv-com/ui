@@ -1,3 +1,16 @@
+## [1.0.1](https://github.com/deriv-com/ui/compare/v1.0.0...v1.0.1) (2024-01-30)
+
+
+### ♻️ 	 Chores
+
+* added missed new line ([889a1ea](https://github.com/deriv-com/ui/commit/889a1eac78778364e407d2dd8ea52428cdfd1297))
+
+
+### 🛠 	 Builds
+
+* added repository info to package.json ([7a357ca](https://github.com/deriv-com/ui/commit/7a357ca12dd27ce5493a14c80ce0d82fc59623d3))
+* added repository info to package.json ([63e051c](https://github.com/deriv-com/ui/commit/63e051cc84633f0baea071933492a2d473e82d12))
+
 # 1.0.0 (2024-01-30)
 
 
