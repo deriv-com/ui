@@ -39,9 +39,14 @@ const PasswordVariant: Record<TScore, PasswordInputProps["variant"]> = {
   4: "success",
 };
 
-interface PasswordInputProps extends ComponentProps<typeof Input> {}
+interface PasswordInputProps extends ComponentProps<typeof Input> {
+  hidePasswordMeter?: boolean;
+}
 
-export const PasswordInput = ({ ...props }: PasswordInputProps) => {
+export const PasswordInput = ({
+  hidePasswordMeter,
+  ...props
+}: PasswordInputProps) => {
   const { errorMessage, score } = useMemo(
     () => validatePassword(props.value as string),
     [props.value]
@@ -56,7 +61,7 @@ export const PasswordInput = ({ ...props }: PasswordInputProps) => {
         {...props}
         variant={PasswordVariant[score as TScore]}
       />
-      <PasswordMeter score={score as TScore} />
+      {!hidePasswordMeter && <PasswordMeter score={score as TScore} />}
     </div>
   );
 };
