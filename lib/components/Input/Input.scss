@@ -8,22 +8,39 @@ $inactive_color: #999999;
 $border: 1px solid;
 
 .deriv-input {
-  display: inline-block;
+  display: inline-flex;
   position: relative;
+  border-radius: 4px;
+  width: 328px;
+  box-sizing: border-box;
+  text-align: left;
+  padding: 10px 16px;
+  border: $border;
+
+  &__general {
+    border-color: $inactive_color;
+    &:focus-within {
+      border-color: $active_color;
+    }
+  }
+  &__error {
+    border-color: $error_field;
+  }
+  &__success {
+    border-color: $success_color;
+  }
+
+  &__active {
+    border-color: $active_color;
+  }
+
+  &__disabled {
+    border-color: $disabled_color;
+  }
 
   &--field {
     width: 100%;
-    padding: 10px 16px;
     outline: none;
-    border-radius: 4px;
-    width: 328px;
-    box-sizing: border-box;
-    outline: none;
-    text-align: left;
-    &:disabled {
-      border: $border $disabled_color;
-      color: $inactive_color;
-    }
     &::placeholder {
       visibility: hidden;
     }
@@ -35,24 +52,6 @@ $border: 1px solid;
         background-color: #ffffff;
         padding: 0px 4px;
         height: fit-content;
-      }
-    }
-    &__general {
-      border: $border $inactive_color;
-      &:focus {
-        border: $border $active_color;
-      }
-    }
-    &__error {
-      border: $border $error_field;
-      &:focus {
-        border: $border $error_field;
-      }
-    }
-    &__success {
-      border: $border $success_color;
-      &:focus {
-        border: $border $success_color;
       }
     }
   }
@@ -78,38 +77,36 @@ $border: 1px solid;
     &__success {
       color: $success_color;
     }
+    &__active {
+      color: $active_color;
+    }
+
+    &__disabled {
+      color: $disabled_color;
+    }
   }
 
   &--helper-message {
+    top: 100%;
     position: absolute;
     left: 16px;
-    margin-top: 2px;
     line-height: 1;
   }
 
   &--right-content {
-    position: absolute;
-    right: 16px;
-    bottom: 25%;
+    margin-left: 16px;
   }
 }
 
-.deriv-input--field__general:disabled + .deriv-input--label,
-.deriv-input--field__error:disabled + .deriv-input--label,
-.deriv-input--field__success:disabled + .deriv-input--label {
-  color: $inactive_color;
-  cursor: not-allowed;
-}
-
-.deriv-input--field:focus + .deriv-input--label {
+.deriv-input__general .deriv-input--field:focus + .deriv-input--label {
   color: $active_color;
 }
 
-.deriv-input--field__error:focus + .deriv-input--label {
+.deriv-input__error .deriv-input--field:focus + .deriv-input--label {
   color: $error_field;
 }
 
-.deriv-input--field__success:focus + .deriv-input--label {
+.deriv-input__success .deriv-input--field:focus + .deriv-input--label {
   color: $success_color;
 }
 

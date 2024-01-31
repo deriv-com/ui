@@ -3,7 +3,12 @@ import clsx from "clsx";
 import HelperMessage from "./HelperMessage";
 import "./Input.scss";
 
-export type InputVariants = "general" | "success" | "error" | "warning";
+export type InputVariants =
+  | "general"
+  | "success"
+  | "error"
+  | "warning"
+  | "disabled";
 interface InputProps
   extends Omit<ComponentProps<"input">, "style" | "placeholder"> {
   label?: string;
@@ -15,10 +20,11 @@ interface InputProps
 }
 
 const InputVariant: Record<InputVariants, string> = {
-  general: "deriv-input--field__general",
-  success: "deriv-input--field__success",
-  warning: "deriv-input--field__general",
-  error: "deriv-input--field__error",
+  general: "deriv-input__general",
+  success: "deriv-input__success",
+  warning: "deriv-input__general",
+  error: "deriv-input__error",
+  disabled: "deriv-input__disabled",
 };
 
 const LabelVariant: Record<InputVariants, string> = {
@@ -26,6 +32,7 @@ const LabelVariant: Record<InputVariants, string> = {
   success: "deriv-input--label__success",
   warning: "deriv-input--label__general",
   error: "deriv-input--label__error",
+  disabled: "deriv-input--label__disabled",
 };
 
 export const Input = ({
@@ -41,24 +48,33 @@ export const Input = ({
   ...rest
 }: InputProps) => {
   return (
-    <div className="deriv-input">
+    <div
+      className={clsx(
+        "deriv-input",
+        className,
+        InputVariant[error ? "error" : variant],
+        {
+          "deriv-input__disabled": disabled,
+        }
+      )}
+    >
       {leftPlaceholder && (
         <div className="deriv-input--left-content">{leftPlaceholder}</div>
       )}
       <input
         placeholder={label}
-        className={clsx(
-          "deriv-input--field",
-          className,
-          InputVariant[error ? "error" : variant]
-        )}
+        className="deriv-input--field"
         id={id}
+        disabled={disabled}
         {...rest}
       />
       <label
         className={clsx(
           "deriv-input--label",
-          LabelVariant[error ? "error" : variant]
+          LabelVariant[error ? "error" : variant],
+          {
+            "deriv-input--label__disabled": disabled,
+          }
         )}
         htmlFor={id}
       >
