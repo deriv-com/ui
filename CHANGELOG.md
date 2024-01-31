@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/deriv-com/ui/compare/v1.1.0...v1.1.1) (2024-01-31)
+
+
+### ⚙️ 	 Continuous Integrations
+
+* updated commit subjects in release config ([2209665](https://github.com/deriv-com/ui/commit/220966588367d339846824736621c7bcacd1338b))
+* updated commit subjects in release config ([68059b4](https://github.com/deriv-com/ui/commit/68059b46d18a6ee200bc67d902ce36b596e8c311))
+
 # [1.1.0](https://github.com/deriv-com/ui/compare/v1.0.1...v1.1.0) (2024-01-31)
 
 
