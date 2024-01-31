@@ -1,8 +1,13 @@
-import React, { ComponentProps, useMemo } from "react";
+import React, {
+  ChangeEvent,
+  ComponentProps,
+  useCallback,
+  useMemo,
+  useState,
+} from "react";
 import { zxcvbn, zxcvbnOptions } from "@zxcvbn-ts/core";
 import { dictionary } from "@zxcvbn-ts/language-common";
 import { Input } from "../Input";
-import "./PasswordInput.scss";
 import { calculateScore, isPasswordValid } from "./PasswordUtils";
 import {
   TScore,
@@ -12,6 +17,7 @@ import {
   warningMessages,
 } from "./PasswordConstants";
 import { PasswordMeter } from "./PasswordMeter";
+import "./PasswordInput.scss";
 
 export const validatePassword = (password: string) => {
   const score = calculateScore(password);
@@ -32,7 +38,7 @@ export const validatePassword = (password: string) => {
 };
 
 const PasswordVariant: Record<TScore, PasswordInputProps["variant"]> = {
-  0: "general",
+  0: "error",
   1: "error",
   2: "warning",
   3: "success",
@@ -47,19 +53,39 @@ export const PasswordInput = ({
   hidePasswordMeter,
   ...props
 }: PasswordInputProps) => {
+  const [isTouched, setIsTouched] = useState(false);
+
   const { errorMessage, score } = useMemo(
     () => validatePassword(props.value as string),
     [props.value]
   );
+
+  const handleChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      props.onChange?.(e);
+      if (!isTouched) {
+        setIsTouched(true);
+      }
+    },
+    [isTouched, props.onChange]
+  );
+
+  const handleBlur = useCallback(() => {
+    if (!isTouched) {
+      setIsTouched(true);
+    }
+  }, [isTouched]);
 
   return (
     <div className="deriv-password">
       <Input
         type="password"
         value={props.value}
-        message={errorMessage}
+        message={isTouched ? errorMessage : ""}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        variant={isTouched ? PasswordVariant[score as TScore] : "general"}
         {...props}
-        variant={PasswordVariant[score as TScore]}
       />
       {!hidePasswordMeter && <PasswordMeter score={score as TScore} />}
     </div>

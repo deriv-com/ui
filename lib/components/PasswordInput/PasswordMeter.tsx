@@ -7,7 +7,7 @@ type PasswordMeterProps = {
 };
 
 const PasswordStrengthClass: Record<TScore, string> = {
-  0: "",
+  0: "deriv-password-meter--bar__error",
   1: "deriv-password-meter--bar__weak",
   2: "deriv-password-meter--bar__moderate",
   3: "deriv-password-meter--bar__strong",
