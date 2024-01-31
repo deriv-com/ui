@@ -16,6 +16,10 @@ module.exports = {
       {
         releaseRules: [
           {
+            type: 'feat',
+            release: 'minor',
+          },
+          {
             type: 'build',
             release: 'patch',
           },
@@ -33,7 +37,7 @@ module.exports = {
           },
           {
             type: 'refactor',
-            release: 'minor',
+            release: 'patch',
           },
           {
             type: 'style',
