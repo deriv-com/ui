@@ -4,9 +4,10 @@ import HelperMessage from "./HelperMessage";
 import "./Input.scss";
 
 export type InputVariants = "general" | "success" | "error";
-interface InputProps
+  interface InputProps
   extends Omit<ComponentProps<"input">, "style" | "placeholder"> {
   label?: string;
+  leftPlaceholder?: ReactNode;
   rightPlaceholder?: ReactNode;
   error?: boolean;
   variant?: InputVariants;
@@ -30,6 +31,7 @@ export const Input = ({
   id,
   error,
   message,
+  leftPlaceholder,
   rightPlaceholder,
   variant = "general",
   className,
@@ -38,6 +40,9 @@ export const Input = ({
 }: InputProps) => {
   return (
     <div className="deriv-input">
+      {leftPlaceholder && (
+        <div className="deriv-input--left-content">{leftPlaceholder}</div>
+      )}
       <input
         placeholder={label}
         className={clsx(
