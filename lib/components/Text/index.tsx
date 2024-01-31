@@ -43,4 +43,3 @@ export const Text = ({
 
     return <Tag className={textClassNames}>{children}</Tag>;
 };
-
