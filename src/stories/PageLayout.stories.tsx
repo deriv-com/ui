@@ -36,7 +36,6 @@ const meta = {
                 view.
             </Pane>
         ),
-        right: <Pane name="Right">The content on the right.</Pane>,
         children: (
             <Pane name="Content">
                 <div style={{ fontWeight: "bold" }}>
@@ -64,11 +63,6 @@ const meta = {
             description:
                 "JSX element to be rendered on the left of the content as render-prop.",
         },
-        right: {
-            control: false,
-            description:
-                "JSX element to be rendered on the right of the content as render-prop.",
-        },
         children: {
             control: false,
             description: "Children to be rendered as the content.",
@@ -78,8 +72,8 @@ const meta = {
         layout: "centered",
     },
     tags: ["autodocs"],
-    render: ({ children, left, right }) => (
-        <PageLayout left={left} right={right}>
+    render: ({ children, left }) => (
+        <PageLayout left={left}>
             {children}
         </PageLayout>
     ),
