@@ -51,23 +51,23 @@ interface PasswordInputProps extends ComponentProps<typeof Input> {
 
 export const PasswordInput = ({
   hidePasswordMeter,
-  ...props
+  ...rest
 }: PasswordInputProps) => {
   const [isTouched, setIsTouched] = useState(false);
 
   const { errorMessage, score } = useMemo(
-    () => validatePassword(props.value as string),
-    [props.value]
+    () => validatePassword(rest.value as string),
+    [rest.value]
   );
 
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-      props.onChange?.(e);
+      rest.onChange?.(e);
       if (!isTouched) {
         setIsTouched(true);
       }
     },
-    [isTouched, props.onChange]
+    [isTouched, rest.onChange]
   );
 
   const handleBlur = useCallback(() => {
@@ -80,12 +80,12 @@ export const PasswordInput = ({
     <div className="deriv-password">
       <Input
         type="password"
-        value={props.value}
+        value={rest.value}
         message={isTouched ? errorMessage : ""}
         onChange={handleChange}
         onBlur={handleBlur}
         variant={isTouched ? PasswordVariant[score as TScore] : "general"}
-        {...props}
+        {...rest}
       />
       {!hidePasswordMeter && <PasswordMeter score={score as TScore} />}
     </div>
