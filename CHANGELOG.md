@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/deriv-com/ui/compare/v1.0.1...v1.1.0) (2024-01-31)
+
+
+### 📦 	 Code Refactoring
+
+* Added dropdown component ([82dd5af](https://github.com/deriv-com/ui/commit/82dd5af841f0305f3c47efb88f308af9619dd537))
+* added storybook for dropdown ([9f63186](https://github.com/deriv-com/ui/commit/9f63186c017a732cd0fcd8a77068801df4c988b8))
+* added storybook for dropdown ([3ddfcd7](https://github.com/deriv-com/ui/commit/3ddfcd78d1b3f30f81e4b2c11b9b4886b8638dd2))
+* To remove exported types ([bc36051](https://github.com/deriv-com/ui/commit/bc36051952fc64b60ef60e67535f3736d709260f))
+* To remove exported types ([61e32b7](https://github.com/deriv-com/ui/commit/61e32b7f67a679d8b953b5ffac8308b3ea2fadd3))
+* To remove exported types ([75b99bc](https://github.com/deriv-com/ui/commit/75b99bcbe970e2709fce03d0093fed8d1f7d7f95))
+
 ## [1.0.1](https://github.com/deriv-com/ui/compare/v1.0.0...v1.0.1) (2024-01-30)
 
 
