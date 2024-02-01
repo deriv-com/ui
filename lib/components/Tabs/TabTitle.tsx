@@ -11,9 +11,10 @@ export type TabTitleProps = {
     className?: string;
     variant: 'primary' | 'secondary';
     onChange?: () => void;
+    TitleFontSize?: React.ComponentProps<typeof Text>['size'];
 };
 
-const TabTitle = ({ icon, activeTab, isActive, setSelectedTab, title,className,variant, onChange }: TabTitleProps) => {
+const TabTitle = ({ icon, activeTab, isActive, setSelectedTab, title,className,variant, onChange, TitleFontSize }: TabTitleProps) => {
     const handleOnClick = useCallback((title: string) => {
         setSelectedTab(title);
         onChange?.();
@@ -32,7 +33,7 @@ const TabTitle = ({ icon, activeTab, isActive, setSelectedTab, title,className,v
             onClick={()=>handleOnClick(title)}
         >
             {icon}
-            <Text weight={isActive ? 'bold' : 'normal'}>{title}</Text>
+            <Text weight={isActive ? 'bold' : 'normal'} size={TitleFontSize}>{title}</Text>
         </button>
     );
 };
