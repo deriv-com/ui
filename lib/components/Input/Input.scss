@@ -97,6 +97,12 @@ $border: 1px solid;
   }
 }
 
+.deriv-input--general .deriv-input__field:disabled + .deriv-input__label,
+.deriv-input--error .deriv-input__field:disabled + .deriv-input__label,
+.deriv-input--success .deriv-input__field:disabled + .deriv-input__label {
+  color: $disabled_color;
+}
+
 .deriv-input--general .deriv-input__field:focus + .deriv-input__label {
   color: $active_color;
 }
