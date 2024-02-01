@@ -89,7 +89,7 @@ export const PasswordInput = ({
         variant={isTouched ? PasswordVariant[score as TScore] : "general"}
         rightPlaceholder={
           <button
-            className="deriv-password-icon"
+            className="deriv-password__icon"
             onClick={() => setShowPassword(!showPassword)}
           >
             {showPassword ? <EyeIcon /> : <EyeIconSlash />}
