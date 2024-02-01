@@ -2,27 +2,44 @@ $disabled_color: #d6d6d6;
 $inactive_color: #999999;
 $active_color: #85acb0;
 $success_color: #4bb4b3;
+$warning_color: #ffad3a;
 $error_field: #ec3f3f;
-$inactive_color: #999999;
 $border: 1px solid;
 
 .deriv-input {
-  display: inline-block;
+  display: inline-flex;
   position: relative;
+  border-radius: 4px;
+  width: 328px;
+  box-sizing: border-box;
+  text-align: left;
+  padding: 10px 16px;
+  border: $border;
 
-  &--field {
-    width: 100%;
-    padding: 10px 16px;
-    outline: none;
-    border-radius: 4px;
-    width: 328px;
-    box-sizing: border-box;
-    outline: none;
-    text-align: left;
-    &:disabled {
-      border: $border $disabled_color;
-      color: $inactive_color;
+  &--general {
+    border-color: $inactive_color;
+    &:focus-within {
+      border-color: $active_color;
     }
+  }
+  &--error {
+    border-color: $error_field;
+  }
+  &--success {
+    border-color: $success_color;
+  }
+
+  &--active {
+    border-color: $active_color;
+  }
+
+  &--disabled {
+    border-color: $disabled_color;
+  }
+
+  &__field {
+    width: 100%;
+    outline: none;
     &::placeholder {
       visibility: hidden;
     }
@@ -36,27 +53,9 @@ $border: 1px solid;
         height: fit-content;
       }
     }
-    &__general {
-      border: $border $inactive_color;
-      &:focus {
-        border: $border $active_color;
-      }
-    }
-    &__error {
-      border: $border $error_field;
-      &:focus {
-        border: $border $error_field;
-      }
-    }
-    &__success {
-      border: $border $success_color;
-      &:focus {
-        border: $border $success_color;
-      }
-    }
   }
 
-  &--label {
+  &__label {
     display: inline-block;
     position: absolute;
     top: 0;
@@ -68,61 +67,44 @@ $border: 1px solid;
     text-transform: capitalize;
     transition: all 0.15s ease-out;
     padding: 0;
-    &__general {
+    &--general {
       color: $inactive_color;
     }
-    &__error {
+    &--error {
       color: $error_field;
     }
-    &__success {
+    &--success {
       color: $success_color;
+    }
+    &--active {
+      color: $active_color;
+    }
+
+    &--disabled {
+      color: $disabled_color;
     }
   }
 
-  &--helper-message {
+  &__helper-message {
+    top: calc(100% + 2px);
     position: absolute;
     left: 16px;
-    margin-top: 2px;
+    line-height: 1;
   }
 
-  &--right-content {
-    position: absolute;
-    right: 16px;
-    bottom: 25%;
+  &__right-content {
+    margin-left: 16px;
   }
 }
 
-.deriv-input--field__general:disabled + .deriv-input--label,
-.deriv-input--field__error:disabled + .deriv-input--label,
-.deriv-input--field__success:disabled + .deriv-input--label {
-  color: $inactive_color;
-  cursor: not-allowed;
-}
-
-.deriv-input--field:focus + .deriv-input--label {
+.deriv-input--general .deriv-input__field:focus + .deriv-input__label {
   color: $active_color;
 }
 
-.deriv-input--field__error:focus + .deriv-input--label {
+.deriv-input--error .deriv-input__field:focus + .deriv-input__label {
   color: $error_field;
 }
 
-.deriv-input--field__success:focus + .deriv-input--label {
+.deriv-input--success .deriv-input__field:focus + .deriv-input__label {
   color: $success_color;
-}
-
-.deriv-helper-message {
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px;
-  &__general {
-    color: $inactive_color;
-  }
-  &__success {
-    color: $success_color;
-  }
-  &__error {
-    color: $error_field;
-  }
 }
