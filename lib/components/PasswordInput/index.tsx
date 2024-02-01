@@ -1,6 +1,7 @@
 import React, {
   ChangeEvent,
   ComponentProps,
+  FocusEvent,
   useCallback,
   useMemo,
   useState,
@@ -40,11 +41,7 @@ export const validatePassword = (password: string) => {
 
 type InputProps = ComponentProps<typeof Input>;
 
-interface PasswordInputProps
-  extends Pick<
-    InputProps,
-    "value" | "onChange" | "label" | "id" | "autoComplete"
-  > {
+interface PasswordInputProps extends Omit<InputProps, "rightPlaceholder"> {
   hidePasswordMeter?: boolean;
   hint?: string;
 }
@@ -58,13 +55,12 @@ const PasswordVariant: Record<TScore, InputProps["variant"]> = {
 };
 
 export const PasswordInput = ({
-  autoComplete,
-  id,
-  label,
   value,
+  onBlur,
   onChange,
   hint,
   hidePasswordMeter,
+  ...rest
 }: PasswordInputProps) => {
   const [isTouched, setIsTouched] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -84,20 +80,21 @@ export const PasswordInput = ({
     [isTouched, onChange]
   );
 
-  const handleBlur = useCallback(() => {
-    if (!isTouched) {
-      setIsTouched(true);
-    }
-  }, [isTouched]);
+  const handleBlur = useCallback(
+    (e: FocusEvent<HTMLInputElement>) => {
+      onBlur?.(e);
+      if (!isTouched) {
+        setIsTouched(true);
+      }
+    },
+    [isTouched, onBlur]
+  );
 
   return (
     <div className="deriv-password">
       <Input
-        autoComplete={autoComplete}
-        id={id}
-        label={label}
-        type={showPassword ? "text" : "password"}
         value={value}
+        type={showPassword ? "text" : "password"}
         message={isTouched ? errorMessage : "" || hint}
         onChange={handleChange}
         onBlur={handleBlur}
@@ -110,6 +107,7 @@ export const PasswordInput = ({
             {showPassword ? <EyeIcon /> : <EyeIconSlash />}
           </button>
         }
+        {...rest}
       />
       {!hidePasswordMeter && <PasswordMeter score={score as TScore} />}
     </div>

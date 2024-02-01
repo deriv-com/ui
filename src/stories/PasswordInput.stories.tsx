@@ -1,5 +1,6 @@
 import { StoryObj, Meta } from "@storybook/react";
 import { PasswordInput } from "../../lib/main";
+import { useState } from "react";
 
 const meta = {
   title: "Components/PasswordInput",
@@ -7,21 +8,14 @@ const meta = {
   parameters: { layout: "centered" },
   tags: ["autodocs"],
   args: {
-    autoComplete: "password",
-    id: "password",
     label: "Enter Password",
     value: "",
     onChange: () => {},
     hidePasswordMeter: false,
-    hint: "Password should have lower and uppercase English letters with numbers.",
+    hint: "This is a hint message",
   },
   argTypes: {
-    autoComplete: {
-      control: {
-        disable: true,
-      },
-    },
-    id: {
+    value: {
       control: {
         disable: true,
       },
@@ -49,5 +43,17 @@ export const Default: Story = {
     value: "",
     onChange: () => {},
     hidePasswordMeter: false,
+    hint: "This is a hint message",
+  },
+  render: (args) => {
+    const [value, setValue] = useState("");
+
+    return (
+      <PasswordInput
+        {...args}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+    );
   },
 };
