@@ -1,6 +1,7 @@
 import React, {
   ChangeEvent,
   ComponentProps,
+  FocusEvent,
   useCallback,
   useMemo,
   useState,
@@ -19,6 +20,7 @@ import {
 import { EyeIcon, EyeIconSlash } from "./PasswordIcon";
 import { PasswordMeter } from "./PasswordMeter";
 import "./PasswordInput.scss";
+import clsx from "clsx";
 
 export const validatePassword = (password: string) => {
   const score = calculateScore(password);
@@ -40,11 +42,8 @@ export const validatePassword = (password: string) => {
 
 type InputProps = ComponentProps<typeof Input>;
 
-interface PasswordInputProps
-  extends Pick<
-    InputProps,
-    "value" | "onChange" | "label" | "id" | "autoComplete"
-  > {
+interface PasswordInputProps extends Omit<InputProps, "variant"> {
+  wrapperClassName?: string;
   hidePasswordMeter?: boolean;
   hint?: string;
 }
@@ -58,50 +57,49 @@ const PasswordVariant: Record<TScore, InputProps["variant"]> = {
 };
 
 export const PasswordInput = ({
-  autoComplete,
-  id,
-  label,
-  value,
-  onChange,
   hint,
   hidePasswordMeter,
+  wrapperClassName,
+  ...rest
 }: PasswordInputProps) => {
   const [isTouched, setIsTouched] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const { errorMessage, score } = useMemo(
-    () => validatePassword(value as string),
-    [value]
+    () => validatePassword(rest.value as string),
+    [rest.value]
   );
 
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-      onChange?.(e);
+      rest.onChange?.(e);
       if (!isTouched) {
         setIsTouched(true);
       }
     },
-    [isTouched, onChange]
+    [isTouched, rest.onChange]
   );
 
-  const handleBlur = useCallback(() => {
-    if (!isTouched) {
-      setIsTouched(true);
-    }
-  }, [isTouched]);
+  const handleBlur = useCallback(
+    (e: FocusEvent<HTMLInputElement>) => {
+      if (!isTouched) {
+        setIsTouched(true);
+      }
+      rest.onBlur?.(e);
+    },
+    [isTouched]
+  );
 
   return (
-    <div className="deriv-password">
+    <div className={clsx("deriv-password", wrapperClassName)}>
       <Input
-        autoComplete={autoComplete}
-        id={id}
-        label={label}
         type={showPassword ? "text" : "password"}
-        value={value}
         message={isTouched ? errorMessage : "" || hint}
         onChange={handleChange}
         onBlur={handleBlur}
-        variant={isTouched ? PasswordVariant[score as TScore] : "general"}
+        variant={
+          isTouched || rest.value ? PasswordVariant[score as TScore] : "general"
+        }
         rightPlaceholder={
           <button
             className="deriv-password__icon"
@@ -110,6 +108,7 @@ export const PasswordInput = ({
             {showPassword ? <EyeIcon /> : <EyeIconSlash />}
           </button>
         }
+        {...rest}
       />
       {!hidePasswordMeter && <PasswordMeter score={score as TScore} />}
     </div>

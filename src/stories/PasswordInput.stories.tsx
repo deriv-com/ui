@@ -1,5 +1,6 @@
 import { StoryObj, Meta } from "@storybook/react";
 import { PasswordInput } from "../../lib/main";
+import { useState } from "react";
 
 const meta = {
   title: "Components/PasswordInput",
@@ -22,6 +23,11 @@ const meta = {
       },
     },
     id: {
+      control: {
+        disable: true,
+      },
+    },
+    value: {
       control: {
         disable: true,
       },
@@ -49,5 +55,16 @@ export const Default: Story = {
     value: "",
     onChange: () => {},
     hidePasswordMeter: false,
+  },
+  render: (args) => {
+    const [value, setValue] = useState("");
+
+    return (
+      <PasswordInput
+        {...args}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+    );
   },
 };
