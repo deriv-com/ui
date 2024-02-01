@@ -1,3 +1,11 @@
+## [1.1.4](https://github.com/deriv-com/ui/compare/v1.1.3...v1.1.4) (2024-02-01)
+
+
+### ♻️ 	 Chores
+
+* added TitleFontSize to Tabs component ([d587cd1](https://github.com/deriv-com/ui/commit/d587cd17d977c0a2ddbdebe8ec8d36692726b488))
+* added TitleFontSize to Tabs component ([27ecfbb](https://github.com/deriv-com/ui/commit/27ecfbb229e35e5f11003b38ae3166dbe72a33cd))
+
 ## [1.1.3](https://github.com/deriv-com/ui/compare/v1.1.2...v1.1.3) (2024-02-01)
 
 
