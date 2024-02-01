@@ -1,3 +1,15 @@
+## [1.1.5](https://github.com/deriv-com/ui/compare/v1.1.4...v1.1.5) (2024-02-01)
+
+
+### ♻️ 	 Chores
+
+* improve storybook for passwordinput ([3a35240](https://github.com/deriv-com/ui/commit/3a35240bdbfee869c16f3196c6d7f00b0d84ba7a))
+
+
+### 🐛 	 Bug Fixes
+
+* change some of the types inside of PasswordInput ([c3726d9](https://github.com/deriv-com/ui/commit/c3726d958956fa31c00c4dd86d4f8198a026b966))
+
 ## [1.1.4](https://github.com/deriv-com/ui/compare/v1.1.3...v1.1.4) (2024-02-01)
 
 
