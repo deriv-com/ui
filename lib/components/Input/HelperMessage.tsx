@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import clsx from "clsx";
 import { InputVariants } from ".";
-import "./Input.scss";
+import "./HelperMessage.scss";
 
 export interface HelperMessageProps {
   error?: boolean;
@@ -11,10 +11,10 @@ export interface HelperMessageProps {
 }
 type TMessageVariant = Exclude<InputVariants, "disabled">;
 const MessageVariant: Record<TMessageVariant, string> = {
-  general: "deriv-helper-message__general",
-  success: "deriv-helper-message__success",
-  warning: "deriv-helper-message__warning",
-  error: "deriv-helper-message__error",
+  general: "deriv-helper-message--general",
+  success: "deriv-helper-message--success",
+  warning: "deriv-helper-message--warning",
+  error: "deriv-helper-message--error",
 };
 
 const HelperMessage = ({

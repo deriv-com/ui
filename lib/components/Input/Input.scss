@@ -17,28 +17,28 @@ $border: 1px solid;
   padding: 10px 16px;
   border: $border;
 
-  &__general {
+  &--general {
     border-color: $inactive_color;
     &:focus-within {
       border-color: $active_color;
     }
   }
-  &__error {
+  &--error {
     border-color: $error_field;
   }
-  &__success {
+  &--success {
     border-color: $success_color;
   }
 
-  &__active {
+  &--active {
     border-color: $active_color;
   }
 
-  &__disabled {
+  &--disabled {
     border-color: $disabled_color;
   }
 
-  &--field {
+  &__field {
     width: 100%;
     outline: none;
     &::placeholder {
@@ -56,7 +56,7 @@ $border: 1px solid;
     }
   }
 
-  &--label {
+  &__label {
     display: inline-block;
     position: absolute;
     top: 0;
@@ -68,63 +68,44 @@ $border: 1px solid;
     text-transform: capitalize;
     transition: all 0.15s ease-out;
     padding: 0;
-    &__general {
+    &--general {
       color: $inactive_color;
     }
-    &__error {
+    &--error {
       color: $error_field;
     }
-    &__success {
+    &--success {
       color: $success_color;
     }
-    &__active {
+    &--active {
       color: $active_color;
     }
 
-    &__disabled {
+    &--disabled {
       color: $disabled_color;
     }
   }
 
-  &--helper-message {
+  &__helper-message {
     top: 100%;
     position: absolute;
     left: 16px;
     line-height: 1;
   }
 
-  &--right-content {
+  &__right-content {
     margin-left: 16px;
   }
 }
 
-.deriv-input__general .deriv-input--field:focus + .deriv-input--label {
+.deriv-input--general .deriv-input__field:focus + .deriv-input__label {
   color: $active_color;
 }
 
-.deriv-input__error .deriv-input--field:focus + .deriv-input--label {
+.deriv-input--error .deriv-input__field:focus + .deriv-input__label {
   color: $error_field;
 }
 
-.deriv-input__success .deriv-input--field:focus + .deriv-input--label {
+.deriv-input--success .deriv-input__field:focus + .deriv-input__label {
   color: $success_color;
-}
-
-.deriv-helper-message {
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px;
-  &__general {
-    color: $inactive_color;
-  }
-  &__success {
-    color: $success_color;
-  }
-  &__warning {
-    color: $warning_color;
-  }
-  &__error {
-    color: $error_field;
-  }
 }

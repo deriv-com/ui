@@ -20,19 +20,19 @@ interface InputProps
 }
 
 const InputVariant: Record<InputVariants, string> = {
-  general: "deriv-input__general",
-  success: "deriv-input__success",
-  warning: "deriv-input__general",
-  error: "deriv-input__error",
-  disabled: "deriv-input__disabled",
+  general: "deriv-input--general",
+  success: "deriv-input--success",
+  warning: "deriv-input--general",
+  error: "deriv-input--error",
+  disabled: "deriv-input--disabled",
 };
 
 const LabelVariant: Record<InputVariants, string> = {
-  general: "deriv-input--label__general",
-  success: "deriv-input--label__success",
-  warning: "deriv-input--label__general",
-  error: "deriv-input--label__error",
-  disabled: "deriv-input--label__disabled",
+  general: "deriv-input__label--general",
+  success: "deriv-input__label--success",
+  warning: "deriv-input__label--general",
+  error: "deriv-input__label--error",
+  disabled: "deriv-input__label--disabled",
 };
 
 export const Input = ({
@@ -54,26 +54,26 @@ export const Input = ({
         className,
         InputVariant[error ? "error" : variant],
         {
-          "deriv-input__disabled": disabled,
+          "deriv-input--disabled": disabled,
         }
       )}
     >
       {leftPlaceholder && (
-        <div className="deriv-input--left-content">{leftPlaceholder}</div>
+        <div className="deriv-input__left-content">{leftPlaceholder}</div>
       )}
       <input
         placeholder={label}
-        className="deriv-input--field"
+        className="deriv-input__field"
         id={id}
         disabled={disabled}
         {...rest}
       />
       <label
         className={clsx(
-          "deriv-input--label",
+          "deriv-input__label",
           LabelVariant[error ? "error" : variant],
           {
-            "deriv-input--label__disabled": disabled,
+            "deriv-input--label--disabled": disabled,
           }
         )}
         htmlFor={id}
@@ -81,9 +81,9 @@ export const Input = ({
         {label}
       </label>
       {rightPlaceholder && (
-        <div className="deriv-input--right-content">{rightPlaceholder}</div>
+        <div className="deriv-input__right-content">{rightPlaceholder}</div>
       )}
-      <div className="deriv-input--helper-message">
+      <div className="deriv-input__helper-message">
         {message && (
           <HelperMessage
             message={message}
