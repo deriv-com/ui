@@ -8,14 +8,7 @@
         flex-direction: column;
     }
 
-    &__sidebar {
-        display: flex;
-        flex-direction: column;
-    }
-
     &__content {
-        display: flex;
-        flex-direction: column;
         flex: 1;
     }
 }
