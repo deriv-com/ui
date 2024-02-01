@@ -1,3 +1,11 @@
+## [1.1.2](https://github.com/deriv-com/ui/compare/v1.1.1...v1.1.2) (2024-02-01)
+
+
+### 🐛 	 Bug Fixes
+
+* exported missing components and hooks ([7471d04](https://github.com/deriv-com/ui/commit/7471d04183804c1d73c19f8184fe9b8349d8414c))
+* exported missing components and hooks ([87c5c85](https://github.com/deriv-com/ui/commit/87c5c85ee7a24d2d1da1062872fe23c1b01445d6))
+
 ## [1.1.1](https://github.com/deriv-com/ui/compare/v1.1.0...v1.1.1) (2024-01-31)
 
 
