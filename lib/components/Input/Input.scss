@@ -86,7 +86,7 @@ $border: 1px solid;
   }
 
   &__helper-message {
-    top: 100%;
+    top: calc(100% + 2px);
     position: absolute;
     left: 16px;
     line-height: 1;

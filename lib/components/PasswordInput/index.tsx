@@ -38,7 +38,18 @@ export const validatePassword = (password: string) => {
   return { errorMessage, score };
 };
 
-const PasswordVariant: Record<TScore, PasswordInputProps["variant"]> = {
+type InputProps = ComponentProps<typeof Input>;
+
+interface PasswordInputProps
+  extends Pick<
+    InputProps,
+    "value" | "onChange" | "label" | "id" | "autoComplete"
+  > {
+  hidePasswordMeter?: boolean;
+  hint?: string;
+}
+
+const PasswordVariant: Record<TScore, InputProps["variant"]> = {
   0: "error",
   1: "error",
   2: "warning",
@@ -46,30 +57,31 @@ const PasswordVariant: Record<TScore, PasswordInputProps["variant"]> = {
   4: "success",
 };
 
-interface PasswordInputProps extends ComponentProps<typeof Input> {
-  hidePasswordMeter?: boolean;
-}
-
 export const PasswordInput = ({
+  autoComplete,
+  id,
+  label,
+  value,
+  onChange,
+  hint,
   hidePasswordMeter,
-  ...rest
 }: PasswordInputProps) => {
   const [isTouched, setIsTouched] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const { errorMessage, score } = useMemo(
-    () => validatePassword(rest.value as string),
-    [rest.value]
+    () => validatePassword(value as string),
+    [value]
   );
 
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-      rest.onChange?.(e);
+      onChange?.(e);
       if (!isTouched) {
         setIsTouched(true);
       }
     },
-    [isTouched, rest.onChange]
+    [isTouched, onChange]
   );
 
   const handleBlur = useCallback(() => {
@@ -81,9 +93,12 @@ export const PasswordInput = ({
   return (
     <div className="deriv-password">
       <Input
+        autoComplete={autoComplete}
+        id={id}
+        label={label}
         type={showPassword ? "text" : "password"}
-        value={rest.value}
-        message={isTouched ? errorMessage : ""}
+        value={value}
+        message={isTouched ? errorMessage : "" || hint}
         onChange={handleChange}
         onBlur={handleBlur}
         variant={isTouched ? PasswordVariant[score as TScore] : "general"}
@@ -95,7 +110,6 @@ export const PasswordInput = ({
             {showPassword ? <EyeIcon /> : <EyeIconSlash />}
           </button>
         }
-        {...rest}
       />
       {!hidePasswordMeter && <PasswordMeter score={score as TScore} />}
     </div>
