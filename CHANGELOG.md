@@ -1,3 +1,12 @@
+## [1.1.9](https://github.com/deriv-com/ui/compare/v1.1.8...v1.1.9) (2024-02-02)
+
+
+### 🐛 	 Bug Fixes
+
+* added Inline Message Component ([b539658](https://github.com/deriv-com/ui/commit/b539658fbf830d97628a9015ec9ad5e52e71f456))
+* added storybook for Inline Message ([8dd77a2](https://github.com/deriv-com/ui/commit/8dd77a270bc42fbe03d5ad82abc7dc58eb3a8bb1))
+* padding inside of inline message ([49504af](https://github.com/deriv-com/ui/commit/49504af1cf64e80d510a9680daba880323031339))
+
 ## [1.1.8](https://github.com/deriv-com/ui/compare/v1.1.7...v1.1.8) (2024-02-02)
 
 
