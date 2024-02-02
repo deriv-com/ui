@@ -46,19 +46,17 @@ export const InlineMessage = ({
   className,
   variant = "general",
   type = "filled",
-}: InlineMessageProps) => {
-  return (
-    <div
-      className={clsx(
-        "deriv-inline-message",
-        variant !== "general"
-          ? VariantClasses[variant][type]
-          : VariantClasses[variant],
-        className
-      )}
-    >
-      {variant !== "general" ? VariantIcons[variant] : icon ?? null}
-      {children}
-    </div>
-  );
-};
+}: InlineMessageProps) => (
+  <div
+    className={clsx(
+      "deriv-inline-message",
+      variant !== "general"
+        ? VariantClasses[variant][type]
+        : VariantClasses[variant],
+      className
+    )}
+  >
+    {variant !== "general" ? VariantIcons[variant] : icon ?? null}
+    {children}
+  </div>
+);
