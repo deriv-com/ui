@@ -1,4 +1,4 @@
-import React, { ComponentProps, ReactNode } from "react";
+import React, { ComponentProps, ReactNode, Ref, forwardRef } from "react";
 import clsx from "clsx";
 import HelperMessage from "./HelperMessage";
 import "./Input.scss";
@@ -34,7 +34,7 @@ const LabelVariant: Record<InputVariants, string> = {
   disabled: "deriv-input__label--disabled",
 };
 
-export const Input = ({
+export const Input = forwardRef(({
   label,
   id,
   error,
@@ -45,7 +45,8 @@ export const Input = ({
   className,
   disabled,
   ...rest
-}: InputProps) => {
+}: InputProps,
+  ref: Ref<HTMLInputElement>) => {
   return (
     <div
       className={clsx(
@@ -65,6 +66,7 @@ export const Input = ({
         className="deriv-input__field"
         id={id}
         disabled={disabled}
+        ref={ref}
         {...rest}
       />
       <label
@@ -94,4 +96,4 @@ export const Input = ({
       </div>
     </div>
   );
-};
+});
