@@ -1,3 +1,24 @@
+## [1.1.8](https://github.com/deriv-com/ui/compare/v1.1.7...v1.1.8) (2024-02-02)
+
+
+### ♻️ 	 Chores
+
+* remove flex properties for content and sidebar ([1cf426d](https://github.com/deriv-com/ui/commit/1cf426d802c202e194d90374aaa3ac89fe216225))
+* remove right section usage from the storybook ([09f6833](https://github.com/deriv-com/ui/commit/09f6833bb02a9555de85c3f7a8ca5a2ccd89655d))
+* remove unnecessary component ([de1a8ac](https://github.com/deriv-com/ui/commit/de1a8aca46062347ad507367e0a83c8cbc7a1461))
+* renamed the left prop as sidebar ([25ee8d8](https://github.com/deriv-com/ui/commit/25ee8d8ed598368d8205e53bb966b5b61c384a3a))
+* update main.ts imports ([052882b](https://github.com/deriv-com/ui/commit/052882bcaec4158f6fa30654b6156c3a25c941a4))
+
+
+### 🐛 	 Bug Fixes
+
+* add flex to content section ([e507f89](https://github.com/deriv-com/ui/commit/e507f891164159105a9451f9df5e9fd787dd7ddc))
+
+
+### 📦 	 Code Refactoring
+
+* remove right section prop ([2bfd56f](https://github.com/deriv-com/ui/commit/2bfd56fbc4ebcd81748e7bccd772205228249633))
+
 ## [1.1.7](https://github.com/deriv-com/ui/compare/v1.1.6...v1.1.7) (2024-02-02)
 
 
