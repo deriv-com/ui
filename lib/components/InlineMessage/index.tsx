@@ -56,7 +56,11 @@ export const InlineMessage = ({
       className
     )}
   >
-    {variant !== "general" ? VariantIcons[variant] : icon ?? null}
+    {(variant !== "general" || icon) && (
+      <div className="deriv-inline-message__icon">
+        {variant !== "general" ? VariantIcons[variant] : icon ?? null}
+      </div>
+    )}
     {children}
   </div>
 );

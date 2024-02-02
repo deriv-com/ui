@@ -18,6 +18,11 @@ $border: 1px solid;
   border-radius: 4px;
   padding: 16px;
 
+  &__icon {
+    width: 16px;
+    height: 16px;
+  }
+
   &__info {
     &--filled {
       border: none;
