@@ -1,3 +1,16 @@
+## [1.1.7](https://github.com/deriv-com/ui/compare/v1.1.6...v1.1.7) (2024-02-02)
+
+
+### ♻️ 	 Chores
+
+* adding storybook to input component ([11b0228](https://github.com/deriv-com/ui/commit/11b0228571db1e1d8f447fd61f0a51e618396f7d))
+
+
+### 🐛 	 Bug Fixes
+
+* added style type back inside of input component ([fd763aa](https://github.com/deriv-com/ui/commit/fd763aa85acf958a9ae76e699d791398eda016bf))
+* stylings for helper message and input variants ([dd8f65e](https://github.com/deriv-com/ui/commit/dd8f65eb1a145a74030db72df10e7a822492786c))
+
 ## [1.1.6](https://github.com/deriv-com/ui/compare/v1.1.5...v1.1.6) (2024-02-02)
 
 
