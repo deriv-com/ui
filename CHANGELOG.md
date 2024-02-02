@@ -1,3 +1,11 @@
+## [1.1.10](https://github.com/deriv-com/ui/compare/v1.1.9...v1.1.10) (2024-02-02)
+
+
+### 🐛 	 Bug Fixes
+
+* added forwardRef to Input component ([5733cb8](https://github.com/deriv-com/ui/commit/5733cb8773a8b4b7e9b3e049e66ecb3f1a2acc95))
+* added forwardRef to Input component ([cc85c54](https://github.com/deriv-com/ui/commit/cc85c54eb07c44d093ac68f23af92aa752aeecc8))
+
 ## [1.1.9](https://github.com/deriv-com/ui/compare/v1.1.8...v1.1.9) (2024-02-02)
 
 
