@@ -9,8 +9,7 @@ export type InputVariants =
   | "error"
   | "warning"
   | "disabled";
-interface InputProps
-  extends Omit<ComponentProps<"input">, "style" | "placeholder"> {
+interface InputProps extends Omit<ComponentProps<"input">, "placeholder"> {
   label?: string;
   leftPlaceholder?: ReactNode;
   rightPlaceholder?: ReactNode;
