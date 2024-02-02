@@ -8,7 +8,6 @@ $border: 8px solid;
 $arrow-size: 8px;
 
 // Tooltip Classes
-
 .deriv-tooltip-container {
   position: relative;
   display: inline-flex;
@@ -22,8 +21,6 @@ $arrow-size: 8px;
   z-index: 999;
   position: absolute;
   padding: 8px;
-  font-size: 12px;
-  line-height: 18px;
   cursor: default;
   border-radius: 4px;
   width: max-content;
