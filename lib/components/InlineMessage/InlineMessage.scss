@@ -1,0 +1,68 @@
+$error-borderColor: #ec3f3f;
+$warning-borderColor: #ffad3a;
+$success-borderColor: #4bb4b3;
+$info-borderColor: #377cfc;
+$error-bgColor: rgba(236, 63, 63, 0.16);
+$warning-bgColor: rgba(255, 173, 58, 0.16);
+$success-bgColor: rgba(75, 180, 179, 0.16);
+$info-bgColor: rgba(55, 124, 252, 0.16);
+$general-color: #f2f3f4;
+$border: 1px solid;
+
+.deriv-inline-message {
+  width: 100%;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+  padding: 16px;
+
+  &__info {
+    &--filled {
+      border: none;
+      background-color: $info-bgColor;
+    }
+    &--outlined {
+      border: $border $info-borderColor;
+      background-color: transparent;
+    }
+  }
+
+  &__success {
+    &--filled {
+      border: none;
+      background-color: $success-bgColor;
+    }
+    &--outlined {
+      border: $border $success-borderColor;
+      background-color: transparent;
+    }
+  }
+
+  &__warning {
+    &--filled {
+      border: none;
+      background-color: $warning-bgColor;
+    }
+    &--outlined {
+      border: $border $warning-borderColor;
+      background-color: transparent;
+    }
+  }
+
+  &__error {
+    &--filled {
+      border: none;
+      background-color: $error-bgColor;
+    }
+    &--outlined {
+      border: $border $error-borderColor;
+      background-color: transparent;
+    }
+  }
+
+  &__general {
+    background-color: $general-color;
+  }
+}
