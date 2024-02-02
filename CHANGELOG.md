@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/deriv-com/ui/compare/v1.1.5...v1.1.6) (2024-02-02)
+
+
+### ♻️ 	 Chores
+
+* made improvements to Tooltip and Text component ([6ecb236](https://github.com/deriv-com/ui/commit/6ecb23648445be2bec1459d7c32361a8d4e39c58))
+
 ## [1.1.5](https://github.com/deriv-com/ui/compare/v1.1.4...v1.1.5) (2024-02-01)
 
 
