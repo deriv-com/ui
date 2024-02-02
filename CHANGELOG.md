@@ -1,3 +1,71 @@
+## [1.1.7](https://github.com/deriv-com/ui/compare/v1.1.6...v1.1.7) (2024-02-02)
+
+
+### ♻️ 	 Chores
+
+* adding storybook to input component ([11b0228](https://github.com/deriv-com/ui/commit/11b0228571db1e1d8f447fd61f0a51e618396f7d))
+
+
+### 🐛 	 Bug Fixes
+
+* added style type back inside of input component ([fd763aa](https://github.com/deriv-com/ui/commit/fd763aa85acf958a9ae76e699d791398eda016bf))
+* stylings for helper message and input variants ([dd8f65e](https://github.com/deriv-com/ui/commit/dd8f65eb1a145a74030db72df10e7a822492786c))
+
+## [1.1.6](https://github.com/deriv-com/ui/compare/v1.1.5...v1.1.6) (2024-02-02)
+
+
+### ♻️ 	 Chores
+
+* made improvements to Tooltip and Text component ([6ecb236](https://github.com/deriv-com/ui/commit/6ecb23648445be2bec1459d7c32361a8d4e39c58))
+
+## [1.1.5](https://github.com/deriv-com/ui/compare/v1.1.4...v1.1.5) (2024-02-01)
+
+
+### ♻️ 	 Chores
+
+* improve storybook for passwordinput ([3a35240](https://github.com/deriv-com/ui/commit/3a35240bdbfee869c16f3196c6d7f00b0d84ba7a))
+
+
+### 🐛 	 Bug Fixes
+
+* change some of the types inside of PasswordInput ([c3726d9](https://github.com/deriv-com/ui/commit/c3726d958956fa31c00c4dd86d4f8198a026b966))
+
+## [1.1.4](https://github.com/deriv-com/ui/compare/v1.1.3...v1.1.4) (2024-02-01)
+
+
+### ♻️ 	 Chores
+
+* added TitleFontSize to Tabs component ([d587cd1](https://github.com/deriv-com/ui/commit/d587cd17d977c0a2ddbdebe8ec8d36692726b488))
+* added TitleFontSize to Tabs component ([27ecfbb](https://github.com/deriv-com/ui/commit/27ecfbb229e35e5f11003b38ae3166dbe72a33cd))
+
+## [1.1.3](https://github.com/deriv-com/ui/compare/v1.1.2...v1.1.3) (2024-02-01)
+
+
+### ♻️ 	 Chores
+
+* added Password Input field ([ae6ef49](https://github.com/deriv-com/ui/commit/ae6ef49eb83b838576a9d44b211080d6c3131afd))
+* added password meter colors, width and colors ([13b9d33](https://github.com/deriv-com/ui/commit/13b9d337e9922acc5ea4ca70a76cdb35be7df5de))
+* added Storybook for password input component ([5025c17](https://github.com/deriv-com/ui/commit/5025c17f6898186c4b1a0bfbac3ef184d82405ba))
+* import PasswordInput inside of main.ts ([af8378b](https://github.com/deriv-com/ui/commit/af8378bb8e49cf98bc07bf5991f020fbf2ab089e))
+* refactor PasswordMeter as a child component ([d6c382d](https://github.com/deriv-com/ui/commit/d6c382d3b85b0bb32bec747a505bdecbcd3a897d))
+
+
+### 🐛 	 Bug Fixes
+
+* added helperMessage based on score ([8f43383](https://github.com/deriv-com/ui/commit/8f433839daa08431e531e9f2a3c45b30a682aa45))
+* added variants according to production ([12458ce](https://github.com/deriv-com/ui/commit/12458ced635b2400640ea2c5f92146cfa7f20ce4))
+* added warning variant inside for helperMessage ([97da93d](https://github.com/deriv-com/ui/commit/97da93d93047c6de1e01ce33fd47474bac1470f2))
+* change css for input ([6fdaad7](https://github.com/deriv-com/ui/commit/6fdaad794b1717b83c8f9fe47f985e17faf60b5e))
+* change types and added stylings to Input and PasswordInput ([35fea18](https://github.com/deriv-com/ui/commit/35fea18ed934157083c5f48dd0c6710b8b423493))
+
+## [1.1.2](https://github.com/deriv-com/ui/compare/v1.1.1...v1.1.2) (2024-02-01)
+
+
+### 🐛 	 Bug Fixes
+
+* exported missing components and hooks ([7471d04](https://github.com/deriv-com/ui/commit/7471d04183804c1d73c19f8184fe9b8349d8414c))
+* exported missing components and hooks ([87c5c85](https://github.com/deriv-com/ui/commit/87c5c85ee7a24d2d1da1062872fe23c1b01445d6))
+
 ## [1.1.1](https://github.com/deriv-com/ui/compare/v1.1.0...v1.1.1) (2024-01-31)
 
 

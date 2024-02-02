@@ -1,5 +1,6 @@
 import React, { ReactElement, useEffect, useState } from 'react';
 import TabTitle, { TabTitleProps } from './TabTitle';
+import { Text } from '../Text';
 import clsx from 'clsx';
 import './Tabs.scss';
 
@@ -10,9 +11,10 @@ type TabsProps = {
     className?: string;
     variant?: 'primary' | 'secondary';
     onChange?: (index: number) => void;
+    TitleFontSize?: React.ComponentProps<typeof Text>['size'];
 };
 
-const Tabs = ({ children, activeTab, wrapperClassName, className, variant = 'primary', onChange }: TabsProps): JSX.Element => {
+const Tabs = ({ children, activeTab, wrapperClassName, className, variant = 'primary', onChange, TitleFontSize }: TabsProps): JSX.Element => {
     const [selectedTab, setSelectedTab] = useState(activeTab || children[0].props.title);
 
     useEffect(() => {
@@ -36,7 +38,7 @@ const Tabs = ({ children, activeTab, wrapperClassName, className, variant = 'pri
                             variant={variant}
                             onChange={()=>onChange?.(index)}
                             className={item.props.className}
-
+                            TitleFontSize={TitleFontSize}
                         />
                     )
                 })}
