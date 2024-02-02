@@ -8,18 +8,7 @@
         flex-direction: column;
     }
 
-    &__left {
-        display: flex;
-        flex-direction: column;
-    }
-
     &__content {
-        display: flex;
-        flex-direction: column;
-    }
-
-    &__right {
-        display: flex;
-        flex-direction: column;
+        flex: 1;
     }
 }

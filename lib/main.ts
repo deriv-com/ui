@@ -2,7 +2,7 @@ export { Button } from "./components/Button";
 export { Dropdown } from "./components/Dropdown";
 export { Input } from "./components/Input";
 export { Loader } from "./components/Loader";
-export { PageLayout } from "./components/Layout";
+export { PageLayout } from "./components/PageLayout";
 export { Tab, Tabs } from "./components/Tabs";
 export { Text } from "./components/Text";
 export { ToggleSwitch } from "./components/ToggleSwitch";

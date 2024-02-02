@@ -27,7 +27,7 @@ const meta = {
     title: "Components/PageLayout",
     component: PageLayout,
     args: {
-        left: (
+        sidebar: (
             <Pane name="Left">
                 <div style={{ fontWeight: "bold" }}>
                     *This pane is hidden in mobile view.
@@ -36,7 +36,6 @@ const meta = {
                 view.
             </Pane>
         ),
-        right: <Pane name="Right">The content on the right.</Pane>,
         children: (
             <Pane name="Content">
                 <div style={{ fontWeight: "bold" }}>
@@ -59,15 +58,10 @@ const meta = {
         ),
     },
     argTypes: {
-        left: {
+        sidebar: {
             control: false,
             description:
                 "JSX element to be rendered on the left of the content as render-prop.",
-        },
-        right: {
-            control: false,
-            description:
-                "JSX element to be rendered on the right of the content as render-prop.",
         },
         children: {
             control: false,
@@ -78,8 +72,8 @@ const meta = {
         layout: "centered",
     },
     tags: ["autodocs"],
-    render: ({ children, left, right }) => (
-        <PageLayout left={left} right={right}>
+    render: ({ children, sidebar }) => (
+        <PageLayout sidebar={sidebar}>
             {children}
         </PageLayout>
     ),
