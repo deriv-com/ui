@@ -1,3 +1,16 @@
+## [1.1.11](https://github.com/deriv-com/ui/compare/v1.1.10...v1.1.11) (2024-02-05)
+
+
+### 🐛 	 Bug Fixes
+
+* fixed breakpoints overlap issue ([88f2c6e](https://github.com/deriv-com/ui/commit/88f2c6e55d2c121641f75a36af5af8c897f13c33))
+
+
+### 📦 	 Code Refactoring
+
+* updated breakpoints in useDevice hook ([4253894](https://github.com/deriv-com/ui/commit/425389446e33a5f6c9424b97d943b42a93a28ac5))
+* updated breakpoints in useDevice hook ([68db4f9](https://github.com/deriv-com/ui/commit/68db4f950efbd121f1af9a90032a6528a5e95551))
+
 ## [1.1.10](https://github.com/deriv-com/ui/compare/v1.1.9...v1.1.10) (2024-02-02)
 
 
