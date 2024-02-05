@@ -1,3 +1,15 @@
+## [1.1.12](https://github.com/deriv-com/ui/compare/v1.1.11...v1.1.12) (2024-02-05)
+
+
+### ♻️ 	 Chores
+
+* update minor input styles ([5ea49ae](https://github.com/deriv-com/ui/commit/5ea49ae5aca69431c93e76c88c64f430a50277ec))
+
+
+### 🐛 	 Bug Fixes
+
+* update minor input styles ([b2dcad8](https://github.com/deriv-com/ui/commit/b2dcad8a8ce635deb7b6f6cf9e59f4b2d6c5247c))
+
 ## [1.1.11](https://github.com/deriv-com/ui/compare/v1.1.10...v1.1.11) (2024-02-05)
 
 
