@@ -8,6 +8,7 @@ const meta = {
   parameters: { layout: "centered" },
   tags: ["autodocs"],
   args: {
+    disabled: false,
     checked: false,
     className: "",
     label: "Get updates about Deriv products, services and events.",
@@ -44,6 +45,11 @@ const meta = {
     label: {
       control: {
         type: "text",
+      },
+    },
+    disabled: {
+      control: {
+        type: "boolean",
       },
     },
   },
