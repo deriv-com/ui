@@ -17,7 +17,7 @@ $error_color: #ec3f3f;
   width: 16px;
   height: 16px;
   border-radius: $border_radius;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease-in-out;
   cursor: pointer;
 
   &:disabled {
