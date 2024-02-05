@@ -1,0 +1,39 @@
+$border_radius: 2px;
+$border: 2px solid;
+$border_color: #999999;
+$brand_color: #ff444f;
+
+.deriv-checkbox__wrapper {
+  display: inline-flex;
+  position: relative;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.deriv-checkbox {
+  width: 16px;
+  height: 16px;
+  border-radius: $border_radius;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+
+  &--unchecked {
+    background: transparent;
+    border: $border $border_color;
+  }
+
+  &--checked {
+    border: none;
+    background-color: $brand_color;
+    background-image: url("./checkbox-icon.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: $border_radius;
+  }
+
+  &__label {
+    flex-grow: 1;
+  }
+}
