@@ -1,3 +1,36 @@
+## [1.1.12](https://github.com/deriv-com/ui/compare/v1.1.11...v1.1.12) (2024-02-05)
+
+
+### ♻️ 	 Chores
+
+* update minor input styles ([5ea49ae](https://github.com/deriv-com/ui/commit/5ea49ae5aca69431c93e76c88c64f430a50277ec))
+
+
+### 🐛 	 Bug Fixes
+
+* update minor input styles ([b2dcad8](https://github.com/deriv-com/ui/commit/b2dcad8a8ce635deb7b6f6cf9e59f4b2d6c5247c))
+
+## [1.1.11](https://github.com/deriv-com/ui/compare/v1.1.10...v1.1.11) (2024-02-05)
+
+
+### 🐛 	 Bug Fixes
+
+* fixed breakpoints overlap issue ([88f2c6e](https://github.com/deriv-com/ui/commit/88f2c6e55d2c121641f75a36af5af8c897f13c33))
+
+
+### 📦 	 Code Refactoring
+
+* updated breakpoints in useDevice hook ([4253894](https://github.com/deriv-com/ui/commit/425389446e33a5f6c9424b97d943b42a93a28ac5))
+* updated breakpoints in useDevice hook ([68db4f9](https://github.com/deriv-com/ui/commit/68db4f950efbd121f1af9a90032a6528a5e95551))
+
+## [1.1.10](https://github.com/deriv-com/ui/compare/v1.1.9...v1.1.10) (2024-02-02)
+
+
+### 🐛 	 Bug Fixes
+
+* added forwardRef to Input component ([5733cb8](https://github.com/deriv-com/ui/commit/5733cb8773a8b4b7e9b3e049e66ecb3f1a2acc95))
+* added forwardRef to Input component ([cc85c54](https://github.com/deriv-com/ui/commit/cc85c54eb07c44d093ac68f23af92aa752aeecc8))
+
 ## [1.1.9](https://github.com/deriv-com/ui/compare/v1.1.8...v1.1.9) (2024-02-02)
 
 
