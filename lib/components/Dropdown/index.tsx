@@ -1,4 +1,4 @@
-import React, { isValidElement, useCallback, useEffect, useState } from 'react';
+import React, { isValidElement,HtmlHTMLAttributes ,useCallback, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { useCombobox } from 'downshift';
 import { TGenericSizes } from "../../types";
@@ -7,7 +7,7 @@ import  {Input } from '../Input/index';
 import './Dropdown.scss';
 
 type InputProps = React.ComponentProps<typeof Input>;
-type TProps = {
+type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
     disabled?: boolean;
     dropdownIcon: React.ReactNode;
     errorMessage?: InputProps['message'];
@@ -20,11 +20,12 @@ type TProps = {
     }[];
     listHeight?: Extract<TGenericSizes, 'lg' | 'md' | 'sm'>;
     name: InputProps['name'];
-    onChange?: (inputValue: string) => void;
+    onInputChange?: (inputValue: string) => void;
     onSelect: (value: string) => void;
     value?: InputProps['value'];
     variant?: 'comboBox' | 'prompt';
 };
+
 
 export const Dropdown = ({
     disabled,
@@ -35,7 +36,7 @@ export const Dropdown = ({
     list,
     listHeight = 'md',
     name,
-    onChange,
+    onInputChange,
     onSelect,
     value,
     variant = 'prompt',
@@ -69,7 +70,7 @@ export const Dropdown = ({
                 return item ? reactNodeToString(item.text) : '';
             },
             onInputValueChange({ inputValue }) {
-                onChange?.(inputValue ?? '');
+                onInputChange?.(inputValue ?? '');
                 if (shouldFilterList) {
                     setItems(
                         list.filter(item =>
