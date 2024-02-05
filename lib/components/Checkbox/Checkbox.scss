@@ -2,6 +2,7 @@ $border_radius: 2px;
 $border: 2px solid;
 $border_color: #999999;
 $brand_color: #ff444f;
+$error_color: #ec3f3f;
 
 .deriv-checkbox__wrapper {
   display: inline-flex;
@@ -35,5 +36,10 @@ $brand_color: #ff444f;
 
   &__label {
     flex-grow: 1;
+    cursor: pointer;
+
+    &--error {
+      color: $error_color;
+    }
   }
 }

@@ -13,6 +13,7 @@ const meta = {
     label: "Get updates about Deriv products, services and events.",
     onChange: () => {},
     wrapperClassName: "",
+    error: false,
   },
   argTypes: {
     wrapperClassName: {
@@ -26,6 +27,11 @@ const meta = {
       },
     },
     checked: {
+      control: {
+        type: "boolean",
+      },
+    },
+    error: {
       control: {
         type: "boolean",
       },

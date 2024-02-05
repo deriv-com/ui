@@ -3,14 +3,16 @@ import clsx from "clsx";
 import "./Checkbox.scss";
 
 interface CheckboxProps extends Omit<ComponentProps<"input">, "placeholder"> {
-  wrapperClassName?: string;
+  error?: boolean;
   label?: ReactNode;
+  wrapperClassName?: string;
 }
 
 export const Checkbox = ({
   checked,
   className,
   defaultChecked,
+  error,
   id = "deriv-checkbox",
   label,
   wrapperClassName,
@@ -32,7 +34,12 @@ export const Checkbox = ({
         {...rest}
       />
       <span className="deriv-checkbox__icon"></span>
-      <label className="deriv-checkbox__label" htmlFor={id}>
+      <label
+        className={clsx("deriv-checkbox__label", {
+          "deriv-checkbox__label--error": error,
+        })}
+        htmlFor={id}
+      >
         {label}
       </label>
     </div>
