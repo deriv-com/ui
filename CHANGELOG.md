@@ -1,3 +1,15 @@
+## [1.2.1](https://github.com/deriv-com/ui/compare/v1.2.0...v1.2.1) (2024-02-06)
+
+
+### ♻️ 	 Chores
+
+* fix password meter position ([939f9b3](https://github.com/deriv-com/ui/commit/939f9b32584b887259be5f1071fc83f7d368dd6f))
+
+
+### 🐛 	 Bug Fixes
+
+* added some props for improvement of the password input ([ac40f8a](https://github.com/deriv-com/ui/commit/ac40f8a419703bc1e655e79a436b3cdb74a79fab))
+
 # [1.2.0](https://github.com/deriv-com/ui/compare/v1.1.12...v1.2.0) (2024-02-06)
 
 
