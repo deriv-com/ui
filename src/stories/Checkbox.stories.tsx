@@ -72,7 +72,7 @@ export const Default: Story = {
       <Checkbox
         {...args}
         checked={checked}
-        onChange={() => setChecked(!checked)}
+        onChange={() => setChecked((previous) => !previous)}
       />
     );
   },

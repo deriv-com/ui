@@ -1,4 +1,4 @@
-import React, { ComponentProps, ReactNode } from "react";
+import { ComponentProps, ReactNode } from "react";
 import clsx from "clsx";
 import "./Checkbox.scss";
 
@@ -35,7 +35,6 @@ export const Checkbox = ({
         type="checkbox"
         {...rest}
       />
-      <span className="deriv-checkbox__icon"></span>
       <label
         className={clsx(
           "deriv-checkbox__label",
