@@ -1,3 +1,24 @@
+# [1.2.0](https://github.com/deriv-com/ui/compare/v1.1.12...v1.2.0) (2024-02-06)
+
+
+### ♻️ 	 Chores
+
+* added storybook for checbox component ([1b97fca](https://github.com/deriv-com/ui/commit/1b97fcaf178d85414a485f9c00459a9df3d0c8cb))
+
+
+### ✨ 	 Features
+
+* added Checkbox component ([8a79474](https://github.com/deriv-com/ui/commit/8a7947440a2d7cf86b0f36005e1e67c03aa28901))
+
+
+### 🐛 	 Bug Fixes
+
+* add improvements to existing checkbox ([9d95989](https://github.com/deriv-com/ui/commit/9d959898b7b4ff883e2fe11a853ced8333327d06))
+* added disabled state ([1b76b21](https://github.com/deriv-com/ui/commit/1b76b21e1ca318dde73dcbc0de89725ed6e1622d))
+* added error props ([3abc9c1](https://github.com/deriv-com/ui/commit/3abc9c128f3859c0a9fefa5492df6ff85b36bd67))
+* added ref inside of checkbox component ([dd3380a](https://github.com/deriv-com/ui/commit/dd3380af0cc4730fcc05632343c55f6698ea9821))
+* updated transitionbackground color to match production ([1249904](https://github.com/deriv-com/ui/commit/12499049afb567b0a84e2369dc3b8c847cfe2e7b))
+
 ## [1.1.12](https://github.com/deriv-com/ui/compare/v1.1.11...v1.1.12) (2024-02-05)
 
 
