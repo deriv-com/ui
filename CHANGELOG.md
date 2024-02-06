@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/deriv-com/ui/compare/v1.2.1...v1.3.0) (2024-02-06)
+
+
+### ✨ 	 Features
+
+* divider component ([48ffe99](https://github.com/deriv-com/ui/commit/48ffe99b66a46e824c02eb7bf5f887328b5eae3f))
+
 ## [1.2.1](https://github.com/deriv-com/ui/compare/v1.2.0...v1.2.1) (2024-02-06)
 
 
