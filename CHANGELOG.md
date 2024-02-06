@@ -1,3 +1,55 @@
+# [1.3.0](https://github.com/deriv-com/ui/compare/v1.2.1...v1.3.0) (2024-02-06)
+
+
+### ✨ 	 Features
+
+* divider component ([48ffe99](https://github.com/deriv-com/ui/commit/48ffe99b66a46e824c02eb7bf5f887328b5eae3f))
+
+## [1.2.1](https://github.com/deriv-com/ui/compare/v1.2.0...v1.2.1) (2024-02-06)
+
+
+### ♻️ 	 Chores
+
+* fix password meter position ([939f9b3](https://github.com/deriv-com/ui/commit/939f9b32584b887259be5f1071fc83f7d368dd6f))
+
+
+### 🐛 	 Bug Fixes
+
+* added some props for improvement of the password input ([ac40f8a](https://github.com/deriv-com/ui/commit/ac40f8a419703bc1e655e79a436b3cdb74a79fab))
+
+# [1.2.0](https://github.com/deriv-com/ui/compare/v1.1.12...v1.2.0) (2024-02-06)
+
+
+### ♻️ 	 Chores
+
+* added storybook for checbox component ([1b97fca](https://github.com/deriv-com/ui/commit/1b97fcaf178d85414a485f9c00459a9df3d0c8cb))
+
+
+### ✨ 	 Features
+
+* added Checkbox component ([8a79474](https://github.com/deriv-com/ui/commit/8a7947440a2d7cf86b0f36005e1e67c03aa28901))
+
+
+### 🐛 	 Bug Fixes
+
+* add improvements to existing checkbox ([9d95989](https://github.com/deriv-com/ui/commit/9d959898b7b4ff883e2fe11a853ced8333327d06))
+* added disabled state ([1b76b21](https://github.com/deriv-com/ui/commit/1b76b21e1ca318dde73dcbc0de89725ed6e1622d))
+* added error props ([3abc9c1](https://github.com/deriv-com/ui/commit/3abc9c128f3859c0a9fefa5492df6ff85b36bd67))
+* added ref inside of checkbox component ([dd3380a](https://github.com/deriv-com/ui/commit/dd3380af0cc4730fcc05632343c55f6698ea9821))
+* updated transitionbackground color to match production ([1249904](https://github.com/deriv-com/ui/commit/12499049afb567b0a84e2369dc3b8c847cfe2e7b))
+
+## [1.1.12](https://github.com/deriv-com/ui/compare/v1.1.11...v1.1.12) (2024-02-05)
+
+
+### ♻️ 	 Chores
+
+* update minor input styles ([5ea49ae](https://github.com/deriv-com/ui/commit/5ea49ae5aca69431c93e76c88c64f430a50277ec))
+
+
+### 🐛 	 Bug Fixes
+
+* update minor input styles ([b2dcad8](https://github.com/deriv-com/ui/commit/b2dcad8a8ce635deb7b6f6cf9e59f4b2d6c5247c))
+
 ## [1.1.11](https://github.com/deriv-com/ui/compare/v1.1.10...v1.1.11) (2024-02-05)
 
 

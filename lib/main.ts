@@ -11,3 +11,4 @@ export { useDevice } from "./hooks/useDevice";
 export { useOnClickOutside } from "./hooks/useOnClickOutside";
 export { PasswordInput } from "./components/PasswordInput";
 export { InlineMessage } from "./components/InlineMessage";
+export { Checkbox } from "./components/Checkbox";

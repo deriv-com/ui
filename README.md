@@ -9,7 +9,7 @@ npm i @deriv-com/ui
 ## Usage
 
 ```
-import { Button } from '@deriv-com/ui/dist/components/Button';
+import { Button } from '@deriv-com/ui';
 
 const MyComponent = () => {
     return (

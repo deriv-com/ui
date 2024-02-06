@@ -16,6 +16,8 @@ interface InputProps extends Omit<ComponentProps<"input">, "placeholder"> {
   error?: boolean;
   variant?: InputVariants;
   message?: ReactNode;
+  wrapperClassName?: string;
+  hideMessage?: boolean;
 }
 
 const InputVariant: Record<InputVariants, string> = {
@@ -34,66 +36,76 @@ const LabelVariant: Record<InputVariants, string> = {
   disabled: "deriv-input__label--disabled",
 };
 
-export const Input = forwardRef(({
-  label,
-  id,
-  error,
-  message,
-  leftPlaceholder,
-  rightPlaceholder,
-  variant = "general",
-  className,
-  disabled,
-  ...rest
-}: InputProps,
-  ref: Ref<HTMLInputElement>) => {
-  return (
-    <div
-      className={clsx(
-        "deriv-input",
-        className,
-        InputVariant[error ? "error" : variant],
-        {
-          "deriv-input--disabled": disabled,
-        }
-      )}
-    >
-      {leftPlaceholder && (
-        <div className="deriv-input__left-content">{leftPlaceholder}</div>
-      )}
-      <input
-        placeholder={label}
-        className="deriv-input__field"
-        id={id}
-        disabled={disabled}
-        ref={ref}
-        {...rest}
-      />
-      <label
-        className={clsx(
-          "deriv-input__label",
-          LabelVariant[error ? "error" : variant],
-          {
-            "deriv-input--label--disabled": disabled,
-          }
-        )}
-        htmlFor={id}
-      >
-        {label}
-      </label>
-      {rightPlaceholder && (
-        <div className="deriv-input__right-content">{rightPlaceholder}</div>
-      )}
-      <div className="deriv-input__helper-message">
-        {message && (
-          <HelperMessage
-            message={message}
-            variant={variant}
-            error={error}
+export const Input = forwardRef(
+  (
+    {
+      className,
+      disabled,
+      error,
+      hideMessage,
+      id,
+      label,
+      leftPlaceholder,
+      message,
+      rightPlaceholder,
+      variant = "general",
+      wrapperClassName,
+      ...rest
+    }: InputProps,
+    ref: Ref<HTMLInputElement>
+  ) => {
+    return (
+      <div className={clsx("deriv-input__container", wrapperClassName)}>
+        <div
+          className={clsx(
+            "deriv-input",
+            className,
+            InputVariant[error ? "error" : variant],
+            {
+              "deriv-input--disabled": disabled,
+            }
+          )}
+        >
+          {leftPlaceholder && (
+            <div className="deriv-input__left-content">{leftPlaceholder}</div>
+          )}
+          <input
+            placeholder={label}
+            className="deriv-input__field"
+            id={id}
             disabled={disabled}
+            ref={ref}
+            {...rest}
           />
+          <label
+            className={clsx(
+              "deriv-input__label",
+              LabelVariant[error ? "error" : variant],
+              {
+                "deriv-input--label--disabled": disabled,
+              }
+            )}
+            htmlFor={id}
+          >
+            {label}
+          </label>
+          {rightPlaceholder && (
+            <div className="deriv-input__right-content">{rightPlaceholder}</div>
+          )}
+        </div>
+        {!hideMessage && (
+          <div className="deriv-input__helper-message">
+            {message && (
+              <HelperMessage
+                message={message}
+                variant={variant}
+                error={error}
+                disabled={disabled}
+              />
+            )}
+          </div>
         )}
       </div>
-    </div>
-  );
-});
+    );
+  }
+);
