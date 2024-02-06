@@ -10,9 +10,9 @@ interface CheckboxProps extends Omit<ComponentProps<"input">, "placeholder"> {
 }
 
 export const Checkbox = ({
-  checked,
+  checked = false,
   className,
-  defaultChecked,
+  disabled,
   error,
   id = "deriv-checkbox",
   label,
@@ -29,6 +29,7 @@ export const Checkbox = ({
           {
             "deriv-checkbox--unchecked": !checked,
             "deriv-checkbox--checked": checked,
+            "deriv-checkbox--disabled": disabled,
           },
           className
         )}
@@ -40,7 +41,7 @@ export const Checkbox = ({
           "deriv-checkbox__label",
           {
             "deriv-checkbox__label--error": error,
-            "deriv-checkbox__label--disabled": rest.disabled,
+            "deriv-checkbox__label--disabled": disabled,
           },
           labelClassName
         )}

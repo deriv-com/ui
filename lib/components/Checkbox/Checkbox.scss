@@ -20,11 +20,6 @@ $error_color: #ec3f3f;
   transition: background-color 0.3s ease-in-out;
   cursor: pointer;
 
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-
   &--unchecked {
     background: transparent;
     border: $border $border_color;
@@ -37,6 +32,11 @@ $error_color: #ec3f3f;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: $border_radius;
+  }
+
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
   &__label {
