@@ -8,6 +8,7 @@ const meta = {
   parameters: { layout: "centered" },
   tags: ["autodocs"],
   args: {
+    hideMessage: false,
     label: "Enter Password",
     value: "",
     onChange: () => {},
@@ -20,12 +21,23 @@ const meta = {
         disable: true,
       },
     },
+    variant: {
+      options: ["general", "success", "warning", "error"],
+      control: {
+        type: "select",
+      },
+    },
     onChange: {
       control: {
         disable: true,
       },
     },
     hidePasswordMeter: {
+      control: {
+        type: "boolean",
+      },
+    },
+    hideMessage: {
       control: {
         type: "boolean",
       },
@@ -43,6 +55,51 @@ export const Default: Story = {
     value: "",
     onChange: () => {},
     hidePasswordMeter: false,
+    hint: "This is a hint message",
+  },
+  render: (args) => {
+    const [value, setValue] = useState("");
+
+    return (
+      <PasswordInput
+        {...args}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+    );
+  },
+};
+
+export const HideMessage: Story = {
+  name: "Password Input with no message",
+  args: {
+    hideMessage: true,
+    label: "Enter Password",
+    value: "",
+    onChange: () => {},
+    hidePasswordMeter: false,
+    hint: "This is a hint message",
+  },
+  render: (args) => {
+    const [value, setValue] = useState("");
+
+    return (
+      <PasswordInput
+        {...args}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+    );
+  },
+};
+
+export const HidePasswordMeter: Story = {
+  name: "Password Input with no password meter",
+  args: {
+    label: "Enter Password",
+    value: "",
+    onChange: () => {},
+    hidePasswordMeter: true,
     hint: "This is a hint message",
   },
   render: (args) => {

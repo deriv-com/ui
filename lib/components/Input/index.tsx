@@ -17,6 +17,7 @@ interface InputProps extends Omit<ComponentProps<"input">, "placeholder"> {
   variant?: InputVariants;
   message?: ReactNode;
   wrapperClassName?: string;
+  hideMessage?: boolean;
 }
 
 const InputVariant: Record<InputVariants, string> = {
@@ -41,6 +42,7 @@ export const Input = forwardRef(
       className,
       disabled,
       error,
+      hideMessage,
       id,
       label,
       leftPlaceholder,
@@ -91,16 +93,18 @@ export const Input = forwardRef(
             <div className="deriv-input__right-content">{rightPlaceholder}</div>
           )}
         </div>
-        <div className="deriv-input__helper-message">
-          {message && (
-            <HelperMessage
-              message={message}
-              variant={variant}
-              error={error}
-              disabled={disabled}
-            />
-          )}
-        </div>
+        {!hideMessage && (
+          <div className="deriv-input__helper-message">
+            {message && (
+              <HelperMessage
+                message={message}
+                variant={variant}
+                error={error}
+                disabled={disabled}
+              />
+            )}
+          </div>
+        )}
       </div>
     );
   }
