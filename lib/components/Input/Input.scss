@@ -9,7 +9,7 @@ $border: 1px solid;
 .deriv-input__container {
   display: inline-block;
   position: relative;
-  width: fit-content;
+  width: min-content;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -122,5 +122,5 @@ $border: 1px solid;
   font-size: 12px;
   line-height: 1;
   margin: 2px 0 0 16px;
-  width: calc(100% - 16px);
+  min-width: 100%;
 }

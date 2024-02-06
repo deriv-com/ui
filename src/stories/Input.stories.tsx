@@ -14,6 +14,7 @@ const meta = {
     message: "This is a helper message",
     error: false,
     disabled: false,
+    hideMessage: false,
   },
   argTypes: {
     leftPlaceholder: {
@@ -43,6 +44,11 @@ const meta = {
       },
     },
     error: {
+      control: {
+        type: "boolean",
+      },
+    },
+    hideMessage: {
       control: {
         type: "boolean",
       },
