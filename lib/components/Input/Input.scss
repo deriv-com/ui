@@ -119,8 +119,7 @@ $border: 1px solid;
 }
 
 .deriv-input__helper-message {
-  font-size: 12px;
-  line-height: 1;
-  margin: 2px 0 0 16px;
-  min-width: 100%;
+  padding: 2px 0 0 16px;
+  height: 20px;
+  width: 100%;
 }
