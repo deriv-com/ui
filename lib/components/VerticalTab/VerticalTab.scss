@@ -1,12 +1,23 @@
 .vertical-tab__wrapper {
-    background: #F2F3F4;
+    // background: #F2F3F4;
     padding: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-radius: 8px;
 }
-
+.shayan {
+    display: flex;
+}
+.vertical-tab__pane {
+    flex: 2;
+}
+.vertical-tab__item-container{
+    background: #f2f3f4;
+    flex: 1;
+    border-radius: 4px;
+    padding: 8px;
+}
 .vertical-tab {
     &__item {
         display: flex;
@@ -14,7 +25,6 @@
         align-items: center;
         cursor: pointer;
         border-radius: 4px;
-        box-sizing: content-box;
 
         &:hover{
             background-color: #e6e9e9;
@@ -23,7 +33,42 @@
         &--active {
             background-color: #fff;
             border-left: 4px solid #ff444f;
+            padding-left: 12px;
 
+            &:hover{
+                background-color: #fff;
+            }
+        }
+    }
+
+    &__icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 16px;
+    }
+
+    &__label {
+        flex:1;
+    }
+}
+
+.collapsible-vertical-tab {
+    &__item {
+        display: flex;
+        padding: 10px 16px;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 4px;
+
+        &:hover{
+            background-color: #e6e9e9;
+        }
+
+        &--open {
+            background-color: #fff;
+            border-left: 4px solid #ff444f;
+            padding-left: 12px;
+            font-weight: bold;
             &:hover{
                 background-color: #fff;
             }
