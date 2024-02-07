@@ -1,10 +1,4 @@
-import React, {
-  CSSProperties,
-  ComponentProps,
-  ReactNode,
-  Ref,
-  forwardRef,
-} from "react";
+import React, { ComponentProps, ReactNode, Ref, forwardRef } from "react";
 import clsx from "clsx";
 import HelperMessage from "./HelperMessage";
 import "./Input.scss";
