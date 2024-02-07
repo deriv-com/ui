@@ -1,6 +1,4 @@
 import React, { memo, useEffect, useState } from 'react';
-import { Text } from '../Text';
-import clsx from 'clsx';
 
 import { VerticalTabItem, type TabItem } from './VerticalTabItem'
 import { CollapsibleVerticalTabItem } from './CollapsibleVerticalTabItem';
