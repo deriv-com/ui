@@ -60,10 +60,6 @@
         cursor: pointer;
         border-radius: 4px;
 
-        &:hover{
-            background-color: #e6e9e9;
-        }
-
         &--open > :nth-child(2) {
             font-weight: bold;
         }
@@ -78,4 +74,8 @@
     &__label {
         flex:1;
     }
+}
+
+.vertical-tab__arrow--open{
+    transform: rotate(180deg);
 }
