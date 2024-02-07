@@ -20,7 +20,7 @@ type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
     }[];
     listHeight?: Extract<TGenericSizes, 'lg' | 'md' | 'sm'>;
     name: InputProps['name'];
-    onInputChange?: (inputValue: string) => void;
+    onSearch?: (inputValue: string) => void;
     onSelect: (value: string) => void;
     value?: InputProps['value'];
     variant?: 'comboBox' | 'prompt';
@@ -36,10 +36,11 @@ export const Dropdown = ({
     list,
     listHeight = 'md',
     name,
-    onInputChange,
+    onSearch,
     onSelect,
     value,
     variant = 'prompt',
+    ...rest
 }:TProps) => {
     const [items, setItems] = useState(list);
     const [shouldFilterList, setShouldFilterList] = useState(false);
@@ -70,7 +71,7 @@ export const Dropdown = ({
                 return item ? reactNodeToString(item.text) : '';
             },
             onInputValueChange({ inputValue }) {
-                onInputChange?.(inputValue ?? '');
+                onSearch?.(inputValue ?? '');
                 if (shouldFilterList) {
                     setItems(
                         list.filter(item =>
@@ -135,6 +136,7 @@ export const Dropdown = ({
                     type='text'
                     value={value}
                     {...getInputProps()}
+                    {...rest}
                 />
             </div>
             <ul className={`deriv-dropdown__items deriv-dropdown__items--${listHeight}`} {...getMenuProps()}>
