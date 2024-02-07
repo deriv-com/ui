@@ -1,10 +1,10 @@
-import React, { HtmlHTMLAttributes, useState } from 'react';
+import React, { HtmlHTMLAttributes} from 'react';
 import clsx from 'clsx';
 import { Text } from "../Text";
 import { TGenericSizes } from '../../types';
 import './TextArea.scss';
 
-type TTextAreaProps = HtmlHTMLAttributes<HTMLTextAreaElement> & {
+type TTextAreaProps = HtmlHTMLAttributes<HTMLTextAreaElement> &{
     hint?: string;
     isInvalid?: boolean;
     label?: string;
@@ -20,13 +20,11 @@ export const TextArea = ({
     isInvalid = false,
     label,
     maxLength,
-    onInputChange,
-    placeholder,
     textSize,
     shouldShowCounter = false,
     value,
+    ...rest
 }: TTextAreaProps) => {
-    const [currentValue, setCurrentValue] = useState(value);
 
     return (
         <div
@@ -35,13 +33,8 @@ export const TextArea = ({
             })}
         >
             <textarea
-                data-has-value={!!currentValue}
-                onChange={event => {
-                    setCurrentValue(event.target.value);
-                    onInputChange?.(event);
-                }}
-                placeholder={placeholder}
-                value={currentValue}
+                value={value}
+                {...rest}
             />
             {label && (
                 <label>
@@ -58,7 +51,7 @@ export const TextArea = ({
                 )}
                 {shouldShowCounter && (
                     <Text color={isInvalid ? 'error' : 'less-prominent'} size={textSize}>
-                        {currentValue?.length || 0}/{maxLength}
+                        {value?.length || 0}/{maxLength}
                     </Text>
                 )}
             </div>
