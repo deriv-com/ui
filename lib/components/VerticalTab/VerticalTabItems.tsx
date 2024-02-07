@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text } from '../Text';
 import clsx from 'clsx';
 
 type VerticalTabItemsProps = {
     activeTab: string;
-    onSelectItem?: (index: number) => void;
+    onSelectItem?: (title: string) => void;
     className?: string;
     iconClassName?: string;
     labelClassName?: string;
     items: {
         icon: React.ReactNode;
         title: string;
-        component: React.ReactNode;
+        component?: React.ReactNode;
         subItems?: {
-            icon: React.ReactNode;
             title: string;
             component: React.ReactNode;
         }[];
@@ -27,14 +26,37 @@ const ArrowDownIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="17" h
 export const VerticalTabItems = ({ items, className, iconClassName, labelClassName, activeTab, onSelectItem }: VerticalTabItemsProps) => {
     const [selectedTab, setSelectedTab] = useState<string>(activeTab);
 
-    const onSelectItemHandler = (index: number) => {
-        setSelectedTab(items[index]?.title);
-        onSelectItem?.(index);
+    const findActiveTab = (title: string) => {
+        let clicked_item = undefined;
+        for (const item of items) {
+            if (item?.subItems) {
+                clicked_item =  item?.subItems.find((subItem) => subItem?.title === title);
+            }else{
+                if (item?.title === title) {
+                    return item?.title;
+                }
+            }
+        }
+
+        return clicked_item?.title;
     }
+
+    const onSelectItemHandler = (title: string) => {
+        console.log("item clicked", title)
+        setSelectedTab(() => findActiveTab(title) ?? activeTab);
+        onSelectItem?.(title);
+    }
+
+    useEffect(() => {
+        if (activeTab) {
+            setSelectedTab(activeTab);
+        }
+    }, [activeTab]);
+
     return (
         <div className='shayan'>
             <div className='vertical-tab__item-container'>
-                {items.map((item, index) => {
+                {items.map((item) => {
                     if (!item?.subItems) {
                         return (
                             <div
@@ -44,7 +66,7 @@ export const VerticalTabItems = ({ items, className, iconClassName, labelClassNa
                                         'vertical-tab__item--active': item?.title === selectedTab
                                     }, className)
                                 }
-                                onClick={() => onSelectItemHandler(index)}
+                                onClick={() => onSelectItemHandler(item?.title)}
                             >
                                 <span className={clsx(`vertical-tab__icon`, iconClassName)}> {item?.icon}</span>
                                 <Text as='span' className={clsx(`vertical-tab__label`, labelClassName)}>{item?.title}</Text>
@@ -54,23 +76,43 @@ export const VerticalTabItems = ({ items, className, iconClassName, labelClassNa
                         return (
                             <div
                                 key={item?.title}
-                                className={
-                                    clsx(`collapsible-vertical-tab__item`, {
-                                        'collapsible-vertical-tab__item--open': item?.subItems.find((subItem) => subItem?.title === selectedTab),
-                                    }, className)
-                                }
-                                onClick={() => onSelectItemHandler(index)}
-                            >
-                                <span className={clsx(`vertical-tab__icon`, iconClassName)}> {item?.icon}</span>
-                                <Text as='span' className={clsx(`vertical-tab__label`, labelClassName)}>{item?.title}</Text>
-                                <ArrowDownIcon />
+                                className={clsx(`collapsible-vertical-tab`)}>
+                                <div className={clsx(`collapsible-vertical-tab__header`, {
+                                    'collapsible-vertical-tab__header--open': item?.subItems.find((subItem) => subItem?.title === selectedTab),
+                                }, className)}>
+                                    <span className={clsx(`vertical-tab__icon`, iconClassName)}> {item?.icon}</span>
+                                    <Text as='span' className={clsx(`vertical-tab__label`, labelClassName)}>{item?.title}</Text>
+                                    <ArrowDownIcon />
+                                </div>
+                                <div className='collapsible-vertical-tab__items'>
+                                    {item?.subItems.map((subItem) => {
+                                        return (
+                                            <div
+                                                key={subItem?.title}
+                                                className={
+                                                    clsx(`vertical-tab__item`, {
+                                                        'vertical-tab__item--active': subItem?.title === selectedTab
+                                                    }, className)
+                                                }
+                                                onClick={() => onSelectItemHandler(subItem?.title)}
+                                            >
+                                                <Text as='span' className={clsx(`vertical-tab__label`, labelClassName)}>{subItem?.title}</Text>
+                                            </div>
+                                        )
+                                    })}
+                                </div>
                             </div>
                         )
                     }
                 })}
             </div>
             <div className='vertical-tab__pane'>
-                {items.find((item) => item?.title === selectedTab)?.component}
+                {items.find((item) => {
+                    if (item?.subItems) {
+                        return item?.subItems.find((subItem) => subItem?.title === selectedTab)
+                    }
+                    return item?.title === selectedTab
+                })?.component}
             </div>
         </div>
     );
