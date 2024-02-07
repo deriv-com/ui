@@ -27,23 +27,24 @@ export const VerticalTabItems = ({ items, className, iconClassName, labelClassNa
     const [selectedTab, setSelectedTab] = useState<string>(activeTab);
 
     const findActiveTab = (title: string) => {
-        let clicked_item = undefined;
         for (const item of items) {
             if (item?.subItems) {
-                clicked_item =  item?.subItems.find((subItem) => subItem?.title === title);
-            }else{
+                const foundItem = item?.subItems.find((subItem) => subItem?.title === title);
+                if (foundItem) {
+                    return foundItem;
+                }
+            } else {
                 if (item?.title === title) {
-                    return item?.title;
+                    return item;
                 }
             }
         }
-
-        return clicked_item?.title;
     }
 
     const onSelectItemHandler = (title: string) => {
-        console.log("item clicked", title)
-        setSelectedTab(() => findActiveTab(title) ?? activeTab);
+        const new_active_tab = findActiveTab(title)?.title;
+        // console.log('new_active_tab:', new_active_tab);
+        setSelectedTab(() => new_active_tab ?? activeTab);
         onSelectItem?.(title);
     }
 
@@ -107,12 +108,7 @@ export const VerticalTabItems = ({ items, className, iconClassName, labelClassNa
                 })}
             </div>
             <div className='vertical-tab__pane'>
-                {items.find((item) => {
-                    if (item?.subItems) {
-                        return item?.subItems.find((subItem) => subItem?.title === selectedTab)
-                    }
-                    return item?.title === selectedTab
-                })?.component}
+                {findActiveTab(selectedTab)?.component}
             </div>
         </div>
     );

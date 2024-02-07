@@ -64,14 +64,8 @@
             background-color: #e6e9e9;
         }
 
-        &--open {
-            background-color: #fff;
-            border-left: 4px solid #ff444f;
-            padding-left: 12px;
+        &--open > :nth-child(2) {
             font-weight: bold;
-            &:hover{
-                background-color: #fff;
-            }
         }
     }
 
