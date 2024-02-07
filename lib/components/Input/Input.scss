@@ -9,17 +9,21 @@ $border: 1px solid;
 .deriv-input__container {
   display: inline-block;
   position: relative;
-  width: min-content;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  width: 328px;
+
+  &--full {
+    width: 100%;
+  }
 }
 
 .deriv-input {
   display: inline-flex;
   position: relative;
   border-radius: 4px;
-  width: 328px;
+  width: 100%;
   text-align: left;
   padding: 10px 16px;
   border: $border;

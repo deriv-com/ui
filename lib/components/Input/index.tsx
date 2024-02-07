@@ -1,4 +1,10 @@
-import React, { ComponentProps, ReactNode, Ref, forwardRef } from "react";
+import React, {
+  CSSProperties,
+  ComponentProps,
+  ReactNode,
+  Ref,
+  forwardRef,
+} from "react";
 import clsx from "clsx";
 import HelperMessage from "./HelperMessage";
 import "./Input.scss";
@@ -18,6 +24,7 @@ interface InputProps extends Omit<ComponentProps<"input">, "placeholder"> {
   message?: ReactNode;
   wrapperClassName?: string;
   hideMessage?: boolean;
+  isFullWidth?: boolean;
 }
 
 const InputVariant: Record<InputVariants, string> = {
@@ -44,6 +51,7 @@ export const Input = forwardRef(
       error,
       hideMessage,
       id,
+      isFullWidth = false,
       label,
       leftPlaceholder,
       message,
@@ -55,7 +63,15 @@ export const Input = forwardRef(
     ref: Ref<HTMLInputElement>
   ) => {
     return (
-      <div className={clsx("deriv-input__container", wrapperClassName)}>
+      <div
+        className={clsx(
+          "deriv-input__container",
+          {
+            "deriv-input__container--full": isFullWidth,
+          },
+          wrapperClassName
+        )}
+      >
         <div
           className={clsx(
             "deriv-input",
