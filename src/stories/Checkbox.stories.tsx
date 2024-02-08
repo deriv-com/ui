@@ -66,12 +66,12 @@ export const Default: Story = {
     label: "Get updates about Deriv products, services and events.",
   },
   render: (args) => {
-    const [checked, setChecked] = useState(false);
+    const [checked, setChecked] = useState(args.checked);
 
     return (
       <Checkbox
         {...args}
-        checked={checked}
+        checked={args.checked || checked}
         onChange={() => setChecked((previous) => !previous)}
       />
     );
