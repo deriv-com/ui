@@ -5,11 +5,10 @@ $error_field: #ec3f3f;
 
 .deriv-helper-message {
   font-size: 12px;
+  line-height: 1;
   font-style: normal;
   font-weight: 400;
-  line-height: 18px;
   color: $inactive_color;
-  width: calc(100% - 16px);
   &--general {
     color: $inactive_color;
   }

@@ -20,6 +20,7 @@ import {
 import { EyeIcon, EyeIconSlash } from "./PasswordIcon";
 import { PasswordMeter } from "./PasswordMeter";
 import "./PasswordInput.scss";
+import clsx from "clsx";
 
 export const validatePassword = (password: string) => {
   const score = calculateScore(password);
@@ -91,7 +92,11 @@ export const PasswordInput = ({
   );
 
   return (
-    <div className="deriv-password">
+    <div
+      className={clsx("deriv-password", {
+        "deriv-password--full": rest.isFullWidth,
+      })}
+    >
       <Input
         value={value}
         type={showPassword ? "text" : "password"}
