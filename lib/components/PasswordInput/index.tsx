@@ -56,11 +56,11 @@ const PasswordVariant: Record<TScore, InputProps["variant"]> = {
 };
 
 export const PasswordInput = ({
-  value,
+  hidePasswordMeter,
+  hint,
   onBlur,
   onChange,
-  hint,
-  hidePasswordMeter,
+  value,
   ...rest
 }: PasswordInputProps) => {
   const [isTouched, setIsTouched] = useState(false);
@@ -98,6 +98,7 @@ export const PasswordInput = ({
       })}
     >
       <Input
+        wrapperClassName="deriv-password__wrapper"
         value={value}
         type={showPassword ? "text" : "password"}
         message={isTouched ? errorMessage : "" || hint}
