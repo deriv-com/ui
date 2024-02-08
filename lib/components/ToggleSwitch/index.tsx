@@ -1,12 +1,13 @@
 import React, { ChangeEvent, forwardRef } from 'react';
 import clsx from "clsx";
+import { Input } from '../Input';
 import './ToggleSwitch.scss';
 
 interface ToggleSwitchProps {
     onChange: (event: ChangeEvent<HTMLInputElement>) => void;
     value: boolean;
-    wrapperClassName?: string;
-    className?: string;
+    wrapperClassName?: React.ComponentProps<typeof Input>['wrapperClassName'];
+    className?: React.ComponentProps<typeof Input>['className'];
     wrapperStyle?: React.CSSProperties;
     style?: React.CSSProperties;
 }
