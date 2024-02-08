@@ -11,6 +11,7 @@ type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
     disabled?: boolean;
     dropdownIcon: React.ReactNode;
     errorMessage?: InputProps['message'];
+    dropdownHeight?:string;
     icon?: React.ReactNode;
     isRequired?: boolean;
     label?: InputProps['label'];
@@ -31,6 +32,7 @@ export const Dropdown = ({
     disabled,
     dropdownIcon,
     errorMessage,
+    dropdownHeight,
     icon = false,
     label,
     list,
@@ -140,21 +142,27 @@ export const Dropdown = ({
                 />
             </div>
             <ul className={`deriv-dropdown__items deriv-dropdown__items--${listHeight}`} {...getMenuProps()}>
-                {isOpen &&
-                    items.map((item, index) => (
-                        <li
-                            className={clsx('deriv-dropdown__item', {
-                                'deriv-dropdown__item--active': value === item.value,
-                            })}
-                            key={item.value}
-                            onClick={() => clearFilter()}
-                            {...getItemProps({ index, item })}
-                        >
-                            <Text size='sm' weight={value === item.value ? 'bold' : 'normal'}>
-                                {item.text}
-                            </Text>
-                        </li>
-                    ))}
+                {isOpen &&(
+                    <div style={{height:dropdownHeight?dropdownHeight:"12.5rem"}}>
+                        {
+                             items.map((item, index) => (
+                                <li
+                                    className={clsx('deriv-dropdown__item', {
+                                        'deriv-dropdown__item--active': value === item.value,
+                                    })}
+                                    key={item.value}
+                                    onClick={() => clearFilter()}
+                                    {...getItemProps({ index, item })}
+                                >
+                                    <Text size='sm' weight={value === item.value ? 'bold' : 'normal'}>
+                                        {item.text}
+                                    </Text>
+                                </li>
+                            ))
+                        }
+                    </div>
+                )
+                   }
             </ul>
         </div>
     );
