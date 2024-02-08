@@ -8,6 +8,7 @@ const meta = {
   parameters: { layout: "centered" },
   tags: ["autodocs"],
   args: {
+    isFullWidth: false,
     label: "Enter Password",
     value: "",
     variant: "general",
