@@ -1,3 +1,32 @@
+# [1.4.0](https://github.com/deriv-com/ui/compare/v1.3.3...v1.4.0) (2024-02-09)
+
+
+### ♻️ 	 Chores
+
+* added onClick logic ([ed778b2](https://github.com/deriv-com/ui/commit/ed778b2d28b2becae4e371da32b44f3bfe5d867e))
+* adding collapsible vertical tab [WIP] ([f01dabf](https://github.com/deriv-com/ui/commit/f01dabf469e5264ff93ab5ca465fd5486c813b56))
+* adding onClick logic for nested items [WIP] ([d2c37c3](https://github.com/deriv-com/ui/commit/d2c37c360e0d0b02d2616e1fd655bcd78a8d75e8))
+* cleanedup the code ([bba460a](https://github.com/deriv-com/ui/commit/bba460ab4e98927568f2ff3d93fb05a01cf6707a))
+* improved some styling issues ([a2d479c](https://github.com/deriv-com/ui/commit/a2d479c696a3a939eaeef6491ce6b3b6948d151a))
+* made the right panel optional ([8d33af7](https://github.com/deriv-com/ui/commit/8d33af7e7da61b924f111d3c86b7e96c49dbba1a))
+* removed unused classnames ([49d57a7](https://github.com/deriv-com/ui/commit/49d57a7b7aee578d9367d459e418aaf8e053e0b4))
+* resolved pr comments ([58f0039](https://github.com/deriv-com/ui/commit/58f0039abea0191518cbbe25935460995b6c1e78))
+
+
+### ⚙️ 	 Continuous Integrations
+
+* fixed build error ([44b419d](https://github.com/deriv-com/ui/commit/44b419dbe72ff4c8b01160d3722a2ac1e9776bcc))
+
+
+### ✨ 	 Features
+
+* Added VerticalTab [WIP] ([2ca2011](https://github.com/deriv-com/ui/commit/2ca2011a8d3f955d84d9401cf305e9f4494032c8))
+
+
+### 🐛 	 Bug Fixes
+
+* fixed minor bugs ([20e41b7](https://github.com/deriv-com/ui/commit/20e41b78ea68f3e0d14e503328227bd00b53c7c0))
+
 ## [1.3.3](https://github.com/deriv-com/ui/compare/v1.3.2...v1.3.3) (2024-02-09)
 
 
