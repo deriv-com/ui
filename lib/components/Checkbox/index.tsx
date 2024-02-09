@@ -2,7 +2,8 @@ import { ComponentProps, ReactNode, Ref, forwardRef } from "react";
 import clsx from "clsx";
 import "./Checkbox.scss";
 
-interface CheckboxProps extends Omit<ComponentProps<"input">, "placeholder"> {
+interface CheckboxProps
+  extends Omit<ComponentProps<"input">, "placeholder" | "defaultChecked"> {
   error?: boolean;
   label?: ReactNode;
   labelClassName?: string;
@@ -38,6 +39,8 @@ export const Checkbox = forwardRef(
             className
           )}
           type="checkbox"
+          checked={!disabled && checked}
+          disabled={disabled}
           ref={ref}
           {...rest}
         />
