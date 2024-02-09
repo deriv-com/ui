@@ -10,7 +10,6 @@ type CollapsibleVerticalTabItemProps = {
     selectedTab: string;
     className?: string;
     iconClassName?: string;
-    labelClassName?: string;
 }
 
 
@@ -26,12 +25,12 @@ export const CollapsibleVerticalTabItem = ({
     selectedTab,
     className,
     iconClassName,
-    labelClassName
 }: CollapsibleVerticalTabItemProps) => {
-    const [open, setOpen] = useState(false);
+    const selectedSubItemSelected = item?.subItems?.find((subItem) => subItem?.title === selectedTab)
+    const [open, setOpen] = useState(selectedSubItemSelected ? true : false);
 
     const onClickHandler = () => {
-        const shouldCollapse = !item?.subItems?.find((subItem) => subItem?.title === selectedTab);
+        const shouldCollapse = !selectedSubItemSelected;
         if (shouldCollapse)
             setOpen(!open);
     }
@@ -40,18 +39,18 @@ export const CollapsibleVerticalTabItem = ({
             key={item.title}
             className={clsx(`collapsible-vertical-tab`)}>
             <div className={clsx(`collapsible-vertical-tab__header`, {
-                'collapsible-vertical-tab__header--open': item?.subItems?.find((subItem) => subItem?.title === selectedTab),
-            }, className)}
+                'collapsible-vertical-tab__header--open': selectedSubItemSelected,
+            })}
                 onClick={() => onClickHandler()}
             >
                 <span className={clsx(`vertical-tab__icon`, iconClassName)}> {item?.icon}</span>
-                <Text as='span' className={clsx(`vertical-tab__label`, labelClassName)}>{item?.title}</Text>
+                <Text className='vertical-tab__label'>{item?.title}</Text>
                 <ArrowIcon is_open={open} />
             </div>
             {open && <div className='collapsible-vertical-tab__items'>
                 {item?.subItems?.map((subItem) => {
                     return (
-                        <VerticalTabItem selectedTab={selectedTab} key={subItem?.title} tab={subItem} onClick={() => onSelectItemHandler(subItem?.title)} />
+                        <VerticalTabItem className={className} selectedTab={selectedTab} key={subItem?.title} tab={subItem} onClick={() => onSelectItemHandler(subItem?.title)} />
                     )
                 })}
             </div>}

@@ -5,12 +5,14 @@ import { Text } from '../Text';
 
 export type TabItem = {
     icon?: React.ReactNode;
-    title: string;
-    component?: React.ReactNode;
+    is_disabled?: boolean;
+    panel?: React.ReactNode;
     subItems?: {
+        is_disabled?: boolean;
+        panel: React.ReactNode;
         title: string;
-        component: React.ReactNode;
     }[];
+    title: string;
 }
 
 type VerticalTabItemProps = {
@@ -18,22 +20,21 @@ type VerticalTabItemProps = {
     onClick: (title: string) => void;
     className?: string;
     selectedTab: string;
-    iconClassName?: string;
-    labelClassName?: string;
 }
 
-export const VerticalTabItem = ({ tab, onClick, className, selectedTab, iconClassName,labelClassName }: VerticalTabItemProps) => {
+export const VerticalTabItem = ({ tab, onClick, className, selectedTab }: VerticalTabItemProps) => {
     return (
         <div
             className={
                 clsx(`vertical-tab__item`, {
-                    'vertical-tab__item--active': tab?.title === selectedTab
+                    'vertical-tab__item--active': tab.title === selectedTab,
+                    'vertical-tab__item--disabled': tab.is_disabled
                 }, className)
             }
-            onClick={() => onClick(tab?.title)}
+            onClick={() => !tab.is_disabled && onClick(tab.title)}
         >
-            <span className={clsx(`vertical-tab__icon`, iconClassName)}> {tab?.icon}</span>
-            <Text as='span' className={clsx(`vertical-tab__label`, labelClassName)}>{tab?.title}</Text>
+            <span className='vertical-tab__icon'> {tab?.icon}</span>
+            <Text as='span' className='vertical-tab__label'>{tab.title}</Text>
         </div>
     )
 }

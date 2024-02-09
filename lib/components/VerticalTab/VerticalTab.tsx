@@ -1,11 +1,9 @@
-// Code:
 import React, { memo } from 'react';
 import clsx from 'clsx';
 import './VerticalTab.scss';
 
 type VerticalTabProps = {
     className?: string;
-    style?: React.CSSProperties;
 }
 
 export const VerticalTab = memo(({
@@ -18,5 +16,3 @@ export const VerticalTab = memo(({
         </div>
     );
 })
-
-VerticalTab.displayName = 'VerticalTab';

@@ -2,7 +2,7 @@
     padding: 8px;
     display: flex;
     justify-content: center;
-    border-radius: 8px;
+    gap:25px;
     @include mobile {
         flex-direction: column;;
     }
@@ -34,6 +34,17 @@
 
             &:hover{
                 background-color: #fff;
+            }
+        }
+
+        &--disabled {
+            & > span{
+                color: #999999;
+            }
+
+            &:hover{
+                cursor: unset;
+                background-color: inherit;
             }
         }
     }
@@ -79,4 +90,18 @@
     &__label {
         flex:1;
     }
+}
+
+
+.test-1{
+    background-color: purple;
+}
+.test-2{
+    background-color: forestgreen;
+}
+.test-3{
+    background-color: hotpink;
+}
+.test-item{
+    background-color: yellow;
 }
