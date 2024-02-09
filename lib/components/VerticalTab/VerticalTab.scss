@@ -1,24 +1,21 @@
 .vertical-tab__wrapper {
-    // background: #F2F3F4;
     padding: 8px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     border-radius: 8px;
+    @include mobile {
+        flex-direction: column;;
+    }
 }
-.shayan {
-    display: flex;
-}
-.vertical-tab__pane {
-    flex: 2;
-}
-.vertical-tab__item-container{
-    background: #f2f3f4;
-    flex: 1;
-    border-radius: 4px;
-    padding: 8px;
-}
+
 .vertical-tab {
+    &__items-container{
+        background: #f2f3f4;
+        flex: 1;
+        border-radius: 4px;
+        padding: 8px;
+    }
+
     &__item {
         display: flex;
         padding: 10px 16px;
@@ -50,6 +47,14 @@
     &__label {
         flex:1;
     }
+
+    &__pane {
+        flex: 2;
+    }
+
+    &__arrow--open{
+        transform: rotate(180deg);
+    }
 }
 
 .collapsible-vertical-tab {
@@ -74,8 +79,4 @@
     &__label {
         flex:1;
     }
-}
-
-.vertical-tab__arrow--open{
-    transform: rotate(180deg);
 }
