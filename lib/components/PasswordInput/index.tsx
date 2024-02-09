@@ -20,6 +20,7 @@ import {
 import { EyeIcon, EyeIconSlash } from "./PasswordIcon";
 import { PasswordMeter } from "./PasswordMeter";
 import "./PasswordInput.scss";
+import clsx from "clsx";
 
 export const validatePassword = (password: string) => {
   const score = calculateScore(password);
@@ -55,11 +56,11 @@ const PasswordVariant: Record<TScore, InputProps["variant"]> = {
 };
 
 export const PasswordInput = ({
-  value,
+  hidePasswordMeter,
+  hint,
   onBlur,
   onChange,
-  hint,
-  hidePasswordMeter,
+  value,
   ...rest
 }: PasswordInputProps) => {
   const [isTouched, setIsTouched] = useState(false);
@@ -91,8 +92,13 @@ export const PasswordInput = ({
   );
 
   return (
-    <div className="deriv-password">
+    <div
+      className={clsx("deriv-password", {
+        "deriv-password--full": rest.isFullWidth,
+      })}
+    >
       <Input
+        wrapperClassName="deriv-password__wrapper"
         value={value}
         type={showPassword ? "text" : "password"}
         message={isTouched ? errorMessage : "" || hint}

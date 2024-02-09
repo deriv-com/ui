@@ -8,6 +8,7 @@ const meta = {
   parameters: { layout: "centered" },
   tags: ["autodocs"],
   args: {
+    isFullWidth: false,
     hideMessage: false,
     label: "Enter Password",
     value: "",
@@ -103,7 +104,7 @@ export const HidePasswordMeter: Story = {
     hint: "This is a hint message",
   },
   render: (args) => {
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState(args.value);
 
     return (
       <PasswordInput

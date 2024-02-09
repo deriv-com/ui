@@ -1,3 +1,38 @@
+## [1.3.3](https://github.com/deriv-com/ui/compare/v1.3.2...v1.3.3) (2024-02-09)
+
+
+### 🐛 	 Bug Fixes
+
+* updated z index for password input component ([969e3e5](https://github.com/deriv-com/ui/commit/969e3e5982b56f9267b00560572364552620cf88))
+
+## [1.3.2](https://github.com/deriv-com/ui/compare/v1.3.1...v1.3.2) (2024-02-09)
+
+
+### ♻️ 	 Chores
+
+* Exported Divider component ([7f6cca0](https://github.com/deriv-com/ui/commit/7f6cca054711055fc06310871e68f00ebeef7781))
+
+
+### 🐛 	 Bug Fixes
+
+* improve checkbox component ([c193b31](https://github.com/deriv-com/ui/commit/c193b313274e6885b7cb723f2013f11a7c99ef4a))
+* Improve the usability for Checkbox component ([4730346](https://github.com/deriv-com/ui/commit/4730346fab67e323d4e273122ddea9161ff3dda2))
+* update storybook based on changes made ([768dfa2](https://github.com/deriv-com/ui/commit/768dfa2c66ea1a0b6799f3e87ce5458b77b4c7d9))
+
+## [1.3.1](https://github.com/deriv-com/ui/compare/v1.3.0...v1.3.1) (2024-02-07)
+
+
+### ♻️ 	 Chores
+
+* udpated storybook ([4bc1ffe](https://github.com/deriv-com/ui/commit/4bc1ffe7f95677484dd8571978f8f770c8e5bd99))
+
+
+### 🐛 	 Bug Fixes
+
+* added fixed height to helper message placeholder ([8d47f5f](https://github.com/deriv-com/ui/commit/8d47f5f6992ba323c8c67259f2ea62a8c79cddc0))
+* added isFullWidth prop inside of input component ([80c06d5](https://github.com/deriv-com/ui/commit/80c06d504e4292ecd467ec678570e5d9f1fffdc6))
+* remove text transform ([b9cea1d](https://github.com/deriv-com/ui/commit/b9cea1d772730de02303e69acbd0d46755cb6c8e))
+
 # [1.3.0](https://github.com/deriv-com/ui/compare/v1.2.1...v1.3.0) (2024-02-06)
 
 
