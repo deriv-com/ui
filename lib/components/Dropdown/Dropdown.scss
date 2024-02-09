@@ -107,7 +107,9 @@
         & > :last-child {
             border-radius: 0 0 0.4rem 0.4rem;
         }
-
+        &--xs {
+            max-height: 12.5rem;
+        }
         &--sm {
             max-height: 22rem;
         }

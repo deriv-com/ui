@@ -1,9 +1,9 @@
-import React, { isValidElement,HtmlHTMLAttributes ,useCallback, useEffect, useState } from 'react';
+import React, { isValidElement, HtmlHTMLAttributes, useCallback, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { useCombobox } from 'downshift';
 import { TGenericSizes } from "../../types";
 import { Text } from '../Text';
-import  {Input } from '../Input/index';
+import { Input } from '../Input/index';
 import './Dropdown.scss';
 
 type InputProps = React.ComponentProps<typeof Input>;
@@ -11,7 +11,6 @@ type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
     disabled?: boolean;
     dropdownIcon: React.ReactNode;
     errorMessage?: InputProps['message'];
-    dropdownHeight?:string;
     icon?: React.ReactNode;
     isRequired?: boolean;
     label?: InputProps['label'];
@@ -19,7 +18,7 @@ type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
         text?: React.ReactNode;
         value?: string;
     }[];
-    listHeight?: Extract<TGenericSizes, 'lg' | 'md' | 'sm'>;
+    listHeight?: Extract<TGenericSizes, 'lg' | 'md' | 'sm' | 'xs'>;
     name: InputProps['name'];
     onSearch?: (inputValue: string) => void;
     onSelect: (value: string) => void;
@@ -29,21 +28,21 @@ type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
 
 
 export const Dropdown = ({
+    className,
     disabled,
     dropdownIcon,
     errorMessage,
-    dropdownHeight,
     icon = false,
     label,
     list,
-    listHeight = 'md',
+    listHeight = 'xs',
     name,
     onSearch,
     onSelect,
     value,
     variant = 'prompt',
     ...rest
-}:TProps) => {
+}: TProps) => {
     const [items, setItems] = useState(list);
     const [shouldFilterList, setShouldFilterList] = useState(false);
     const clearFilter = useCallback(() => {
@@ -105,6 +104,18 @@ export const Dropdown = ({
         }
     }, [closeMenu, isOpen, openMenu, variant]);
 
+    const DropdownButton = () => {
+        return (
+            <button
+                className={clsx('deriv-dropdown__button', {
+                    'deriv-dropdown__button--active': isOpen,
+                })}
+            >
+                {dropdownIcon}
+            </button>
+        );
+    };
+
     useEffect(() => {
         setItems(list);
     }, [list]);
@@ -118,6 +129,7 @@ export const Dropdown = ({
         >
             <div className='deriv-dropdown__content'>
                 <Input
+                    className={className}
                     disabled={disabled}
                     message={errorMessage}
                     label={reactNodeToString(label)}
@@ -125,16 +137,8 @@ export const Dropdown = ({
                     onClickCapture={handleInputClick}
                     onKeyUp={() => setShouldFilterList(true)}
                     readOnly={variant !== 'comboBox'}
-                    leftPlaceholder={icon ?  icon : undefined}
-                    rightPlaceholder={ (
-                        <button
-                            className={clsx('deriv-dropdown__button', {
-                                'deriv-dropdown__button--active': isOpen,
-                            })}
-                        >
-                            {dropdownIcon}
-                        </button>
-                    )}
+                    leftPlaceholder={icon ? icon : undefined}
+                    rightPlaceholder={<DropdownButton/>}
                     type='text'
                     value={value}
                     {...getInputProps()}
@@ -142,27 +146,23 @@ export const Dropdown = ({
                 />
             </div>
             <ul className={`deriv-dropdown__items deriv-dropdown__items--${listHeight}`} {...getMenuProps()}>
-                {isOpen &&(
-                    <div style={{height:dropdownHeight?dropdownHeight:"12.5rem"}}>
-                        {
-                             items.map((item, index) => (
-                                <li
-                                    className={clsx('deriv-dropdown__item', {
-                                        'deriv-dropdown__item--active': value === item.value,
-                                    })}
-                                    key={item.value}
-                                    onClick={() => clearFilter()}
-                                    {...getItemProps({ index, item })}
-                                >
-                                    <Text size='sm' weight={value === item.value ? 'bold' : 'normal'}>
-                                        {item.text}
-                                    </Text>
-                                </li>
-                            ))
-                        }
-                    </div>
+                {isOpen && (
+                    items.map((item, index) => (
+                        <li
+                            className={clsx('deriv-dropdown__item', {
+                                'deriv-dropdown__item--active': value === item.value,
+                            })}
+                            key={item.value}
+                            onClick={() => clearFilter()}
+                            {...getItemProps({ index, item })}
+                        >
+                            <Text size='sm' weight={value === item.value ? 'bold' : 'normal'}>
+                                {item.text}
+                            </Text>
+                        </li>
+                    ))
                 )
-                   }
+                }
             </ul>
         </div>
     );
