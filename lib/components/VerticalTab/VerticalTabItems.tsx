@@ -36,12 +36,10 @@ type VerticalTabItemsProps = {
  *      subItems: [
  *          {
  *              title: 'Item 2.1',
- *              icon: Icon,
  *              panel: <div>Item 2.1 pane</div>
  *          },
 *           {
  *              title: 'Item 2.2',
- *              icon: Icon,
  *              is_disabled: true,
  *              panel: <div>Item 2.2 pane</div>
  *          },
@@ -81,12 +79,12 @@ export const VerticalTabItems = memo(({
     const findActiveTab = (title: string) => {
         for (const item of items) {
             if (item?.subItems) {
-                const foundItem = item?.subItems.find((subItem) => subItem?.title === title);
+                const foundItem = item?.subItems.find((subItem) => subItem.title === title);
                 if (foundItem) {
                     return foundItem;
                 }
             } else {
-                if (item?.title === title) {
+                if (item.title === title) {
                     return item;
                 }
             }
@@ -106,12 +104,12 @@ export const VerticalTabItems = memo(({
                 {items.map((item) => {
                     if (!item?.subItems) {
                         return (
-                            <VerticalTabItem className={itemClassName} key={item?.title} selectedTab={selectedTab} tab={item} onClick={() => onSelectItemHandler(item?.title)} />
+                            <VerticalTabItem className={itemClassName} key={item.title} selectedTab={selectedTab} tab={item} onClick={() => onSelectItemHandler(item.title)} />
                         )
                     } else {
                         return (
                             <CollapsibleVerticalTabItem
-                                key={item?.title}
+                                key={item.title}
                                 item={item}
                                 selectedTab={selectedTab}
                                 onSelectItemHandler={onSelectItemHandler}
@@ -121,7 +119,7 @@ export const VerticalTabItems = memo(({
                     }
                 })}
             </div>
-            <div className={clsx('vertical-tab__pane', panelClassName)}>
+            <div className={clsx('vertical-tab__panel', panelClassName)}>
                 {findActiveTab(selectedTab)?.panel}
             </div>
         </>

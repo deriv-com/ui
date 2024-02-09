@@ -11,7 +11,7 @@ export const VerticalTab = memo(({
     children
 }: React.PropsWithChildren<VerticalTabProps>) => {
     return (
-        <div className={clsx(`vertical-tab__wrapper`, className)}>
+        <div className={clsx('vertical-tab__wrapper', className)}>
             {children}
         </div>
     );

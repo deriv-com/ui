@@ -26,14 +26,16 @@ export const VerticalTabItem = ({ tab, onClick, className, selectedTab }: Vertic
     return (
         <div
             className={
-                clsx(`vertical-tab__item`, {
+                clsx('vertical-tab__item', {
                     'vertical-tab__item--active': tab.title === selectedTab,
                     'vertical-tab__item--disabled': tab.is_disabled
                 }, className)
             }
             onClick={() => !tab.is_disabled && onClick(tab.title)}
         >
-            <span className='vertical-tab__icon'> {tab?.icon}</span>
+            {tab?.icon && (
+                <span className='vertical-tab__icon'> {tab?.icon}</span>
+            )}
             <Text as='span' className='vertical-tab__label'>{tab.title}</Text>
         </div>
     )
