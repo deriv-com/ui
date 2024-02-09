@@ -10,6 +10,7 @@ type VerticalTabItemsProps = {
     panelClassName?: string;
     itemClassName?: string;
     items: TabItem[];
+    should_have_panel?: boolean;
 }
 
 /**
@@ -20,6 +21,7 @@ type VerticalTabItemsProps = {
  * @param {string} itemClassName - it applies the classname to the each items whether it's sub-item or single item
  * @param {string} activeTab - indicates the active tab. you can pass the title of the tab
  * @param {Function} onSelectItem - callback to handle selecting each tab item
+ * @param {boolean} should_have_panel - indicates whether the panel should be displayed or not
  * @returns {React.JSX.Element} - returns the vertical tab component
  *
  * @example
@@ -68,6 +70,7 @@ export const VerticalTabItems = memo(({
     wrapperClassName,
     itemClassName,
     activeTab,
+    should_have_panel = true,
     onSelectItem }: VerticalTabItemsProps) => {
     const [selectedTab, setSelectedTab] = useState<string>(activeTab);
     useEffect(() => {
@@ -119,9 +122,10 @@ export const VerticalTabItems = memo(({
                     }
                 })}
             </div>
-            <div className={clsx('vertical-tab__panel', panelClassName)}>
+            {should_have_panel && <div className={clsx('vertical-tab__panel', panelClassName)}>
                 {findActiveTab(selectedTab)?.panel}
-            </div>
+            </div>}
         </>
     );
 })
+
