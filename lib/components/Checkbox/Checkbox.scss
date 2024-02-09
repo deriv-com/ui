@@ -7,10 +7,9 @@ $error_color: #ec3f3f;
 .deriv-checkbox__wrapper {
   display: inline-flex;
   position: relative;
-  width: fit-content;
   align-items: center;
-  justify-content: center;
   gap: 8px;
+  width: 100%;
 }
 
 .deriv-checkbox {
@@ -18,7 +17,7 @@ $error_color: #ec3f3f;
   height: 16px;
   border-radius: $border_radius;
   transition: background-color 0.3s ease-in-out;
-  cursor: pointer;
+  box-sizing: border-box;
 
   &--unchecked {
     background: transparent;
@@ -36,7 +35,6 @@ $error_color: #ec3f3f;
 
   &--disabled {
     opacity: 0.5;
-    cursor: not-allowed;
   }
 
   &__label {
@@ -46,12 +44,20 @@ $error_color: #ec3f3f;
     line-height: 20px;
     font-weight: 400;
 
-    &--disabled {
-      cursor: text;
-    }
-
     &--error {
       color: $error_color;
     }
   }
+}
+
+.deriv-checkbox:not(:disabled),
+.deriv-checkbox:not(:disabled) + .deriv-checkbox__wrapper,
+.deriv-checkbox:not(:disabled) ~ .deriv-checkbox__label {
+  cursor: pointer;
+}
+
+.deriv-checkbox:disabled,
+.deriv-checkbox:disabled + .deriv-checkbox__wrapper,
+.deriv-checkbox--disabled ~ .deriv-checkbox__label {
+  cursor: not-allowed;
 }
