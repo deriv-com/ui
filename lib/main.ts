@@ -13,3 +13,4 @@ export { ToggleSwitch } from "./components/ToggleSwitch";
 export { Tooltip } from "./components/Tooltip";
 export { useDevice } from "./hooks/useDevice";
 export { useOnClickOutside } from "./hooks/useOnClickOutside";
+export { VerticalTab, VerticalTabItems } from "./components/VerticalTab";
