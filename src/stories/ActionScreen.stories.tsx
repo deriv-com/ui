@@ -8,9 +8,6 @@ const meta = {
     component: ActionScreen,
     args: {
         actionButtons: <Button>CTA Button</Button>,
-        children: (
-            <div>This is a child passed to the ActionScreen component</div>
-        ),
         description:
             "This is the ActionScreen component from the deriv-com/ui library.",
         descriptionSize: "md",
@@ -37,10 +34,6 @@ const meta = {
         title: "Welcome to Deriv's UI Library",
     },
     argTypes: {
-        children: {
-            control: false,
-            description: "Children can be passed to this component.",
-        },
         description: {
             control: false,
             description: "Contains the description to be shown.",

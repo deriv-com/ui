@@ -1,15 +1,9 @@
-import React, {
-    ComponentProps,
-    isValidElement,
-    PropsWithChildren,
-    ReactNode,
-} from "react";
+import React, { ComponentProps, isValidElement, ReactNode } from "react";
 import { Text } from "../Text";
 import "./ActionScreen.scss";
 
 type TProps = {
     actionButtons?: JSX.Element;
-    children?: ReactNode;
     description?: ReactNode;
     descriptionSize?: ComponentProps<typeof Text>["size"];
     icon?: ReactNode;
@@ -25,9 +19,8 @@ type TProps = {
  * @param {TProps.title} title Title content to be displayed.
  * @param {TProps.titleSize} titleSize Font-size of the title.
  */
-export const ActionScreen: React.FC<PropsWithChildren<TProps>> = ({
+export const ActionScreen: React.FC<TProps> = ({
     actionButtons,
-    children,
     description,
     descriptionSize = "md",
     icon,
@@ -52,7 +45,6 @@ export const ActionScreen: React.FC<PropsWithChildren<TProps>> = ({
                 )}
             </div>
             {actionButtons}
-            {children}
         </div>
     );
 };
