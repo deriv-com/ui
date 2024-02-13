@@ -1,3 +1,17 @@
+# [1.5.0](https://github.com/deriv-com/ui/compare/v1.4.1...v1.5.0) (2024-02-13)
+
+
+### ♻️ 	 Chores
+
+* :scroll: added storybook for ActionScreen ([ec8d433](https://github.com/deriv-com/ui/commit/ec8d433acbee0de5ea593541e530b72b2994a192))
+* removed children from ActionScreen ([546c24f](https://github.com/deriv-com/ui/commit/546c24f0ba932be9e78b78338745bb276b84aa68))
+* renamed and changed type for renderButton prop ([0d6f4a8](https://github.com/deriv-com/ui/commit/0d6f4a80fc389062f82d404f0fe7b5eb3af13435))
+
+
+### ✨ 	 Features
+
+* :sparkles: created ActionScreen component ([862b36f](https://github.com/deriv-com/ui/commit/862b36f8b7a25d4c913d60350b49ea7ac653e430))
+
 ## [1.4.1](https://github.com/deriv-com/ui/compare/v1.4.0...v1.4.1) (2024-02-13)
 
 
