@@ -1,3 +1,12 @@
+## [1.5.2](https://github.com/deriv-com/ui/compare/v1.5.1...v1.5.2) (2024-02-13)
+
+
+### 🐛 	 Bug Fixes
+
+* added id to vertical-tab props ([c648830](https://github.com/deriv-com/ui/commit/c648830be6938b991c4b56fa513d75d6a14f6616))
+* added id to vertical-tab props to resolve the issues with translations ([0c7cdb0](https://github.com/deriv-com/ui/commit/0c7cdb0615d701122aa92dfdd392ee3b84d4fe58))
+* changed tab items font size to 14px ([89b57ad](https://github.com/deriv-com/ui/commit/89b57ad398704c1ca6d335e1bfe5558544d893d2))
+
 ## [1.5.1](https://github.com/deriv-com/ui/compare/v1.5.0...v1.5.1) (2024-02-13)
 
 
