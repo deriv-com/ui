@@ -44,7 +44,7 @@ export const CollapsibleVerticalTabItem = ({
                 onClick={() => onClickHandler()}
             >
                 <span className={clsx('vertical-tab__icon', iconClassName)}> {item?.icon}</span>
-                <Text className='vertical-tab__label'>{item.id}</Text>
+                <Text size='sm' className='vertical-tab__label'>{item.id}</Text>
                 <ArrowIcon is_open={open} />
             </div>
             {open && <div className='collapsible-vertical-tab__items'>

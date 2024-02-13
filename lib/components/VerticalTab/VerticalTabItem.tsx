@@ -40,7 +40,7 @@ export const VerticalTabItem = ({ tab, onClick, className, selectedTab }: Vertic
             {tab?.icon && (
                 <span className='vertical-tab__icon'> {tab?.icon}</span>
             )}
-            <Text as='span' className='vertical-tab__label'>{tab.title}</Text>
+            <Text size='sm' as='span' className='vertical-tab__label'>{tab.title}</Text>
         </div>
     )
 }
