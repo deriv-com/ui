@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/deriv-com/ui/compare/v1.5.2...v1.5.3) (2024-02-13)
+
+
+### ♻️ 	 Chores
+
+* export ActionScreen ([a320615](https://github.com/deriv-com/ui/commit/a320615b4bcba11184c0ab196c16849bbf7866d4))
+
 ## [1.5.2](https://github.com/deriv-com/ui/compare/v1.5.1...v1.5.2) (2024-02-13)
 
 
