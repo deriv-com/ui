@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/deriv-com/ui/compare/v1.4.0...v1.4.1) (2024-02-13)
+
+
+### ♻️ 	 Chores
+
+* remove the top-padding and gap between the sections ([b3320e4](https://github.com/deriv-com/ui/commit/b3320e4640fc34ddd3d05acde4388b7c8b6cde67))
+
 # [1.4.0](https://github.com/deriv-com/ui/compare/v1.3.3...v1.4.0) (2024-02-09)
 
 
