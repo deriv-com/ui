@@ -1,3 +1,11 @@
+## [1.5.1](https://github.com/deriv-com/ui/compare/v1.5.0...v1.5.1) (2024-02-13)
+
+
+### 📦 	 Code Refactoring
+
+* changed classname type from input props ([455488a](https://github.com/deriv-com/ui/commit/455488ae257b8b64c3a50c33420764336ea213a7))
+* removed use state in text area ([f24f732](https://github.com/deriv-com/ui/commit/f24f732b1d7a0e5b6e272d0215e7007fad4e1217))
+
 # [1.5.0](https://github.com/deriv-com/ui/compare/v1.4.1...v1.5.0) (2024-02-13)
 
 
