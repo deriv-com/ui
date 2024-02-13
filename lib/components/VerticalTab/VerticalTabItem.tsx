@@ -3,16 +3,20 @@ import clsx from 'clsx';
 
 import { Text } from '../Text';
 
+type Title = string | React.JSX.Element;
+
 export type TabItem = {
+    id: string;
     icon?: React.ReactNode;
     is_disabled?: boolean;
     panel?: React.ReactNode;
     subItems?: {
+        id: string;
         is_disabled?: boolean;
         panel: React.ReactNode;
-        title: string;
+        title: Title;
     }[];
-    title: string;
+    title: Title;
 }
 
 type VerticalTabItemProps = {
@@ -31,7 +35,7 @@ export const VerticalTabItem = ({ tab, onClick, className, selectedTab }: Vertic
                     'vertical-tab__item--disabled': tab.is_disabled
                 }, className)
             }
-            onClick={() => !tab.is_disabled && onClick(tab.title)}
+            onClick={() => !tab.is_disabled && onClick(tab.id)}
         >
             {tab?.icon && (
                 <span className='vertical-tab__icon'> {tab?.icon}</span>

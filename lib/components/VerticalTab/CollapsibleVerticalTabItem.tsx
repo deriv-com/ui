@@ -6,7 +6,7 @@ import { VerticalTabItem, TabItem } from './VerticalTabItem';
 
 type CollapsibleVerticalTabItemProps = {
     item: TabItem;
-    onSelectItemHandler: (title: string) => void;
+    onSelectItemHandler: (id: string) => void;
     selectedTab: string;
     className?: string;
     iconClassName?: string;
@@ -26,7 +26,7 @@ export const CollapsibleVerticalTabItem = ({
     className,
     iconClassName,
 }: CollapsibleVerticalTabItemProps) => {
-    const selectedSubItemSelected = item?.subItems?.find((subItem) => subItem.title === selectedTab)
+    const selectedSubItemSelected = item?.subItems?.find((subItem) => subItem.id === selectedTab)
     const [open, setOpen] = useState(selectedSubItemSelected ? true : false);
 
     const onClickHandler = () => {
@@ -36,7 +36,7 @@ export const CollapsibleVerticalTabItem = ({
     }
     return (
         <div
-            key={item.title}
+            key={item.id}
             className={clsx('collapsible-vertical-tab')}>
             <div className={clsx('collapsible-vertical-tab__header', {
                 'collapsible-vertical-tab__header--open': selectedSubItemSelected,
@@ -44,13 +44,13 @@ export const CollapsibleVerticalTabItem = ({
                 onClick={() => onClickHandler()}
             >
                 <span className={clsx('vertical-tab__icon', iconClassName)}> {item?.icon}</span>
-                <Text className='vertical-tab__label'>{item.title}</Text>
+                <Text className='vertical-tab__label'>{item.id}</Text>
                 <ArrowIcon is_open={open} />
             </div>
             {open && <div className='collapsible-vertical-tab__items'>
                 {item?.subItems?.map((subItem) => {
                     return (
-                        <VerticalTabItem className={className} selectedTab={selectedTab} key={subItem.title} tab={subItem} onClick={() => onSelectItemHandler(subItem.title)} />
+                        <VerticalTabItem className={className} selectedTab={selectedTab} key={subItem.id} tab={subItem} onClick={() => onSelectItemHandler(subItem.id)} />
                     )
                 })}
             </div>}

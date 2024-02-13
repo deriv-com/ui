@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 type VerticalTabItemsProps = {
     activeTab: string;
-    onSelectItem?: (title: string) => void;
+    onSelectItem?: (id: string) => void;
     wrapperClassName?: string;
     panelClassName?: string;
     itemClassName?: string;
@@ -27,20 +27,24 @@ type VerticalTabItemsProps = {
  * @example
  * const items = [
  *     {
+ *      id:'Item 1',
  *      title: 'Item 1',
  *      icon: Icon,
  *      panel: <div>Item 1 pane</div>
  *     },
  *     {
+ *      id:'Item 2',
  *      title: 'Item 2',
  *      icon: Icon,
  *      panel: <div>Item 2 pane</div>,
  *      subItems: [
  *          {
+ *              id:'Item 2.1',
  *              title: 'Item 2.1',
  *              panel: <div>Item 2.1 pane</div>
  *          },
-*           {
+ *           {
+ *              id:'Item 2.2',
  *              title: 'Item 2.2',
  *              is_disabled: true,
  *              panel: <div>Item 2.2 pane</div>
@@ -48,6 +52,7 @@ type VerticalTabItemsProps = {
  *      ]
  *     },
  *     {
+ *      id:'Item 3',
  *      title: 'Item 3',
  *      icon: Icon,
  *      panel: <div>Item 3 pane</div>
@@ -79,25 +84,25 @@ export const VerticalTabItems = memo(({
         }
     }, [activeTab]);
 
-    const findActiveTab = (title: string) => {
+    const findActiveTab = (id: string) => {
         for (const item of items) {
             if (item?.subItems) {
-                const foundItem = item?.subItems.find((subItem) => subItem.title === title);
+                const foundItem = item?.subItems.find((subItem) => subItem.id === id);
                 if (foundItem) {
                     return foundItem;
                 }
             } else {
-                if (item.title === title) {
+                if (item.id === id) {
                     return item;
                 }
             }
         }
     }
 
-    const onSelectItemHandler = (title: string) => {
-        const new_active_tab = findActiveTab(title)?.title;
+    const onSelectItemHandler = (id: string) => {
+        const new_active_tab = findActiveTab(id)?.id;
         setSelectedTab(() => new_active_tab ?? activeTab);
-        onSelectItem?.(title);
+        onSelectItem?.(id);
     }
 
 
@@ -107,12 +112,12 @@ export const VerticalTabItems = memo(({
                 {items.map((item) => {
                     if (!item?.subItems) {
                         return (
-                            <VerticalTabItem className={itemClassName} key={item.title} selectedTab={selectedTab} tab={item} onClick={() => onSelectItemHandler(item.title)} />
+                            <VerticalTabItem className={itemClassName} key={item.id} selectedTab={selectedTab} tab={item} onClick={() => onSelectItemHandler(item.id)} />
                         )
                     } else {
                         return (
                             <CollapsibleVerticalTabItem
-                                key={item.title}
+                                key={item.id}
                                 item={item}
                                 selectedTab={selectedTab}
                                 onSelectItemHandler={onSelectItemHandler}
