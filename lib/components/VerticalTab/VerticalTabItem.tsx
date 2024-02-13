@@ -31,7 +31,7 @@ export const VerticalTabItem = ({ tab, onClick, className, selectedTab }: Vertic
         <div
             className={
                 clsx('vertical-tab__item', {
-                    'vertical-tab__item--active': tab.title === selectedTab,
+                    'vertical-tab__item--active': tab.id === selectedTab,
                     'vertical-tab__item--disabled': tab.is_disabled
                 }, className)
             }
