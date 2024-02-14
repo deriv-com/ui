@@ -1,10 +1,9 @@
 .vertical-tab__wrapper {
-    padding: 8px;
     display: flex;
     justify-content: center;
-    gap:25px;
+    gap: 25px;
     @include mobile {
-        flex-direction: column;;
+        flex-direction: column;
     }
 }
 
