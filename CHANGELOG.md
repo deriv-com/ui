@@ -1,3 +1,11 @@
+## [1.5.4](https://github.com/deriv-com/ui/compare/v1.5.3...v1.5.4) (2024-02-14)
+
+
+### 💎 	 Styles
+
+* **vertical-tab:** :lipstick: fix active tab highlighting ([9d0c9a0](https://github.com/deriv-com/ui/commit/9d0c9a092a0c01927946db9950d8f3acc8363f94))
+* **vertical-tab:** :lipstick: remove extra outer padding ([2045dc9](https://github.com/deriv-com/ui/commit/2045dc9b5c6847101a2074abe8108327b989521f))
+
 ## [1.5.3](https://github.com/deriv-com/ui/compare/v1.5.2...v1.5.3) (2024-02-13)
 
 
