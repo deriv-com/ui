@@ -1,3 +1,10 @@
+## [1.5.5](https://github.com/deriv-com/ui/compare/v1.5.4...v1.5.5) (2024-02-15)
+
+
+### ♻️ 	 Chores
+
+* expose all props to button ([d8f45d1](https://github.com/deriv-com/ui/commit/d8f45d10b08e0912e5398d5239c108da4373e5f6))
+
 ## [1.5.4](https://github.com/deriv-com/ui/compare/v1.5.3...v1.5.4) (2024-02-14)
 
 
