@@ -27,7 +27,7 @@ $general-hover: #e6e9e9;
         }
 
         &__row {
-            padding: 1.6rem;
+            padding: 16px;
             &:hover {
                 background-color: $general-hover;
             }
@@ -40,7 +40,7 @@ $general-hover: #e6e9e9;
     &__header {
         display: grid;
         border-bottom: 2px solid $general-color;
-        padding: 1.6rem;
+        padding: 16px;
         grid-auto-flow: column;
     }
 }

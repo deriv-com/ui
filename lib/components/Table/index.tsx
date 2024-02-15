@@ -57,7 +57,7 @@ export const Table = <T,>({
                 onScroll={e => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
                 ref={tableContainerRef}
                  //calculate height of the table content including the footer size.
-                 style={columns.length > 0 ? { height: `calc(100vh - ${topPosition}px - 3.6rem)` } : undefined}
+                 style={columns.length > 0 ? { height: `calc(100vh - ${topPosition}px - 36px)` } : undefined}
             >
                 {table.getRowModel().rows.map(row => (
                     <div className='deriv-table__content__row' key={row.id}>
