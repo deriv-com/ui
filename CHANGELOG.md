@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/deriv-com/ui/compare/v1.6.0...v1.6.1) (2024-02-15)
+
+
+### 🐛 	 Bug Fixes
+
+* checkbox width and position ([b4625ac](https://github.com/deriv-com/ui/commit/b4625aca307743f7c9b3aa67dc4e12caf3bb2644))
+
 # [1.6.0](https://github.com/deriv-com/ui/compare/v1.5.6...v1.6.0) (2024-02-15)
 
 
