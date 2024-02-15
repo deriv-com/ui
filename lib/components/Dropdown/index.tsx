@@ -1,13 +1,13 @@
-import React, { isValidElement, useCallback, useEffect, useState } from 'react';
+import React, { isValidElement, HtmlHTMLAttributes, useCallback, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { useCombobox } from 'downshift';
 import { TGenericSizes } from "../../types";
 import { Text } from '../Text';
-import  {Input } from '../Input/index';
+import { Input } from '../Input/index';
 import './Dropdown.scss';
 
 type InputProps = React.ComponentProps<typeof Input>;
-type TProps = {
+type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
     disabled?: boolean;
     dropdownIcon: React.ReactNode;
     errorMessage?: InputProps['message'];
@@ -18,28 +18,31 @@ type TProps = {
         text?: React.ReactNode;
         value?: string;
     }[];
-    listHeight?: Extract<TGenericSizes, 'lg' | 'md' | 'sm'>;
+    listHeight?: Extract<TGenericSizes, 'lg' | 'md' | 'sm' | 'xs'>;
     name: InputProps['name'];
-    onChange?: (inputValue: string) => void;
+    onSearch?: (inputValue: string) => void;
     onSelect: (value: string) => void;
     value?: InputProps['value'];
     variant?: 'comboBox' | 'prompt';
 };
 
+
 export const Dropdown = ({
+    className,
     disabled,
     dropdownIcon,
     errorMessage,
     icon = false,
     label,
     list,
-    listHeight = 'md',
+    listHeight = 'xs',
     name,
-    onChange,
+    onSearch,
     onSelect,
     value,
     variant = 'prompt',
-}:TProps) => {
+    ...rest
+}: TProps) => {
     const [items, setItems] = useState(list);
     const [shouldFilterList, setShouldFilterList] = useState(false);
     const clearFilter = useCallback(() => {
@@ -69,7 +72,7 @@ export const Dropdown = ({
                 return item ? reactNodeToString(item.text) : '';
             },
             onInputValueChange({ inputValue }) {
-                onChange?.(inputValue ?? '');
+                onSearch?.(inputValue ?? '');
                 if (shouldFilterList) {
                     setItems(
                         list.filter(item =>
@@ -101,6 +104,18 @@ export const Dropdown = ({
         }
     }, [closeMenu, isOpen, openMenu, variant]);
 
+    const DropdownButton = () => {
+        return (
+            <button
+                className={clsx('deriv-dropdown__button', {
+                    'deriv-dropdown__button--active': isOpen,
+                })}
+            >
+                {dropdownIcon}
+            </button>
+        );
+    };
+
     useEffect(() => {
         setItems(list);
     }, [list]);
@@ -114,6 +129,7 @@ export const Dropdown = ({
         >
             <div className='deriv-dropdown__content'>
                 <Input
+                    className={className}
                     disabled={disabled}
                     message={errorMessage}
                     label={reactNodeToString(label)}
@@ -121,23 +137,16 @@ export const Dropdown = ({
                     onClickCapture={handleInputClick}
                     onKeyUp={() => setShouldFilterList(true)}
                     readOnly={variant !== 'comboBox'}
-                    leftPlaceholder={icon ?  icon : undefined}
-                    rightPlaceholder={ (
-                        <button
-                            className={clsx('deriv-dropdown__button', {
-                                'deriv-dropdown__button--active': isOpen,
-                            })}
-                        >
-                            {dropdownIcon}
-                        </button>
-                    )}
+                    leftPlaceholder={icon ? icon : undefined}
+                    rightPlaceholder={<DropdownButton/>}
                     type='text'
                     value={value}
                     {...getInputProps()}
+                    {...rest}
                 />
             </div>
             <ul className={`deriv-dropdown__items deriv-dropdown__items--${listHeight}`} {...getMenuProps()}>
-                {isOpen &&
+                {isOpen && (
                     items.map((item, index) => (
                         <li
                             className={clsx('deriv-dropdown__item', {
@@ -151,7 +160,9 @@ export const Dropdown = ({
                                 {item.text}
                             </Text>
                         </li>
-                    ))}
+                    ))
+                )
+                }
             </ul>
         </div>
     );
