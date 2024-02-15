@@ -1,3 +1,17 @@
+# [1.6.0](https://github.com/deriv-com/ui/compare/v1.5.6...v1.6.0) (2024-02-15)
+
+
+### ✨ 	 Features
+
+* added the table component ([f3ade45](https://github.com/deriv-com/ui/commit/f3ade45fcea5c80374b82a58999cd7a5bc8f526b))
+* added the table component ([cff9018](https://github.com/deriv-com/ui/commit/cff9018c73b50bb0cc7019b711443332eef1d459))
+
+
+### 🐛 	 Bug Fixes
+
+* changed styles from rem to px ([deff806](https://github.com/deriv-com/ui/commit/deff806e012bb3459ea1df91d2813df75e644ecd))
+* fixed the styles ([5c96456](https://github.com/deriv-com/ui/commit/5c964564fb4e33b17cb9c862dbfaee7a523f7d8e))
+
 ## [1.5.6](https://github.com/deriv-com/ui/compare/v1.5.5...v1.5.6) (2024-02-15)
 
 
