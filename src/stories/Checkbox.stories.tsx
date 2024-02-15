@@ -1,6 +1,6 @@
 import { StoryObj, Meta } from "@storybook/react";
 import { Checkbox } from "../../lib/main";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const meta = {
   title: "Components/Checkbox",
@@ -66,7 +66,11 @@ export const Default: Story = {
     label: "Get updates about Deriv products, services and events.",
   },
   render: (args) => {
-    const [checked, setChecked] = useState(false);
+    const [checked, setChecked] = useState(args.checked);
+
+    useEffect(() => {
+      setChecked(args.checked);
+    }, [args.checked]);
 
     return (
       <Checkbox

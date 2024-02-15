@@ -104,7 +104,7 @@ export const HidePasswordMeter: Story = {
     hint: "This is a hint message",
   },
   render: (args) => {
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState(args.value);
 
     return (
       <PasswordInput

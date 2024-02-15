@@ -1,3 +1,143 @@
+## [1.6.1](https://github.com/deriv-com/ui/compare/v1.6.0...v1.6.1) (2024-02-15)
+
+
+### 🐛 	 Bug Fixes
+
+* checkbox width and position ([b4625ac](https://github.com/deriv-com/ui/commit/b4625aca307743f7c9b3aa67dc4e12caf3bb2644))
+
+# [1.6.0](https://github.com/deriv-com/ui/compare/v1.5.6...v1.6.0) (2024-02-15)
+
+
+### ✨ 	 Features
+
+* added the table component ([f3ade45](https://github.com/deriv-com/ui/commit/f3ade45fcea5c80374b82a58999cd7a5bc8f526b))
+* added the table component ([cff9018](https://github.com/deriv-com/ui/commit/cff9018c73b50bb0cc7019b711443332eef1d459))
+
+
+### 🐛 	 Bug Fixes
+
+* changed styles from rem to px ([deff806](https://github.com/deriv-com/ui/commit/deff806e012bb3459ea1df91d2813df75e644ecd))
+* fixed the styles ([5c96456](https://github.com/deriv-com/ui/commit/5c964564fb4e33b17cb9c862dbfaee7a523f7d8e))
+
+## [1.5.6](https://github.com/deriv-com/ui/compare/v1.5.5...v1.5.6) (2024-02-15)
+
+
+### 📦 	 Code Refactoring
+
+* Added max-height for dropdown list ([8519176](https://github.com/deriv-com/ui/commit/8519176af284945dd6864c7f9d56fa58a458b5d6))
+* Added xs in style ([0e4c564](https://github.com/deriv-com/ui/commit/0e4c564840afc90fe823cffc17e8da2d4b7b2268))
+* made changes in css file ([45a2c4e](https://github.com/deriv-com/ui/commit/45a2c4e01ce6c7a6a0417913f3aecc54885fc901))
+
+## [1.5.5](https://github.com/deriv-com/ui/compare/v1.5.4...v1.5.5) (2024-02-15)
+
+
+### ♻️ 	 Chores
+
+* expose all props to button ([d8f45d1](https://github.com/deriv-com/ui/commit/d8f45d10b08e0912e5398d5239c108da4373e5f6))
+
+## [1.5.4](https://github.com/deriv-com/ui/compare/v1.5.3...v1.5.4) (2024-02-14)
+
+
+### 💎 	 Styles
+
+* **vertical-tab:** :lipstick: fix active tab highlighting ([9d0c9a0](https://github.com/deriv-com/ui/commit/9d0c9a092a0c01927946db9950d8f3acc8363f94))
+* **vertical-tab:** :lipstick: remove extra outer padding ([2045dc9](https://github.com/deriv-com/ui/commit/2045dc9b5c6847101a2074abe8108327b989521f))
+
+## [1.5.3](https://github.com/deriv-com/ui/compare/v1.5.2...v1.5.3) (2024-02-13)
+
+
+### ♻️ 	 Chores
+
+* export ActionScreen ([a320615](https://github.com/deriv-com/ui/commit/a320615b4bcba11184c0ab196c16849bbf7866d4))
+
+## [1.5.2](https://github.com/deriv-com/ui/compare/v1.5.1...v1.5.2) (2024-02-13)
+
+
+### 🐛 	 Bug Fixes
+
+* added id to vertical-tab props ([c648830](https://github.com/deriv-com/ui/commit/c648830be6938b991c4b56fa513d75d6a14f6616))
+* added id to vertical-tab props to resolve the issues with translations ([0c7cdb0](https://github.com/deriv-com/ui/commit/0c7cdb0615d701122aa92dfdd392ee3b84d4fe58))
+* changed tab items font size to 14px ([89b57ad](https://github.com/deriv-com/ui/commit/89b57ad398704c1ca6d335e1bfe5558544d893d2))
+
+## [1.5.1](https://github.com/deriv-com/ui/compare/v1.5.0...v1.5.1) (2024-02-13)
+
+
+### 📦 	 Code Refactoring
+
+* changed classname type from input props ([455488a](https://github.com/deriv-com/ui/commit/455488ae257b8b64c3a50c33420764336ea213a7))
+* removed use state in text area ([f24f732](https://github.com/deriv-com/ui/commit/f24f732b1d7a0e5b6e272d0215e7007fad4e1217))
+
+# [1.5.0](https://github.com/deriv-com/ui/compare/v1.4.1...v1.5.0) (2024-02-13)
+
+
+### ♻️ 	 Chores
+
+* :scroll: added storybook for ActionScreen ([ec8d433](https://github.com/deriv-com/ui/commit/ec8d433acbee0de5ea593541e530b72b2994a192))
+* removed children from ActionScreen ([546c24f](https://github.com/deriv-com/ui/commit/546c24f0ba932be9e78b78338745bb276b84aa68))
+* renamed and changed type for renderButton prop ([0d6f4a8](https://github.com/deriv-com/ui/commit/0d6f4a80fc389062f82d404f0fe7b5eb3af13435))
+
+
+### ✨ 	 Features
+
+* :sparkles: created ActionScreen component ([862b36f](https://github.com/deriv-com/ui/commit/862b36f8b7a25d4c913d60350b49ea7ac653e430))
+
+## [1.4.1](https://github.com/deriv-com/ui/compare/v1.4.0...v1.4.1) (2024-02-13)
+
+
+### ♻️ 	 Chores
+
+* remove the top-padding and gap between the sections ([b3320e4](https://github.com/deriv-com/ui/commit/b3320e4640fc34ddd3d05acde4388b7c8b6cde67))
+
+# [1.4.0](https://github.com/deriv-com/ui/compare/v1.3.3...v1.4.0) (2024-02-09)
+
+
+### ♻️ 	 Chores
+
+* added onClick logic ([ed778b2](https://github.com/deriv-com/ui/commit/ed778b2d28b2becae4e371da32b44f3bfe5d867e))
+* adding collapsible vertical tab [WIP] ([f01dabf](https://github.com/deriv-com/ui/commit/f01dabf469e5264ff93ab5ca465fd5486c813b56))
+* adding onClick logic for nested items [WIP] ([d2c37c3](https://github.com/deriv-com/ui/commit/d2c37c360e0d0b02d2616e1fd655bcd78a8d75e8))
+* cleanedup the code ([bba460a](https://github.com/deriv-com/ui/commit/bba460ab4e98927568f2ff3d93fb05a01cf6707a))
+* improved some styling issues ([a2d479c](https://github.com/deriv-com/ui/commit/a2d479c696a3a939eaeef6491ce6b3b6948d151a))
+* made the right panel optional ([8d33af7](https://github.com/deriv-com/ui/commit/8d33af7e7da61b924f111d3c86b7e96c49dbba1a))
+* removed unused classnames ([49d57a7](https://github.com/deriv-com/ui/commit/49d57a7b7aee578d9367d459e418aaf8e053e0b4))
+* resolved pr comments ([58f0039](https://github.com/deriv-com/ui/commit/58f0039abea0191518cbbe25935460995b6c1e78))
+
+
+### ⚙️ 	 Continuous Integrations
+
+* fixed build error ([44b419d](https://github.com/deriv-com/ui/commit/44b419dbe72ff4c8b01160d3722a2ac1e9776bcc))
+
+
+### ✨ 	 Features
+
+* Added VerticalTab [WIP] ([2ca2011](https://github.com/deriv-com/ui/commit/2ca2011a8d3f955d84d9401cf305e9f4494032c8))
+
+
+### 🐛 	 Bug Fixes
+
+* fixed minor bugs ([20e41b7](https://github.com/deriv-com/ui/commit/20e41b78ea68f3e0d14e503328227bd00b53c7c0))
+
+## [1.3.3](https://github.com/deriv-com/ui/compare/v1.3.2...v1.3.3) (2024-02-09)
+
+
+### 🐛 	 Bug Fixes
+
+* updated z index for password input component ([969e3e5](https://github.com/deriv-com/ui/commit/969e3e5982b56f9267b00560572364552620cf88))
+
+## [1.3.2](https://github.com/deriv-com/ui/compare/v1.3.1...v1.3.2) (2024-02-09)
+
+
+### ♻️ 	 Chores
+
+* Exported Divider component ([7f6cca0](https://github.com/deriv-com/ui/commit/7f6cca054711055fc06310871e68f00ebeef7781))
+
+
+### 🐛 	 Bug Fixes
+
+* improve checkbox component ([c193b31](https://github.com/deriv-com/ui/commit/c193b313274e6885b7cb723f2013f11a7c99ef4a))
+* Improve the usability for Checkbox component ([4730346](https://github.com/deriv-com/ui/commit/4730346fab67e323d4e273122ddea9161ff3dda2))
+* update storybook based on changes made ([768dfa2](https://github.com/deriv-com/ui/commit/768dfa2c66ea1a0b6799f3e87ce5458b77b4c7d9))
+
 ## [1.3.1](https://github.com/deriv-com/ui/compare/v1.3.0...v1.3.1) (2024-02-07)
 
 
