@@ -8,6 +8,7 @@ export { Input } from "./components/Input";
 export { Loader } from "./components/Loader";
 export { PageLayout } from "./components/PageLayout";
 export { PasswordInput } from "./components/PasswordInput";
+export { Table } from "./components/Table";
 export { Tab, Tabs } from "./components/Tabs";
 export { Text } from "./components/Text";
 export { ToggleSwitch } from "./components/ToggleSwitch";
