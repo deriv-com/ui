@@ -42,25 +42,25 @@ export const Table = <T,>({
     });
 
     return (
-        <div className={clsx('w-full', tableClassname)}>
+        <div className={clsx('deriv-table', tableClassname)}>
             {columns.length > 0 && (
                 <div className='deriv-table__header' ref={headerRef}>
                     {table.getFlatHeaders().map(header => (
-                        <Text className='deriv-table__header-items' key={header.id} size='sm' weight='bold'>
+                        <Text key={header.id} size='sm' weight='bold'>
                             {renderHeader(header.column.columnDef.header as string)}
                         </Text>
                     ))}
                 </div>
             )}
             <div
-                className={clsx('deriv-table__content', tableClassname)}
+                className='deriv-table__content'
                 onScroll={e => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
                 ref={tableContainerRef}
                  //calculate height of the table content including the footer size.
                  style={columns.length > 0 ? { height: `calc(100vh - ${topPosition}px - 3.6rem)` } : undefined}
             >
                 {table.getRowModel().rows.map(row => (
-                    <div className='deriv-table__content-row' key={row.id}>
+                    <div className='deriv-table__content__row' key={row.id}>
                         {rowRender(row.original)}
                     </div>
                 ))}
