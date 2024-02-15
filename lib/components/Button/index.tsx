@@ -8,37 +8,28 @@ import './Button.scss';
 type TVariant = 'contained' | 'ghost' | 'outlined';
 type TColor = 'black' | 'primary-light' | 'primary' | 'white';
 
-interface ButtonProps {
-    ariaLabel?: ComponentProps<'button'>['aria-label'];
+interface ButtonProps extends ComponentProps<'button'> {
     color?: TColor;
-    disabled?: ComponentProps<'button'>['disabled'];
     icon?: ReactElement;
     isFullWidth?: boolean;
     isLoading?: boolean;
-    onClick?: ComponentProps<'button'>['onClick'];
     rounded?: Extract<TGenericSizes, 'md' | 'sm'>;
     size?: Extract<TGenericSizes, 'lg' | 'md' | 'sm'>;
     textSize?: ComponentProps<typeof Text>['size'];
-    type?: ComponentProps<'button'>['type'];
     variant?: TVariant;
-    className?: string;
 }
 
 export const Button = ({
-    ariaLabel,
     children,
     color = 'primary',
-    disabled = false,
     icon,
     isFullWidth = false,
     isLoading = false,
-    onClick,
     rounded = 'sm',
     size = 'md',
     textSize,
-    type,
     variant = 'contained',
-    className
+    ...props
 }: PropsWithChildren<ButtonProps>) => {
     const isContained = variant === 'contained';
 
@@ -49,7 +40,7 @@ export const Button = ({
         `derivs-button__rounded--${rounded}`,
         isContained && `derivs-button__color--${color}`,
         isFullWidth && 'derivs-button__full-width',
-        className
+        props.className
     );
 
     type TButtonFontColor = {
@@ -94,11 +85,9 @@ export const Button = ({
 
     return (
         <button
-            aria-label={ariaLabel}
             className={buttonClassNames}
-            disabled={disabled || isLoading}
-            onClick={onClick}
-            type={type}
+            disabled={props.disabled || isLoading}
+            {...props}
         >
             {isLoading && (
                 <div className='derivs-button__loader'>
