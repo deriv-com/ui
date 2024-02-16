@@ -1,3 +1,24 @@
+# [1.7.0](https://github.com/deriv-com/ui/compare/v1.6.1...v1.7.0) (2024-02-16)
+
+
+### ♻️ 	 Chores
+
+* sorted imports ([e38c954](https://github.com/deriv-com/ui/commit/e38c9548ff8810b71c1279f071fda270e1141a9d))
+
+
+### ✨ 	 Features
+
+* added action button to side note component ([dec8393](https://github.com/deriv-com/ui/commit/dec83939c0e9c470839937f702eb3737c79e3a88))
+* side note component ([f39ebab](https://github.com/deriv-com/ui/commit/f39ebabd1b93cf870f5d71d10d55a55a1f27ea0a))
+
+
+### 🐛 	 Bug Fixes
+
+* review comments ([1c57873](https://github.com/deriv-com/ui/commit/1c57873f2aefb69d7acd5d6f81dc5af15a060411))
+* review comments ([c34eb36](https://github.com/deriv-com/ui/commit/c34eb36dc04483d5fd103b0fae82273261cbd3ad))
+* review comments ([3fc85bc](https://github.com/deriv-com/ui/commit/3fc85bc1c5c16fc9d0d43362354090cb20dff3d9))
+* review comments ([7cb5903](https://github.com/deriv-com/ui/commit/7cb5903b1b81f9eb149d6f40bdf95c147a1c1f1f))
+
 ## [1.6.1](https://github.com/deriv-com/ui/compare/v1.6.0...v1.6.1) (2024-02-15)
 
 
