@@ -1,16 +1,18 @@
-import React, { isValidElement, useCallback, useEffect, useState } from 'react';
+import React, { isValidElement, HtmlHTMLAttributes, useCallback, useEffect, useState, useRef } from 'react';
 import clsx from 'clsx';
 import { useCombobox } from 'downshift';
-import { TGenericSizes } from "../../types";
+import { TGenericSizes } from '../../types';
 import { Text } from '../Text';
-import  {Input } from '../Input/index';
-import './DropdownWithSearchBox.scss.scss';
+import { Input } from '../Input/index';
+import './DropdownWithSearchBox.scss';
 
 type InputProps = React.ComponentProps<typeof Input>;
-type TProps = {
+type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
     disabled?: boolean;
     dropdownIcon: React.ReactNode;
+    searchIcon: React.ReactNode;
     errorMessage?: InputProps['message'];
+    dropdownHeight?: string;
     icon?: React.ReactNode;
     isRequired?: boolean;
     label?: InputProps['label'];
@@ -18,11 +20,11 @@ type TProps = {
         text?: React.ReactNode;
         value?: string;
     }[];
-    listHeight?: Extract<TGenericSizes, 'lg' | 'md' | 'sm'>;
+    listHeight?: Extract<TGenericSizes, 'lg' | 'md' | 'sm' | 'xs'>;
     name: InputProps['name'];
-    onChange?: (inputValue: string) => void;
+    onSearch?: (inputValue: string) => void;
     onSelect: (value: string) => void;
-    value?: InputProps['value'];
+    value: string;
     variant?: 'comboBox' | 'prompt';
 };
 
@@ -30,22 +32,30 @@ export const DropdownWithSearchBox = ({
     disabled,
     dropdownIcon,
     errorMessage,
+    dropdownHeight,
     icon = false,
     label,
     list,
-    listHeight = 'md',
+    listHeight = 'xs',
     name,
-    onChange,
+    onSearch,
     onSelect,
+    searchIcon,
     value,
     variant = 'prompt',
-}:TProps) => {
+    ...rest
+}: TProps) => {
     const [items, setItems] = useState(list);
-    const [shouldFilterList, setShouldFilterList] = useState(false);
+    const [searchInputValue, setSearchInputValue] = useState('');
+    const [defVal, setDefVal] = useState('test value');
+
+    const shouldFilterListRef = useRef(false);
+
     const clearFilter = useCallback(() => {
-        setShouldFilterList(false);
+        shouldFilterListRef.current = false;
         setItems(list);
     }, [list]);
+
     const reactNodeToString = function (reactNode: React.ReactNode): string {
         let string = '';
         if (typeof reactNode === 'string') {
@@ -61,6 +71,7 @@ export const DropdownWithSearchBox = ({
         }
         return string;
     };
+
     const { closeMenu, getInputProps, getItemProps, getMenuProps, getToggleButtonProps, isOpen, openMenu } =
         useCombobox({
             defaultSelectedItem: items.find(item => item.value === value) ?? null,
@@ -69,8 +80,9 @@ export const DropdownWithSearchBox = ({
                 return item ? reactNodeToString(item.text) : '';
             },
             onInputValueChange({ inputValue }) {
-                onChange?.(inputValue ?? '');
-                if (shouldFilterList) {
+                setSearchInputValue(inputValue ?? '');
+                onSearch?.(inputValue ?? '');
+                if (shouldFilterListRef.current) {
                     setItems(
                         list.filter(item =>
                             reactNodeToString(item.text)
@@ -92,7 +104,7 @@ export const DropdownWithSearchBox = ({
         });
 
     const handleInputClick = useCallback(() => {
-        variant === 'comboBox' && setShouldFilterList(true);
+        variant === 'prompt' && (shouldFilterListRef.current = true);
 
         if (isOpen) {
             closeMenu();
@@ -101,9 +113,25 @@ export const DropdownWithSearchBox = ({
         }
     }, [closeMenu, isOpen, openMenu, variant]);
 
+    const handleDropdown = useCallback(
+        () => {
+
+            if (isOpen) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        },
+        [closeMenu, isOpen, openMenu]
+    );
+
     useEffect(() => {
         setItems(list);
     }, [list]);
+
+    useEffect(() => {
+        setDefVal(value);
+    }, [value]);
 
     return (
         <div
@@ -112,17 +140,15 @@ export const DropdownWithSearchBox = ({
             })}
             {...getToggleButtonProps()}
         >
-            <div className='deriv-dropdown__content'>
+            <div className="deriv-dropdown__content">
                 <Input
-                    disabled={disabled}
-                    message={errorMessage}
+                    disabled={true}
                     label={reactNodeToString(label)}
                     name={name}
                     onClickCapture={handleInputClick}
-                    onKeyUp={() => setShouldFilterList(true)}
-                    readOnly={variant !== 'comboBox'}
-                    leftPlaceholder={icon ?  icon : undefined}
-                    rightPlaceholder={ (
+                    readOnly={true}
+                    leftPlaceholder={icon ? icon : undefined}
+                    rightPlaceholder={
                         <button
                             className={clsx('deriv-dropdown__button', {
                                 'deriv-dropdown__button--active': isOpen,
@@ -130,28 +156,46 @@ export const DropdownWithSearchBox = ({
                         >
                             {dropdownIcon}
                         </button>
-                    )}
-                    type='text'
-                    value={value}
-                    {...getInputProps()}
+                    }
+                    type="text"
+                    value={defVal}
+                    {...rest}
                 />
             </div>
             <ul className={`deriv-dropdown__items deriv-dropdown__items--${listHeight}`} {...getMenuProps()}>
-                {isOpen &&
-                    items.map((item, index) => (
-                        <li
-                            className={clsx('deriv-dropdown__item', {
-                                'deriv-dropdown__item--active': value === item.value,
-                            })}
-                            key={item.value}
-                            onClick={() => clearFilter()}
-                            {...getItemProps({ index, item })}
-                        >
-                            <Text size='sm' weight={value === item.value ? 'bold' : 'normal'}>
-                                {item.text}
-                            </Text>
-                        </li>
-                    ))}
+                {isOpen && (
+                    <div>
+                        <Input
+                            label={reactNodeToString(label)}
+                            name={name}
+                            onChange={handleDropdown}
+                            onKeyUp={() => (shouldFilterListRef.current = true)}
+                            readOnly={variant !== 'prompt'}
+                            leftPlaceholder={icon ? icon : undefined}
+                            rightPlaceholder={
+                                <button className={'deriv-dropdown__button'}>{searchIcon}</button>
+                            }
+                            type="text"
+                            value={searchInputValue}
+                            {...getInputProps()}
+                            {...rest}
+                        />
+                        {items.map((item, index) => (
+                            <li
+                                className={clsx('deriv-dropdown__item', {
+                                    'deriv-dropdown__item--active': value === item.value,
+                                })}
+                                key={item.value}
+                                onClick={() => clearFilter()}
+                                {...getItemProps({ index, item })}
+                            >
+                                <Text size="sm" weight={value === item.value ? 'bold' : 'normal'}>
+                                    {item.text}
+                                </Text>
+                            </li>
+                        ))}
+                    </div>
+                )}
             </ul>
         </div>
     );

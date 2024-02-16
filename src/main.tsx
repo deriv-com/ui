@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {VerticalTab,VerticalTabItems} from '../dist/components/VerticalTab'
+import { MyComponent } from './Dropdowntest'
 
 import './style.scss'
 
@@ -49,6 +50,7 @@ const items = [
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
+   <MyComponent/>
     <div style={{margin:25, width:500}}>
       <VerticalTab>
         <VerticalTabItems items={items} activeTab='Item 3'/>
