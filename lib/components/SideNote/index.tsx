@@ -4,10 +4,10 @@ import {
   PropsWithChildren,
   ReactElement,
 } from "react";
+import clsx from "clsx";
 import { ChevronRightIcon } from "./ChevronRightIcon";
 import { Text } from "../Text";
 import "./SideNote.scss";
-import clsx from "clsx";
 
 type SideNoteProps = Omit<ComponentProps<"div">, "className"> & {
   title?: string | ReactElement;
