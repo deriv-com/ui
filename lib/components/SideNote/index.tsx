@@ -2,7 +2,7 @@ import {
   ComponentProps,
   MouseEventHandler,
   PropsWithChildren,
-  ReactElement,
+  ReactNode,
 } from "react";
 import clsx from "clsx";
 import { ChevronRightIcon } from "./ChevronRightIcon";
@@ -10,12 +10,12 @@ import { Text } from "../Text";
 import "./SideNote.scss";
 
 type SideNoteProps = Omit<ComponentProps<"div">, "className"> & {
-  title?: string | ReactElement;
+  title?: ReactNode;
   titleSize?: ComponentProps<typeof Text>["size"];
   className?: HTMLDivElement["className"];
   actionClick?: MouseEventHandler<HTMLButtonElement>;
   actionClassName?: HTMLDivElement["className"];
-  actionLabel?: string | ReactElement;
+  actionLabel?: ReactNode;
 };
 
 /**
