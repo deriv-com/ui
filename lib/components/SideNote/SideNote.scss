@@ -1,6 +1,19 @@
 .deriv-side-note {
     background-color: #f2f3f4;
-    padding: 1rem 1.5rem;
     color: #333333;
+    padding: 1rem 1.5rem;
     border-radius: 0.5rem;
+
+    &:hover > &__action {
+        text-decoration: underline;
+        text-decoration-color: red;
+    }
+    &__action {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+    }
 }
