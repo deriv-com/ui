@@ -95,7 +95,7 @@ export const Dropdown = ({
         });
 
     const handleInputClick = useCallback(() => {
-        variant === 'comboBox' && setShouldFilterList(true);
+        variant === 'prompt' && setShouldFilterList(true);
 
         if (isOpen) {
             closeMenu();
@@ -136,7 +136,7 @@ export const Dropdown = ({
                     name={name}
                     onClickCapture={handleInputClick}
                     onKeyUp={() => setShouldFilterList(true)}
-                    readOnly={variant !== 'comboBox'}
+                    readOnly={variant !== 'prompt'}
                     leftPlaceholder={icon ? icon : undefined}
                     rightPlaceholder={<DropdownButton/>}
                     type='text'
