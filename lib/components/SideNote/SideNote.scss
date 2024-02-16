@@ -1,8 +1,8 @@
 .deriv-side-note {
     background-color: #f2f3f4;
     color: #333333;
-    padding: 1rem 1.5rem;
-    border-radius: 0.5rem;
+    padding: 16px 24px;
+    border-radius: 8px;
 
     &:hover > &__action {
         text-decoration: underline;
@@ -11,9 +11,8 @@
     &__action {
         width: 100%;
         display: flex;
-        flex-direction: row;
         align-items: center;
-        gap: 0.5rem;
+        gap: 8px;
         cursor: pointer;
     }
 }

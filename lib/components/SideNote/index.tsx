@@ -37,7 +37,7 @@ export const SideNote = ({
   actionClassName,
   actionLabel,
   ...props
-}: PropsWithChildren<SideNoteProps>): React.JSX.Element => (
+}: PropsWithChildren<SideNoteProps>) => (
   <div className={clsx("deriv-side-note", className)} {...props}>
     {title && (
       <Text size={titleSize} align="center" weight="bold">
