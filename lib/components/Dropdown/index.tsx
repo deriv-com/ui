@@ -28,7 +28,6 @@ type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
 
 
 export const Dropdown = ({
-    className,
     disabled,
     dropdownIcon,
     errorMessage,
@@ -129,7 +128,6 @@ export const Dropdown = ({
         >
             <div className='deriv-dropdown__content'>
                 <Input
-                    className={className}
                     disabled={disabled}
                     message={errorMessage}
                     label={reactNodeToString(label)}
