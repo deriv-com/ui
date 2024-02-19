@@ -28,7 +28,6 @@ type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
 
 
 export const Dropdown = ({
-    className,
     disabled,
     dropdownIcon,
     errorMessage,
@@ -95,7 +94,7 @@ export const Dropdown = ({
         });
 
     const handleInputClick = useCallback(() => {
-        variant === 'comboBox' && setShouldFilterList(true);
+        variant === 'prompt' && setShouldFilterList(true);
 
         if (isOpen) {
             closeMenu();
@@ -129,14 +128,13 @@ export const Dropdown = ({
         >
             <div className='deriv-dropdown__content'>
                 <Input
-                    className={className}
                     disabled={disabled}
                     message={errorMessage}
                     label={reactNodeToString(label)}
                     name={name}
                     onClickCapture={handleInputClick}
                     onKeyUp={() => setShouldFilterList(true)}
-                    readOnly={variant !== 'comboBox'}
+                    readOnly={variant !== 'prompt'}
                     leftPlaceholder={icon ? icon : undefined}
                     rightPlaceholder={<DropdownButton/>}
                     type='text'
