@@ -1,3 +1,61 @@
+# [1.7.0](https://github.com/deriv-com/ui/compare/v1.6.1...v1.7.0) (2024-02-16)
+
+
+### ♻️ 	 Chores
+
+* sorted imports ([e38c954](https://github.com/deriv-com/ui/commit/e38c9548ff8810b71c1279f071fda270e1141a9d))
+
+
+### ✨ 	 Features
+
+* added action button to side note component ([dec8393](https://github.com/deriv-com/ui/commit/dec83939c0e9c470839937f702eb3737c79e3a88))
+* side note component ([f39ebab](https://github.com/deriv-com/ui/commit/f39ebabd1b93cf870f5d71d10d55a55a1f27ea0a))
+
+
+### 🐛 	 Bug Fixes
+
+* review comments ([1c57873](https://github.com/deriv-com/ui/commit/1c57873f2aefb69d7acd5d6f81dc5af15a060411))
+* review comments ([c34eb36](https://github.com/deriv-com/ui/commit/c34eb36dc04483d5fd103b0fae82273261cbd3ad))
+* review comments ([3fc85bc](https://github.com/deriv-com/ui/commit/3fc85bc1c5c16fc9d0d43362354090cb20dff3d9))
+* review comments ([7cb5903](https://github.com/deriv-com/ui/commit/7cb5903b1b81f9eb149d6f40bdf95c147a1c1f1f))
+
+## [1.6.1](https://github.com/deriv-com/ui/compare/v1.6.0...v1.6.1) (2024-02-15)
+
+
+### 🐛 	 Bug Fixes
+
+* checkbox width and position ([b4625ac](https://github.com/deriv-com/ui/commit/b4625aca307743f7c9b3aa67dc4e12caf3bb2644))
+
+# [1.6.0](https://github.com/deriv-com/ui/compare/v1.5.6...v1.6.0) (2024-02-15)
+
+
+### ✨ 	 Features
+
+* added the table component ([f3ade45](https://github.com/deriv-com/ui/commit/f3ade45fcea5c80374b82a58999cd7a5bc8f526b))
+* added the table component ([cff9018](https://github.com/deriv-com/ui/commit/cff9018c73b50bb0cc7019b711443332eef1d459))
+
+
+### 🐛 	 Bug Fixes
+
+* changed styles from rem to px ([deff806](https://github.com/deriv-com/ui/commit/deff806e012bb3459ea1df91d2813df75e644ecd))
+* fixed the styles ([5c96456](https://github.com/deriv-com/ui/commit/5c964564fb4e33b17cb9c862dbfaee7a523f7d8e))
+
+## [1.5.6](https://github.com/deriv-com/ui/compare/v1.5.5...v1.5.6) (2024-02-15)
+
+
+### 📦 	 Code Refactoring
+
+* Added max-height for dropdown list ([8519176](https://github.com/deriv-com/ui/commit/8519176af284945dd6864c7f9d56fa58a458b5d6))
+* Added xs in style ([0e4c564](https://github.com/deriv-com/ui/commit/0e4c564840afc90fe823cffc17e8da2d4b7b2268))
+* made changes in css file ([45a2c4e](https://github.com/deriv-com/ui/commit/45a2c4e01ce6c7a6a0417913f3aecc54885fc901))
+
+## [1.5.5](https://github.com/deriv-com/ui/compare/v1.5.4...v1.5.5) (2024-02-15)
+
+
+### ♻️ 	 Chores
+
+* expose all props to button ([d8f45d1](https://github.com/deriv-com/ui/commit/d8f45d10b08e0912e5398d5239c108da4373e5f6))
+
 ## [1.5.4](https://github.com/deriv-com/ui/compare/v1.5.3...v1.5.4) (2024-02-14)
 
 

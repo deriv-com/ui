@@ -4,37 +4,43 @@ $border_color: #999999;
 $brand_color: #ff444f;
 $error_color: #ec3f3f;
 
-.deriv-checkbox__wrapper {
+.deriv-checkbox {
   display: inline-flex;
   position: relative;
   align-items: center;
   gap: 8px;
   width: 100%;
-}
 
-.deriv-checkbox {
-  width: 16px;
-  height: 16px;
-  border-radius: $border_radius;
-  transition: background-color 0.3s ease-in-out;
-  box-sizing: border-box;
-
-  &--unchecked {
-    background: transparent;
-    border: $border $border_color;
-  }
-
-  &--checked {
-    border: none;
-    background-color: $brand_color;
-    background-image: url("./checkbox-icon.svg");
-    background-position: center;
-    background-repeat: no-repeat;
+  &__wrapper {
+    align-self: first baseline;
+    min-width: 16px;
+    height: 16px;
     border-radius: $border_radius;
+    transition: background-color 0.3s ease-in-out;
+    box-sizing: border-box;
   }
 
-  &--disabled {
-    opacity: 0.5;
+  &__box {
+    width: 100%;
+    height: 100%;
+
+    &--unchecked {
+      background: transparent;
+      border: $border $border_color;
+    }
+
+    &--checked {
+      border: none;
+      background-color: $brand_color;
+      background-image: url("./checkbox-icon.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: $border_radius;
+    }
+
+    &--disabled {
+      opacity: 0.5;
+    }
   }
 
   &__label {
@@ -50,14 +56,14 @@ $error_color: #ec3f3f;
   }
 }
 
-.deriv-checkbox:not(:disabled),
-.deriv-checkbox:not(:disabled) + .deriv-checkbox__wrapper,
-.deriv-checkbox:not(:disabled) ~ .deriv-checkbox__label {
+.deriv-checkbox__box:not(:disabled),
+.deriv-checkbox__box:not(:disabled) + .deriv-checkbox__wrapper,
+.deriv-checkbox__box:not(:disabled) ~ .deriv-checkbox__label {
   cursor: pointer;
 }
 
-.deriv-checkbox:disabled,
-.deriv-checkbox:disabled + .deriv-checkbox__wrapper,
-.deriv-checkbox--disabled ~ .deriv-checkbox__label {
+.deriv-checkbox__box:disabled,
+.deriv-checkbox__box:disabled + .deriv-checkbox__wrapper,
+.deriv-checkbox__box--disabled ~ .deriv-checkbox__label {
   cursor: not-allowed;
 }

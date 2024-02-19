@@ -1,4 +1,4 @@
-import { ComponentProps, ReactNode, Ref, forwardRef } from "react";
+import { ComponentProps, ReactNode, Ref, forwardRef, useId } from "react";
 import clsx from "clsx";
 import "./Checkbox.scss";
 
@@ -17,7 +17,6 @@ export const Checkbox = forwardRef(
       className,
       disabled,
       error,
-      id = "deriv-checkbox",
       label,
       labelClassName,
       wrapperClassName,
@@ -25,25 +24,29 @@ export const Checkbox = forwardRef(
     }: CheckboxProps,
     ref: Ref<HTMLInputElement>
   ) => {
+    const id = useId();
+
     return (
-      <div className={clsx("deriv-checkbox__wrapper", wrapperClassName)}>
-        <input
-          id={id}
-          className={clsx(
-            "deriv-checkbox",
-            {
-              "deriv-checkbox--unchecked": !checked,
-              "deriv-checkbox--checked": checked,
-              "deriv-checkbox--disabled": disabled,
-            },
-            className
-          )}
-          type="checkbox"
-          checked={!disabled && checked}
-          disabled={disabled}
-          ref={ref}
-          {...rest}
-        />
+      <div className={clsx("deriv-checkbox", wrapperClassName)}>
+        <div className="deriv-checkbox__wrapper">
+          <input
+            id={rest.id ?? id}
+            className={clsx(
+              "deriv-checkbox__box",
+              {
+                "deriv-checkbox__box--unchecked": !checked,
+                "deriv-checkbox__box--checked": checked,
+                "deriv-checkbox__box--disabled": disabled,
+              },
+              className
+            )}
+            type="checkbox"
+            checked={!disabled && checked}
+            disabled={disabled}
+            ref={ref}
+            {...rest}
+          />
+        </div>
         <label
           className={clsx(
             "deriv-checkbox__label",
@@ -53,7 +56,7 @@ export const Checkbox = forwardRef(
             },
             labelClassName
           )}
-          htmlFor={id}
+          htmlFor={rest.id ?? id}
         >
           {label}
         </label>

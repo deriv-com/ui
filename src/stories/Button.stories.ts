@@ -31,7 +31,7 @@ const meta = {
       options: ['contained', 'outlined', 'ghost'],
       control: { type: 'radio' },
     },
-    ariaLabel: {
+    'aria-label': {
       table: {
         disable: true,
       }
