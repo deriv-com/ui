@@ -1,0 +1,361 @@
+@layer base {
+  :host,
+  :root {
+    /* General Colors */
+    --white: #ffffff;
+    --black: #0e0e0e;
+    --gray: #c2c2c2;
+    --blue: #377cfc;
+    --brown: #664407;
+    --green: #85acb0;
+    --orange: #ff6444;
+    --purple: #722fe4;
+    --red: #ff444f;
+    --violet: #4a3871;
+    --yellow: #ffad3a;
+
+    --black-1: #333333;
+    --black-2: #1d1f20;
+    --black-3: #151717;
+    --black-4: #1d1f20;
+    --black-5: #242828;
+    --black-6: #3e3e3e;
+    --black-7: #000000;
+    --black-8: #323738;
+    --black-9: #5c5c5c;
+
+    --blue-1: #0dc2e7;
+    --blue-2: #2a3052;
+    --blue-3: #2a3052;
+    --blue-4: #0677af;
+    --blue-5: #dfeaff;
+    --blue-6: #92b8ff;
+    --blue-7: #182130;
+    --blue-8: #e6f5ff;
+
+    --green-1: #4bb4b3;
+    --green-2: #3d9494;
+    --green-3: #00a79e;
+    --green-4: #008079;
+    --green-5: #4bb4b329;
+    --green-6: #17eabd;
+    --green-7: #e8fdf8;
+    --green-8: #cedddf;
+
+    --gray-1: #999999;
+    --gray-2: #f2f3f4;
+    --gray-3: #eaeced;
+    --gray-4: #e6e9e9;
+    --gray-5: #d6dadb;
+    --gray-6: #d6d6d6;
+    --gray-7: #6e6e6e;
+    --gray-8: #d7d7d7;
+    --gray-9: #868686;
+    --gray-10: #919191;
+    --gray-11: #fafafa;
+    --gray-12: #f5f7fa;
+    --gray-13: #2e2e2e;
+
+    --yellow-1: #ffad3a;
+    --yellow-2: #ffa912;
+    --yellow-3: rgba(255, 173, 58, 0.16);
+
+    --red-1: #ec3f3f;
+    --red-2: #cc2e3d;
+    --red-3: #a32430;
+    --red-4: #d33636;
+    --red-5: #eb3e48;
+    --red-6: #ec3f3f29;
+    --red-7: #ffe1e3;
+    --red-8: #661b20;
+
+    /* Alpha Colors */
+    --alpha-black-1: rgba(0, 0, 0, 0.28);
+    --alpha-black-2: rgba(14, 14, 14, 0.04);
+    --alpha-black-3: rgba(0, 0, 0, 0.92);
+    --alpha-black-4: rgba(0, 0, 0, 0.84);
+    --alpha-black-5: rgba(0, 0, 0, 0.16);
+    --alpha-black-6: rgba(0, 0, 0, 0.36);
+    --alpha-black-7: rgba(14, 14, 14, 0.5);
+    --alpha-blue-1: rgba(55, 124, 252, 0.84);
+    --alpha-blue-2: rgba(8, 150, 222, 0.84);
+    --alpha-blue-3: rgba(55, 124, 252, 0.92);
+    --alpha-white-1: rgba(255, 255, 255, 0.96);
+    --alpha-white-2: rgba(255, 255, 255, 0.16);
+    --alpha-white-3: rgba(255, 255, 255, 0.08);
+    --alpha-white-4: rgba(255, 255, 255, 0.7);
+    --alpha-red-1: rgba(255, 68, 79, 0.92);
+    --alpha-red-2: rgba(255, 68, 79, 0.84);
+    --alpha-red-3: rgba(255, 68, 79, 0.76);
+    --alpha-green-1: rgba(75, 180, 179, 0.08);
+    --alpha-green-2: rgba(0, 167, 158, 0.08);
+    --alpha-yellow-1: rgba(255, 173, 58, 0.84);
+
+    /* Text Sizes */
+    --text-size-xxxxs: 8px;
+    --text-size-xxxs: 10px;
+    --text-size-xxs: 12px;
+    --text-size-xs: 14px;
+    --text-size-s: 16px;
+    --text-size-xsm: 18px;
+    --text-size-sm: 20px;
+    --text-size-m: 24px;
+    --text-size-l: 32px;
+    --text-size-xl: 48px;
+    --text-size-xxl: 64px;
+
+    /* Line Height */
+    --text-lh-xxs: 1;
+    --text-lh-xs: 1.25;
+    --text-lh-s: 1.4;
+    --text-lh-m: 1.5;
+    --text-lh-l: 1.75;
+    --text-lh-xl: 2;
+    --text-lh-xxl: 2.4;
+
+    /* Text Weights */
+    --text-weight-lighter: lighter;
+    --text-weight-normal: normal;
+    --text-weight-bold: bold;
+    --text-weight-bolder: bolder;
+
+    /* Text Align */
+    --text-align-left: start;
+    --text-align-right: right;
+    --text-align-center: center;
+
+    /* Brand Colors */
+    --brand-white: var(--white);
+    --brand-dark-grey: var(--black);
+    --brand-red-coral: var(--red);
+    --brand-orange: var(--orange);
+    --brand-secondary: var(--green);
+
+    .theme--light {
+      --general-main-1: var(--white);
+      --general-main-2: var(--white);
+      --general-main-3: var(--gray-1);
+      --general-main-4: var(--alpha-white-4);
+      --general-section-1: var(--gray-2);
+      --general-section-2: var(--gray-2);
+      --general-section-3: var(--gray-11);
+      --general-section-4: var(--gray-12);
+      --general-section-5: var(--gray-2);
+      --general-section-6: var(--gray-2);
+      --general-disabled: var(--gray-3);
+      --general-hover: var(--gray-4);
+      --general-active: var(--gray-5);
+
+      --text-general: var(--black-1);
+      --text-primary: var(--gray-1);
+      --text-less-prominent: var(--gray-1);
+      --text-prominent: var(--black-1);
+      --text-disabled: var(--gray-1);
+      --text-disabled-1: var(--gray-6);
+      --text-loss-danger: var(--red-1);
+      --text-profit-success: var(--green-1);
+      --text-warning: var(--yellow);
+      --text-red: var(--red);
+      --text-green: var(--green-6);
+      --text-blue: var(--blue-3);
+      --text-info-blue: var(--blue);
+      --text-info-blue-background: var(--blue-5);
+      --text-colored-background: var(--white);
+      --icon-light-background: var(--black-9);
+      --icon-dark-background: var(--white);
+      --icon-grey-background: var(--gray-2);
+      --icon-black-plus: var(--black-7);
+      --text-status-info-blue: var(--blue);
+      --text-hint: var(--black-1);
+
+      --purchase-main-1: var(--green-1);
+      --purchase-section-1: var(--green-2);
+      --purchase-main-2: var(--red-1);
+      --purchase-section-2: var(--red-4);
+      --purchase-disabled-main: var(--gray-3);
+      --purchase-disabled-section: var(--gray-4);
+
+      --button-primary-default: var(--brand-red-coral);
+      --button-secondary-default: var(--gray-1);
+      --button-tertiary-default: transparent;
+      --button-primary-light-default: var(--alpha-red-2);
+      --button-primary-hover: var(--red-5);
+      --button-secondary-hover: var(--alpha-black-3);
+      --button-tertiary-hover: var(--alpha-red-1);
+      --button-primary-light-hover: var(--alpha-red-3);
+      --button-toggle-primary: var(--blue-3);
+      --button-toggle-secondary: var(--gray-5);
+      --button-toggle-alternate: var(--white);
+
+      --overlay-outside-dialog: var(--alpha-black-1);
+      --overlay-inside-dialog: var(--alpha-white-1);
+
+      --shadow-menu: var(--alpha-black-4);
+      --shadow-menu-2: var(--alpha-black-4);
+      --shadow-drop: var(--alpha-black-3);
+
+      --state-normal: var(--white);
+      --state-hover: var(--gray-4);
+      --state-active: var(--gray-5);
+      --state-disabled: var(--gray-3);
+      --checkbox-disabled-grey: var(--gray-6);
+      --sidebar-tab: var(--gray-6);
+
+      --border-normal: var(--gray-5);
+      --border-normal-1: var(--gray-5);
+      --border-normal-2: var(--gray-5);
+      --border-normal-3: var(--gray-6);
+      --border-hover: var(--gray-1);
+      --border-hover-1: var(--black-9);
+      --border-active: var(--brand-secondary);
+      --border-disabled: var(--gray-3);
+      --border-divider: var(--gray-2);
+
+      --fill-normal: var(--white);
+      --fill-normal-1: var(--gray);
+      --fill-hover: var(--gray-1);
+      --fill-active: var(--brand-secondary);
+      --fill-disabled: var(--gray-3);
+
+      --status-default: var(--gray-3);
+      --status-adjustment: var(--gray-1);
+      --status-danger: var(--red-1);
+      --status-success: var(--green-1);
+      --status-warning: var(--yellow);
+      --status-warning-transparent: var(--alpha-yellow-1);
+      --status-transfer: var(--orange);
+      --status-info: var(--blue);
+      --status-colored-background: var(--white);
+      --status-alert-background: var(--yellow-3);
+
+      --transparent-success: var(--alpha-green-1);
+      --transparent-info: var(--alpha-blue-1);
+      --transparent-hint: var(--alpha-blue-3);
+      --transparent-danger: var(--alpha-red-2);
+      --transparent-correct-message: var(--green-5);
+      --transparent-fake-message: var(--red-6);
+
+      --badge-white: var(--white);
+      --badge-blue: var(--blue-4);
+      --badge-violet: var(--blue-2);
+      --badge-green: var(--green-3);
+
+      --traders-hub-banner-border-color: var(--gray-4);
+      --demo-text-color-1: var(--gray);
+      --demo-text-color-2: var(--white);
+      --header-background-mt5: var(--blue-8);
+      --header-background-others: var(--green-7);
+    }
+    .theme--dark {
+      --general-main-1: var(--black);
+      --general-main-2: var(--black-3);
+      --general-main-3: var(--black-4);
+      --general-main-4: var(--alpha-black-7);
+      --general-section-1: var(--black-3);
+      --general-section-2: var(--black);
+      --general-section-3: var(--black-5);
+
+      --general-section-4: var(--black-5);
+      --general-section-5: var(--black-5);
+      --general-section-6: var(--gray-7);
+      --general-disabled: var(--black-4);
+      --general-hover: var(--black-5);
+      --general-active: var(--black-8);
+
+      --text-prominent: var(--white);
+      --text-general: var(--gray);
+      --text-less-prominent: var(--gray-7);
+      --text-primary: var(--gray-1);
+      --text-disabled: var(--black-6);
+      --text-disabled-1: var(--black-6);
+      --text-profit-success: var(--green-3);
+      --text-loss-danger: var(--red-2);
+      --text-red: var(--red);
+      --text-colored-background: var(--white);
+      --text-info-blue: var(--blue-6);
+      --text-info-blue-background: var(--blue-7);
+      --text-status-info-blue: var(--blue);
+      --text-hint: var(--gray);
+      --icon-light-background: var(--black-9);
+      --icon-dark-background: var(--white);
+      --icon-grey-background: var(--black-1);
+      --icon-black-plus: var(--white);
+
+      --purchase-main-1: var(--green-3);
+      --purchase-section-1: var(--green-4);
+      --purchase-main-2: var(--red-2);
+      --purchase-section-2: var(--red-3);
+      --purchase-disabled-main: var(--black-4);
+      --purchase-disabled-section: var(--black);
+      --button-primary-default: var(--brand-red-coral);
+      --button-secondary-default: var(--gray-7);
+      --button-tertiary-default: transparent;
+      --button-primary-light-default: var(--alpha-red-2);
+      --button-primary-hover: var(--red-5);
+      --button-secondary-hover: var(--alpha-white-3);
+      --button-tertiary-hover: var(--alpha-red-1);
+      --button-primary-light-hover: var(--alpha-red-3);
+      --button-toggle-primary: var(--blue-3);
+      --button-toggle-secondary: var(--black-8);
+      --button-toggle-alternate: var(--black-8);
+
+      --overlay-outside-dialog: var(--alpha-black-1);
+      --overlay-inside-dialog: var(--alpha-black-2);
+
+      --shadow-menu: var(--alpha-black-5);
+      --shadow-menu-2: var(--alpha-black-1);
+      --shadow-drop: var(--alpha-black-6);
+
+      --state-normal: var(--black);
+      --state-hover: var(--black-5);
+      --state-active: var(--black-8);
+      --state-disabled: var(--black-4);
+      --checkbox-disabled-grey: var(--gray-6);
+      --sidebar-tab: var(--gray-7);
+
+      --border-normal: var(--black-8);
+      --border-normal-1: var(--gray-5);
+      --border-normal-2: var(--gray-1);
+      --border-normal-3: var(--gray-7);
+      --border-hover: var(--gray-7);
+      --border-hover-1: var(--black-9);
+      --border-active: var(--brand-secondary);
+      --border-disabled: var(--black-4);
+      --border-divider: var(--gray-13);
+
+      --fill-normal: var(--black);
+      --fill-normal-1: var(--black-1);
+      --fill-hover: var(--gray-7);
+      --fill-active: var(--brand-secondary);
+      --fill-disabled: var(--black-4);
+
+      --status-default: var(--gray-3);
+      --status-adjustment: var(--gray-1);
+      --status-danger: var(--red-2);
+      --status-warning: var(--yellow);
+      --status-warning-transparent: var(--alpha-yellow-1);
+      --status-success: var(--green-3);
+      --status-transfer: var(--orange);
+      --status-info: var(--blue);
+      --status-colored-background: var(--white);
+      --status-alert-background: var(--yellow-3);
+
+      --transparent-success: var(--alpha-green-2);
+      --transparent-info: var(--alpha-blue-1);
+      --transparent-hint: var(--alpha-blue-1);
+      --transparent-danger: var(--alpha-red-2);
+      --transparent-correct-message: var(--green-5);
+      --transparent-fake-message: var(--red-6);
+
+      --badge-white: var(--white);
+      --badge-blue: var(--blue-4);
+      --badge-violet: var(--blue-2);
+      --badge-green: var(--green-3);
+
+      --traders-hub-banner-border-color: var(--black-5);
+
+      --header-background-mt5: var(--blue-8);
+      --header-background-others: var(--green-7);
+    }
+  }
+}
