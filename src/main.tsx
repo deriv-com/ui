@@ -18,40 +18,44 @@ const Icon = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" view
 
 const items = [
   {
-    title: 'Item 1',
-    icon: Icon,
-    subItems: [
-      {
-        title: 'Sub Item 1',
-        icon: Icon,
-        component: <div>Sub Item 1</div>
-      },
-      {
-        title: 'Sub Item 2',
-        icon: Icon,
-      },
-      {
-        title: 'Sub Item 3',
-        icon: Icon,
-      }
-    ],
-    component: <div>Item 1</div>
-  },
-    {
-    title: 'Item 2',
-    icon: Icon,
+   id:'Item 1',
+   title: 'Item 1',
+   icon: Icon,
+   panel: <div>Item 1 pane</div>
   },
   {
-    title: 'Item 3',
-    icon: Icon,
-  }
+   id:'Item 2',
+   title: 'Item 2',
+   icon: Icon,
+   panel: <div>Item 2 pane</div>,
+   subItems: [
+       {
+           id:'Item 2.1',
+           title: 'Item 2.1',
+           panel: <div>Item 2.1 pane</div>
+       },
+        {
+           id:'Item 2.2',
+           title: 'Item 2.2',
+           is_disabled: true,
+           panel: <div>Item 2.2 pane</div>
+       },
+   ]
+  },
+  {
+   id:'Item 3',
+   title: 'Item 3',
+   icon: Icon,
+   panel: <div>Item 3 pane</div>
+  },
 ]
+
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
    <MyComponent/>
-    <div style={{margin:25, width:500}}>
+    <div style={{margin:25, width:800}}>
       <VerticalTab>
         <VerticalTabItems items={items} activeTab='Item 3'/>
       </VerticalTab>

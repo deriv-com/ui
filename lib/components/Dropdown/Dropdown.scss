@@ -13,7 +13,7 @@
 
     &__button {
         all: unset;
-        right: 1.6rem;
+        right: 16px;
         transform: rotate(0);
         transform-origin: 50% 45%;
         transition: transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -37,12 +37,12 @@
         position: absolute;
         inset: 0;
         min-width: 0; /* this is required to reset input's default width */
-        padding-left: 2rem;
+        padding-left: 20px;
         display: flex;
         flex-grow: 1;
         font-family: inherit;
         outline: 0;
-        font-size: 1.4rem;
+        font-size: 14px;
         background-color: transparent;
         color: var(--system-light-2-general-text, #333);
         transition: border-color 0.2s;
@@ -58,14 +58,14 @@
     }
 
     &__field:placeholder-shown ~ &__label {
-        font-size: 1.4rem;
+        font-size: 14px;
         cursor: text;
         top: 30%;
         padding: 0;
     }
 
     &__field:placeholder-shown ~ &__label--with-icon {
-        left: 4.4rem;
+        left: 44px;
     }
 
     label,
@@ -89,45 +89,45 @@
 
     &__items {
         position: absolute;
-        top: 2.9rem;
+        top: 35px;
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         z-index: 2;
-        border-radius: 0.4rem;
+        border-radius: 4px;
         background: var(--system-light-8-primary-background, #fff);
-        box-shadow: 0 3.2rem 6.4rem 0 rgba(14, 14, 14, 0.14);
+        box-shadow: 0 32px 64px 0 rgba(14, 14, 14, 0.14);
         overflow-y: auto;
 
         & > :first-child {
-            border-radius: 0.4rem 0.4rem 0 0;
+            border-radius: 4px 4px 0 0;
         }
 
         & > :last-child {
-            border-radius: 0 0 0.4rem 0.4rem;
+            border-radius: 0 0 4px 4px;
         }
         &--xs {
-            max-height: 12.5rem;
+            max-height: 125px;
         }
         &--sm {
-            max-height: 22rem;
+            max-height: 220px;
         }
 
         &--md {
-            max-height: 42rem;
+            max-height: 420px;
         }
 
         &--lg {
-            max-height: 66rem;
+            max-height: 660px;
         }
     }
 
     &__icon {
         position: absolute;
-        left: 1.6rem;
-        width: 1.6rem;
-        height: 1.6rem;
+        left: 16px;
+        width: 16px;
+        height: 16px;
     }
 
     &__item {
