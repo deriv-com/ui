@@ -13,6 +13,7 @@ type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
     errorMessage?: InputProps['message'];
     icon?: React.ReactNode;
     isRequired?: boolean;
+    isFullWidth?:boolean;
     label?: InputProps['label'];
     list: {
         text?: React.ReactNode;
@@ -32,6 +33,7 @@ export const Dropdown = ({
     dropdownIcon,
     errorMessage,
     icon = false,
+    isFullWidth=false,
     label,
     list,
     listHeight = 'xs',
@@ -143,7 +145,7 @@ export const Dropdown = ({
                     {...rest}
                 />
             </div>
-            <ul className={`deriv-dropdown__items deriv-dropdown__items--${listHeight}`} {...getMenuProps()}>
+            <ul className={`deriv-dropdown__items deriv-dropdown__items--${listHeight} deriv-dropdown__items--${isFullWidth?"full":isFullWidth}`} {...getMenuProps()}>
                 {isOpen && (
                     items.map((item, index) => (
                         <li
