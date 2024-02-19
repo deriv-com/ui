@@ -19,6 +19,7 @@ $border: 1px solid;
   padding: 8px;
 
   &__icon {
+    align-self: flex-start;
     width: 16px;
     height: 16px;
   }
