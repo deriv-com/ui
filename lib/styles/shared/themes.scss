@@ -1,6 +1,80 @@
 @layer base {
   :host,
   :root {
+    // General Colors
+    --white: #{$color-white};
+    --black: #{$color-black};
+    --gray: #{$color-grey};
+    --blue: #{$color-blue};
+    --brown: #{$color-brown};
+    --green: #{$color-green};
+    --orange: #{$color-orange};
+    --purple: #{$color-purple};
+    --red: #{$color-red};
+    --violet: #{$color-violet};
+    --yellow: #{$color-yellow};
+
+    // Black
+    --black-1: #{$color-black-1};
+    --black-2: var(--black);
+    --black-3: #{$color-black-3};
+    --black-4: #{$color-black-4};
+    --black-5: #{$color-black-5};
+    --black-6: #{$color-black-6};
+    --black-7: #{$color-black-7};
+    --black-8: #{$color-black-8};
+    --black-9: #{$color-black-9};
+
+    // Blue
+    --blue-1: #{$color-blue-1};
+    --blue-2: #{$color-blue-2};
+    --blue-3: #{$color-blue-3};
+    --blue-4: #{$color-blue-4};
+    --blue-5: #{$color-blue-5};
+    --blue-6: #{$color-blue-6};
+    --blue-7: #{$color-blue-7};
+    --blue-8: #{$color-blue-8};
+
+    // Green
+    --green-1: #{$color-green-1};
+    --green-2: #{$color-green-2};
+    --green-3: #{$color-green-3};
+    --green-4: #{$color-green-4};
+    --green-5: #{$color-green-5};
+    --green-6: #{$color-green-6};
+    --green-7: #{$color-green-7};
+    --green-8: #{$color-green-8};
+
+    // Gray
+    --gray-1: #{$color-grey-1};
+    --gray-2: #{$color-grey-2};
+    --gray-3: #{$color-grey-3};
+    --gray-4: #{$color-grey-4};
+    --gray-5: #{$color-grey-5};
+    --gray-6: #{$color-grey-6};
+    --gray-7: #{$color-grey-7};
+    --gray-8: #{$color-grey-8};
+    --gray-9: #{$color-grey-9};
+    --gray-10: #{$color-grey-10};
+    --gray-11: #{$color-grey-11};
+    --gray-12: #{$color-grey-12};
+    --gray-13: #{$color-grey-13};
+
+    // Yellow
+    --yellow-1: #{$color-yellow-1};
+    --yellow-2: ${$color-yellow-2};
+    --yellow-3: #{$color-yellow-3};
+
+    // Red
+    --red-1: #{$color-red-1};
+    --red-2: #{$color-red-2};
+    --red-3: #{$color-red-3};
+    --red-4: #{$color-red-4};
+    --red-5: #{$color-red-5};
+    --red-6: #{$color-red-6};
+    --red-7: #{$color-red-7};
+    --red-8: #{$color-red-8};
+
     // Text sizes
     --text-size-xxxxs: 8px;
     --text-size-xxxs: 10px;
@@ -35,12 +109,12 @@
     --text-align-center: center;
 
     // Brand primary colors
-    --brand-white: #{$color-white};
-    --brand-dark-grey: #{$color-black};
-    --brand-red-coral: #{$color-red};
-    --brand-orange: #{$color-orange};
+    --brand-white: var(--white);
+    --brand-dark-grey: var(--black);
+    --brand-red-coral: var(--red);
+    --brand-orange: var(--orange);
     // Brand secondary colors
-    --brand-secondary: #{$color-green};
+    --brand-secondary: var(--green);
 
     // Wallet gradient background
     --deriv-airtm: #{$gradient-airtm};
@@ -67,60 +141,60 @@
 
     .theme--light {
       // General
-      --general-main-1: #{$color-white};
-      --general-main-2: #{$color-white};
-      --general-main-3: #{$color-grey-1};
+      --general-main-1: var(--white);
+      --general-main-2: var(--white);
+      --general-main-3: var(--gray-1);
       --general-main-4: #{$alpha-color-white-4};
-      --general-section-1: #{$color-grey-2};
-      --general-section-2: #{$color-grey-2};
-      --general-section-3: #{$color-grey-11};
-      --general-section-4: #{$color-grey-12};
-      --general-section-5: #{$color-grey-2};
-      --general-section-6: #{$color-grey-2};
-      --general-disabled: #{$color-grey-3};
-      --general-hover: #{$color-grey-4};
-      --general-active: #{$color-grey-5};
+      --general-section-1: var(--gray-2);
+      --general-section-2: var(--gray-2);
+      --general-section-3: var(--gray-11);
+      --general-section-4: var(--gray-12);
+      --general-section-5: var(--gray-2);
+      --general-section-6: var(--gray-2);
+      --general-disabled: var(--gray-3);
+      --general-hover: var(--gray-4);
+      --general-active: var(--gray-5);
       // Icons and Texts
-      --text-general: #{$color-black-1};
-      --text-primary: #{$color-grey-1};
-      --text-less-prominent: #{$color-grey-1};
-      --text-prominent: #{$color-black-1};
-      --text-disabled: #{$color-grey-1};
-      --text-disabled-1: #{$color-grey-6};
-      --text-loss-danger: #{$color-red-1};
-      --text-profit-success: #{$color-green-1};
-      --text-warning: #{$color-yellow};
-      --text-red: #{$color-red};
-      --text-green: #{$color-green-6};
-      --text-blue: #{$color-blue-3};
-      --text-info-blue: #{$color-blue};
-      --text-info-blue-background: #{$color-blue-5};
-      --text-colored-background: #{$color-white};
-      --icon-light-background: #{$color-black-9};
-      --icon-dark-background: #{$color-white};
-      --icon-grey-background: #{$color-grey-2};
-      --icon-black-plus: #{$color-black-7};
-      --text-status-info-blue: #{$color-blue};
-      --text-hint: #{$color-black-1};
+      --text-general: var(--black-1);
+      --text-primary: var(--gray-1);
+      --text-less-prominent: var(--gray-1);
+      --text-prominent: var(--black-1);
+      --text-disabled: var(--gray-1);
+      --text-disabled-1: var(--gray-6);
+      --text-loss-danger: var(--red-1);
+      --text-profit-success: var(--green-1);
+      --text-warning: var(--yellow);
+      --text-red: var(--red);
+      --text-green: var(--green-6);
+      --text-blue: var(--blue-3);
+      --text-info-blue: var(--blue);
+      --text-info-blue-background: var(--blue-5);
+      --text-colored-background: var(--white);
+      --icon-light-background: var(--black-9);
+      --icon-dark-background: var(--white);
+      --icon-grey-background: var(--gray-2);
+      --icon-black-plus: var(--black-7);
+      --text-status-info-blue: var(--blue);
+      --text-hint: var(--black-1);
       // Purchase
-      --purchase-main-1: #{$color-green-1};
-      --purchase-section-1: #{$color-green-2};
-      --purchase-main-2: #{$color-red-1};
-      --purchase-section-2: #{$color-red-4};
-      --purchase-disabled-main: #{$color-grey-3};
-      --purchase-disabled-section: #{$color-grey-4};
+      --purchase-main-1: var(--green-1);
+      --purchase-section-1: var(--green-2);
+      --purchase-main-2: var(--red-1);
+      --purchase-section-2: var(--red-4);
+      --purchase-disabled-main: var(--gray-3);
+      --purchase-disabled-section: var(--gray-4);
       // Buttons
       --button-primary-default: var(--brand-red-coral);
-      --button-secondary-default: #{$color-grey-1};
+      --button-secondary-default: var(--gray-1);
       --button-tertiary-default: transparent;
       --button-primary-light-default: #{$alpha-color-red-2};
-      --button-primary-hover: #{$color-red-5};
+      --button-primary-hover: var(--red-5);
       --button-secondary-hover: #{$alpha-color-black-3};
       --button-tertiary-hover: #{$alpha-color-red-1};
       --button-primary-light-hover: #{$alpha-color-red-3};
-      --button-toggle-primary: #{$color-blue-3};
-      --button-toggle-secondary: #{$color-grey-5};
-      --button-toggle-alternate: #{$color-white};
+      --button-toggle-primary: var(--blue-3);
+      --button-toggle-secondary: var(--gray-5);
+      --button-toggle-alternate: var(--white);
       // Overlay
       --overlay-outside-dialog: #{$alpha-color-black-1};
       --overlay-inside-dialog: #{$alpha-color-white-1};
@@ -130,39 +204,39 @@
       --shadow-drop: #{$alpha-color-black-3};
       --shadow-box: #{$COLOR_LIGHT_BLACK_2};
       // States
-      --state-normal: #{$color-white};
-      --state-hover: #{$color-grey-4};
-      --state-active: #{$color-grey-5};
-      --state-disabled: #{$color-grey-3};
-      --checkbox-disabled-grey: #{$color-grey-6};
-      --sidebar-tab: #{$color-grey-6};
+      --state-normal: var(--white);
+      --state-hover: var(--gray-4);
+      --state-active: var(--gray-5);
+      --state-disabled: var(--gray-3);
+      --checkbox-disabled-grey: var(--gray-6);
+      --sidebar-tab: var(--gray-6);
       // Border
-      --border-normal: #{$color-grey-5};
-      --border-normal-1: #{$color-grey-5};
-      --border-normal-2: #{$color-grey-5};
-      --border-normal-3: #{$color-grey-6};
-      --border-hover: #{$color-grey-1};
-      --border-hover-1: #{$color-black-9};
+      --border-normal: var(--gray-5);
+      --border-normal-1: var(--gray-5);
+      --border-normal-2: var(--gray-5);
+      --border-normal-3: var(--gray-6);
+      --border-hover: var(--gray-1);
+      --border-hover-1: var(--black-9);
       --border-active: var(--brand-secondary);
-      --border-disabled: #{$color-grey-3};
-      --border-divider: #{$color-grey-2};
+      --border-disabled: var(--gray-3);
+      --border-divider: var(--gray-2);
       // Fill
-      --fill-normal: #{$color-white};
-      --fill-normal-1: #{$color-grey};
-      --fill-hover: #{$color-grey-1};
+      --fill-normal: var(--white);
+      --fill-normal-1: var(--gray);
+      --fill-hover: var(--gray-1);
       --fill-active: var(--brand-secondary);
-      --fill-disabled: #{$color-grey-3};
+      --fill-disabled: var(--gray-3);
       // Status
-      --status-default: #{$color-grey-3};
-      --status-adjustment: #{$color-grey-1};
-      --status-danger: #{$color-red-1};
-      --status-success: #{$color-green-1};
-      --status-warning: #{$color-yellow};
+      --status-default: var(--gray-3);
+      --status-adjustment: var(--gray-1);
+      --status-danger: var(--red-1);
+      --status-success: var(--green-1);
+      --status-warning: var(--yellow);
       --status-warning-transparent: #{$alpha-color-yellow-1};
-      --status-transfer: #{$color-orange};
-      --status-info: #{$color-blue};
-      --status-colored-background: #{$color-white};
-      --status-alert-background: #{$color-yellow-3};
+      --status-transfer: var(--orange);
+      --status-info: var(--blue);
+      --status-colored-background: var(--white);
+      --status-alert-background: var(--yellow-3);
       // Dashboard
       --dashboard-swap-free: #{$gradient-color-black-3};
       --dashboard-app: #{$gradient-color-black-4};
@@ -185,8 +259,8 @@
       --transparent-info: #{$alpha-color-blue-1};
       --transparent-hint: #{$alpha-color-blue-3};
       --transparent-danger: #{$alpha-color-red-2};
-      --transparent-correct-message: #{$color-green-5};
-      --transparent-fake-message: #{$color-red-6};
+      --transparent-correct-message: var(--green-5);
+      --transparent-fake-message: var(--red-6);
       /* TODO: change to styleguide later */
       // Gradient
       --gradient-success: #{$gradient-color-green-1};
@@ -197,83 +271,83 @@
       --gradient-gold: #{$gradient-color-gold};
       --gradient-green: #{$gradient-color-green-4};
       // Badge
-      --badge-white: #{$color-white};
-      --badge-blue: #{$color-blue-4};
-      --badge-violet: #{$color-blue-2};
-      --badge-green: #{$color-green-3};
+      --badge-white: var(--white);
+      --badge-blue: var(--blue-4);
+      --badge-violet: var(--blue-2);
+      --badge-green: var(--green-3);
       //TradersHub Banner
-      --traders-hub-banner-border-color: #{$color-grey-4};
+      --traders-hub-banner-border-color: var(--gray-4);
       // wallets
       --derivs-banner-ready-bg-color: #{$ready-banner-bg-color};
       --derivs-banner-ready-tick-bg-color: #{$ready-banner-tick-bg-color};
-      --derivs-banner-border-color: #{$color-grey-4};
-      --derivs-banner-dot-color: #{$color-grey-6};
-      --derivs-banner-active-dot-color: #{$color-red};
+      --derivs-banner-border-color: var(--gray-4);
+      --derivs-banner-dot-color: var(--gray-6);
+      --derivs-banner-active-dot-color: var(--red);
       --derivs-card-active-gradient-background: #{$gradient-color-black-5};
       --deriv-demo-bg-color: #{$deriv-demo-bg-color};
       --deriv-demo-divider-color: #{$deriv-demo-divider-color};
-      --deriv-eu-disclaimer: #{$color-grey-4};
+      --deriv-eu-disclaimer: var(--gray-4);
       --deriv-box-shadow: #{$deriv-box-shadow};
       // Demo view
-      --demo-text-color-1: #{$color-grey};
-      --demo-text-color-2: #{$color-white};
+      --demo-text-color-1: var(--gray);
+      --demo-text-color-2: var(--white);
       // Header
-      --header-background-mt5: #{$color-blue-8};
-      --header-background-others: #{$color-green-7};
+      --header-background-mt5: var(--blue-8);
+      --header-background-others: var(--green-7);
     }
     .theme--dark {
       // General
-      --general-main-1: #{$color-black};
-      --general-main-2: #{$color-black-3};
-      --general-main-3: #{$color-black-4};
+      --general-main-1: var(--black);
+      --general-main-2: var(--black-3);
+      --general-main-3: var(--black-4);
       --general-main-4: #{$alpha-color-black-7};
-      --general-section-1: #{$color-black-3};
-      --general-section-2: #{$color-black};
-      --general-section-3: #{$color-black-5};
+      --general-section-1: var(--black-3);
+      --general-section-2: var(--black);
+      --general-section-3: var(--black-5);
       // @TODO: get color from design
-      --general-section-4: #{$color-black-5};
-      --general-section-5: #{$color-black-5};
-      --general-section-6: #{$color-grey-7};
-      --general-disabled: #{$color-black-4};
-      --general-hover: #{$color-black-5};
-      --general-active: #{$color-black-8};
+      --general-section-4: var(--black-5);
+      --general-section-5: var(--black-5);
+      --general-section-6: var(--gray-7);
+      --general-disabled: var(--black-4);
+      --general-hover: var(--black-5);
+      --general-active: var(--black-8);
       // Icons and Texts
-      --text-prominent: #{$color-white};
-      --text-general: #{$color-grey};
-      --text-less-prominent: #{$color-grey-7};
-      --text-primary: #{$color-grey-1};
-      --text-disabled: #{$color-black-6};
-      --text-disabled-1: #{$color-black-6};
-      --text-profit-success: #{$color-green-3};
-      --text-loss-danger: #{$color-red-2};
-      --text-red: #{$color-red};
-      --text-colored-background: #{$color-white};
-      --text-info-blue: #{$color-blue-6};
-      --text-info-blue-background: #{$color-blue-7};
-      --text-status-info-blue: #{$color-blue};
-      --text-hint: #{$color-grey};
-      --icon-light-background: #{$color-black-9};
-      --icon-dark-background: #{$color-white};
-      --icon-grey-background: #{$color-black-1};
-      --icon-black-plus: #{$color-white};
+      --text-prominent: var(--white);
+      --text-general: var(--gray);
+      --text-less-prominent: var(--gray-7);
+      --text-primary: var(--gray-1);
+      --text-disabled: var(--black-6);
+      --text-disabled-1: var(--black-6);
+      --text-profit-success: var(--green-3);
+      --text-loss-danger: var(--red-2);
+      --text-red: var(--red);
+      --text-colored-background: var(--white);
+      --text-info-blue: var(--blue-6);
+      --text-info-blue-background: var(--blue-7);
+      --text-status-info-blue: var(--blue);
+      --text-hint: var(--gray);
+      --icon-light-background: var(--black-9);
+      --icon-dark-background: var(--white);
+      --icon-grey-background: var(--black-1);
+      --icon-black-plus: var(--white);
       // Purchase
-      --purchase-main-1: #{$color-green-3};
-      --purchase-section-1: #{$color-green-4};
-      --purchase-main-2: #{$color-red-2};
-      --purchase-section-2: #{$color-red-3};
-      --purchase-disabled-main: #{$color-black-4};
-      --purchase-disabled-section: #{$color-black};
+      --purchase-main-1: var(--green-3);
+      --purchase-section-1: var(--green-4);
+      --purchase-main-2: var(--red-2);
+      --purchase-section-2: var(--red-3);
+      --purchase-disabled-main: var(--black-4);
+      --purchase-disabled-section: var(--black);
       --button-primary-default: var(--brand-red-coral);
-      --button-secondary-default: #{$color-grey-7};
+      --button-secondary-default: var(--gray-7);
       --button-tertiary-default: transparent;
       --button-primary-light-default: #{$alpha-color-red-2};
-      --button-primary-hover: #{$color-red-5};
+      --button-primary-hover: var(--red-5);
       --button-secondary-hover: #{$alpha-color-white-3};
       --button-tertiary-hover: #{$alpha-color-red-1};
       --button-primary-light-hover: #{$alpha-color-red-3};
-      --button-toggle-primary: #{$color-blue-3};
-      --button-toggle-secondary: #{$color-black-8};
-      --button-toggle-alternate: #{$color-black-8};
+      --button-toggle-primary: var(--blue-3);
+      --button-toggle-secondary: var(--black-8);
+      --button-toggle-alternate: var(--black-8);
       // Overlay
       --overlay-outside-dialog: #{$alpha-color-black-1};
       --overlay-inside-dialog: #{$alpha-color-black-2};
@@ -283,46 +357,46 @@
       --shadow-drop: #{$alpha-color-black-6};
       --shadow-box: #{$COLOR_DARK_GRAY_3};
       // States
-      --state-normal: #{$color-black};
-      --state-hover: #{$color-black-5};
-      --state-active: #{$color-black-8};
-      --state-disabled: #{$color-black-4};
-      --checkbox-disabled-grey: #{$color-grey-6};
-      --sidebar-tab: #{$color-grey-7};
+      --state-normal: var(--black);
+      --state-hover: var(--black-5);
+      --state-active: var(--black-8);
+      --state-disabled: var(--black-4);
+      --checkbox-disabled-grey: var(--gray-6);
+      --sidebar-tab: var(--gray-7);
       // Border
-      --border-normal: #{$color-black-8};
-      --border-normal-1: #{$color-grey-5};
-      --border-normal-2: #{$color-grey-1};
-      --border-normal-3: #{$color-grey-7};
-      --border-hover: #{$color-grey-7};
-      --border-hover-1: #{$color-black-9};
+      --border-normal: var(--black-8);
+      --border-normal-1: var(--gray-5);
+      --border-normal-2: var(--gray-1);
+      --border-normal-3: var(--gray-7);
+      --border-hover: var(--gray-7);
+      --border-hover-1: var(--black-9);
       --border-active: var(--brand-secondary);
-      --border-disabled: #{$color-black-4};
-      --border-divider: #{$color-grey-13};
+      --border-disabled: var(--black-4);
+      --border-divider: var(--gray-13);
       // Fill
-      --fill-normal: #{$color-black};
-      --fill-normal-1: #{$color-black-1};
-      --fill-hover: #{$color-grey-7};
+      --fill-normal: var(--black);
+      --fill-normal-1: var(--black-1);
+      --fill-hover: var(--gray-7);
       --fill-active: var(--brand-secondary);
-      --fill-disabled: #{$color-black-4};
+      --fill-disabled: var(--black-4);
       // Status
-      --status-default: #{$color-grey-3};
-      --status-adjustment: #{$color-grey-1};
-      --status-danger: #{$color-red-2};
-      --status-warning: #{$color-yellow};
+      --status-default: var(--gray-3);
+      --status-adjustment: var(--gray-1);
+      --status-danger: var(--red-2);
+      --status-warning: var(--yellow);
       --status-warning-transparent: #{$alpha-color-yellow-1};
-      --status-success: #{$color-green-3};
-      --status-transfer: #{$color-orange};
-      --status-info: #{$color-blue};
-      --status-colored-background: #{$color-white};
-      --status-alert-background: #{$color-yellow-3};
+      --status-success: var(--green-3);
+      --status-transfer: var(--orange);
+      --status-info: var(--blue);
+      --status-colored-background: var(--white);
+      --status-alert-background: var(--yellow-3);
       // Transparentize
       --transparent-success: #{$alpha-color-green-2};
       --transparent-info: #{$alpha-color-blue-1};
       --transparent-hint: #{$alpha-color-blue-1};
       --transparent-danger: #{$alpha-color-red-2};
-      --transparent-correct-message: #{$color-green-5};
-      --transparent-fake-message: #{$color-red-6};
+      --transparent-correct-message: var(--green-5);
+      --transparent-fake-message: var(--red-6);
       /* TODO: change to styleguide later */
       // Gradient
       --gradient-success: #{$gradient-color-green-2};
@@ -333,29 +407,29 @@
       --gradient-gold: #{$gradient-color-gold};
       --gradient-green: #{$gradient-color-green-4};
       // Badge
-      --badge-white: #{$color-white};
-      --badge-blue: #{$color-blue-4};
-      --badge-violet: #{$color-blue-2};
-      --badge-green: #{$color-green-3};
+      --badge-white: var(--white);
+      --badge-blue: var(--blue-4);
+      --badge-violet: var(--blue-2);
+      --badge-green: var(--green-3);
       //TradersHub Banner
-      --traders-hub-banner-border-color: #{$color-black-5};
+      --traders-hub-banner-border-color: var(--black-5);
       // wallets
       --derivs-banner-ready-bg-color: #{$ready-banner-bg-color};
       --derivs-banner-ready-tick-bg-color: #{$ready-banner-tick-bg-color};
-      --derivs-banner-border-color: #{$color-grey-4};
-      --derivs-banner-dot-color: #{$color-grey-6};
-      --derivs-banner-active-dot-color: #{$color-red};
+      --derivs-banner-border-color: var(--gray-4);
+      --derivs-banner-dot-color: var(--gray-6);
+      --derivs-banner-active-dot-color: var(--red);
       --derivs-card-active-gradient-background: #{$gradient-color-white-2};
       --deriv-demo-bg-color: #{$deriv-dark-demo-bg-color};
-      --deriv-demo-divider-color: #{$color-black-8};
-      --deriv-eu-disclaimer: #{$color-grey-4};
+      --deriv-demo-divider-color: var(--black-8);
+      --deriv-eu-disclaimer: var(--gray-4);
       --deriv-box-shadow: #{$deriv-box-shadow};
       // Demo view
-      --demo-text-color-1: #{$color-black-1};
+      --demo-text-color-1: var(--black-1);
       --demo-text-color-2: #{$color-black-1};
       // Header
-      --header-background-mt5: #{$color-blue-8};
-      --header-background-others: #{$color-green-7};
+      --header-background-mt5: var(--blue-8);
+      --header-background-others: var(--green-7);
     }
   }
 }
