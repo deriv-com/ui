@@ -1,3 +1,17 @@
+# [1.8.0](https://github.com/deriv-com/ui/compare/v1.7.0...v1.8.0) (2024-02-19)
+
+
+### ✨ 	 Features
+
+* setup jest and rtl ([1304e73](https://github.com/deriv-com/ui/commit/1304e73de6215729e7a43868088c2ee520ca78de))
+* setup jest and rtl ([f2a92c5](https://github.com/deriv-com/ui/commit/f2a92c51aee493c6c4dec6bd8a86f4bd0a7bc8cd))
+
+
+### 🐛 	 Bug Fixes
+
+* fixed EOF issues ([017efa5](https://github.com/deriv-com/ui/commit/017efa5e2c3c39857057fa543e1af470d36b59b3))
+* resolved pr conflicts ([570c097](https://github.com/deriv-com/ui/commit/570c09798339e7cf0a2bb2795e0520540c44170b))
+
 # [1.7.0](https://github.com/deriv-com/ui/compare/v1.6.1...v1.7.0) (2024-02-16)
 
 
