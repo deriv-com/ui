@@ -1,3 +1,12 @@
+## [1.8.1](https://github.com/deriv-com/ui/compare/v1.8.0...v1.8.1) (2024-02-19)
+
+
+### 📦 	 Code Refactoring
+
+* changed name to prompt ([440bc2c](https://github.com/deriv-com/ui/commit/440bc2ca770a5121a22b1bad9a3649ab9661e18c))
+* removed classname from props ([03a8b9a](https://github.com/deriv-com/ui/commit/03a8b9a753830a682dc1d4b157b245b28c72bc95))
+* used px instead of rem ([e2263da](https://github.com/deriv-com/ui/commit/e2263da2ec10210589405bb5d2e65efcb8878654))
+
 # [1.8.0](https://github.com/deriv-com/ui/compare/v1.7.0...v1.8.0) (2024-02-19)
 
 
