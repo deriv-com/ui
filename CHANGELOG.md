@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/deriv-com/ui/compare/v1.8.1...v1.8.2) (2024-02-20)
+
+
+### 🐛 	 Bug Fixes
+
+* remove useId from checkbox component ([b46b526](https://github.com/deriv-com/ui/commit/b46b52626984a3f33c16926eb78ceb1f4e227dad))
+
 ## [1.8.1](https://github.com/deriv-com/ui/compare/v1.8.0...v1.8.1) (2024-02-19)
 
 
