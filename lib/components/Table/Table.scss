@@ -2,7 +2,7 @@ $general-color: #f2f3f4;
 $scroll-color: #d6dadb;
 $general-hover: #e6e9e9;
 
-@supports (-moz-appearance:none) {
+@supports (-moz-appearance: none) {
     .deriv-table__content {
         scrollbar-color: transparent transparent;
         scrollbar-width: thin;
@@ -12,7 +12,6 @@ $general-hover: #e6e9e9;
             scrollbar-color: $scroll-color transparent; /* Specify scrollbar color */
         }
     }
-
 }
 .deriv-table {
     width: 100%;

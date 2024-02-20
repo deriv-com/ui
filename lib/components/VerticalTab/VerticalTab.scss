@@ -8,7 +8,7 @@
 }
 
 .vertical-tab {
-    &__items-container{
+    &__items-container {
         background: #f2f3f4;
         flex: 1;
         border-radius: 4px;
@@ -22,7 +22,7 @@
         cursor: pointer;
         border-radius: 4px;
 
-        &:hover{
+        &:hover {
             background-color: #e6e9e9;
         }
 
@@ -31,17 +31,17 @@
             border-left: 4px solid #ff444f;
             padding-left: 12px;
 
-            &:hover{
+            &:hover {
                 background-color: #fff;
             }
         }
 
         &--disabled {
-            & > span{
+            & > span {
                 color: #999999;
             }
 
-            &:hover{
+            &:hover {
                 cursor: unset;
                 background-color: inherit;
             }
@@ -55,14 +55,14 @@
     }
 
     &__label {
-        flex:1;
+        flex: 1;
     }
 
     &__panel {
         flex: 2;
     }
 
-    &__arrow--open{
+    &__arrow--open {
         transform: rotate(180deg);
     }
 }
@@ -87,7 +87,6 @@
     }
 
     &__label {
-        flex:1;
+        flex: 1;
     }
 }
-
