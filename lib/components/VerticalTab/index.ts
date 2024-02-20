@@ -1,2 +1,2 @@
-export {VerticalTab} from './VerticalTab'
-export {VerticalTabItems} from './VerticalTabItems'
+export { VerticalTab } from "./VerticalTab";
+export { VerticalTabItems } from "./VerticalTabItems";

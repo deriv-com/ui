@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect } from "react";
 
 type TProps = {
     isFetching: boolean;
@@ -12,14 +12,18 @@ export const useFetchMore = ({ isFetching, loadMore, ref }: TProps) => {
     const fetchMoreOnBottomReached = useCallback(
         (containerRefElement?: HTMLDivElement | null) => {
             if (containerRefElement) {
-                const { clientHeight, scrollHeight, scrollTop } = containerRefElement;
+                const { clientHeight, scrollHeight, scrollTop } =
+                    containerRefElement;
                 //once the user has scrolled within 200px of the bottom of the table, fetch more data if we can
-                if (scrollHeight - scrollTop - clientHeight < 200 && !isFetching) {
+                if (
+                    scrollHeight - scrollTop - clientHeight < 200 &&
+                    !isFetching
+                ) {
                     loadMore();
                 }
             }
         },
-        [loadMore, isFetching]
+        [loadMore, isFetching],
     );
 
     //a check on mount and after a fetch to see if the table is already scrolled to the bottom and immediately needs to fetch more data
