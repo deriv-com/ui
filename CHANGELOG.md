@@ -1,3 +1,15 @@
+## [1.8.3](https://github.com/deriv-com/ui/compare/v1.8.2...v1.8.3) (2024-02-20)
+
+
+### 🐛 	 Bug Fixes
+
+* eslint errors ([132d9f0](https://github.com/deriv-com/ui/commit/132d9f0431296b4adb76fc457a93d2bec0e73987))
+
+
+### 🛠 	 Builds
+
+* setup prettier and eslint ([754afef](https://github.com/deriv-com/ui/commit/754afeff2b516ab1d9197675e157003c8435974d))
+
 ## [1.8.2](https://github.com/deriv-com/ui/compare/v1.8.1...v1.8.2) (2024-02-20)
 
 ### 🐛 Bug Fixes
