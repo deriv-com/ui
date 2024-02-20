@@ -157,7 +157,11 @@ export const Dropdown = ({
                     {...rest}
                 />
             </div>
-            <ul className={`deriv-dropdown__items deriv-dropdown__items--${listHeight} deriv-dropdown__items--${isFullWidth ? "full" : isFullWidth}`} {...getMenuProps()}>
+            <ul className={clsx(
+                'deriv-dropdown__items',
+                `deriv-dropdown__items--${listHeight}`,
+                `deriv-dropdown__items--${isFullWidth?"full":isFullWidth}`
+            )} {...getMenuProps()}>
                 {isOpen && (
                     items.map((item, index) => (
                         <li
