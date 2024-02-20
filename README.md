@@ -1,7 +1,9 @@
 # @deriv-com/ui
 
 ## Install
+
 To use @deriv-com/ui in your project, add it as a dependency:
+
 ```
 npm i @deriv-com/ui
 ```
@@ -21,4 +23,3 @@ const MyComponent = () => {
 }
 
 ```
-

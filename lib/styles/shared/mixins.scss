@@ -10,22 +10,33 @@
     $a: ($max-value - $min-value) / ($max-screen - $min-screen);
     $b: $min-value - $a * $min-screen;
 
-    $sign: '+';
+    $sign: "+";
     @if ($b < 0) {
-        $sign: '-';
+        $sign: "-";
         $b: abs($b);
     }
     @return calc(#{$a * 100}vw #{$sign} #{$b});
 }
 
-@mixin interpolate($properties, $min-screen, $max-screen, $min-value, $max-value) {
+@mixin interpolate(
+    $properties,
+    $min-screen,
+    $max-screen,
+    $min-value,
+    $max-value
+) {
     & {
         @each $property in $properties {
             #{$property}: $min-value;
         }
         @media screen and (min-width: $min-screen) {
             @each $property in $properties {
-                #{$property}: calc-interpolation($min-screen, $min-value, $max-screen, $max-value);
+                #{$property}: calc-interpolation(
+                    $min-screen,
+                    $min-value,
+                    $max-screen,
+                    $max-value
+                );
             }
         }
         @media screen and (min-width: $max-screen) {
@@ -117,13 +128,13 @@
         text-align: $align;
     }
     @if $size == 1.6rem {
-        line-height: map-get($map: $LINEHEIGHTS, $key: 'large');
+        line-height: map-get($map: $LINEHEIGHTS, $key: "large");
     } @else if $size == 1.4rem {
-        line-height: map-get($map: $LINEHEIGHTS, $key: 'medium');
+        line-height: map-get($map: $LINEHEIGHTS, $key: "medium");
     } @else if $size == 1.2rem {
-        line-height: map-get($map: $LINEHEIGHTS, $key: 'small');
+        line-height: map-get($map: $LINEHEIGHTS, $key: "small");
     } @else if $size == 1rem {
-        line-height: map-get($map: $LINEHEIGHTS, $key: 'xsmall');
+        line-height: map-get($map: $LINEHEIGHTS, $key: "xsmall");
     } @else {
         line-height: unset;
     }
@@ -213,18 +224,18 @@
         background: $color;
     }
     &:after,
-    &[data-tooltip-pos='top']:after {
+    &[data-tooltip-pos="top"]:after {
         border-top-color: $color;
     }
-    &[data-tooltip-pos='right']:after {
+    &[data-tooltip-pos="right"]:after {
         border-top-color: transparent;
         border-right-color: $color;
     }
-    &[data-tooltip-pos='left']:after {
+    &[data-tooltip-pos="left"]:after {
         border-top-color: transparent;
         border-left-color: $color;
     }
-    &[data-tooltip-pos='bottom']:after {
+    &[data-tooltip-pos="bottom"]:after {
         border-top-color: transparent;
         border-bottom-color: $color;
     }
@@ -241,18 +252,18 @@
         background: $color;
     }
     &:after,
-    &[data-tooltip-pos='top']:after {
+    &[data-tooltip-pos="top"]:after {
         border-top-color: $color;
     }
-    &[data-tooltip-pos='right']:after {
+    &[data-tooltip-pos="right"]:after {
         border-top-color: transparent;
         border-right-color: $color;
     }
-    &[data-tooltip-pos='left']:after {
+    &[data-tooltip-pos="left"]:after {
         border-top-color: transparent;
         border-left-color: $color;
     }
-    &[data-tooltip-pos='bottom']:after {
+    &[data-tooltip-pos="bottom"]:after {
         border-top-color: transparent;
         border-bottom-color: $color;
     }
