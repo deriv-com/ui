@@ -14,9 +14,15 @@ const meta = {
     label: "Get updates about Deriv products, services and events.",
     onChange: () => {},
     wrapperClassName: "",
+    name: "example-checkbox",
     error: false,
   },
   argTypes: {
+    name: {
+      control: {
+        type: "text",
+      },
+    },
     wrapperClassName: {
       control: {
         disable: true,
@@ -63,6 +69,7 @@ export const Default: Story = {
   args: {
     checked: false,
     onChange: () => {},
+    name: "example-checkbox",
     label: "Get updates about Deriv products, services and events.",
   },
   render: (args) => {

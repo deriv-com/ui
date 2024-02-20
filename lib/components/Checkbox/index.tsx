@@ -1,9 +1,13 @@
-import { ComponentProps, ReactNode, Ref, forwardRef, useId } from "react";
+import { ComponentProps, ReactNode, Ref, forwardRef } from "react";
 import clsx from "clsx";
 import "./Checkbox.scss";
 
 interface CheckboxProps
-  extends Omit<ComponentProps<"input">, "placeholder" | "defaultChecked"> {
+  extends Omit<
+    ComponentProps<"input">,
+    "placeholder" | "defaultChecked" | "name"
+  > {
+  name: string;
   error?: boolean;
   label?: ReactNode;
   labelClassName?: string;
@@ -20,17 +24,16 @@ export const Checkbox = forwardRef(
       label,
       labelClassName,
       wrapperClassName,
+      name,
       ...rest
     }: CheckboxProps,
     ref: Ref<HTMLInputElement>
   ) => {
-    const id = useId();
-
     return (
       <div className={clsx("deriv-checkbox", wrapperClassName)}>
         <div className="deriv-checkbox__wrapper">
           <input
-            id={rest.id ?? id}
+            id={rest.id ?? name}
             className={clsx(
               "deriv-checkbox__box",
               {
@@ -44,6 +47,7 @@ export const Checkbox = forwardRef(
             checked={!disabled && checked}
             disabled={disabled}
             ref={ref}
+            name={name}
             {...rest}
           />
         </div>
@@ -56,7 +60,7 @@ export const Checkbox = forwardRef(
             },
             labelClassName
           )}
-          htmlFor={rest.id ?? id}
+          htmlFor={rest.id ?? name}
         >
           {label}
         </label>
