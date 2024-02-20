@@ -1,8 +1,8 @@
 import {
-  ComponentProps,
-  MouseEventHandler,
-  PropsWithChildren,
-  ReactNode,
+    ComponentProps,
+    MouseEventHandler,
+    PropsWithChildren,
+    ReactNode,
 } from "react";
 import clsx from "clsx";
 import { ChevronRightIcon } from "./ChevronRightIcon";
@@ -10,12 +10,12 @@ import { Text } from "../Text";
 import "./SideNote.scss";
 
 type SideNoteProps = Omit<ComponentProps<"div">, "className"> & {
-  title?: ReactNode;
-  titleSize?: ComponentProps<typeof Text>["size"];
-  className?: HTMLDivElement["className"];
-  actionClick?: MouseEventHandler<HTMLButtonElement>;
-  actionClassName?: HTMLDivElement["className"];
-  actionLabel?: ReactNode;
+    title?: ReactNode;
+    titleSize?: ComponentProps<typeof Text>["size"];
+    className?: HTMLDivElement["className"];
+    actionClick?: MouseEventHandler<HTMLButtonElement>;
+    actionClassName?: HTMLDivElement["className"];
+    actionLabel?: ReactNode;
 };
 
 /**
@@ -29,34 +29,34 @@ type SideNoteProps = Omit<ComponentProps<"div">, "className"> & {
  * @returns {React.JSX.Element} - Returns the SideNote component.
  */
 export const SideNote = ({
-  children,
-  title,
-  titleSize = "sm",
-  className,
-  actionClick,
-  actionClassName,
-  actionLabel = "Learn more",
-  ...props
+    children,
+    title,
+    titleSize = "sm",
+    className,
+    actionClick,
+    actionClassName,
+    actionLabel = "Learn more",
+    ...props
 }: PropsWithChildren<SideNoteProps>) => (
-  <div className={clsx("deriv-side-note", className)} {...props}>
-    {title && (
-      <Text size={titleSize} align="left" weight="bold">
-        {title}
-      </Text>
-    )}
+    <div className={clsx("deriv-side-note", className)} {...props}>
+        {title && (
+            <Text size={titleSize} align="left" weight="bold">
+                {title}
+            </Text>
+        )}
 
-    <div>{children}</div>
+        <div>{children}</div>
 
-    {actionClick && (
-      <button
-        className={clsx("deriv-side-note__action", actionClassName)}
-        onClick={actionClick}
-      >
-        <Text color="red" size="xs">
-          {actionLabel}
-        </Text>
-        <ChevronRightIcon />
-      </button>
-    )}
-  </div>
+        {actionClick && (
+            <button
+                className={clsx("deriv-side-note__action", actionClassName)}
+                onClick={actionClick}
+            >
+                <Text color="red" size="xs">
+                    {actionLabel}
+                </Text>
+                <ChevronRightIcon />
+            </button>
+        )}
+    </div>
 );

@@ -1,33 +1,33 @@
 $color-map: (
-    'primary': (
+    "primary": (
         backgroundcolor: #ff444f,
         hover: #eb3e48,
     ),
-    'primary-light': (
+    "primary-light": (
         backgroundcolor: #ff444f29,
         hover: #ff444f3d,
         color: #ff444f,
     ),
-    'white': (
+    "white": (
         backgroundcolor: #fff,
         hover: #d6dadb,
     ),
-    'black': (
+    "black": (
         backgroundcolor: #0e0e0e,
         hover: #323738,
     ),
 );
 
 $size-map: (
-    'sm': (
+    "sm": (
         height: auto,
         padding: 0.3rem 0.8rem,
     ),
-    'md': (
+    "md": (
         height: 3.2rem,
         padding: 0.6rem 1.6rem,
     ),
-    'lg': (
+    "lg": (
         height: 4rem,
         padding: 1rem 1.6rem,
     ),
