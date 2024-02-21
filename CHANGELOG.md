@@ -1,3 +1,11 @@
+## [1.8.6](https://github.com/deriv-com/ui/compare/v1.8.5...v1.8.6) (2024-02-21)
+
+
+### 🛠 	 Builds
+
+* excluded test files from build process ([827e9a2](https://github.com/deriv-com/ui/commit/827e9a246b2d800933e95dacd4581f9871ba816d))
+* excluded test files from build process ([97c2596](https://github.com/deriv-com/ui/commit/97c2596bfbef9e6278f4b394b4cc15527de5c9ab))
+
 ## [1.8.5](https://github.com/deriv-com/ui/compare/v1.8.4...v1.8.5) (2024-02-21)
 
 
