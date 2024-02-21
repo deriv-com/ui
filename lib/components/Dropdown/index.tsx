@@ -30,7 +30,7 @@ type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
     onSearch?: (inputValue: string) => void;
     onSelect: (value: string) => void;
     selectedVal?: InputProps["value"];
-    value?: InputProps["value"]; // Allow value to be controlled from external state
+    value?: InputProps["value"];
     variant?: "comboBox" | "prompt";
 };
 
@@ -47,7 +47,7 @@ export const Dropdown = ({
     onSearch,
     onSelect,
     selectedVal,
-    value, // Receive value from external state
+    value,
     variant = "prompt",
     ...rest
 }: TProps) => {
@@ -134,14 +134,6 @@ export const Dropdown = ({
     useEffect(() => {
         setItems(list);
     }, [list]);
-    // const [selectedValue, setSelectedValue] = useState(
-    //     selectedVal || list[0]?.value
-    // );
-    // useEffect(() => {
-    //     if (selectedVal) {
-    //         setSelectedValue(selectedVal)
-    //     }
-    // }, [selectedVal])
 
     return (
         <div
