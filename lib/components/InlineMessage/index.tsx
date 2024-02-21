@@ -60,7 +60,13 @@ export const InlineMessage = ({
     >
         {(variant !== "general" || icon) && (
             <div
-                className={`deriv-inline-message__icon deriv-inline-message__icon--${iconPosition}`}
+                className={clsx("deriv-inline-message__icon", {
+                    "deriv-inline-message__icon--top": iconPosition === "top",
+                    "deriv-inline-message__icon--center":
+                        iconPosition === "center",
+                    "deriv-inline-message__icon--bottom":
+                        iconPosition === "bottom",
+                })}
             >
                 {variant !== "general" ? VariantIcons[variant] : icon ?? null}
             </div>
