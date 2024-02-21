@@ -9,6 +9,7 @@ import './DropdownWithSearchBox.scss';
 type InputProps = React.ComponentProps<typeof Input>;
 type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
     disabled?: boolean;
+    cancelIcon: React.ReactNode;
     dropdownIcon: React.ReactNode;
     searchIcon: React.ReactNode;
     errorMessage?: InputProps['message'];
@@ -30,6 +31,7 @@ type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
 
 export const DropdownWithSearchBox = ({
     disabled,
+    cancelIcon,
     dropdownIcon,
     errorMessage,
     dropdownHeight,
@@ -48,6 +50,7 @@ export const DropdownWithSearchBox = ({
     const [items, setItems] = useState(list);
     const [searchInputValue, setSearchInputValue] = useState('');
     const [defVal, setDefVal] = useState('test value');
+    const [noResults, setNoResults] = useState(false);
 
     const shouldFilterListRef = useRef(false);
 
@@ -83,18 +86,19 @@ export const DropdownWithSearchBox = ({
                 setSearchInputValue(inputValue ?? '');
                 onSearch?.(inputValue ?? '');
                 if (shouldFilterListRef.current) {
-                    setItems(
-                        list.filter(item =>
-                            reactNodeToString(item.text)
-                                .toLowerCase()
-                                .includes(inputValue?.toLowerCase() ?? '')
-                        )
+                    const filteredItems = list.filter(item =>
+                        reactNodeToString(item.text)
+                            .toLowerCase()
+                            .includes(inputValue?.toLowerCase() ?? '')
                     );
+                    setItems(filteredItems);
+                    setNoResults(filteredItems.length === 0);
                 }
             },
             onIsOpenChange({ isOpen }) {
                 if (!isOpen) {
                     clearFilter();
+                    setNoResults(false);
                 }
             },
             onSelectedItemChange({ selectedItem }) {
@@ -115,7 +119,6 @@ export const DropdownWithSearchBox = ({
 
     const handleDropdown = useCallback(
         () => {
-
             if (isOpen) {
                 closeMenu();
             } else {
@@ -124,6 +127,10 @@ export const DropdownWithSearchBox = ({
         },
         [closeMenu, isOpen, openMenu]
     );
+
+    const handleClearSearchInput = useCallback(() => {
+        setSearchInputValue('');
+    }, []);
 
     useEffect(() => {
         setItems(list);
@@ -165,34 +172,46 @@ export const DropdownWithSearchBox = ({
             <ul className={`deriv-dropdown__items deriv-dropdown__items--${listHeight}`} {...getMenuProps()}>
                 {isOpen && (
                     <div>
-                        <Input
-                            label={reactNodeToString(label)}
-                            name={name}
-                            onChange={handleDropdown}
-                            onKeyUp={() => (shouldFilterListRef.current = true)}
-                            readOnly={variant !== 'prompt'}
-                            leftPlaceholder={
-                                <button className={'deriv-dropdown__button'}>{searchIcon}</button>
-                            }
-                            type="text"
-                            value={searchInputValue}
-                            {...getInputProps()}
-                            {...rest}
-                        />
-                        {items.map((item, index) => (
-                            <li
-                                className={clsx('deriv-dropdown__item', {
-                                    'deriv-dropdown__item--active': value === item.value,
-                                })}
-                                key={item.value}
-                                onClick={() => clearFilter()}
-                                {...getItemProps({ index, item })}
-                            >
-                                <Text size="sm" weight={value === item.value ? 'bold' : 'normal'}>
-                                    {item.text}
-                                </Text>
-                            </li>
-                        ))}
+                        <div className="search-input-wrapper">
+                            <Input
+                                label={reactNodeToString(label)}
+                                name={name}
+                                onChange={handleDropdown}
+                                onKeyUp={() => (shouldFilterListRef.current = true)}
+                                readOnly={variant !== 'prompt'}
+                                leftPlaceholder={
+                                    <button className={'deriv-dropdown__button'}>{searchIcon}</button>
+                                }
+                                rightPlaceholder={
+                                    searchInputValue && (
+                                        <button className="clear-search-btn" onClick={handleClearSearchInput}>
+                                            {cancelIcon}
+                                        </button>
+                                    )
+                                }
+                                type="text"
+                                value={searchInputValue}
+                                {...getInputProps()}
+                                {...rest}
+                            />
+
+                        </div>
+                        {noResults && <li className="no-results-found">No results found</li>}
+                        {!noResults &&
+                            items.map((item, index) => (
+                                <li
+                                    className={clsx('deriv-dropdown__item', {
+                                        'deriv-dropdown__item--active': value === item.value,
+                                    })}
+                                    key={item.value}
+                                    onClick={() => clearFilter()}
+                                    {...getItemProps({ index, item })}
+                                >
+                                    <Text size="sm" weight={value === item.value ? 'bold' : 'normal'}>
+                                        {item.text}
+                                    </Text>
+                                </li>
+                            ))}
                     </div>
                 )}
             </ul>
