@@ -1,3 +1,15 @@
+## [1.8.7](https://github.com/deriv-com/ui/compare/v1.8.6...v1.8.7) (2024-02-21)
+
+
+### ♻️ 	 Chores
+
+* code alignment ([33683c0](https://github.com/deriv-com/ui/commit/33683c0c005698eb83e1cc6ab69d1c83e861c218))
+
+
+### 💎 	 Styles
+
+* :lipstick: remove extra margin from Inline Message container ([4f3c6f7](https://github.com/deriv-com/ui/commit/4f3c6f792c1d76eefca2af7443032f26b4294b6d))
+
 ## [1.8.6](https://github.com/deriv-com/ui/compare/v1.8.5...v1.8.6) (2024-02-21)
 
 
