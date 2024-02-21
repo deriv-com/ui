@@ -1,3 +1,18 @@
+## [1.8.4](https://github.com/deriv-com/ui/compare/v1.8.3...v1.8.4) (2024-02-21)
+
+
+### ♻️ 	 Chores
+
+* to resolve merge conflicts ([0973a8a](https://github.com/deriv-com/ui/commit/0973a8a0ff34cf67ab5cbae1595586217886ddce))
+
+
+### 📦 	 Code Refactoring
+
+* added clsx in for dropdown width ([df7ea1c](https://github.com/deriv-com/ui/commit/df7ea1cc697e89e0aa6545945a57a221bf80c706))
+* added isFullwidth prop for dropdown width ([27955a6](https://github.com/deriv-com/ui/commit/27955a6cd1fddbae1a02168112771d7ea1ee47d4))
+* changed top padding for dropdown ([97fce3c](https://github.com/deriv-com/ui/commit/97fce3c8e4be05535f221559a3573ad3c954718f))
+* made changes in clsx for dropdown width ([225eb08](https://github.com/deriv-com/ui/commit/225eb0813691ccdccf6037980b3d7ead00ac4a44))
+
 ## [1.8.3](https://github.com/deriv-com/ui/compare/v1.8.2...v1.8.3) (2024-02-20)
 
 
