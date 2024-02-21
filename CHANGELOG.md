@@ -1,3 +1,12 @@
+## [1.8.5](https://github.com/deriv-com/ui/compare/v1.8.4...v1.8.5) (2024-02-21)
+
+
+### ♻️ 	 Chores
+
+* added small animations for the button background color ([4d3a3bf](https://github.com/deriv-com/ui/commit/4d3a3bf3a1a9337ca251dd10198bbd8fcbd1cf53))
+* fix className issue inside of Button component ([569c399](https://github.com/deriv-com/ui/commit/569c399d5505fd2db37f9d7a1f8c2316d9efa9fb))
+* refactor Button component ([52e9db6](https://github.com/deriv-com/ui/commit/52e9db6c2dd10832102db8bde29c3078350bae20))
+
 ## [1.8.4](https://github.com/deriv-com/ui/compare/v1.8.3...v1.8.4) (2024-02-21)
 
 
