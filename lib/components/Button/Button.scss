@@ -40,6 +40,7 @@ $size-map: (
     position: relative;
     gap: 8px;
     cursor: pointer;
+    transition: ease-in-out 0.3s;
 
     &:disabled {
         opacity: 0.32;
