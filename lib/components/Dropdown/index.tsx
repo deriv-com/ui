@@ -154,7 +154,7 @@ export const Dropdown = ({
                     leftPlaceholder={icon ? icon : undefined}
                     rightPlaceholder={<DropdownButton />}
                     type="text"
-                    value={selectedVal?selectedVal:value} // Use external state value directly
+                    value={selectedVal?selectedVal:value}
                     {...getInputProps()}
                     {...rest}
                 />
