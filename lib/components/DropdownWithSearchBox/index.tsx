@@ -171,8 +171,7 @@ export const DropdownWithSearchBox = ({
                             onChange={handleDropdown}
                             onKeyUp={() => (shouldFilterListRef.current = true)}
                             readOnly={variant !== 'prompt'}
-                            leftPlaceholder={icon ? icon : undefined}
-                            rightPlaceholder={
+                            leftPlaceholder={
                                 <button className={'deriv-dropdown__button'}>{searchIcon}</button>
                             }
                             type="text"
