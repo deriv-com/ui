@@ -73,9 +73,7 @@ const meta = {
     },
     tags: ["autodocs"],
     render: ({ children, sidebar }) => (
-        <PageLayout sidebar={sidebar}>
-            {children}
-        </PageLayout>
+        <PageLayout sidebar={sidebar}>{children}</PageLayout>
     ),
 } satisfies Meta<typeof PageLayout>;
 

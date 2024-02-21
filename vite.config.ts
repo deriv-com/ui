@@ -13,7 +13,7 @@ export default defineConfig({
   plugins: [
     react(),
     libInjectCss(),
-    dts({ include: ['lib'] }),
+    dts({ include: ['lib'], exclude: ['lib/**/*.spec.tsx'] }),
   ],
   css: {
     preprocessorOptions: {
@@ -34,7 +34,7 @@ export default defineConfig({
     rollupOptions: {
       external: ['react', 'react/jsx-runtime'],
       input: Object.fromEntries(
-        glob.sync('lib/**/*.{ts,tsx}').map(file => {
+        glob.sync("lib/**/*.{ts,tsx}", { ignore: ["**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx", "**/__tests__/**"] }).map((file) => {
           return [
             // The name of the entry point
             // lib/nested/foo.ts becomes nested/foo

@@ -1,7 +1,7 @@
-import React, { memo, useEffect, useState } from 'react';
-import { CollapsibleVerticalTabItem } from './CollapsibleVerticalTabItem';
-import { VerticalTabItem, type TabItem } from './VerticalTabItem'
-import clsx from 'clsx';
+import React, { memo, useEffect, useState } from "react";
+import { CollapsibleVerticalTabItem } from "./CollapsibleVerticalTabItem";
+import { VerticalTabItem, type TabItem } from "./VerticalTabItem";
+import clsx from "clsx";
 
 type VerticalTabItemsProps = {
     activeTab: string;
@@ -11,7 +11,7 @@ type VerticalTabItemsProps = {
     itemClassName?: string;
     items: TabItem[];
     should_have_panel?: boolean;
-}
+};
 
 /**
  * Component to display the vertical tab items. iit should be wrapperd inside the VerticalTab component
@@ -69,68 +69,86 @@ type VerticalTabItemsProps = {
  * </VerticalTab>
  */
 
-export const VerticalTabItems = memo(({
-    items,
-    panelClassName,
-    wrapperClassName,
-    itemClassName,
-    activeTab,
-    should_have_panel = true,
-    onSelectItem }: VerticalTabItemsProps) => {
-    const [selectedTab, setSelectedTab] = useState<string>(activeTab);
-    useEffect(() => {
-        if (activeTab) {
-            setSelectedTab(activeTab);
-        }
-    }, [activeTab]);
+export const VerticalTabItems = memo(
+    ({
+        items,
+        panelClassName,
+        wrapperClassName,
+        itemClassName,
+        activeTab,
+        should_have_panel = true,
+        onSelectItem,
+    }: VerticalTabItemsProps) => {
+        const [selectedTab, setSelectedTab] = useState<string>(activeTab);
+        useEffect(() => {
+            if (activeTab) {
+                setSelectedTab(activeTab);
+            }
+        }, [activeTab]);
 
-    const findActiveTab = (id: string) => {
-        for (const item of items) {
-            if (item?.subItems) {
-                const foundItem = item?.subItems.find((subItem) => subItem.id === id);
-                if (foundItem) {
-                    return foundItem;
-                }
-            } else {
-                if (item.id === id) {
-                    return item;
+        const findActiveTab = (id: string) => {
+            for (const item of items) {
+                if (item?.subItems) {
+                    const foundItem = item?.subItems.find(
+                        (subItem) => subItem.id === id,
+                    );
+                    if (foundItem) {
+                        return foundItem;
+                    }
+                } else {
+                    if (item.id === id) {
+                        return item;
+                    }
                 }
             }
-        }
-    }
+        };
 
-    const onSelectItemHandler = (id: string) => {
-        const new_active_tab = findActiveTab(id)?.id;
-        setSelectedTab(() => new_active_tab ?? activeTab);
-        onSelectItem?.(id);
-    }
+        const onSelectItemHandler = (id: string) => {
+            const new_active_tab = findActiveTab(id)?.id;
+            setSelectedTab(() => new_active_tab ?? activeTab);
+            onSelectItem?.(id);
+        };
 
-
-    return (
-        <>
-            <div className={clsx('vertical-tab__items-container', wrapperClassName)}>
-                {items.map((item) => {
-                    if (!item?.subItems) {
-                        return (
-                            <VerticalTabItem className={itemClassName} key={item.id} selectedTab={selectedTab} tab={item} onClick={() => onSelectItemHandler(item.id)} />
-                        )
-                    } else {
-                        return (
-                            <CollapsibleVerticalTabItem
-                                key={item.id}
-                                item={item}
-                                selectedTab={selectedTab}
-                                onSelectItemHandler={onSelectItemHandler}
-                                className={itemClassName}
-                            />
-                        )
-                    }
-                })}
-            </div>
-            {should_have_panel && <div className={clsx('vertical-tab__panel', panelClassName)}>
-                {findActiveTab(selectedTab)?.panel}
-            </div>}
-        </>
-    );
-})
-
+        return (
+            <>
+                <div
+                    className={clsx(
+                        "vertical-tab__items-container",
+                        wrapperClassName,
+                    )}
+                >
+                    {items.map((item) => {
+                        if (!item?.subItems) {
+                            return (
+                                <VerticalTabItem
+                                    className={itemClassName}
+                                    key={item.id}
+                                    selectedTab={selectedTab}
+                                    tab={item}
+                                    onClick={() => onSelectItemHandler(item.id)}
+                                />
+                            );
+                        } else {
+                            return (
+                                <CollapsibleVerticalTabItem
+                                    key={item.id}
+                                    item={item}
+                                    selectedTab={selectedTab}
+                                    onSelectItemHandler={onSelectItemHandler}
+                                    className={itemClassName}
+                                />
+                            );
+                        }
+                    })}
+                </div>
+                {should_have_panel && (
+                    <div
+                        className={clsx("vertical-tab__panel", panelClassName)}
+                    >
+                        {findActiveTab(selectedTab)?.panel}
+                    </div>
+                )}
+            </>
+        );
+    },
+);
