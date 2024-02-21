@@ -55,7 +55,7 @@ export const InlineMessage = ({
             variant !== "general"
                 ? VariantClasses[variant][type]
                 : VariantClasses[variant],
-            className
+            className,
         )}
     >
         {(variant !== "general" || icon) && (
