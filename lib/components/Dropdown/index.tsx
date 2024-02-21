@@ -29,7 +29,8 @@ type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
     name: InputProps["name"];
     onSearch?: (inputValue: string) => void;
     onSelect: (value: string) => void;
-    value?: InputProps["value"];
+    selectedVal?: InputProps["value"];
+    value?: InputProps["value"]; // Allow value to be controlled from external state
     variant?: "comboBox" | "prompt";
 };
 
@@ -45,7 +46,8 @@ export const Dropdown = ({
     name,
     onSearch,
     onSelect,
-    value,
+    selectedVal,
+    value, // Receive value from external state
     variant = "prompt",
     ...rest
 }: TProps) => {
@@ -132,6 +134,14 @@ export const Dropdown = ({
     useEffect(() => {
         setItems(list);
     }, [list]);
+    // const [selectedValue, setSelectedValue] = useState(
+    //     selectedVal || list[0]?.value
+    // );
+    // useEffect(() => {
+    //     if (selectedVal) {
+    //         setSelectedValue(selectedVal)
+    //     }
+    // }, [selectedVal])
 
     return (
         <div
@@ -152,7 +162,7 @@ export const Dropdown = ({
                     leftPlaceholder={icon ? icon : undefined}
                     rightPlaceholder={<DropdownButton />}
                     type="text"
-                    value={value}
+                    value={selectedVal?selectedVal:value} // Use external state value directly
                     {...getInputProps()}
                     {...rest}
                 />
@@ -162,7 +172,7 @@ export const Dropdown = ({
                 `deriv-dropdown__items--${listHeight}`,
                 {
                     'deriv-dropdown__items--full': isFullWidth,
-             }
+                }
             )} {...getMenuProps()}>
                 {isOpen && (
                     items.map((item, index) => (
