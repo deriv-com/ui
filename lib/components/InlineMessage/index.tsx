@@ -9,6 +9,7 @@ type InlineMessageProps = {
     children: ReactNode;
     className?: string;
     icon?: JSX.Element;
+    iconPosition?: "top" | "center" | "bottom";
     variant?: TVariant;
     type?: "outlined" | "filled";
 };
@@ -42,6 +43,7 @@ const VariantClasses = {
 
 export const InlineMessage = ({
     icon,
+    iconPosition = "center",
     children,
     className,
     variant = "general",
@@ -53,11 +55,13 @@ export const InlineMessage = ({
             variant !== "general"
                 ? VariantClasses[variant][type]
                 : VariantClasses[variant],
-            className,
+            className
         )}
     >
         {(variant !== "general" || icon) && (
-            <div className="deriv-inline-message__icon">
+            <div
+                className={`deriv-inline-message__icon deriv-inline-message__icon--${iconPosition}`}
+            >
                 {variant !== "general" ? VariantIcons[variant] : icon ?? null}
             </div>
         )}

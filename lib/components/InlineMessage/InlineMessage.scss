@@ -21,6 +21,16 @@ $border: 1px solid;
     &__icon {
         width: 16px;
         height: 16px;
+
+        &--top {
+            align-self: flex-start;
+        }
+        &--center{
+            align-self: center;
+        }
+        &--bottom {
+            align-self: flex-end;
+        }
     }
 
     &__info {
