@@ -89,7 +89,7 @@
 
     &__items {
         position: absolute;
-        top: 40px;
+        top: 45px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -139,6 +139,11 @@
         width: 100%;
         z-index: 2;
 
+        &--doubleList {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
         &:hover:not(&--active) {
             cursor: pointer;
             background: var(--system-light-6-hover-background, #e6e9e9);

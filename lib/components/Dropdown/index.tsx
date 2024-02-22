@@ -22,17 +22,64 @@ type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
     isFullWidth?: boolean;
     label?: InputProps['label'];
     list: {
+        shortcut?:string;
         text?: React.ReactNode;
         value?: string;
     }[];
+    listVariant?:"normalList" | "doubleList";
     listHeight?: Extract<TGenericSizes, "lg" | "md" | "sm" | "xs">;
     name: InputProps["name"];
     onSearch?: (inputValue: string) => void;
     onSelect: (value: string) => void;
-    selectedVal?: InputProps["value"];
+    initialValue?: InputProps["value"];
     value?: InputProps["value"];
     variant?: "comboBox" | "prompt";
 };
+
+/**
+ * Dropdown component for selecting options from a list.
+ * @param {Object} props - Component props.
+ * @param {boolean} props.disabled - Indicates whether the dropdown is disabled.
+ * @param {React.ReactNode} props.dropdownIcon - Icon to display in the dropdown button.
+ * @param {string} props.errorMessage - Error message to display.
+ * @param {React.ReactNode} props.icon - Icon to display in the input field.
+ * @param {boolean} props.isFullWidth - Indicates whether the dropdown should be full width.
+ * @param {React.ReactNode} props.label - Label for the dropdown.
+ * @param {Array} props.list - List of options for the dropdown.
+ * @param {string} props.listHeight - Height of the dropdown list.
+ * @param {string} props.listVariant - Variant of the list in dropdown ('normalList' or 'doubleList').
+ * @param {string} props.name - Name of the input field.
+ * @param {Function} props.onSearch - Callback function for search input.
+ * @param {Function} props.onSelect - Callback function for selecting an option.
+ * @param {string} props.initialValue - Selected value from the list.
+ * @param {string} props.value - Current value of the input field.
+ * @param {string} props.variant - Variant of the dropdown ('comboBox' or 'prompt').
+ * @returns {React.ReactNode} Dropdown component.
+ *
+ * @example
+ * const list = [
+ *   { text: "Option 1", value: "option1" },
+ *   { text: "Option 2", value: "option2" },
+ *   { text: "Option 3", value: "option3" },
+ * ];
+ *
+ * <Dropdown
+ *     disabled={false}
+ *     dropdownIcon={<Icon />}
+ *     errorMessage="Error message"
+ *     icon={<Icon />}
+ *     isFullWidth={true}
+ *     label={<Label />}
+ *     list={list}
+ *     listHeight="lg"
+ *     name="dropdown"
+ *     onSearch={(inputValue) => console.log("Search:", inputValue)}
+ *     onSelect={(value) => console.log("Selected:", value)}
+ *     initialValue="option2"
+ *     value="option1"
+ *     variant="comboBox"
+ * />
+ */
 
 export const Dropdown = ({
     disabled,
@@ -43,16 +90,18 @@ export const Dropdown = ({
     label,
     list,
     listHeight = "xs",
+    listVariant="normalList",
     name,
     onSearch,
     onSelect,
-    selectedVal,
+    initialValue,
     value,
     variant = "prompt",
     ...rest
-}: TProps) => {
+}: TProps): React.ReactNode => {
     const [items, setItems] = useState(list);
     const [shouldFilterList, setShouldFilterList] = useState(false);
+    const [noResults, setNoResults] = useState(false);
     const clearFilter = useCallback(() => {
         setShouldFilterList(false);
         setItems(list);
@@ -89,18 +138,19 @@ export const Dropdown = ({
         onInputValueChange({ inputValue }) {
             onSearch?.(inputValue ?? "");
             if (shouldFilterList) {
-                setItems(
-                    list.filter((item) =>
-                        reactNodeToString(item.text)
-                            .toLowerCase()
-                            .includes(inputValue?.toLowerCase() ?? ""),
-                    ),
-                );
+                const filteredItems =list.filter((item) =>
+                reactNodeToString(item.text)
+                    .toLowerCase()
+                    .includes(inputValue?.toLowerCase() ?? ""),
+            )
+                setItems(filteredItems);
+                setNoResults(filteredItems.length === 0);
             }
         },
         onIsOpenChange({ isOpen }) {
             if (!isOpen) {
                 clearFilter();
+                setNoResults(false);
             }
         },
         onSelectedItemChange({ selectedItem }) {
@@ -154,7 +204,7 @@ export const Dropdown = ({
                     leftPlaceholder={icon ? icon : undefined}
                     rightPlaceholder={<DropdownButton />}
                     type="text"
-                    value={selectedVal?selectedVal:value}
+                    value={initialValue?initialValue:value}
                     {...getInputProps()}
                     {...rest}
                 />
@@ -167,16 +217,33 @@ export const Dropdown = ({
                 }
             )} {...getMenuProps()}>
                 {isOpen && (
-                    items.map((item, index) => (
+                    <div>
+                    {noResults && <li className="no-results-found">No results found</li>}
+                   { !noResults &&
+                   items.map((item, index) => (
                         <li
                             className={clsx("deriv-dropdown__item", {
                                 "deriv-dropdown__item--active":
                                     value === item.value,
+                            },{
+                                "deriv-dropdown__item--doubleList":
+                                listVariant==="doubleList"
                             })}
                             key={item.value}
                             onClick={() => clearFilter()}
                             {...getItemProps({ index, item })}
                         >
+                            {
+                               listVariant==="doubleList"&& item?.shortcut &&
+                               <Text
+                               size="sm"
+                               weight={
+                                   value === item.value ? "bold" : "normal"
+                               }
+                           >
+                               {item.shortcut}
+                           </Text>
+                            }
                             <Text
                                 size="sm"
                                 weight={
@@ -186,7 +253,8 @@ export const Dropdown = ({
                                 {item.text}
                             </Text>
                         </li>
-                    ))
+                    ))}
+                    </div>
                 )
                 }
             </ul>
