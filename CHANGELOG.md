@@ -1,3 +1,22 @@
+## [1.8.8](https://github.com/deriv-com/ui/compare/v1.8.7...v1.8.8) (2024-02-21)
+
+
+### ♻️ 	 Chores
+
+* code alignment ([d868679](https://github.com/deriv-com/ui/commit/d86867945f6f3a1de219589fcb25f7976994a4a4))
+* code alignment ([4619e81](https://github.com/deriv-com/ui/commit/4619e811492c8b10771e0baa9003580f511288bb))
+* refactor classname ([6220073](https://github.com/deriv-com/ui/commit/622007375d35e5300f620b732ab925d1f4f3ee69))
+
+
+### 💎 	 Styles
+
+* :lipstick: add alignment for message icon ([7e3e63b](https://github.com/deriv-com/ui/commit/7e3e63b4639c44575c9171a6618079a7de9a9969))
+
+
+### 🚀 	 Performance Improvements
+
+* :zap: add iconPosition prop ([45ee875](https://github.com/deriv-com/ui/commit/45ee875afc516686f2533ce59b665bb8cbd3b55c))
+
 ## [1.8.7](https://github.com/deriv-com/ui/compare/v1.8.6...v1.8.7) (2024-02-21)
 
 
