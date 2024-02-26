@@ -1,7 +1,7 @@
 {
     "name": "@deriv-com/ui",
     "private": false,
-    "version": "1.8.6",
+    "version": "1.8.8",
     "type": "module",
     "main": "dist/main.js",
     "files": [
@@ -23,7 +23,7 @@
     },
     "scripts": {
         "dev": "vite",
-        "build": "tsc -p ./tsconfig-build.json && vite build --watch",
+        "build": "tsc -p ./tsconfig-build.json && vite build",
         "prepublish": "npm run build",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
         "format": "npx prettier . --write",
