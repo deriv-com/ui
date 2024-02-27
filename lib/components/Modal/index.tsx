@@ -21,6 +21,7 @@ export const CUSTOM_STYLES = {
         top: '50%',
         transform: 'translate(-50%, -50%)',
         transition: 'all 0.35s ease-in-out',
+        boxShadow: '0px 32px 64px 0px rgba(14, 14, 14, 0.14)'
     },
     overlay: {
         backgroundColor: 'rgba(0, 0, 0, 0.72)',
