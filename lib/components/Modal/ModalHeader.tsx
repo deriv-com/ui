@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 type ModalHeaderProps = HtmlHTMLAttributes<HTMLDivElement> & {
     hideCloseIcon?: boolean;
-    onRequestClose?: ((event: React.MouseEvent<Element, MouseEvent> | React.KeyboardEvent<Element>) => void) | undefined
+    onRequestClose?: VoidFunction;
 }
 
 const CrossIcon = ({ className, onClick }: { className?: string, onClick?: ((event: React.MouseEvent<Element, MouseEvent> | React.KeyboardEvent<Element>) => void) }) => <svg className={className} onClick={onClick} xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
@@ -16,7 +16,7 @@ export const ModalHeader = ({ children, hideCloseIcon, className, onRequestClose
     return (
         <div className={clsx('deriv-modal__header', className)} {...rest}>
             {children}
-            {!hideCloseIcon && <CrossIcon onClick={() => onRequestClose} className="deriv-modal__header-close" />}
+            {!hideCloseIcon && <CrossIcon onClick={onRequestClose} className="deriv-modal__header-close" />}
         </div>
     );
 }
