@@ -1,10 +1,10 @@
-import React, { HtmlHTMLAttributes } from "react";
+import React, { ComponentPropsWithRef, Ref, forwardRef } from "react";
 import clsx from "clsx";
 import { Text } from "../Text";
 import { TGenericSizes } from "../../types";
 import "./TextArea.scss";
 
-type TTextAreaProps = HtmlHTMLAttributes<HTMLTextAreaElement> & {
+type TextAreaProps = ComponentPropsWithRef<'textarea'> & {
     hint?: string;
     isInvalid?: boolean;
     label?: string;
@@ -13,7 +13,7 @@ type TTextAreaProps = HtmlHTMLAttributes<HTMLTextAreaElement> & {
     shouldShowCounter?: boolean;
     value?: string;
 };
-export const TextArea = ({
+export const TextArea = forwardRef(({
     hint,
     isInvalid = false,
     label,
@@ -21,15 +21,25 @@ export const TextArea = ({
     textSize,
     shouldShowCounter = false,
     value,
+    onChange,
     ...rest
-}: TTextAreaProps) => {
+}: TextAreaProps, ref: Ref<HTMLTextAreaElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        if (maxLength && e.target.value.length > maxLength) {
+            e.target.value = e.target.value.slice(0, maxLength);
+        }
+        if (onChange) {
+            onChange(e);
+        }
+    };
+
     return (
         <div
             className={clsx("deriv-textarea", {
                 "deriv-textarea--error": isInvalid,
             })}
         >
-            <textarea data-has-value={!!value} value={value} {...rest} />
+            <textarea data-has-value={!!value} value={value} onChange={handleInputChange} ref={ref} {...rest}/>
             {label && (
                 <label>
                     <Text
@@ -61,4 +71,4 @@ export const TextArea = ({
             </div>
         </div>
     );
-};
+});
