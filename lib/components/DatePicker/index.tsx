@@ -73,7 +73,7 @@ export const DatePicker = ({
     }, [selectedDate]);
 
     return (
-        <div className="datepicker" ref={datePickerRef}>
+        <div className="deriv-datepicker" ref={datePickerRef}>
             <Input
                 {...props}
                 error={isInvalid}
@@ -84,7 +84,7 @@ export const DatePicker = ({
                 onClick={toggleCalendar}
                 rightPlaceholder={
                     <button
-                        className="datepicker__button"
+                        className="deriv-datepicker__button"
                         data-testid="dt_datepicker_button"
                         disabled={disabled}
                         onClick={toggleCalendar}
@@ -98,7 +98,7 @@ export const DatePicker = ({
             />
             {isCalendarOpen && (
                 <div
-                    className={`datepicker__container datepicker__container--${mobileAlignment}`}
+                    className={`deriv-datepicker__container deriv-datepicker__container--${mobileAlignment}`}
                     data-testid="dt_datepicker_container"
                 >
                     <Calendar
