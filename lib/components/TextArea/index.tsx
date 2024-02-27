@@ -9,8 +9,6 @@ type TTextAreaProps = HtmlHTMLAttributes<HTMLTextAreaElement> & {
     isInvalid?: boolean;
     label?: string;
     maxLength?: number;
-    onInputChange: React.ChangeEventHandler<HTMLTextAreaElement>;
-    placeholder?: string;
     textSize: Extract<TGenericSizes, "lg" | "md" | "sm">;
     shouldShowCounter?: boolean;
     value?: string;
@@ -31,7 +29,7 @@ export const TextArea = ({
                 "deriv-textarea--error": isInvalid,
             })}
         >
-            <textarea value={value} {...rest} />
+            <textarea data-has-value={!!value} value={value} {...rest} />
             {label && (
                 <label>
                     <Text
@@ -57,7 +55,7 @@ export const TextArea = ({
                         color={isInvalid ? "error" : "less-prominent"}
                         size={textSize}
                     >
-                        {value?.length || 0}/{maxLength}
+                        {value?.length ?? 0}/{maxLength}
                     </Text>
                 )}
             </div>

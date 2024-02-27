@@ -16,9 +16,6 @@
             border: 1px solid #85acb0;
         }
 
-        &::placeholder {
-            color: #999999;
-        }
         &:focus + label span {
             color: #85acb0;
         }
@@ -26,6 +23,7 @@
         &[data-has-value="true"] + label {
             transform: translate(0, -1.4rem) scale(0.75);
             background-color: #ffffff;
+            padding: 0 0.4rem;
         }
         &:has(~ label)::placeholder {
             color: transparent;
