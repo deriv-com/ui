@@ -8,7 +8,6 @@ const meta = {
     args: {
         label: "Description",
         hint: "This is a hint for the user",
-        maxLength: 100,
     },
 } satisfies Meta<typeof TextArea>;
 
@@ -19,7 +18,6 @@ export const Default: Story = {
     args: {
         label: "Description",
         hint: "This is a hint for the user",
-        maxLength: 100,
         textSize: "sm",
     },
 
@@ -39,7 +37,6 @@ export const WithError: Story = {
     args: {
         label: "Description",
         hint: "This is an error hint",
-        maxLength: 100,
         isInvalid: true,
         textSize: "sm",
     },
