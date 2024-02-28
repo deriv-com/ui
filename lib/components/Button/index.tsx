@@ -96,7 +96,12 @@ export const Button = ({
             )}
             {icon && !isLoading && icon}
             {rest.children && !isLoading && (
-                <Text align="center" weight="bold" as="span">
+                <Text
+                    align="center"
+                    size={textSize ?? FontSize[size]}
+                    weight="bold"
+                    as="span"
+                >
                     {rest.children}
                 </Text>
             )}
