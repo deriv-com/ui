@@ -1,3 +1,18 @@
+## [1.8.9](https://github.com/deriv-com/ui/compare/v1.8.8...v1.8.9) (2024-02-28)
+
+
+### ♻️ 	 Chores
+
+* refactor textarea component ([2f4bd56](https://github.com/deriv-com/ui/commit/2f4bd566b0831e4fa3a5f1063c08e49f9e33e614))
+
+
+### 🐛 	 Bug Fixes
+
+* added export for Textarea component ([d97f330](https://github.com/deriv-com/ui/commit/d97f330b3a6cc57e639e30f1ea763af7c09a55d2))
+* added word wrap to textarea ([531b70a](https://github.com/deriv-com/ui/commit/531b70a46714f7be78ca88118b3069e42a1d2070))
+* updated storybook ([aefed09](https://github.com/deriv-com/ui/commit/aefed09b318d9ea74c14b0cd68d7bbf93d6a336e))
+* updated TextArea with max char and provide ref ([74e7921](https://github.com/deriv-com/ui/commit/74e792182b3179212fcdd652b7bdfe61204f105c))
+
 ## [1.8.8](https://github.com/deriv-com/ui/compare/v1.8.7...v1.8.8) (2024-02-21)
 
 

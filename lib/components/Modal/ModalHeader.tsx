@@ -9,8 +9,7 @@ type ModalHeaderProps = HtmlHTMLAttributes<HTMLDivElement> & {
     shouldShowBorder?: boolean;
 }
 
-export const ModalHeader = ({ children, hideCloseIcon, className, onRequestClose,shouldShowBorder=true, ...rest }: PropsWithChildren<ModalHeaderProps>) => {
-    console.log(shouldShowBorder)
+export const ModalHeader = ({ children, hideCloseIcon, className, onRequestClose, ...rest }: PropsWithChildren<ModalHeaderProps>) => {
     return (
         <div className={clsx('deriv-modal__header', className)} {...rest}>
             {children}
