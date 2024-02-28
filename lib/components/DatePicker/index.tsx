@@ -1,5 +1,5 @@
 import moment from "moment";
-import { ComponentProps, useEffect, useRef, useState } from "react";
+import { ComponentProps, ReactNode, useEffect, useRef, useState } from "react";
 import Calendar, { CalendarProps } from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { useOnClickOutside } from "usehooks-ts";
@@ -7,8 +7,8 @@ import { Input } from "../Input";
 import "./DatePicker.scss";
 import { CalendarIcon } from "./CalendarIcon";
 
-type DatePickerProps = ComponentProps<typeof Input> & {
-    errorMessage?: string;
+type DatePickerProps = Omit<ComponentProps<typeof Input>, "error"> & {
+    errorMessage?: ReactNode;
     isInvalid?: boolean;
     maxDate?: Date;
     minDate?: Date;
@@ -43,6 +43,7 @@ export const DatePicker = ({
     isInvalid,
     label,
     maxDate,
+    message,
     minDate,
     mobileAlignment = "below",
     onBlur,
@@ -80,11 +81,12 @@ export const DatePicker = ({
         <div className="deriv-datepicker" ref={datePickerRef}>
             <Input
                 {...props}
+                disabled={disabled}
                 error={isInvalid}
                 isFullWidth={isFullWidth}
                 aria-label={label}
                 label={label}
-                message={isInvalid ? errorMessage : ""}
+                message={isInvalid ? errorMessage : message}
                 onBlur={onBlur}
                 onChange={onChange}
                 onClick={toggleCalendar}
