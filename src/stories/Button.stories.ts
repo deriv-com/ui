@@ -71,7 +71,6 @@ export const Ghost: Story = {
     args: {
         variant: "ghost",
         children: "Button",
-        size: "lg",
     },
 };
 
@@ -97,6 +96,7 @@ export const ContainedPrimaryLight: Story = {
         variant: "contained",
         children: "Button",
         color: "primary-light",
+        size: "md",
     },
 };
 
@@ -113,6 +113,78 @@ export const ContainedWhite: Story = {
     name: "Contained (White)",
     args: {
         variant: "contained",
+        children: "Button",
+        color: "white",
+    },
+};
+
+export const OutlinedPrimary: Story = {
+    name: "Outlined (Primary)",
+    args: {
+        variant: "outlined",
+        children: "Button",
+        color: "primary",
+    },
+};
+
+export const OutlinedPrimaryLight: Story = {
+    name: "Outlined (Primary Light)",
+    args: {
+        variant: "outlined",
+        children: "Button",
+        color: "primary-light",
+    },
+};
+
+export const OutlinedBlack: Story = {
+    name: "Outlined (Black)",
+    args: {
+        variant: "outlined",
+        children: "Button",
+        color: "black",
+    },
+};
+
+export const OutlinedWhite: Story = {
+    name: "Outlined (White)",
+    args: {
+        variant: "outlined",
+        children: "Button",
+        color: "white",
+    },
+};
+
+export const GhostPrimary: Story = {
+    name: "Ghost (Primary)",
+    args: {
+        variant: "ghost",
+        children: "Button",
+        color: "primary",
+    },
+};
+
+export const GhostPrimaryLight: Story = {
+    name: "Ghost (Primary Light)",
+    args: {
+        variant: "ghost",
+        children: "Button",
+        color: "primary-light",
+    },
+};
+
+export const GhostBlack: Story = {
+    name: "Ghost (Black)",
+    args: {
+        variant: "ghost",
+        children: "Button",
+        color: "black",
+    },
+};
+
+export const GhostWhite: Story = {
+    name: "Ghost (White)",
+    args: {
+        variant: "ghost",
         children: "Button",
         color: "white",
     },
