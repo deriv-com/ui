@@ -15,6 +15,10 @@
         padding: 0px 16px 0px 24px;
         height: 56px;
         border-bottom: 1px solid #F2F3F4;
+
+        &--no-border {
+            border-bottom: none;
+        }
     }
     &__title {
         font-size: 20px;
@@ -38,6 +42,10 @@
     border-top: 1px solid #F2F3F4;
     justify-content: flex-end;
     padding: 16px 24px;
+
+    &--no-border {
+        border-top: none;
+    }
 }
 @include desktop {
     .deriv-modal__wrapper {

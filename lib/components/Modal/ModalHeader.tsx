@@ -7,11 +7,15 @@ type ModalHeaderProps = HtmlHTMLAttributes<HTMLDivElement> & {
     hideCloseIcon?: boolean;
     onRequestClose?: VoidFunction;
     shouldShowBorder?: boolean;
+    hideBorder?: boolean;
 }
 
-export const ModalHeader = ({ children, hideCloseIcon, className, onRequestClose, ...rest }: PropsWithChildren<ModalHeaderProps>) => {
+export const ModalHeader = ({ children, hideCloseIcon, className, onRequestClose, hideBorder = false, ...rest }: PropsWithChildren<ModalHeaderProps>) => {
     return (
-        <div className={clsx('deriv-modal__header', className)} {...rest}>
+        <div className={clsx('deriv-modal__header', {
+            'deriv-modal__header--no-border': hideBorder,
+
+        }, className)} {...rest}>
             {children}
             {!hideCloseIcon && <CloseIcon onClick={onRequestClose} className="deriv-modal__close-icon" />}
         </div>
