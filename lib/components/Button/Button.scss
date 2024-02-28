@@ -210,10 +210,10 @@ $black-hover: #323738;
 .deriv-button__variant--ghost {
     &.deriv-button__color--white {
         span {
-            color: $black;
+            color: $white;
         }
         &:hover:not(:disabled) {
-            background-color: $white-hover;
+            background-color: #ffffff14;
         }
     }
 }
