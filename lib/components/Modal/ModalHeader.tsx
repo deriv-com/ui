@@ -10,7 +10,7 @@ type ModalHeaderProps = ComponentProps<'div'> & {
     hideBorder?: boolean;
 }
 
-export const ModalHeader = ({ children, hideCloseIcon, className, onRequestClose, hideBorder = false, ...rest }: PropsWithChildren<ModalHeaderProps>) => {
+export const ModalHeader = ({ children, hideCloseIcon, className, onRequestClose, hideBorder = false, ...rest }: ModalHeaderProps) => {
     return (
         <div className={clsx('deriv-modal__header', {
             'deriv-modal__header--no-border': hideBorder,
