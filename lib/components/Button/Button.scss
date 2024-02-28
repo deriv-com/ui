@@ -7,6 +7,8 @@ $primary-hover: #eb3e48;
 $primary-light-hover: #ff444f3d;
 $white-hover: #d6dadb;
 $black-hover: #323738;
+$white-outline-hover: #ffffff14;
+$black-outline-hover: rgba(0, 0, 0, 0.08);
 
 .deriv-button {
     display: inline-flex;
@@ -165,7 +167,7 @@ $black-hover: #323738;
             color: $white;
         }
         &:hover:not(:disabled) {
-            background: #ffffff14;
+            background: $white-outline-hover;
         }
     }
 }
@@ -177,7 +179,7 @@ $black-hover: #323738;
             color: #333;
         }
         &:hover:not(:disabled) {
-            background: rgba(0, 0, 0, 0.08);
+            background: $black-outline-hover;
         }
     }
 }
@@ -213,7 +215,7 @@ $black-hover: #323738;
             color: $white;
         }
         &:hover:not(:disabled) {
-            background-color: #ffffff14;
+            background-color: $white-outline-hover;
         }
     }
 }
