@@ -39,6 +39,10 @@ const meta = {
             options: ["true", "false"],
             control: { type: "boolean" },
         },
+        rounded: {
+            options: ["sm", "md", "lg"],
+            control: { type: "radio" },
+        },
         color: {
             options: ["primary", "primary-light", "black", "white"],
             control: { type: "radio" },
