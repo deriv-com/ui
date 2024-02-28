@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 import { CloseIcon } from './CloseIcon';
 
-type ModalHeaderProps = HtmlHTMLAttributes<HTMLDivElement> & {
+type ModalHeaderProps = ComponentProps<'div'> & {
     hideCloseIcon?: boolean;
     onRequestClose?: VoidFunction;
     shouldShowBorder?: boolean;
