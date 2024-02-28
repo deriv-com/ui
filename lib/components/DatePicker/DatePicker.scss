@@ -9,8 +9,6 @@ abbr[title] {
 
 .deriv-datepicker {
     display: flex;
-    flex-direction: column;
-    position: relative;
 
     &__button {
         all: unset;
@@ -24,7 +22,6 @@ abbr[title] {
 
     &__container {
         position: absolute;
-        display: inline-block;
         width: 28rem;
         transform: translateY(4rem);
 
@@ -40,8 +37,8 @@ abbr[title] {
             }
         }
 
-        /* stylelint-disable-next-line selector-class-pattern */
         .react-calendar {
+            width: 100%;
             border-radius: 0.5rem;
 
             button {
@@ -49,6 +46,8 @@ abbr[title] {
             }
 
             &__navigation {
+                display: flex;
+                align-items: center;
                 border-bottom: 0.1rem solid #d6dadb;
                 height: 5rem;
                 padding: 1.6rem;
@@ -56,18 +55,15 @@ abbr[title] {
 
                 &__arrow {
                     font-size: 2.4rem;
-                    transform: translateY(-1.2rem);
-                    justify-content: center;
-                    align-items: center;
                 }
 
                 &__label {
+                    display: flex;
+                    justify-content: center;
                     font-weight: bold;
-                    transform: translateY(-0.4rem);
                 }
 
                 button {
-                    min-width: 2.4rem;
                     padding: 0.6rem;
                     border-radius: 0.5rem;
 
@@ -86,8 +82,7 @@ abbr[title] {
             &__month-view {
                 &__days,
                 &__weekdays {
-                    /* stylelint-disable-next-line declaration-no-important */
-                    display: grid !important; // to overwrite flex property of calendar
+                    display: grid !important;
                     grid-template-columns: repeat(7, 2.4rem);
                     grid-auto-rows: 2.4rem;
                     grid-gap: 1.2rem;
@@ -144,7 +139,6 @@ abbr[title] {
             }
         }
 
-        /* stylelint-disable-next-line selector-class-pattern */
         .react-calendar__month-view__days__day--weekend.react-calendar__month-view__days__day--neighboringMonth {
             color: #757575;
         }

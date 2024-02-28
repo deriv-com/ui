@@ -27,14 +27,19 @@ function customFormatShortWeekday(_locale: string | undefined, date: Date) {
 }
 
 /**
- * This component let's you pick a date.
- * @param {DatePickerProps.value} title - Display the title content.
- * @param {DatePickerProps.titleSize} titleSize - Set the font-size for the title. (default: "sm")
- * @param {DatePickerProps.className} className - Add an extra className to the container.
+ * This component let's you pick a date and store it in the input field.
+ * @param {DatePickerProps.label} label - The Input label.
+ * @param {DatePickerProps.isInvalid} isInvalid - Set whether the input is invalid.
+ * @param {DatePickerProps.errorMessage} errorMessage - The error message to be displayed.
+ * @param {DatePickerProps.value} value - The default value of the input.
+ * @param {DatePickerProps.onDateChange} onDateChange - Callback to be called when the date is changed.
+ * @param {DatePickerProps.maxDate} maxDate - Set the maximum date that can be picked.
+ * @param {DatePickerProps.minDate} minDate - Set the minimum date that can be picked.
  */
 export const DatePicker = ({
     disabled,
     errorMessage,
+    isFullWidth = false,
     isInvalid,
     label,
     maxDate,
@@ -69,7 +74,6 @@ export const DatePicker = ({
         if (selectedDate !== null) {
             onDateChange(unixToDateString(selectedDate));
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedDate]);
 
     return (
@@ -77,8 +81,10 @@ export const DatePicker = ({
             <Input
                 {...props}
                 error={isInvalid}
+                isFullWidth={isFullWidth}
+                aria-label={label}
                 label={label}
-                message={isInvalid ? errorMessage?.toString() : ""}
+                message={isInvalid ? errorMessage : ""}
                 onBlur={onBlur}
                 onChange={onChange}
                 onClick={toggleCalendar}
