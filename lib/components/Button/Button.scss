@@ -24,15 +24,18 @@ $black-hover: #323738;
 
     &__size {
         &--sm {
-            height: auto;
+            height: 2.4rem;
+            border-width: 1px;
             padding: 0.3rem 0.8rem;
         }
         &--md {
             height: 3.2rem;
+            border-width: 2px;
             padding: 0.6rem 1.6rem;
         }
         &--lg {
             height: 4rem;
+            border-width: 3px;
             padding: 1rem 1.6rem;
         }
     }
@@ -42,7 +45,7 @@ $black-hover: #323738;
             border: none;
         }
         &--outlined {
-            border: 2px solid;
+            border-style: solid;
             background: none;
         }
         &--ghost {
