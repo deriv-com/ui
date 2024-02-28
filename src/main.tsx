@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import ParentComponent from "./Progresstest";
 import { VerticalTab, VerticalTabItems } from "../dist/components/VerticalTab";
 
 import "./style.scss";
@@ -62,6 +63,7 @@ const items = [
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
+        <ParentComponent/>
         <div style={{ margin: 25, width: 800 }}>
             <VerticalTab>
                 <VerticalTabItems items={items} activeTab="Item 3" />
