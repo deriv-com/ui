@@ -1,0 +1,56 @@
+.deriv-modal__wrapper {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+}
+
+.deriv-modal{
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 16px 0px 24px;
+        height: 56px;
+        border-bottom: 1px solid #F2F3F4;
+
+        &--no-border {
+            border-bottom: none;
+        }
+    }
+    &__title {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    &__close-icon {
+        cursor: pointer;
+        margin: 8px;
+    }
+}
+
+.deriv-modal__body {
+    flex: 1;
+    padding:8px 24px;
+}
+
+.deriv-modal__footer {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #F2F3F4;
+    justify-content: flex-end;
+    padding: 16px 24px;
+
+    &--no-border {
+        border-top: none;
+    }
+}
+@include desktop {
+    .deriv-modal__wrapper {
+        width: 440px;
+        height: 440px;
+        border-radius: 8px;
+    }
+}
