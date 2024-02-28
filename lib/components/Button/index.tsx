@@ -45,7 +45,7 @@ const ButtonRounded = {
 } as const;
 
 const FontSize = {
-    lg: "md",
+    lg: "lg",
     md: "sm",
     sm: "xs",
 } as const;
@@ -98,7 +98,7 @@ export const Button = ({
             {rest.children && !isLoading && (
                 <Text
                     align="center"
-                    size={textSize ?? FontSize[size]}
+                    size={FontSize[size] ?? textSize}
                     weight="bold"
                     as="span"
                 >
