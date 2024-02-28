@@ -1,16 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
-import { TextArea } from "../../lib/components/TextArea";
+import { TextArea } from "../../lib/main";
+import { useState } from "react";
 
 const meta = {
-    title: "TextArea",
+    title: "Components/TextArea",
     component: TextArea,
     args: {
         label: "Description",
-        placeholder: "Enter your text here",
         hint: "This is a hint for the user",
-        maxLength: 100,
-        onInputChange: action("Text changed"),
     },
 } satisfies Meta<typeof TextArea>;
 
@@ -20,22 +17,27 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     args: {
         label: "Description",
-        placeholder: "Enter your text here",
         hint: "This is a hint for the user",
-        maxLength: 100,
-        onInputChange: action("Text changed"),
         textSize: "sm",
+    },
+
+    render: (args) => {
+    const [currentValue, setCurrentValue] = useState('');
+        return (
+            <TextArea
+                {...args}
+                value={currentValue}
+                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setCurrentValue(e.target.value)}
+            />
+        )
     },
 };
 
 export const WithError: Story = {
     args: {
         label: "Description",
-        placeholder: "Enter your text here",
         hint: "This is an error hint",
-        maxLength: 100,
         isInvalid: true,
-        onInputChange: action("Text changed"),
         textSize: "sm",
     },
 };
@@ -43,24 +45,43 @@ export const WithError: Story = {
 export const WithCounter: Story = {
     args: {
         label: "Description",
-        placeholder: "Enter your text here",
         hint: "This is a counter hint",
         maxLength: 100,
         shouldShowCounter: true,
-        onInputChange: action("Text changed"),
         textSize: "sm",
+    },
+    render: (args) => {
+        const [value, setValue ] = useState("");
+
+        return (
+            <TextArea
+                {...args}
+                value={value}
+                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setValue(e.target.value)}
+            />
+        )
     },
 };
 
 export const WithErrorAndCounter: Story = {
     args: {
         label: "Description",
-        placeholder: "Enter your text here",
         hint: "This is an error and counter hint",
         maxLength: 100,
         isInvalid: true,
         shouldShowCounter: true,
-        onInputChange: action("Text changed"),
         textSize: "sm",
+    },
+
+    render: (args) => {
+        const [value, setValue ] = useState("");
+
+        return (
+            <TextArea
+                {...args}
+                value={value}
+                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setValue(e.target.value)}
+            />
+        )
     },
 };
