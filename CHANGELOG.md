@@ -1,3 +1,27 @@
+# [1.9.0](https://github.com/deriv-com/ui/compare/v1.8.9...v1.9.0) (2024-02-28)
+
+
+### ♻️ 	 Chores
+
+* added a new prop to controll header and footer border ([03a2c9c](https://github.com/deriv-com/ui/commit/03a2c9c13f5d7a6c683b96877511b2526497ee42))
+* added minor changes ([d7d3323](https://github.com/deriv-com/ui/commit/d7d3323a4c130bc3bead05e16084f72c94475533))
+* added missing import statement ([23222c7](https://github.com/deriv-com/ui/commit/23222c7ece8612842b3d46d0034bccc56291dda1))
+* added new line at the end of the file ([8524eb2](https://github.com/deriv-com/ui/commit/8524eb2f55afc10ce0fae6f5d304b1c42d526557))
+* added some minor changes ([4d3039e](https://github.com/deriv-com/ui/commit/4d3039e20e4bea32c4d74a86689039d06a8278e1))
+* added story for modal ([47fcec5](https://github.com/deriv-com/ui/commit/47fcec54be4c218edf5e7e8606869bf845f9588a))
+* implemented responsive design ([c7622e3](https://github.com/deriv-com/ui/commit/c7622e3b2cee2abca6e1241c415a3f861bb29403))
+* removed unused lines ([7fab60d](https://github.com/deriv-com/ui/commit/7fab60d118110d88d59891dec7f2f2542ab623a3))
+
+
+### ✨ 	 Features
+
+* added desktop modal ([c468d0c](https://github.com/deriv-com/ui/commit/c468d0c4cf72e8872cb491946703f1f2432cebff))
+
+
+### 🐛 	 Bug Fixes
+
+* resolve conflicts ([b26f461](https://github.com/deriv-com/ui/commit/b26f4611f17ce97edb5d409f0ddab91420e0ca03))
+
 ## [1.8.9](https://github.com/deriv-com/ui/compare/v1.8.8...v1.8.9) (2024-02-28)
 
 
