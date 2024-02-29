@@ -1,3 +1,42 @@
+# [1.9.0](https://github.com/deriv-com/ui/compare/v1.8.9...v1.9.0) (2024-02-28)
+
+
+### ♻️ 	 Chores
+
+* added a new prop to controll header and footer border ([03a2c9c](https://github.com/deriv-com/ui/commit/03a2c9c13f5d7a6c683b96877511b2526497ee42))
+* added minor changes ([d7d3323](https://github.com/deriv-com/ui/commit/d7d3323a4c130bc3bead05e16084f72c94475533))
+* added missing import statement ([23222c7](https://github.com/deriv-com/ui/commit/23222c7ece8612842b3d46d0034bccc56291dda1))
+* added new line at the end of the file ([8524eb2](https://github.com/deriv-com/ui/commit/8524eb2f55afc10ce0fae6f5d304b1c42d526557))
+* added some minor changes ([4d3039e](https://github.com/deriv-com/ui/commit/4d3039e20e4bea32c4d74a86689039d06a8278e1))
+* added story for modal ([47fcec5](https://github.com/deriv-com/ui/commit/47fcec54be4c218edf5e7e8606869bf845f9588a))
+* implemented responsive design ([c7622e3](https://github.com/deriv-com/ui/commit/c7622e3b2cee2abca6e1241c415a3f861bb29403))
+* removed unused lines ([7fab60d](https://github.com/deriv-com/ui/commit/7fab60d118110d88d59891dec7f2f2542ab623a3))
+
+
+### ✨ 	 Features
+
+* added desktop modal ([c468d0c](https://github.com/deriv-com/ui/commit/c468d0c4cf72e8872cb491946703f1f2432cebff))
+
+
+### 🐛 	 Bug Fixes
+
+* resolve conflicts ([b26f461](https://github.com/deriv-com/ui/commit/b26f4611f17ce97edb5d409f0ddab91420e0ca03))
+
+## [1.8.9](https://github.com/deriv-com/ui/compare/v1.8.8...v1.8.9) (2024-02-28)
+
+
+### ♻️ 	 Chores
+
+* refactor textarea component ([2f4bd56](https://github.com/deriv-com/ui/commit/2f4bd566b0831e4fa3a5f1063c08e49f9e33e614))
+
+
+### 🐛 	 Bug Fixes
+
+* added export for Textarea component ([d97f330](https://github.com/deriv-com/ui/commit/d97f330b3a6cc57e639e30f1ea763af7c09a55d2))
+* added word wrap to textarea ([531b70a](https://github.com/deriv-com/ui/commit/531b70a46714f7be78ca88118b3069e42a1d2070))
+* updated storybook ([aefed09](https://github.com/deriv-com/ui/commit/aefed09b318d9ea74c14b0cd68d7bbf93d6a336e))
+* updated TextArea with max char and provide ref ([74e7921](https://github.com/deriv-com/ui/commit/74e792182b3179212fcdd652b7bdfe61204f105c))
+
 ## [1.8.8](https://github.com/deriv-com/ui/compare/v1.8.7...v1.8.8) (2024-02-21)
 
 

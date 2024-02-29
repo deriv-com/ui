@@ -18,3 +18,5 @@ export { useOnClickOutside } from "./hooks/useOnClickOutside";
 export { VerticalTab, VerticalTabItems } from "./components/VerticalTab";
 export { SideNote } from "./components/SideNote";
 export { DatePicker } from "./components/DatePicker";
+export { Modal } from "./components/Modal";
+export { TextArea } from "./components/TextArea";

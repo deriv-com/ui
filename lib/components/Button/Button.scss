@@ -1,44 +1,21 @@
-$color-map: (
-    "primary": (
-        backgroundcolor: #ff444f,
-        hover: #eb3e48,
-    ),
-    "primary-light": (
-        backgroundcolor: #ff444f29,
-        hover: #ff444f3d,
-        color: #ff444f,
-    ),
-    "white": (
-        backgroundcolor: #fff,
-        hover: #d6dadb,
-    ),
-    "black": (
-        backgroundcolor: #0e0e0e,
-        hover: #323738,
-    ),
-);
+$primary: #ff444f;
+$primary-light: #ff444f29;
+$white: #fff;
+$black: #0e0e0e;
 
-$size-map: (
-    "sm": (
-        height: auto,
-        padding: 0.3rem 0.8rem,
-    ),
-    "md": (
-        height: 3.2rem,
-        padding: 0.6rem 1.6rem,
-    ),
-    "lg": (
-        height: 4rem,
-        padding: 1rem 1.6rem,
-    ),
-);
+$primary-hover: #eb3e48;
+$primary-light-hover: #ff444f3d;
+$white-hover: #d6dadb;
+$black-hover: #323738;
+$white-outline-hover: #ffffff14;
+$black-outline-hover: rgba(0, 0, 0, 0.08);
 
 .deriv-button {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    gap: 8px;
+    gap: 0.8rem;
     cursor: pointer;
     transition: ease-in-out 0.3s;
 
@@ -47,38 +24,147 @@ $size-map: (
         cursor: not-allowed;
     }
 
-    @each $size, $values in $size-map {
-        &__size--#{$size} {
-            padding: map-get($values, padding);
-            height: map-get($values, height);
+    &__size {
+        &--sm {
+            height: 2.4rem;
+            border-width: 1px;
+            padding: 0.3rem 0.8rem;
         }
-    }
-
-    @each $color, $values in $color-map {
-        &__color--#{$color} {
-            background-color: map-get($values, backgroundcolor);
-            &:hover:not(:disabled) {
-                background-color: map-get($values, hover);
-            }
+        &--md {
+            height: 3.2rem;
+            border-width: 2px;
+            padding: 0.6rem 1.6rem;
+        }
+        &--lg {
+            height: 4rem;
+            border-width: 3px;
+            padding: 1rem 1.6rem;
         }
     }
 
     &__variant {
         &--contained {
             border: none;
+            &.deriv-button__color--primary {
+                background-color: $primary;
+                span {
+                    color: $white;
+                }
+                &:hover:not(:disabled) {
+                    background-color: $primary-hover;
+                }
+            }
+            &.deriv-button__color--primary-light {
+                background-color: $primary-light;
+                span {
+                    color: $primary;
+                }
+                &:hover:not(:disabled) {
+                    background-color: $primary-light-hover;
+                }
+            }
+            &.deriv-button__color--white {
+                background-color: $white;
+                span {
+                    color: $black;
+                }
+                &:hover:not(:disabled) {
+                    background-color: $white-hover;
+                }
+            }
+            &.deriv-button__color--black {
+                background-color: $black;
+                span {
+                    color: $white;
+                }
+                &:hover:not(:disabled) {
+                    background-color: $black-hover;
+                }
+            }
         }
         &--outlined {
-            border: 1px solid var(--system-light-3-less-prominent-text, #999);
+            border-style: solid;
             background: none;
-            &:hover:not(:disabled) {
-                background: #00000014;
+            &.deriv-button__color--primary {
+                border-color: $primary;
+                span {
+                    color: $primary;
+                }
+                &:hover:not(:disabled) {
+                    background: $primary;
+                    span {
+                        color: $white;
+                    }
+                }
+            }
+            &.deriv-button__color--primary-light {
+                border-color: $primary;
+                span {
+                    color: $primary;
+                }
+                &:hover:not(:disabled) {
+                    background: $primary-light;
+                }
+            }
+            &.deriv-button__color--white {
+                border-color: $white;
+                span {
+                    color: $white;
+                }
+                &:hover:not(:disabled) {
+                    background: $white-outline-hover;
+                }
+            }
+            &.deriv-button__color--black {
+                border-color: #999;
+                span {
+                    color: #333;
+                }
+                &:hover:not(:disabled) {
+                    background: $black-outline-hover;
+                }
             }
         }
         &--ghost {
-            background: none;
             border: none;
-            &:hover:not(:disabled) {
-                background: #ff444f14;
+            background: none;
+            &.deriv-button__color--primary {
+                span {
+                    color: $primary;
+                }
+                &:hover:not(:disabled) {
+                    background-color: #eb3e48;
+                    span {
+                        color: $white;
+                    }
+                }
+            }
+            &.deriv-button__color--primary-light {
+                span {
+                    color: $primary;
+                }
+                &:hover:not(:disabled) {
+                    background-color: #ff444f3d;
+                }
+            }
+            &.deriv-button__color--white {
+                span {
+                    color: $white;
+                }
+                &:hover:not(:disabled) {
+                    background-color: $white-outline-hover;
+                }
+            }
+            &.deriv-button__color--black {
+                span {
+                    color: $black;
+                }
+                &:hover:not(:disabled) {
+                    background-color: $black;
+                    span {
+                        color: $white;
+                    }
+                }
             }
         }
     }
@@ -88,10 +174,10 @@ $size-map: (
             border-radius: 4px;
         }
         &--md {
-            border-radius: 64px;
+            border-radius: 8px;
         }
         &--lg {
-            border-radius: 100%;
+            border-radius: 24px;
         }
     }
 
