@@ -18,7 +18,7 @@ export default defineConfig({
         preprocessorOptions: {
             scss: {
                 implementation: sass,
-                additionalData: ['@use "./lib/styles/style.scss" as *;'],
+                additionalData: ['@use "./lib/styles/index.scss" as *;'],
             },
         },
     },

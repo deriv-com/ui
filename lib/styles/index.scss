@@ -1,0 +1,10 @@
+@import "./base/reset";
+@import "./abstracts/variables";
+@import "./abstracts/typography";
+@import "./abstracts/devices";
+@import "./base/root";
+
+body {
+    font-family: #{$font-serif};
+    font-size: #{$base-font-size};
+}

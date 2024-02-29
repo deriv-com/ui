@@ -4,30 +4,30 @@
 :host,
 :root {
     // Text Sizes
-    --text-size-3xs: map-get($font-sizes, "3xs");
-    --text-size-2xs: map-get($font-sizes, "2xs");
-    --text-size-xs: map-get($font-sizes, "xs");
-    --text-size-sm: map-get($font-sizes, "sm");
-    --text-size-default: map-get($font-sizes, "default");
-    --text-size-md: map-get($font-sizes, "md");
-    --text-size-lg: map-get($font-sizes, "lg");
-    --text-size-xl: map-get($font-sizes, "xl");
-    --text-size-2xl: map-get($font-sizes, "2xl");
+    --text-size-3xs: 0.6rem;
+    --text-size-2xs: 0.8rem;
+    --text-size-xs: 1rem;
+    --text-size-sm: 1.2rem;
+    --text-size-default: 1.4rem;
+    --text-size-md: 1.6rem;
+    --text-size-lg: 2.8rem;
+    --text-size-xl: 3rem;
+    --text-size-2xl: 3.2rem;
 
     //Line Height
-    --text-lh-2xs: map-get($font-weights, "2xs");
-    --text-lh-xs: map-get($font-weights, "xs");
-    --text-lh-sm: map-get($font-weights, "sm");
-    --text-lh-md: map-get($font-weights, "md");
-    --text-lh-lg: map-get($font-weights, "lg");
-    --text-lh-xl: map-get($font-weights, "xl");
-    --text-lh-2xl: map-get($font-weights, "2xl");
+    --text-lh-2xs: 1;
+    --text-lh-xs: 1.25;
+    --text-lh-sm: 1.4;
+    --text-lh-md: 1.5;
+    --text-lh-lg: 1.75;
+    --text-lh-xl: 2;
+    --text-lh-2xl: 2.4;
 
     //Font Weight
-    --text-weight-light: map-get($font-weights, "light");
-    --text-weight-normal: map-get($font-weights, "normal");
-    --text-weight-semibold: map-get($font-weights, "semibold");
-    --text-weight-bold: map-get($font-weights, "bold");
+    --text-weight-light: 300;
+    --text-weight-normal: 400;
+    --text-weight-semibold: 500;
+    --text-weight-bold: 700;
 
     //Text Align
     --text-align-left: start;
