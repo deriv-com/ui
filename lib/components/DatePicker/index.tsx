@@ -92,8 +92,8 @@ export const DatePicker = ({
                 onClick={toggleCalendar}
                 rightPlaceholder={
                     <button
+                        aria-label={label}
                         className="deriv-datepicker__button"
-                        data-testid="dt_datepicker_button"
                         disabled={disabled}
                         onClick={toggleCalendar}
                         type="button"
@@ -107,7 +107,6 @@ export const DatePicker = ({
             {isCalendarOpen && (
                 <div
                     className={`deriv-datepicker__container deriv-datepicker__container--${mobileAlignment}`}
-                    data-testid="dt_datepicker_container"
                 >
                     <Calendar
                         formatShortWeekday={customFormatShortWeekday}
