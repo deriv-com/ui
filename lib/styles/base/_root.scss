@@ -1,32 +1,33 @@
+@import "../abstracts/variables";
+@import "../abstracts/typography";
+
 :host,
 :root {
-    // Text sizes
-    --text-size-xxxxs: 0.8rem;
-    --text-size-xxxs: 1rem;
-    --text-size-xxs: 1.2rem;
-    --text-size-xs: 1.4rem;
-    --text-size-s: 1.6rem;
-    --text-size-xsm: 1.8rem;
-    --text-size-sm: 2rem;
-    --text-size-m: 2.4rem;
-    --text-size-l: 3.2rem;
-    --text-size-xl: 4.8rem;
-    --text-size-xxl: 6.4rem;
+    // Text Sizes
+    --text-size-3xs: map-get($font-sizes, "3xs");
+    --text-size-2xs: map-get($font-sizes, "2xs");
+    --text-size-xs: map-get($font-sizes, "xs");
+    --text-size-sm: map-get($font-sizes, "sm");
+    --text-size-default: map-get($font-sizes, "default");
+    --text-size-md: map-get($font-sizes, "md");
+    --text-size-lg: map-get($font-sizes, "lg");
+    --text-size-xl: map-get($font-sizes, "xl");
+    --text-size-2xl: map-get($font-sizes, "2xl");
 
     //Line Height
-    --text-lh-xxs: 1;
-    --text-lh-xs: 1.25;
-    --text-lh-s: 1.4;
-    --text-lh-m: 1.5;
-    --text-lh-l: 1.75;
-    --text-lh-xl: 2;
-    --text-lh-xxl: 2.4;
+    --text-lh-2xs: map-get($font-weights, "2xs");
+    --text-lh-xs: map-get($font-weights, "xs");
+    --text-lh-sm: map-get($font-weights, "sm");
+    --text-lh-md: map-get($font-weights, "md");
+    --text-lh-lg: map-get($font-weights, "lg");
+    --text-lh-xl: map-get($font-weights, "xl");
+    --text-lh-2xl: map-get($font-weights, "2xl");
 
     //Font Weight
-    --text-weight-lighter: lighter;
-    --text-weight-normal: normal;
-    --text-weight-bold: bold;
-    --text-weight-bolder: bolder;
+    --text-weight-light: map-get($font-weights, "light");
+    --text-weight-normal: map-get($font-weights, "normal");
+    --text-weight-semibold: map-get($font-weights, "semibold");
+    --text-weight-bold: map-get($font-weights, "bold");
 
     //Text Align
     --text-align-left: start;
@@ -40,7 +41,7 @@
     --brand-orange: #{$color-orange};
     --brand-secondary: #{$color-green};
 
-    // Wallet gradient background
+    // Wallet Gradient Background
     --deriv-airtm: #{$gradient-airtm};
     --deriv-banxa: #{$gradient-banxa};
     --deriv-bitcoin: #{$gradient-bitcoin};
@@ -59,7 +60,7 @@
     --deriv-visa: #{$gradient-visa};
     --deriv-webmoney: #{$gradient-webmoney};
 
-    // App Cards gradient background
+    // App Cards Gradient Background
     --app-card-virtual: #{$gradient-virtual};
     --app-card-virtual-swap-free: #{$gradient-virtual-swap-free};
 
@@ -185,7 +186,6 @@
         --transparent-danger: #{$alpha-color-red-2};
         --transparent-correct-message: #{$color-green-5};
         --transparent-fake-message: #{$color-red-6};
-        /* TODO: change to styleguide later */
         // Gradient
         --gradient-success: #{$gradient-color-green-1};
         --gradient-danger: #{$gradient-color-red-1};
@@ -228,7 +228,6 @@
         --general-section-1: #{$color-black-3};
         --general-section-2: #{$color-black};
         --general-section-3: #{$color-black-5};
-        // @TODO: get color from design
         --general-section-4: #{$color-black-5};
         --general-section-5: #{$color-black-5};
         --general-section-6: #{$color-grey-7};
@@ -321,7 +320,6 @@
         --transparent-danger: #{$alpha-color-red-2};
         --transparent-correct-message: #{$color-green-5};
         --transparent-fake-message: #{$color-red-6};
-        /* TODO: change to styleguide later */
         // Gradient
         --gradient-success: #{$gradient-color-green-2};
         --gradient-danger: #{$gradient-color-red-2};

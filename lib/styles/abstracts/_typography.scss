@@ -1,0 +1,30 @@
+@at-root {
+    @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,700&display=swap&subset=cyrillic,cyrillic-ext,latin-ext,vietnamese");
+}
+
+$font-serif: "IBM Plex Sans", sans-serif;
+$base-font-size: 10px;
+
+$font-sizes: (
+    "2xl" 3.2rem,
+    "xl" 3rem,
+    "lg" 2.8rem,
+    "md" 1.6rem,
+    "default" 1.4rem,
+    "sm" 1.2rem,
+    "xs" 1rem,
+    "2xs" 0.8rem,
+    "3xs" 0.6rem
+);
+
+$font-weights: ("bold" 700, "semibold" 500, "normal" 400, "light" 300);
+
+$line-heights: (
+    "2xl": 2.4,
+    "xl": 2,
+    "lg": 1.75,
+    "md": 1.5,
+    "sm": 1.4,
+    "xs": 1.25,
+    "2xs": 1,
+);
