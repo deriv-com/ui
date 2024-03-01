@@ -12,7 +12,7 @@ $border: 1px solid;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    width: 328px;
+    width: 32.8rem;
 
     &--full {
         width: 100%;
@@ -25,8 +25,9 @@ $border: 1px solid;
     border-radius: 4px;
     width: 100%;
     text-align: left;
-    padding: 10px 16px;
+    padding: 1rem 1.6rem;
     border: $border;
+    font-size: 1.4rem;
 
     &--general {
         border-color: $disabled_color;
@@ -59,10 +60,10 @@ $border: 1px solid;
         &:focus,
         &:not(:placeholder-shown) {
             & ~ label {
-                font-size: 10px;
+                font-size: 1rem;
                 transform: translate(0, -50%);
                 background-color: #ffffff;
-                padding: 0px 4px;
+                padding: 0 0.4rem;
                 height: fit-content;
             }
         }
@@ -74,12 +75,12 @@ $border: 1px solid;
         top: 0;
         bottom: 0;
         padding: 0;
-        left: 16px;
+        left: 1.6rem;
         display: flex;
         align-items: center;
         pointer-events: none;
         transition: all 0.15s ease-out;
-        font-size: 14px;
+        font-size: 1.4rem;
         &--general {
             color: $inactive_color;
         }
@@ -99,7 +100,7 @@ $border: 1px solid;
     }
 
     &__right-content {
-        margin-left: 16px;
+        margin-left: 1.6rem;
     }
 }
 
@@ -122,7 +123,7 @@ $border: 1px solid;
 }
 
 .deriv-input__helper-message {
-    padding: 2px 0 0 16px;
-    height: 20px;
+    padding: 0.2rem 0 0 1.6rem;
+    height: 2rem;
     width: 100%;
 }
