@@ -1,27 +1,49 @@
 import React from 'react';
-import './ProgressBar.scss';
+import clsx from 'clsx';
+import { Text } from '../Text';
+import { TGenericSizes } from "../../types";
+import "./ProgressBar.scss"
 
-type TProps = {
-    activeIndex: number;
-    count: number;
-    onClick?: (index: number) => void;
+type TProgressSliderProps = {
+    className?: string;
+    is_loading: boolean;
+    label:React.ReactNode;
+    percentage:number;
+    size?: Extract<TGenericSizes, "lg" | "md" | "sm" | "xs">;
 };
 
-export const ProgressBar: React.FC<TProps> = ({ activeIndex, count, onClick }) => {
+export const LinearProgressBar = ({
+    className,
+    is_loading,
+    label,
+    percentage,
+    size="xs"
+}: TProgressSliderProps) => {
     return (
-        <div className='progress-bar' role='progressbar'>
-            {[...Array(count).keys()].map(idx => {
-                const isActive = idx === activeIndex;
-                const barClassname = isActive ? 'progress-bar-active' : 'progress-bar-inactive';
+        <div className={clsx('deriv-progress-slider', className)}>
+                <React.Fragment>
+                    <Text size={size} className='deriv-progress-slider__remaining-time'>
+                       {label}
+                    </Text>
+                    {is_loading || percentage < 1 ? (
+                        <div className='deriv-progress-slider__infinite-loader'>
+                            <div className='deriv-progress-slider__infinite-loader--indeterminate' />
+                        </div>
+                    ) : (
+                        /* Calculate line width based on percentage of time left */
+                        <div className='deriv-progress-slider__track'>
+                            <div
+                                className={clsx('deriv-progress-slider__line', {
+                                    'deriv-progress-slider__line--green': percentage >= 50,
+                                    'deriv-progress-slider__line--yellow': percentage < 50 && percentage >= 20,
+                                    'deriv-progress-slider__line--red': percentage < 20,
+                                })}
+                                style={{ width: `${percentage}%` }}
+                            />
+                        </div>
+                    )}
+                </React.Fragment>
 
-                return (
-                    <div
-                        className={`${barClassname} progress-bar-transition`}
-                        key={`progress-bar-${idx}`}
-                        onClick={() => onClick?.(idx)}
-                    />
-                );
-            })}
         </div>
     );
 };

@@ -1,24 +1,101 @@
-.progress-bar {
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
+/** @define dc-progress-slider */
+// Progress Slider
+.deriv-progress-slider {
+    position: relative;
+    width: 100%;
+    padding: unset;
+    box-sizing: border-box;
+    margin: 8px 0;
+    border-bottom: 1px solid var(--general-section-1);
 
-    &-active {
-        width: 2.5rem;
-        height: 0.8rem;
-        background-color: #ff444f;
-        border-radius: 1rem;
+    &__track {
+        background: var(--text-disabled);
+        position: relative;
+        margin: 2px 0 8px;
+        height: 6px;
+        width: 100%;
+        border-radius: #{$BORDER_RADIUS * 2};
     }
 
-    &-inactive {
-        width: 0.8rem;
-        height: 0.8rem;
-        margin: 0 0.4rem;
-        border-radius: 50%;
-        background-color: #c2c2c2;
-    }
+    &__line {
+        background: var(--state-hover);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        border-radius: #{$BORDER_RADIUS * 2};
+        pointer-events: none;
+        transition: width 0.3s;
 
-    &-transition {
-        transition: all 0.24s linear;
+        &--green {
+            background: var(--status-success) !important;
+        }
+        &--yellow {
+            background: var(--status-warning) !important;
+        }
+        &--red {
+            background: var(--status-danger) !important;
+        }
+    }
+    &__infinite-loader {
+        position: relative;
+        height: 4px;
+        display: block;
+        width: 100%;
+        background-color: var(--state-hover);
+        border-radius: 2px;
+        background-clip: padding-box;
+        margin: 0.5rem 0 1rem;
+        overflow: hidden;
+
+        &--indeterminate {
+            background-color: var(--state-active);
+
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                background-color: inherit;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                will-change: left, right;
+            }
+            &:before {
+                animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+            }
+            &:after {
+                animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+                animation-delay: 1.15s;
+            }
+        }
+        @keyframes indeterminate {
+            0% {
+                left: -35%;
+                right: 100%;
+            }
+            60% {
+                left: 100%;
+                right: -90%;
+            }
+            100% {
+                left: 100%;
+                right: -90%;
+            }
+        }
+        @keyframes indeterminate-short {
+            0% {
+                left: -200%;
+                right: 100%;
+            }
+            60% {
+                left: 107%;
+                right: -8%;
+            }
+            100% {
+                left: 107%;
+                right: -8%;
+            }
+        }
     }
 }
