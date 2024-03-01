@@ -10,12 +10,12 @@ export interface HelperMessageProps {
     disabled?: boolean;
 }
 type TMessageVariant = Exclude<InputVariants, "disabled">;
-const MessageVariant: Record<TMessageVariant, string> = {
+const MessageVariant = {
     general: "deriv-helper-message--general",
     success: "deriv-helper-message--success",
     warning: "deriv-helper-message--warning",
     error: "deriv-helper-message--error",
-};
+} as const;
 
 const HelperMessage = ({
     error,

@@ -21,21 +21,21 @@ interface InputProps extends Omit<ComponentProps<"input">, "placeholder"> {
     isFullWidth?: boolean;
 }
 
-const InputVariant: Record<InputVariants, string> = {
+const InputVariant = {
     general: "deriv-input--general",
     success: "deriv-input--success",
     warning: "deriv-input--general",
     error: "deriv-input--error",
     disabled: "deriv-input--disabled",
-};
+} as const;
 
-const LabelVariant: Record<InputVariants, string> = {
+const LabelVariant = {
     general: "deriv-input__label--general",
     success: "deriv-input__label--success",
     warning: "deriv-input__label--general",
     error: "deriv-input__label--error",
     disabled: "deriv-input__label--disabled",
-};
+} as const;
 
 export const Input = forwardRef(
     (
