@@ -1,89 +1,116 @@
-/* Box sizing rules */
+/***
+    The new CSS reset - version 1.11.2 (last updated 15.11.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(
+        :not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)
+    ) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-/* Prevent font size inflation */
+/* Fix mobile Safari increase font-size on landscape mode */
 html {
     -moz-text-size-adjust: none;
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
 }
 
-/* Remove default margin in favour of better control in authored CSS */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-figure,
-blockquote,
-dl,
-dd {
-    margin-block-end: 0;
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+    cursor: revert;
 }
 
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role="list"],
-ol[role="list"] {
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu,
+summary {
     list-style: none;
 }
 
-/* Set core body defaults */
-body {
-    min-height: 100vh;
-    line-height: 1.5;
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
 }
 
-/* Set shorter line heights on headings and interactive elements */
-h1,
-h2,
-h3,
-h4,
-button,
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
 input,
-label {
-    line-height: 1.1;
+textarea {
+    -webkit-user-select: auto;
 }
 
-/* Balance text wrapping on headings */
-h1,
-h2,
-h3,
-h4 {
-    text-wrap: balance;
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
 }
 
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-    text-decoration-skip-ink: auto;
-    color: currentColor;
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
 }
 
-/* Make images easier to work with */
-img,
-picture {
-    max-width: 100%;
-    display: block;
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+    box-sizing: border-box;
 }
 
-/* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
-    font: inherit;
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
 }
 
-/* Make sure textareas without a rows attribute are not tiny */
-textarea:not([rows]) {
-    min-height: 10em;
+/* fix the feature of 'hidden' attribute.
+display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
 }
 
-/* Anything that has been anchored to should have extra scroll margin */
-:target {
-    scroll-margin-block: 5ex;
+/* revert for bug in Chromium browsers
+- fix for the content editable attribute will work properly.
+- webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+    box-sizing: border-box;
+}
+
+/* Remove details summary webkit styles */
+::-webkit-details-marker {
+    display: none;
 }
