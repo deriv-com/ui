@@ -1,9 +1,4 @@
-/**
- * Define Breakpoints here.
- */
-$mobile-width: 320px;
-$tablet-width: 601px;
-$desktop-width: 1280px;
+@import "./variables";
 
 @mixin tablet {
     @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
