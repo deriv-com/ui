@@ -4,7 +4,7 @@
 @import "./abstracts/devices";
 @import "./base/root";
 
-body {
+html {
     font-family: #{$font-serif};
     font-size: #{$base-font-size};
 }
