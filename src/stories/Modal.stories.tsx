@@ -83,7 +83,47 @@ export const Default: Story = {
     }
 };
 
-export const HeaderCloseIcon: Story = {
+export const ModalWithoutOverlay: Story = {
+    name: "Disable Overlay",
+    args: {
+        isOpen: false,
+        onRequestClose: () => { },
+        ariaHideApp: false,
+        shouldCloseOnOverlayClick: false,
+    },
+    render : (args)=>{
+        const [isOpen, setIsOpen] = useState(args.isOpen);
+
+        useEffect(() => {
+            setIsOpen(args.isOpen);
+        }, [args.isOpen]);
+        return (
+            <>
+            <Button onClick={() => setIsOpen(true)}>Open Modal</Button>
+            <Modal
+                {...args}
+                isOpen={isOpen}
+                shouldCloseOnOverlayClick={args.shouldCloseOnOverlayClick}
+                onRequestClose={() => setIsOpen(false)}
+                style={{
+                    overlay:{
+                        backgroundColor:'none'
+                    }
+                }}
+                >
+                <Modal.Header onRequestClose={() => setIsOpen(false)} >title</Modal.Header>
+                <Modal.Body>body</Modal.Body>
+                <Modal.Footer>
+                    <Button color="black">cancel</Button>
+                    <Button>ok</Button>
+                </Modal.Footer>
+            </Modal>
+            </>
+        )
+    }
+};
+
+export const HideHeaderCloseIcon: Story = {
     name: "Hide Close Icon",
     args: {
         isOpen: false,
@@ -107,6 +147,40 @@ export const HeaderCloseIcon: Story = {
                 onRequestClose={() => setIsOpen(false)}
                 >
                 <Modal.Header hideCloseIcon >title</Modal.Header>
+                <Modal.Body>body</Modal.Body>
+                <Modal.Footer>
+                    <Button color="black">cancel</Button>
+                    <Button>ok</Button>
+                </Modal.Footer>
+            </Modal>
+            </>
+        )
+    }
+};
+
+export const NoHeader: Story = {
+    name: "Hide Header",
+    args: {
+        isOpen: false,
+        onRequestClose: () => { },
+        ariaHideApp: false,
+        shouldCloseOnOverlayClick: true,
+    },
+    render : (args)=>{
+        const [isOpen, setIsOpen] = useState(args.isOpen);
+
+        useEffect(() => {
+            setIsOpen(args.isOpen);
+        }, [args.isOpen]);
+        return (
+            <>
+            <Button onClick={() => setIsOpen(true)}>Open Modal</Button>
+            <Modal
+                {...args}
+                isOpen={isOpen}
+                shouldCloseOnOverlayClick={args.shouldCloseOnOverlayClick}
+                onRequestClose={() => setIsOpen(false)}
+                >
                 <Modal.Body>body</Modal.Body>
                 <Modal.Footer>
                     <Button color="black">cancel</Button>
@@ -153,6 +227,37 @@ export const NoHeaderBorder: Story = {
     }
 };
 
+export const NoFooter: Story = {
+    name: "Hide Footer",
+    args: {
+        isOpen: false,
+        onRequestClose: () => { },
+        ariaHideApp: false,
+        shouldCloseOnOverlayClick: true,
+    },
+    render : (args)=>{
+        const [isOpen, setIsOpen] = useState(args.isOpen);
+
+        useEffect(() => {
+            setIsOpen(args.isOpen);
+        }, [args.isOpen]);
+        return (
+            <>
+            <Button onClick={() => setIsOpen(true)}>Open Modal</Button>
+            <Modal
+                {...args}
+                isOpen={isOpen}
+                shouldCloseOnOverlayClick={args.shouldCloseOnOverlayClick}
+                onRequestClose={() => setIsOpen(false)}
+                >
+                <Modal.Header>title</Modal.Header>
+                <Modal.Body>body</Modal.Body>
+            </Modal>
+            </>
+        )
+    }
+};
+
 export const NoFooterBorder: Story = {
     name: "Hide Footer Border",
     args: {
@@ -175,6 +280,77 @@ export const NoFooterBorder: Story = {
                 isOpen={isOpen}
                 shouldCloseOnOverlayClick={args.shouldCloseOnOverlayClick}
                 onRequestClose={() => setIsOpen(false)}
+                >
+                <Modal.Header>title</Modal.Header>
+                <Modal.Body>body</Modal.Body>
+                <Modal.Footer hideBorder>
+                    <Button color="black">cancel</Button>
+                    <Button>ok</Button>
+                </Modal.Footer>
+            </Modal>
+            </>
+        )
+    }
+};
+
+export const HeaderCloseIconHandler: Story = {
+    name: "Close Modal when Click on Close Icon",
+    args: {
+        isOpen: false,
+        onRequestClose: () => { },
+        ariaHideApp: false,
+        shouldCloseOnOverlayClick: true,
+    },
+    render : (args)=>{
+        const [isOpen, setIsOpen] = useState(args.isOpen);
+
+        useEffect(() => {
+            setIsOpen(args.isOpen);
+        }, [args.isOpen]);
+        return (
+            <>
+            <Button onClick={() => setIsOpen(true)}>Open Modal</Button>
+            <Modal
+                {...args}
+                isOpen={isOpen}
+                shouldCloseOnOverlayClick={args.shouldCloseOnOverlayClick}
+                onRequestClose={() => setIsOpen(false)}
+                >
+                <Modal.Header onRequestClose={()=>setIsOpen(false)}>title</Modal.Header>
+                <Modal.Body>body</Modal.Body>
+                <Modal.Footer hideBorder>
+                    <Button color="black">cancel</Button>
+                    <Button>ok</Button>
+                </Modal.Footer>
+            </Modal>
+            </>
+        )
+    }
+};
+
+export const DisableEscButton: Story = {
+    name: "Disable ESC Button",
+    args: {
+        isOpen: false,
+        onRequestClose: () => { },
+        ariaHideApp: false,
+        shouldCloseOnOverlayClick: true,
+    },
+    render : (args)=>{
+        const [isOpen, setIsOpen] = useState(args.isOpen);
+
+        useEffect(() => {
+            setIsOpen(args.isOpen);
+        }, [args.isOpen]);
+        return (
+            <>
+            <Button onClick={() => setIsOpen(true)}>Open Modal</Button>
+            <Modal
+                {...args}
+                isOpen={isOpen}
+                shouldCloseOnOverlayClick={args.shouldCloseOnOverlayClick}
+                onRequestClose={() => setIsOpen(false)}
+                shouldCloseOnEsc={false}
                 >
                 <Modal.Header>title</Modal.Header>
                 <Modal.Body>body</Modal.Body>
