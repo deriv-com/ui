@@ -6,6 +6,7 @@ import { useOnClickOutside } from "usehooks-ts";
 import { Input } from "../Input";
 import "./DatePicker.scss";
 import { CalendarIcon } from "./CalendarIcon";
+import clsx from "clsx";
 
 type DatePickerProps = Omit<ComponentProps<typeof Input>, "error"> & {
     errorMessage?: ReactNode;
@@ -54,8 +55,8 @@ export const DatePicker = ({
     const [selectedDate, setSelectedDate] = useState<Date | null>(
         props.value ? new Date(props.value ?? "") : null,
     );
-    const [isCalendarOpen, setIsCalendarOpen] = useState<boolean>(false);
-    const datePickerRef = useRef<HTMLDivElement>(null);
+    const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+    const datePickerRef = useRef(null);
 
     const toggleCalendar = () => {
         setIsCalendarOpen((prevState) => !prevState);
@@ -102,11 +103,12 @@ export const DatePicker = ({
                     </button>
                 }
                 value={selectedDate ? unixToDateString(selectedDate) : ""}
-                wrapperClassName="w-full"
             />
             {isCalendarOpen && (
                 <div
-                    className={`deriv-datepicker__container deriv-datepicker__container--${mobileAlignment}`}
+                    className={clsx(
+                        `deriv-datepicker__container deriv-datepicker__container--${mobileAlignment}`,
+                    )}
                 >
                     <Calendar
                         formatShortWeekday={customFormatShortWeekday}
