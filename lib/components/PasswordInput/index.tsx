@@ -55,6 +55,29 @@ const PasswordVariant: Record<TScore, InputProps["variant"]> = {
     4: "success",
 };
 
+/**
+ * PasswordInputProps interface
+ * @interface PasswordInputProps
+ * @extends {Omit<InputProps, "rightPlaceholder">}
+ * @property {boolean} [hidePasswordMeter] - If true, the password strength meter will be hidden.
+ * @property {string} [hint] - The hint message to display below the input field.
+ */
+
+/**
+ * PasswordInput component
+ * @component
+ * @param {PasswordInputProps} props - The props that define the PasswordInput field.
+ * @returns {ReactNode} The React Node that represents the PasswordInput field.
+ *
+ * @example
+ * <PasswordInput
+ *   hidePasswordMeter
+ *   hint="Password must be at least 8 characters"
+ *   label="Password"
+ *   isFullWidth={true}
+ * />
+ */
+
 export const PasswordInput = ({
     hidePasswordMeter,
     hint,
