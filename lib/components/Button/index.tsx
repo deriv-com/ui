@@ -25,6 +25,13 @@ const ButtonVariants = {
     outlined: "deriv-button__variant--outlined",
 } as const;
 
+const ButtonColor = {
+    black: "deriv-button__color--black",
+    primary: "deriv-button__color--primary",
+    "primary-light": "deriv-button__color--primary-light",
+    white: "deriv-button__color--white",
+} as const;
+
 const ButtonSize = {
     lg: "deriv-button__size--lg",
     md: "deriv-button__size--md",
@@ -37,27 +44,8 @@ const ButtonRounded = {
     sm: "deriv-button__rounded--sm",
 } as const;
 
-const ButtonColor = {
-    black: "deriv-button__color--black",
-    primary: "deriv-button__color--primary",
-    "primary-light": "deriv-button__color--primary-light",
-    white: "deriv-button__color--white",
-} as const;
-
-const FontColor = {
-    ghost: "error",
-    outlined: "general",
-} as const;
-
-const FontColorContained = {
-    black: "white",
-    primary: "white",
-    "primary-light": "error",
-    white: "general",
-} as const;
-
 const FontSize = {
-    lg: "md",
+    lg: "lg",
     md: "sm",
     sm: "xs",
 } as const;
@@ -70,7 +58,7 @@ const LoaderColor = {
 } as const;
 
 export const Button = ({
-    children,
+    className,
     color = "primary",
     icon,
     isFullWidth = false,
@@ -79,7 +67,6 @@ export const Button = ({
     size = "md",
     textSize,
     variant = "contained",
-    className,
     ...rest
 }: ButtonProps) => {
     const isContained = variant === "contained";
@@ -87,14 +74,14 @@ export const Button = ({
         <button
             className={clsx(
                 "deriv-button",
-                ButtonSize[size],
                 ButtonVariants[variant],
+                ButtonColor[color],
+                ButtonSize[size],
                 ButtonRounded[rounded],
                 {
-                    [ButtonColor[color]]: isContained,
                     "deriv-button__full-width": isFullWidth,
                 },
-                className
+                className,
             )}
             disabled={rest.disabled || isLoading}
             {...rest}
@@ -108,18 +95,14 @@ export const Button = ({
                 </div>
             )}
             {icon && !isLoading && icon}
-            {children && !isLoading && (
+            {rest.children && !isLoading && (
                 <Text
                     align="center"
-                    color={
-                        isContained
-                            ? FontColorContained[color]
-                            : FontColor[variant]
-                    }
-                    size={textSize ?? FontSize[size]}
+                    size={FontSize[size] ?? textSize}
                     weight="bold"
+                    as="span"
                 >
-                    {children}
+                    {rest.children}
                 </Text>
             )}
         </button>
