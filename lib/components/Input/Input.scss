@@ -22,10 +22,11 @@ $border: 1px solid;
     padding: 1rem 1.6rem;
     border: $border;
     font-size: var(--text-size-default);
+    color: var(--text-prominent);
 
     &--general {
         border-color: var(--state-active);
-        &:hover:not(:disabled) {
+        &:hover:not(:disabled):not(:focus-within) {
             border-color: var(--border-hover);
         }
         &:focus-within {
