@@ -1,15 +1,22 @@
-/** @define dc-progress-slider */
-// Progress Slider
+$inactive_color: #999999;
+$success_color: #4bb4b3;
+$warning_color: #ffad3a;
+$error_color: #ec3f3f;
+$active_color:#d6dadb;
+$border_section:#f2f3f4;
+$state_hover:#e6e9e9;
+$BORDER_RADIUS:4px;
+
 .deriv-progress-slider {
     position: relative;
     width: 100%;
     padding: unset;
     box-sizing: border-box;
     margin: 8px 0;
-    border-bottom: 1px solid var(--general-section-1);
+    border-bottom: 1px solid $border_section ;
 
     &__track {
-        background: var(--text-disabled);
+        background: $inactive_color;
         position: relative;
         margin: 2px 0 8px;
         height: 6px;
@@ -18,7 +25,7 @@
     }
 
     &__line {
-        background: var(--state-hover);
+        background: $state_hover;
         position: absolute;
         top: 0;
         left: 0;
@@ -28,13 +35,13 @@
         transition: width 0.3s;
 
         &--green {
-            background: var(--status-success) !important;
+            background: $success_color !important;
         }
         &--yellow {
-            background: var(--status-warning) !important;
+            background: $warning_color !important;
         }
         &--red {
-            background: var(--status-danger) !important;
+            background: $error_color !important;
         }
     }
     &__infinite-loader {
@@ -42,14 +49,14 @@
         height: 4px;
         display: block;
         width: 100%;
-        background-color: var(--state-hover);
+        background-color: $state_hover;
         border-radius: 2px;
         background-clip: padding-box;
         margin: 0.5rem 0 1rem;
         overflow: hidden;
 
         &--indeterminate {
-            background-color: var(--state-active);
+            background-color: $active_color;
 
             &:before,
             &:after {

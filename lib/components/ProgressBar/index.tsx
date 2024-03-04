@@ -4,21 +4,25 @@ import { Text } from '../Text';
 import { TGenericSizes } from "../../types";
 import "./ProgressBar.scss"
 
-type TProgressSliderProps = {
+type TLinearProgressProps = {
     className?: string;
+    danger_limit:number;
     is_loading: boolean;
     label:React.ReactNode;
     percentage:number;
     size?: Extract<TGenericSizes, "lg" | "md" | "sm" | "xs">;
+    warning_limit:number;
 };
 
 export const LinearProgressBar = ({
     className,
+    danger_limit,
     is_loading,
     label,
     percentage,
-    size="xs"
-}: TProgressSliderProps) => {
+    size="xs",
+    warning_limit
+}: TLinearProgressProps) => {
     return (
         <div className={clsx('deriv-progress-slider', className)}>
                 <React.Fragment>
@@ -34,9 +38,9 @@ export const LinearProgressBar = ({
                         <div className='deriv-progress-slider__track'>
                             <div
                                 className={clsx('deriv-progress-slider__line', {
-                                    'deriv-progress-slider__line--green': percentage >= 50,
-                                    'deriv-progress-slider__line--yellow': percentage < 50 && percentage >= 20,
-                                    'deriv-progress-slider__line--red': percentage < 20,
+                                    'deriv-progress-slider__line--green': percentage >= warning_limit,
+                                    'deriv-progress-slider__line--yellow': percentage < warning_limit && percentage >= danger_limit,
+                                    'deriv-progress-slider__line--red': percentage < danger_limit,
                                 })}
                                 style={{ width: `${percentage}%` }}
                             />
