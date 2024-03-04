@@ -22,8 +22,8 @@ abbr[title] {
 
     &__container {
         position: absolute;
-        width: 280px;
-        transform: translateY(60px);
+        width: 28rem;
+        transform: translateY(6rem);
 
         @include mobile {
             align-self: center;
@@ -33,29 +33,29 @@ abbr[title] {
             }
 
             &--below {
-                transform: translateY(60px);
+                transform: translateY(6rem);
             }
         }
 
         .react-calendar {
             width: 100%;
-            border-radius: 5px;
+            border-radius: 0.5rem;
 
             button {
-                border-radius: 5px;
+                border-radius: 0.5rem;
             }
 
             &__navigation {
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
-                border-bottom: 1px solid #d6dadb;
-                height: 50px;
-                padding: 16px;
+                border-bottom: 0.1rem solid #d6dadb;
+                height: 5rem;
+                padding: 1.6rem;
                 margin-bottom: 0;
 
                 &__arrow {
-                    font-size: 24px;
+                    font-size: 2.4rem;
                 }
 
                 &__label {
@@ -66,8 +66,8 @@ abbr[title] {
 
                 button {
                     min-width: unset;
-                    padding: 6px;
-                    border-radius: 5px;
+                    padding: 0.6rem;
+                    border-radius: 0.5rem;
 
                     &:enabled:hover,
                     &:enabled:focus,
@@ -78,16 +78,16 @@ abbr[title] {
             }
 
             &__viewContainer {
-                padding: 16px;
+                padding: 1.6rem;
             }
 
             &__month-view {
                 &__days,
                 &__weekdays {
                     display: grid !important;
-                    grid-template-columns: repeat(7, 24px);
-                    grid-auto-rows: 24px;
-                    grid-gap: 12px;
+                    grid-template-columns: repeat(7, 2.4rem);
+                    grid-auto-rows: 2.4rem;
+                    grid-gap: 1.2rem;
                     align-items: center;
                     justify-content: center;
 
@@ -100,27 +100,27 @@ abbr[title] {
                     }
 
                     &__weekday {
-                        font-size: 12px;
+                        font-size: 1.2rem;
                     }
                 }
 
                 &__weekdays {
-                    margin-bottom: 12px;
+                    margin-bottom: 1.2rem;
                 }
 
                 button {
-                    min-width: 24px;
-                    padding: 6px;
-                    border-radius: 5px;
+                    min-width: 2.4rem;
+                    padding: 0.6rem;
+                    border-radius: 0.5rem;
                 }
             }
 
             &__tile {
-                font-size: 12px;
+                font-size: 1.2rem;
 
                 &--active,
                 &--hasActive {
-                    border-radius: 5px;
+                    border-radius: 0.5rem;
                     background: #d6dadb;
                     color: unset;
 
