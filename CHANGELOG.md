@@ -1,3 +1,44 @@
+## [1.9.2](https://github.com/deriv-com/ui/compare/v1.9.1...v1.9.2) (2024-03-01)
+
+
+### ♻️ 	 Chores
+
+* update scss file structure ([17a31c7](https://github.com/deriv-com/ui/commit/17a31c7ca976c61531986fd7d8a270dbf9d0ea4b))
+* updated scss files using import instead of forward and use ([3994124](https://github.com/deriv-com/ui/commit/3994124386d62aa2dc07cb580a16a36cefea10c2))
+
+
+### 🐛 	 Bug Fixes
+
+* minor style changes ([9541456](https://github.com/deriv-com/ui/commit/9541456bd6521b346b46fed4c04bd39af02cd2b3))
+* remove unused styles populate variables folder with scss variables ([3504523](https://github.com/deriv-com/ui/commit/3504523fa0ccaf5ec80f588c71334c1499c9615f))
+* retain the same reset css from previous iterations ([ef86ef0](https://github.com/deriv-com/ui/commit/ef86ef0d41b49a889506e90577aecc78a08d045e))
+* updated breakpoints ([446d535](https://github.com/deriv-com/ui/commit/446d535342a6ad25d8bdced05b11d1d2490a6c1d))
+
+## [1.9.1](https://github.com/deriv-com/ui/compare/v1.9.0...v1.9.1) (2024-03-01)
+
+
+### ♻️ 	 Chores
+
+* added new variants ([f90df98](https://github.com/deriv-com/ui/commit/f90df98aa94f72ecca3b28bd83ea9d2f3fabb101))
+* added new variants for button ([615cd1d](https://github.com/deriv-com/ui/commit/615cd1d6262b4150c01c20f5ad77638c725e1581))
+* updated scss values ([f37f04e](https://github.com/deriv-com/ui/commit/f37f04e45ed2e8b58530847f42429cdbc12e0a30))
+* updated sizes ([ef7cf37](https://github.com/deriv-com/ui/commit/ef7cf379b82e6f7211feaefda859f7edc4bc437c))
+* updated sizes ([d72e934](https://github.com/deriv-com/ui/commit/d72e9340b9e48fbd56a0c9e0644caa2d768054ab))
+* updated storybook for button ([7985886](https://github.com/deriv-com/ui/commit/7985886dbc63c3b2e76e25061fd16dec9366c287))
+
+
+### ⚙️ 	 Continuous Integrations
+
+* replaced CI_GITHUB_TOKEN with GITHUB_TOKEN ([1179a73](https://github.com/deriv-com/ui/commit/1179a733017a762c2c642ab7be51866a3de45c89))
+* replaced CI_GITHUB_TOKEN with GITHUB_TOKEN ([b5ae2a1](https://github.com/deriv-com/ui/commit/b5ae2a18256b14c21bb46bca2a2c1f47d4c05f0f))
+
+
+### 🐛 	 Bug Fixes
+
+* resolve comments and updated border radius variant ([2e4781f](https://github.com/deriv-com/ui/commit/2e4781f1fe206e374ef0838881990c4fbd4681ab))
+* resolve comments for storybook ([c6f5ca0](https://github.com/deriv-com/ui/commit/c6f5ca0e826bcd9495359dad75ac22e1ed08972d))
+* updated colors for ghost white button ([813aa0e](https://github.com/deriv-com/ui/commit/813aa0e1dd39e8bd38ae00867ac3b31a2bcd386c))
+
 # [1.9.0](https://github.com/deriv-com/ui/compare/v1.8.9...v1.9.0) (2024-02-28)
 
 

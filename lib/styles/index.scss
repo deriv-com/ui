@@ -1,9 +1,10 @@
-@import "./shared/reset.scss";
-@import "./shared/constants.scss";
-@import "./shared/devices.scss";
-@import "./shared/fonts.scss";
-@import "./shared/google-fonts.scss";
-@import "./shared/themes.scss";
-@import "./wallet/styles/animations.scss";
-@import "./wallet/styles/devices.scss";
-@import "./wallet/styles/fonts.scss";
+@import "./base/reset";
+@import "./abstracts/variables";
+@import "./abstracts/typography";
+@import "./abstracts/devices";
+@import "./base/root";
+
+html {
+    font-family: #{$font-serif};
+    font-size: #{$base-font-size};
+}
