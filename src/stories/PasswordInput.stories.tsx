@@ -62,11 +62,13 @@ export const Default: Story = {
         const [value, setValue] = useState("");
 
         return (
-            <PasswordInput
-                {...args}
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-            />
+            <div className="theme--light">
+                <PasswordInput
+                    {...args}
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                />
+            </div>
         );
     },
 };
@@ -85,11 +87,13 @@ export const HideMessage: Story = {
         const [value, setValue] = useState("");
 
         return (
-            <PasswordInput
-                {...args}
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-            />
+            <div className="theme--light">
+                <PasswordInput
+                    {...args}
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                />
+            </div>
         );
     },
 };
@@ -107,11 +111,13 @@ export const HidePasswordMeter: Story = {
         const [value, setValue] = useState(args.value);
 
         return (
-            <PasswordInput
-                {...args}
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-            />
+            <div className="theme--light">
+                <PasswordInput
+                    {...args}
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                />
+            </div>
         );
     },
 };
