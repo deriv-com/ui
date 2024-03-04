@@ -8,6 +8,7 @@ import React, {
 } from "react";
 import { zxcvbn, zxcvbnOptions } from "@zxcvbn-ts/core";
 import { dictionary } from "@zxcvbn-ts/language-common";
+import clsx from "clsx";
 import { Input } from "../Input";
 import { calculateScore, isPasswordValid } from "./PasswordUtils";
 import {
@@ -20,7 +21,6 @@ import {
 import { EyeIcon, EyeIconSlash } from "./PasswordIcon";
 import { PasswordMeter } from "./PasswordMeter";
 import "./PasswordInput.scss";
-import clsx from "clsx";
 
 export const validatePassword = (password: string) => {
     const score = calculateScore(password);
