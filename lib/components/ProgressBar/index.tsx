@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { Text } from '../Text';
 import { TGenericSizes } from "../../types";
-import "./ProgressBar.scss"
+import "./LinearProgressBar.scss"
 
 type TLinearProgressProps = {
     className?: string;
