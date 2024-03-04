@@ -40,20 +40,18 @@ function customFormatShortWeekday(_locale: string | undefined, date: Date) {
 export const DatePicker = ({
     disabled,
     errorMessage,
-    isFullWidth = false,
     isInvalid,
     label,
     maxDate,
     message,
     minDate,
     mobileAlignment = "below",
-    onBlur,
-    onChange,
     onDateChange,
-    ...props
+    value,
+    ...rest
 }: DatePickerProps) => {
     const [selectedDate, setSelectedDate] = useState<Date | null>(
-        props.value ? new Date(props.value ?? "") : null,
+        value ? new Date(value ?? "") : null,
     );
     const [isCalendarOpen, setIsCalendarOpen] = useState(false);
     const datePickerRef = useRef(null);
@@ -81,15 +79,12 @@ export const DatePicker = ({
     return (
         <div className="deriv-datepicker" ref={datePickerRef}>
             <Input
-                {...props}
-                disabled={disabled}
+                {...rest}
                 error={isInvalid}
-                isFullWidth={isFullWidth}
-                aria-label={label}
                 label={label}
+                disabled={disabled}
+                aria-label={label}
                 message={isInvalid ? errorMessage : message}
-                onBlur={onBlur}
-                onChange={onChange}
                 onClick={toggleCalendar}
                 rightPlaceholder={
                     <button
