@@ -1,24 +1,19 @@
-$inactive_color: #999999;
-$success_color: #4bb4b3;
-$warning_color: #ffad3a;
-$error_field: #ec3f3f;
-
 .deriv-helper-message {
-    font-size: 12px;
-    line-height: 1;
+    font-size: var(--text-size-sm);
+    line-height: var(--text-lh-2xs);
     font-style: normal;
-    font-weight: 400;
-    color: $inactive_color;
+    font-weight: var(--text-weight-normal);
+    color: var(--text-primary);
     &--general {
-        color: $inactive_color;
+        color: var(--text-less-prominent);
     }
     &--success {
-        color: $success_color;
+        color: var(--text-profit-success);
     }
     &--warning {
-        color: $warning_color;
+        color: var(--text-warning);
     }
     &--error {
-        color: $error_field;
+        color: var(--text-red);
     }
 }
