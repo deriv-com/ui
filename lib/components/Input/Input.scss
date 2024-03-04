@@ -55,7 +55,7 @@ $border: 1px solid;
         &:focus,
         &:not(:placeholder-shown) {
             & ~ label {
-                font-size: 1rem;
+                font-size: var(--text-size-xs);
                 transform: translate(0, -50%);
                 background-color: var(--general-main-1);
                 padding: 0 0.4rem;
