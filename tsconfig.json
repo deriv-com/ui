@@ -21,6 +21,6 @@
         "noFallthroughCasesInSwitch": true,
         "types": ["@testing-library/jest-dom"]
     },
-    "include": ["src", "lib", "old"],
+    "include": ["src", "lib"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }
