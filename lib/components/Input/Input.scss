@@ -1,4 +1,7 @@
+// TODO: Remove fallback values when the design system is ready
+
 $border: 1px solid;
+$input-placement: 16px;
 
 .deriv-input__container {
     display: inline-block;
@@ -6,7 +9,7 @@ $border: 1px solid;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    width: 32.8rem;
+    width: 328px;
 
     &--full {
         width: 100%;
@@ -19,31 +22,31 @@ $border: 1px solid;
     border-radius: $border-radius;
     width: 100%;
     text-align: left;
-    padding: 1rem 1.6rem;
+    padding: 10px 16px;
     border: $border;
-    font-size: var(--text-size-default);
-    color: var(--text-prominent);
+    font-size: var(--text-size-default, 14px);
+    color: var(--text-prominent, #333333);
 
     &--general {
-        border-color: var(--state-active);
+        border-color: var(--state-active, #d6dadb);
         &:hover:not(:disabled):not(:focus-within) {
-            border-color: var(--border-hover);
+            border-color: var(--border-hover, #999999);
         }
         &:focus-within {
-            border-color: var(--brand-secondary);
+            border-color: var(--brand-secondary, #85acb0);
         }
     }
     &--error {
-        border-color: var(--status-danger);
+        border-color: var(--status-danger, #ec3f3f);
     }
     &--success {
-        border-color: var(--status-success);
+        border-color: var(--status-success, #4bb4b3);
     }
     &--active {
-        border-color: var(--brand-secondary);
+        border-color: var(--brand-secondary, #85acb0);
     }
     &--disabled {
-        border-color: var(--state-active);
+        border-color: var(--state-active, #d6dadb);
         cursor: not-allowed;
     }
 
@@ -56,10 +59,10 @@ $border: 1px solid;
         &:focus,
         &:not(:placeholder-shown) {
             & ~ label {
-                font-size: var(--text-size-xs);
+                font-size: var(--text-size-xs, 10px);
                 transform: translate(0, -50%);
-                background-color: var(--general-main-1);
-                padding: 0 0.4rem;
+                background-color: var(--general-main-1, #ffffff);
+                padding: 0 4px;
                 height: fit-content;
             }
         }
@@ -71,55 +74,55 @@ $border: 1px solid;
         top: 0;
         bottom: 0;
         padding: 0;
-        left: 1.6rem;
+        left: $input-placement;
         display: flex;
         align-items: center;
         pointer-events: none;
         transition: all 0.15s ease-out;
-        font-size: var(--text-size-default);
+        font-size: var(--text-size-default, 14px);
         &--general {
-            color: var(--border-hover);
+            color: var(--border-hover, #999999);
         }
         &--error {
-            color: var(--status-danger);
+            color: var(--status-danger, #ec3f3f);
         }
         &--success {
-            color: var(--status-success);
+            color: var(--status-success, #4bb4b3);
         }
         &--active {
-            color: var(--brand-secondary);
+            color: var(--brand-secondary, #85acb0);
         }
 
         &--disabled {
-            color: var(--state-active);
+            color: var(--state-active, #d6dadb);
         }
     }
 
     &__right-content {
-        margin-left: 1.6rem;
+        margin-left: $input-placement;
     }
 }
 
 .deriv-input--general .deriv-input__field:disabled + .deriv-input__label,
 .deriv-input--error .deriv-input__field:disabled + .deriv-input__label,
 .deriv-input--success .deriv-input__field:disabled + .deriv-input__label {
-    color: var(--state-active);
+    color: var(--state-active, #d6dadb);
 }
 
 .deriv-input--general .deriv-input__field:focus + .deriv-input__label {
-    color: var(--brand-secondary);
+    color: var(--brand-secondary, #85acb0);
 }
 
 .deriv-input--error .deriv-input__field:focus + .deriv-input__label {
-    color: var(--status-danger);
+    color: var(--status-danger, #ec3f3f);
 }
 
 .deriv-input--success .deriv-input__field:focus + .deriv-input__label {
-    color: var(--status-success);
+    color: var(--status-success, #4bb4b3);
 }
 
 .deriv-input__helper-message {
-    padding: 0.2rem 0 0 1.6rem;
-    height: 2rem;
+    padding: 2px 0 0 16px;
+    height: 20px;
     width: 100%;
 }
