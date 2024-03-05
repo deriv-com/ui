@@ -1,3 +1,23 @@
+## [1.9.3](https://github.com/deriv-com/ui/compare/v1.9.2...v1.9.3) (2024-03-05)
+
+
+### ♻️ 	 Chores
+
+* added minor changes to modal component ([3bd6f8f](https://github.com/deriv-com/ui/commit/3bd6f8f843628d279d31492de39df91c4575971c))
+* added more test to modal ([d54dcc6](https://github.com/deriv-com/ui/commit/d54dcc66c6f85470158bdd97da656c2ddc7170d9))
+* improved stories for modal component ([deb87d5](https://github.com/deriv-com/ui/commit/deb87d51d1cc1a8f502671190f47b268080f3d51))
+
+
+### 🐛 	 Bug Fixes
+
+* fixed modal border-radius issue ([1ff5734](https://github.com/deriv-com/ui/commit/1ff5734f409d77bf116f13446f9df39d70366cc8))
+* resolve merge conflicts ([612d513](https://github.com/deriv-com/ui/commit/612d5131f55f7a550268bb0f2daa6645a913c7e9))
+
+
+### 🚨 	 Tests
+
+* added test cases for modal ([8b1175d](https://github.com/deriv-com/ui/commit/8b1175dbf599062f31c58aaf176de330de6b4c11))
+
 ## [1.9.2](https://github.com/deriv-com/ui/compare/v1.9.1...v1.9.2) (2024-03-01)
 
 
