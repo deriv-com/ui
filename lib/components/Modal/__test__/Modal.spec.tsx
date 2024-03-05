@@ -1,10 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-// import userEvent from '@testing-library/user-event';
+import userEvent from "@testing-library/user-event";
 import { Modal } from "..";
-import { constrainedMemory } from "process";
-
-// mock CloseIcon component with jest
 
 describe("Modal component", () => {
     it("should render the basic modal without header, footer and body", () => {
@@ -97,38 +94,24 @@ describe("Modal component", () => {
         expect(modalContent.parentElement).toHaveStyle("opacity: 0.5");
     });
 
-    // it("should call the onClose prop when the close button is clicked", () => {
-    //     const onCloseMock = jest.fn();
-    //     const { getByRole } = render(
-    //         <Modal isOpen={true} onRequestClose={onCloseMock}>
-    //             <p>This is some modal content</p>
-    //         </Modal>,
-    //     );
+    it("should close the modal when the close button in header is clicked", async () => {
+        const onRequestCloseMock = jest.fn();
+        render(
+            <Modal ariaHideApp={false} isOpen={true}>
+                <Modal.Header onRequestClose={onRequestCloseMock}>
+                    Modal Title
+                </Modal.Header>
+                <p>This is some modal content</p>
+            </Modal>,
+        );
 
-    //     userEvent.click(getByRole("button", { name: "Close" }));
+        const modal = await screen.getByText("This is some modal content");
 
-    //     expect(onCloseMock).toHaveBeenCalledTimes(1);
-    // });
+        const modalCloseIcon = screen.getByTestId("dt-close-icon");
 
-    //   it('should not render the modal when isOpen is false', () => {
-    //     const { queryByText } = render(<Modal isOpen={false}>This will not be shown</Modal>);
+        await userEvent.click(modalCloseIcon);
 
-    //     expect(queryByText('This will not be shown')).not.toBeInTheDocument();
-    //   });
-
-    //   it('should apply custom styles to the content and overlay', () => {
-    //     const customStyle = {
-    //       content: { backgroundColor: 'red' },
-    //       overlay: { opacity: 0.5 },
-    //     };
-    //     const { getByRole } = render(
-    //       <Modal isOpen={true} style={customStyle}>
-    //         <p>This content should have red background</p>
-    //       </Modal>
-    //     );
-
-    //     const modalContent = getByRole('dialog');
-    //     expect(modalContent).toHaveStyle('background-color: red');
-    //     expect(modalContent).toHaveStyle('opacity: 0.5');
-    //   });
+        expect(modal).toBeInTheDocument();
+        expect(onRequestCloseMock).toHaveBeenCalledTimes(1);
+    });
 });
