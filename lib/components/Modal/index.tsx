@@ -11,7 +11,7 @@ export const CUSTOM_STYLES = {
     content: {
         background: 'none',
         border: 'none',
-        borderRadius: 8,
+        borderRadius: 0,
         bottom: 'auto',
         left: '50%',
         margin: 0,

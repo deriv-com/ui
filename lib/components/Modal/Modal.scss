@@ -5,6 +5,7 @@
     width: 100vw;
     height: 100vh;
     z-index: 100;
+    border-radius: 0;
 }
 
 .deriv-modal{
@@ -49,8 +50,8 @@
 }
 @include desktop {
     .deriv-modal__wrapper {
-        width: 440px;
-        height: 440px;
+        width: auto;
+        height:auto;
         border-radius: 8px;
     }
 }
