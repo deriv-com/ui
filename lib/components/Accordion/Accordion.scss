@@ -73,7 +73,11 @@ $animation-duration: 0.3s;
         overflow: hidden;
         max-height: 0px;
         opacity: 0;
-        transition: max-height $animation-duration ease-out;
+        transition: all $animation-duration ease-in-out;
+
+        &--no-animations {
+            transition: none;
+        }
 
         &--active {
             opacity: 1;

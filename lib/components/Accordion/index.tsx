@@ -1,37 +1,48 @@
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import Chevron from "./Chevron.svg";
 import "./Accordion.scss";
 
 type AccordionVariants = "underline" | "bordered" | "shadow";
 
-type AccordionSectionProps = {
-    section: { title: string; content: string };
-    isActiveSection: boolean;
-    setActiveIndex: (index: number | null) => void;
-    sectionIndex: number;
-    variant?: AccordionVariants;
-    sizing?: "default" | "sm";
+type AccordionSection = {
+    title: string;
+    content: string;
 };
 
-type AccordionProps = AccordionSectionProps[] & {
-    sections: { title: string; content: string }[];
+type AccordionSectionProps = {
+    disableAnimation?: boolean;
+    isActiveSection: boolean;
+    isCompact?: boolean;
+    section: AccordionSection;
+    sectionIndex: number;
+    setActiveIndex: (index: number | null) => void;
+    variant?: AccordionVariants;
+};
+
+type AccordionProps = {
+    allowMultiple?: boolean;
+    disableAnimation?: boolean;
+    isCompact?: AccordionSectionProps["isCompact"];
+    sections: AccordionSection[];
+    variant?: AccordionSectionProps["variant"];
 };
 
 const AccordionVariant = {
-    underline: "deriv-accordion__wrapper--underline",
     bordered: "deriv-accordion__wrapper--bordered",
     shadow: "deriv-accordion__wrapper--shadow",
+    underline: "deriv-accordion__wrapper--underline",
 } as const;
 
 const AccordionSection = memo(
     ({
-        section,
+        disableAnimation = false,
         isActiveSection,
-        setActiveIndex,
+        isCompact = false,
+        section,
         sectionIndex,
+        setActiveIndex,
         variant = "underline",
-        sizing = "default",
     }: AccordionSectionProps) => {
         const toggleSection = () => {
             const nextIndex = isActiveSection ? null : sectionIndex;
@@ -52,9 +63,8 @@ const AccordionSection = memo(
                     "deriv-accordion__wrapper",
                     AccordionVariant[variant],
                     {
-                        "deriv-accordion__wrapper--default":
-                            sizing === "default",
-                        "deriv-accordion__wrapper--sm": sizing === "sm",
+                        "deriv-accordion__wrapper--default": !isCompact,
+                        "deriv-accordion__wrapper--sm": isCompact,
                     },
                 )}
             >
@@ -81,9 +91,11 @@ const AccordionSection = memo(
                     className={clsx("deriv-accordion__content", {
                         "deriv-accordion__content--active": isActiveSection,
                         "deriv-accordion__content--default":
-                            isActiveSection && sizing === "default",
+                            isActiveSection && !isCompact,
                         "deriv-accordion__content--sm":
-                            isActiveSection && sizing === "sm",
+                            isActiveSection && isCompact,
+                        "deriv-accordion__content--no-animations":
+                            disableAnimation,
                     })}
                     ref={heightRef}
                     style={{ maxHeight: isActiveSection ? height : "0px" }}
@@ -95,25 +107,44 @@ const AccordionSection = memo(
     },
 );
 
-export const Accordion = ({ sections, ...props }: AccordionProps) => {
-    const [activeIndex, setActiveIndex] = useState<number | null>(null);
+export const Accordion = ({
+    allowMultiple = false,
+    disableAnimation = false,
+    isCompact = false,
+    sections,
+    variant,
+}: AccordionProps) => {
+    const [activeIndexes, setActiveIndexes] = useState<number[]>([]);
+
+    const setActiveIndex = useCallback(
+        (index: number) => {
+            setActiveIndexes((prevIndexes) => {
+                if (prevIndexes.includes(index)) {
+                    return prevIndexes.filter((i) => i !== index);
+                } else if (allowMultiple) {
+                    return [...prevIndexes, index];
+                } else {
+                    return [index];
+                }
+            });
+        },
+        [allowMultiple],
+    );
+
     return (
         <div className="deriv-accordion">
-            {sections.map(
-                (
-                    section: { title: string; content: string },
-                    sectionIndex: number,
-                ) => (
-                    <AccordionSection
-                        section={section}
-                        key={sectionIndex}
-                        isActiveSection={sectionIndex === activeIndex}
-                        setActiveIndex={setActiveIndex}
-                        sectionIndex={sectionIndex}
-                        {...props}
-                    />
-                ),
-            )}
+            {sections.map((section, sectionIndex) => (
+                <AccordionSection
+                    disableAnimation={disableAnimation}
+                    isActiveSection={activeIndexes.includes(sectionIndex)}
+                    isCompact={isCompact}
+                    key={sectionIndex}
+                    section={section}
+                    sectionIndex={sectionIndex}
+                    setActiveIndex={() => setActiveIndex(sectionIndex)}
+                    variant={variant}
+                />
+            ))}
         </div>
     );
 };
