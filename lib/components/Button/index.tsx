@@ -84,6 +84,7 @@ export const Button = ({
                 className,
             )}
             disabled={rest.disabled || isLoading}
+            aria-label={rest.children}
             {...rest}
         >
             {isLoading && (
