@@ -28,6 +28,8 @@ jobs:
         uses: actions/setup-node@v4.0.2
         with:
           node-version: '20'
+      - name: Update to latest npm (temporary fix for audit below)
+        run: npm install --global npm
       - name: Install dependencies
         run: npm clean-install
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
