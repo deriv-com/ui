@@ -20,6 +20,9 @@
         &--no-border {
             border-bottom: none;
         }
+        &--justify-end{
+            justify-content: flex-end;
+        }
     }
     &__title {
         font-size: 20px;
