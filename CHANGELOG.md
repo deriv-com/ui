@@ -1,3 +1,16 @@
+## [1.9.7](https://github.com/deriv-com/ui/compare/v1.9.6...v1.9.7) (2024-03-06)
+
+
+### ♻️ 	 Chores
+
+* set margin-left for close-icon to auto ([ae9ec5e](https://github.com/deriv-com/ui/commit/ae9ec5ea062cca3d10737d110723c7a9848b3db4))
+
+
+### 🐛 	 Bug Fixes
+
+* added new classname to modal header ([1f4a52e](https://github.com/deriv-com/ui/commit/1f4a52e4f7e17635a0c9347ef83bf06f771f7841))
+* added new classname to modal header ([7d719f1](https://github.com/deriv-com/ui/commit/7d719f14476389e51be1bec58762240a9af82d37))
+
 ## [1.9.6](https://github.com/deriv-com/ui/compare/v1.9.5...v1.9.6) (2024-03-06)
 
 
