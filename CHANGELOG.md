@@ -1,3 +1,11 @@
+## [1.9.5](https://github.com/deriv-com/ui/compare/v1.9.4...v1.9.5) (2024-03-06)
+
+
+### 🐛 	 Bug Fixes
+
+* fixed oveflow issue in modal body ([07cf63d](https://github.com/deriv-com/ui/commit/07cf63deab1178f68115701b78bc7332796e8531))
+* fixed oveflow issue in modal body ([e5627d8](https://github.com/deriv-com/ui/commit/e5627d8a7134732557ccc1efa851d7725933d237))
+
 ## [1.9.4](https://github.com/deriv-com/ui/compare/v1.9.3...v1.9.4) (2024-03-05)
 
 
