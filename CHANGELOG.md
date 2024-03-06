@@ -1,3 +1,12 @@
+## [1.10.1](https://github.com/deriv-com/ui/compare/v1.10.0...v1.10.1) (2024-03-06)
+
+
+### ♻️ 	 Chores
+
+* exported linear progress bar component from lib ([14811d1](https://github.com/deriv-com/ui/commit/14811d15a64c40e561cc4d60de3b569d644ce40c))
+* exported linear progress bar component from lib ([37f408c](https://github.com/deriv-com/ui/commit/37f408c28d8233c6e066bb00480be290cc4e89e0))
+* fixed the import state orders ([61a428d](https://github.com/deriv-com/ui/commit/61a428db7192a9e7b5171a22985bce56d27075ed))
+
 # [1.10.0](https://github.com/deriv-com/ui/compare/v1.9.7...v1.10.0) (2024-03-06)
 
 
