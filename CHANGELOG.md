@@ -1,3 +1,24 @@
+# [1.10.0](https://github.com/deriv-com/ui/compare/v1.9.7...v1.10.0) (2024-03-06)
+
+
+### ✨ 	 Features
+
+* added css properties from root file ([a2473aa](https://github.com/deriv-com/ui/commit/a2473aa671b628c0282cd475e610a9e8cd6fbed7))
+* added linear progress bar component ([0d7e936](https://github.com/deriv-com/ui/commit/0d7e9364b0c9e2422dde9f0b662dffd22a6e8d00))
+* added progress bar component ([92a6b68](https://github.com/deriv-com/ui/commit/92a6b68abe22c2043cec54e6dbc3a696b89dfe73))
+* changed css names ([5468817](https://github.com/deriv-com/ui/commit/54688171447e7796d9f48609a052b25d88855de7))
+* made changes in test cases and added div props ([9fde470](https://github.com/deriv-com/ui/commit/9fde4701c6bf001090d594e6b717083d1c4366d6))
+
+
+### 📦 	 Code Refactoring
+
+* added limit props ([1a0d270](https://github.com/deriv-com/ui/commit/1a0d2707c2ed39ebb8eb3c3439e6122731516002))
+* added stories for linear progressbar ([bf77376](https://github.com/deriv-com/ui/commit/bf7737686c05cc64c59407db8db0ad47a49c21c7))
+* added test cases for progress bar component ([8e42f04](https://github.com/deriv-com/ui/commit/8e42f04aadf222b6d2a2a8340f48869ce8d9a6f0))
+* changes scss name to linearprogressbar ([9127a51](https://github.com/deriv-com/ui/commit/9127a51f1de7342e07fcdd65c98f9eb7c9737a13))
+* deleted test file ([110e45a](https://github.com/deriv-com/ui/commit/110e45a99312e28f91b811fc02f593ef39e0922c))
+* removed test component from main file ([255bc4c](https://github.com/deriv-com/ui/commit/255bc4ccba9e72e1ae3c4d6f9e975193ab735457))
+
 ## [1.9.7](https://github.com/deriv-com/ui/compare/v1.9.6...v1.9.7) (2024-03-06)
 
 
