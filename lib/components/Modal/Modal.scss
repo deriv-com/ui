@@ -20,9 +20,6 @@
         &--no-border {
             border-bottom: none;
         }
-        &--justify-end{
-            justify-content: flex-end;
-        }
     }
     &__title {
         font-size: 20px;
@@ -31,6 +28,7 @@
     &__close-icon {
         cursor: pointer;
         margin: 8px;
+        margin-left: auto;
     }
 }
 

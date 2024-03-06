@@ -14,7 +14,6 @@ export const ModalHeader = ({ children, hideCloseIcon, className, onRequestClose
     return (
         <div className={clsx('deriv-modal__header', {
             'deriv-modal__header--no-border': hideBorder,
-            'deriv-modal__header--justify-end': !children,
         }, className)} {...rest}>
             {children}
             {!hideCloseIcon && <CloseIcon data-testid="dt-close-icon" onClick={onRequestClose} className="deriv-modal__close-icon" />}
