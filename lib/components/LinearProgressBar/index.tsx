@@ -1,46 +1,45 @@
-import React from 'react';
+import React,{ComponentProps} from 'react';
 import clsx from 'clsx';
 import { Text } from '../Text';
 import { TGenericSizes } from "../../types";
 import "./LinearProgressBar.scss"
 
-type TLinearProgressProps = {
-    className?: string;
+type TLinearProgressProps = ComponentProps<"div"> & {
     danger_limit:number;
     is_loading: boolean;
     label:React.ReactNode;
     percentage:number;
-    size?: Extract<TGenericSizes, "lg" | "md" | "sm" | "xs">;
+    labelSize?: Extract<TGenericSizes, "lg" | "md" | "sm" | "xs">;
     warning_limit:number;
 };
 
 export const LinearProgressBar = ({
-    className,
     danger_limit,
     is_loading,
     label,
     percentage,
-    size="xs",
-    warning_limit
+    labelSize="xs",
+    warning_limit,
+    ...rest
 }: TLinearProgressProps) => {
     return (
-        <div className={clsx('deriv-progress-slider', className)}>
+        <div className={clsx('deriv-linear-progress-bar')} {...rest}>
                 <React.Fragment>
-                    <Text size={size} className='deriv-progress-slider__remaining-time'>
+                    <Text size={labelSize} className='deriv-linear-progress-bar__remaining-time'>
                        {label}
                     </Text>
                     {is_loading || percentage < 1 ? (
-                        <div className='deriv-progress-slider__infinite-loader'>
-                            <div className='deriv-progress-slider__infinite-loader--indeterminate' />
+                        <div className='deriv-linear-progress-bar__infinite-loader'>
+                            <div className='deriv-linear-progress-bar__infinite-loader--indeterminate' />
                         </div>
                     ) : (
                         /* Calculate line width based on percentage of time left */
-                        <div className='deriv-progress-slider__track'>
+                        <div className='deriv-linear-progress-bar__track'>
                             <div
-                                className={clsx('deriv-progress-slider__line', {
-                                    'deriv-progress-slider__line--green': percentage >= warning_limit,
-                                    'deriv-progress-slider__line--yellow': percentage < warning_limit && percentage >= danger_limit,
-                                    'deriv-progress-slider__line--red': percentage < danger_limit,
+                                className={clsx('deriv-linear-progress-bar__line', {
+                                    'deriv-linear-progress-bar__line--green': percentage >= warning_limit,
+                                    'deriv-linear-progress-bar__line--yellow': percentage < warning_limit && percentage >= danger_limit,
+                                    'deriv-linear-progress-bar__line--red': percentage < danger_limit,
                                 })}
                                 style={{ width: `${percentage}%` }}
                             />

@@ -27,7 +27,7 @@ describe('LinearProgressBar', () => {
         warning_limit={80}
       />
     );
-    const loadingBar=document.querySelector(".deriv-progress-slider__infinite-loader");
+    const loadingBar=document.querySelector(".deriv-linear-progress-bar__infinite-loader");
     expect(loadingBar).toBeInTheDocument();
   });
 
@@ -41,7 +41,9 @@ describe('LinearProgressBar', () => {
         warning_limit={80}
       />
     );
-    expect(getByText('Custom Label')).toBeInTheDocument();
+    const label = getByText('Custom Label');
+    expect(label).toBeInTheDocument();
+    expect(label.nodeName).toBe('SPAN');
   });
 
   it('renders progress bar with correct color based on percentage', () => {
@@ -54,8 +56,8 @@ describe('LinearProgressBar', () => {
         warning_limit={80}
       />
     );
-    const progressBar = document.querySelector('.deriv-progress-slider__line');
-    expect(progressBar).toHaveClass('deriv-progress-slider__line--yellow');
+    const progressBar = document.querySelector('.deriv-linear-progress-bar__line');
+    expect(progressBar).toHaveClass('deriv-linear-progress-bar__line--yellow');
   });
 
 });
