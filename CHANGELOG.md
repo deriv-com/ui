@@ -1,3 +1,11 @@
+## [1.9.6](https://github.com/deriv-com/ui/compare/v1.9.5...v1.9.6) (2024-03-06)
+
+
+### ♻️ 	 Chores
+
+* add unit tests for ActionScreen ([3f35736](https://github.com/deriv-com/ui/commit/3f357366b181294b3f0a369a9b02bd7a243de7e3))
+* add unit tests for ActionScreen ([41995fc](https://github.com/deriv-com/ui/commit/41995fc356e3f61c5c694748b0ac57aa8bbce674))
+
 ## [1.9.5](https://github.com/deriv-com/ui/compare/v1.9.4...v1.9.5) (2024-03-06)
 
 
