@@ -10,7 +10,14 @@ $animation-duration: 0.3s;
     &__wrapper {
         width: 100%;
         background-color: var(--general-main-2);
-        padding: 24px;
+
+        &--default {
+            padding: 24px;
+        }
+
+        &--sm {
+            padding: 16px;
+        }
 
         &--underline {
             border-bottom: $border;
@@ -69,8 +76,15 @@ $animation-duration: 0.3s;
         transition: max-height $animation-duration ease-out;
 
         &--active {
-            padding-top: 24px;
             opacity: 1;
+        }
+
+        &--sm {
+            padding-top: 16px;
+        }
+
+        &--default {
+            padding-top: 24px;
         }
 
         // TODO: For testing purposes only - remove this

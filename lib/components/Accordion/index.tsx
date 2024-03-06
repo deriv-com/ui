@@ -11,9 +11,12 @@ type AccordionSectionProps = {
     setActiveIndex: (index: number | null) => void;
     sectionIndex: number;
     variant?: AccordionVariants;
+    sizing?: "default" | "sm";
 };
 
-type AccordionProps = { sections: AccordionSectionProps["section"] };
+type AccordionProps = AccordionSectionProps[] & {
+    sections: { title: string; content: string }[];
+};
 
 const AccordionVariant = {
     underline: "deriv-accordion__wrapper--underline",
@@ -28,6 +31,7 @@ const AccordionSection = memo(
         setActiveIndex,
         sectionIndex,
         variant = "underline",
+        sizing = "default",
     }: AccordionSectionProps) => {
         const toggleSection = () => {
             const nextIndex = isActiveSection ? null : sectionIndex;
@@ -47,6 +51,11 @@ const AccordionSection = memo(
                 className={clsx(
                     "deriv-accordion__wrapper",
                     AccordionVariant[variant],
+                    {
+                        "deriv-accordion__wrapper--default":
+                            sizing === "default",
+                        "deriv-accordion__wrapper--sm": sizing === "sm",
+                    },
                 )}
             >
                 <div
@@ -71,6 +80,10 @@ const AccordionSection = memo(
                 <div
                     className={clsx("deriv-accordion__content", {
                         "deriv-accordion__content--active": isActiveSection,
+                        "deriv-accordion__content--default":
+                            isActiveSection && sizing === "default",
+                        "deriv-accordion__content--sm":
+                            isActiveSection && sizing === "sm",
                     })}
                     ref={heightRef}
                     style={{ maxHeight: isActiveSection ? height : "0px" }}
@@ -82,7 +95,7 @@ const AccordionSection = memo(
     },
 );
 
-export const Accordion = ({ sections }: AccordionProps) => {
+export const Accordion = ({ sections, ...props }: AccordionProps) => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     return (
         <div className="deriv-accordion">
@@ -97,6 +110,7 @@ export const Accordion = ({ sections }: AccordionProps) => {
                         isActiveSection={sectionIndex === activeIndex}
                         setActiveIndex={setActiveIndex}
                         sectionIndex={sectionIndex}
+                        {...props}
                     />
                 ),
             )}
