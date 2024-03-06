@@ -1,3 +1,32 @@
+## [1.9.7](https://github.com/deriv-com/ui/compare/v1.9.6...v1.9.7) (2024-03-06)
+
+
+### ♻️ 	 Chores
+
+* set margin-left for close-icon to auto ([ae9ec5e](https://github.com/deriv-com/ui/commit/ae9ec5ea062cca3d10737d110723c7a9848b3db4))
+
+
+### 🐛 	 Bug Fixes
+
+* added new classname to modal header ([1f4a52e](https://github.com/deriv-com/ui/commit/1f4a52e4f7e17635a0c9347ef83bf06f771f7841))
+* added new classname to modal header ([7d719f1](https://github.com/deriv-com/ui/commit/7d719f14476389e51be1bec58762240a9af82d37))
+
+## [1.9.6](https://github.com/deriv-com/ui/compare/v1.9.5...v1.9.6) (2024-03-06)
+
+
+### ♻️ 	 Chores
+
+* add unit tests for ActionScreen ([3f35736](https://github.com/deriv-com/ui/commit/3f357366b181294b3f0a369a9b02bd7a243de7e3))
+* add unit tests for ActionScreen ([41995fc](https://github.com/deriv-com/ui/commit/41995fc356e3f61c5c694748b0ac57aa8bbce674))
+
+## [1.9.5](https://github.com/deriv-com/ui/compare/v1.9.4...v1.9.5) (2024-03-06)
+
+
+### 🐛 	 Bug Fixes
+
+* fixed oveflow issue in modal body ([07cf63d](https://github.com/deriv-com/ui/commit/07cf63deab1178f68115701b78bc7332796e8531))
+* fixed oveflow issue in modal body ([e5627d8](https://github.com/deriv-com/ui/commit/e5627d8a7134732557ccc1efa851d7725933d237))
+
 ## [1.9.4](https://github.com/deriv-com/ui/compare/v1.9.3...v1.9.4) (2024-03-05)
 
 
