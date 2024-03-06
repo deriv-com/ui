@@ -5,10 +5,10 @@ import { Button } from "../Button"
 import "./Dialog.scss"
 
 export const Dialog  =()=>{
-    const [isOpen,setIsOpen]=React.useState(false);
+    const [isOpen,setIsOpen]=React.useState(true);
     return(
-        <React.Fragment>
-        <Modal isOpen={isOpen} className={"deriv-dialog"} onRequestClose={()=>setIsOpen(false)}/>
+
+        <Modal isOpen={isOpen} className={"deriv-dialog"} onRequestClose={()=>setIsOpen(false)} ariaHideApp={false}>
        <Modal.Header hideBorder={true}>
         <Text as='div' weight='bold' className='deriv-modal__header-title'>
              Modal Header
@@ -17,11 +17,11 @@ export const Dialog  =()=>{
       <Modal.Body>
         <div>modal body</div>
       </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer hideBorder={true}>
          <Button color="black">cancel</Button>
          <Button>ok</Button>
       </Modal.Footer>
-      </React.Fragment>
+     </Modal>
 
     )
 }
