@@ -3,14 +3,23 @@ import clsx from "clsx";
 import Chevron from "./Chevron.svg";
 import "./Accordion.scss";
 
+type AccordionVariants = "underline" | "bordered" | "shadow";
+
 type AccordionSectionProps = {
     section: { title: string; content: string };
     isActiveSection: boolean;
     setActiveIndex: (index: number | null) => void;
     sectionIndex: number;
+    variant?: AccordionVariants;
 };
 
 type AccordionProps = { sections: AccordionSectionProps["section"] };
+
+const AccordionVariant = {
+    underline: "deriv-accordion__wrapper--underline",
+    bordered: "deriv-accordion__wrapper--bordered",
+    shadow: "deriv-accordion__wrapper--shadow",
+} as const;
 
 const AccordionSection = memo(
     ({
@@ -18,6 +27,7 @@ const AccordionSection = memo(
         isActiveSection,
         setActiveIndex,
         sectionIndex,
+        variant = "underline",
     }: AccordionSectionProps) => {
         const toggleSection = () => {
             const nextIndex = isActiveSection ? null : sectionIndex;
@@ -33,7 +43,12 @@ const AccordionSection = memo(
         }, [isActiveSection]);
 
         return (
-            <div className="deriv-accordion__wrapper">
+            <div
+                className={clsx(
+                    "deriv-accordion__wrapper",
+                    AccordionVariant[variant],
+                )}
+            >
                 <div
                     className={clsx("deriv-accordion__header", {
                         "deriv-accordion__header--active": isActiveSection,
