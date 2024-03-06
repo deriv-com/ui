@@ -1,0 +1,62 @@
+.deriv-accordion {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    min-width: 100%;
+    gap: 8px;
+
+    &__header {
+        outline: none;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px;
+        background-color: var(--general-main-2);
+        border-radius: $border-radius-2;
+
+        // TODO: For testing purposes only - remove this
+        font-size: map-get($font-sizes, "md");
+        color: var(--text-general);
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &--active {
+            border-radius: $border-radius-2 $border-radius-2 0 0;
+        }
+
+        &--border-bottom {
+            border-bottom: 1px solid var(--border-normal-1);
+        }
+    }
+
+    &__icon {
+        margin-left: auto;
+        display: inline-block;
+        transition: all 0.3s ease-in-out;
+
+        &--active {
+            transform: rotate(-180deg);
+        }
+    }
+
+    &__content {
+        width: 100%;
+        background-color: var(--general-main-2);
+        padding: 0 24px 24px 24px;
+        border-radius: 0 0 $border-radius-2 $border-radius-2;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+
+        &--active {
+            border-radius: 0 0 $border-radius-2 $border-radius-2;
+        }
+
+        // TODO: For testing purposes only - remove this
+        font-size: map-get($font-sizes, "default");
+        line-height: map-get($line-heights, "sm");
+        color: var(--text-general);
+    }
+}
