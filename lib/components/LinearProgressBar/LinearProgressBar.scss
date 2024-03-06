@@ -1,10 +1,10 @@
-$inactive_color: #999999;
-$success_color: #4bb4b3;
-$warning_color: #ffad3a;
-$error_color: #ec3f3f;
-$active_color:#d6dadb;
-$border_section:#f2f3f4;
-$state_hover:#e6e9e9;
+$inactive_color: var(--general-main-3, #999999);
+$success_color: var(--status-success, #4bb4b3 );
+$warning_color: var(--status-warning, #ffad3a);
+$error_color: var(--status-danger, #ec3f3f);
+$active_color:var(--state-active, #d6dadb);
+$border_section:var(--border-divider, #f2f3f4);
+$state_hover:var(--general-hover, #e6e9e9);
 $BORDER_RADIUS:4px;
 
 .deriv-linear-progress-bar {

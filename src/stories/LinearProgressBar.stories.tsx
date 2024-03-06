@@ -17,7 +17,7 @@ export const Default:Story ={
         is_loading: false,
         label: 'Loading...',
         percentage: 50,
-        size: 'xs',
+        labelSize: 'xs',
         warning_limit: 80,
       }
 }
