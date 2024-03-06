@@ -1,3 +1,18 @@
+## [1.10.2](https://github.com/deriv-com/ui/compare/v1.10.1...v1.10.2) (2024-03-06)
+
+
+### ♻️ 	 Chores
+
+* fix ci/cd spelling ([1b40558](https://github.com/deriv-com/ui/commit/1b40558305f9aa9c9fab2cdc85b40d043a6d80c6))
+* rebuild package-lock ([6d96734](https://github.com/deriv-com/ui/commit/6d96734b0b14efc674e9ece22d2d5ad8afd29d32))
+* revert specific tag ([d829dba](https://github.com/deriv-com/ui/commit/d829dba9c879473da2e3d98ec019b67976e018d2))
+* revert specific tag ([2377475](https://github.com/deriv-com/ui/commit/23774756514750741cccf425518797a019a98804))
+* update ci/cd to latest npm ([4133dec](https://github.com/deriv-com/ui/commit/4133dec57e8b6c041a1e7948f42c6220e3aaf009))
+* update ci/cd to latest npm ([70232c3](https://github.com/deriv-com/ui/commit/70232c37132752d02c3cf8f05916197e241f5b4d))
+* upgrade dependencies ([b8747c7](https://github.com/deriv-com/ui/commit/b8747c762dc9a6f57e198b4137cd0ed5418d7ae9))
+* upgrade dependencies ([a46bc52](https://github.com/deriv-com/ui/commit/a46bc52529d44b7849391dd674dd0a602f6cd3a3))
+* use latest setup-node version ([daa4144](https://github.com/deriv-com/ui/commit/daa414443457440c8a756bdf60a8020abc3c1cca))
+
 ## [1.10.1](https://github.com/deriv-com/ui/compare/v1.10.0...v1.10.1) (2024-03-06)
 
 
