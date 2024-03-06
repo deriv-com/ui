@@ -3,15 +3,16 @@ import { render,screen } from '@testing-library/react';
 import { LinearProgressBar } from '..';
 
 describe('LinearProgressBar', () => {
+  const props = {
+    danger_limit:10,
+    is_loading:false,
+    label:"Test Label",
+    percentage:50,
+    warning_limit:80
+  }
   it('renders with default props', () => {
     render(
-      <LinearProgressBar
-        danger_limit={10}
-        is_loading={false}
-        label="Test Label"
-        percentage={50}
-        warning_limit={80}
-      />
+      <LinearProgressBar {...props}/>
     );
     const progressBar = screen.getByText("Test Label")
     expect(progressBar).toBeInTheDocument();
@@ -33,13 +34,7 @@ describe('LinearProgressBar', () => {
 
   it('renders progress bar with custom label', () => {
     const { getByText } = render(
-      <LinearProgressBar
-        danger_limit={10}
-        is_loading={false}
-        label={<span>Custom Label</span>}
-        percentage={50}
-        warning_limit={80}
-      />
+      <LinearProgressBar {...props} label={<span>Custom Label</span>} />
     );
     const label = getByText('Custom Label');
     expect(label).toBeInTheDocument();
@@ -48,13 +43,7 @@ describe('LinearProgressBar', () => {
 
   it('renders progress bar with correct color based on percentage', () => {
     render(
-      <LinearProgressBar
-        danger_limit={10}
-        is_loading={false}
-        label="Test Label"
-        percentage={70}
-        warning_limit={80}
-      />
+      <LinearProgressBar {...props} percentage={70} />
     );
     const progressBar = document.querySelector('.deriv-linear-progress-bar__line');
     expect(progressBar).toHaveClass('deriv-linear-progress-bar__line--yellow');

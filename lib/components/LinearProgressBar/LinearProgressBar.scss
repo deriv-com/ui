@@ -55,7 +55,7 @@ $BORDER_RADIUS:4px;
         margin: 0.5rem 0 1rem;
         overflow: hidden;
 
-        &--indeterminate {
+        &--skelton-loader {
             background-color: $active_color;
 
             &:before,
@@ -69,14 +69,14 @@ $BORDER_RADIUS:4px;
                 will-change: left, right;
             }
             &:before {
-                animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+                animation: skelton-loader 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
             }
             &:after {
-                animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+                animation: skelton-loader-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
                 animation-delay: 1.15s;
             }
         }
-        @keyframes indeterminate {
+        @keyframes skelton-loader {
             0% {
                 left: -35%;
                 right: 100%;
@@ -90,7 +90,7 @@ $BORDER_RADIUS:4px;
                 right: -90%;
             }
         }
-        @keyframes indeterminate-short {
+        @keyframes skelton-loader-short {
             0% {
                 left: -200%;
                 right: 100%;

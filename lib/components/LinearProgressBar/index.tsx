@@ -23,30 +23,28 @@ export const LinearProgressBar = ({
     ...rest
 }: TLinearProgressProps) => {
     return (
-        <div className={clsx('deriv-linear-progress-bar')} {...rest}>
+        <div className="deriv-linear-progress-bar" {...rest}>
                 <React.Fragment>
-                    <Text size={labelSize} className='deriv-linear-progress-bar__remaining-time'>
+                    <Text size={labelSize} className="deriv-linear-progress-bar__remaining-time">
                        {label}
                     </Text>
                     {is_loading || percentage < 1 ? (
-                        <div className='deriv-linear-progress-bar__infinite-loader'>
-                            <div className='deriv-linear-progress-bar__infinite-loader--indeterminate' />
+                        <div className="deriv-linear-progress-bar__infinite-loader">
+                            <div className="deriv-linear-progress-bar__infinite-loader--indeterminate" />
                         </div>
                     ) : (
-                        /* Calculate line width based on percentage of time left */
-                        <div className='deriv-linear-progress-bar__track'>
+                        <div className="deriv-linear-progress-bar__track">
                             <div
-                                className={clsx('deriv-linear-progress-bar__line', {
-                                    'deriv-linear-progress-bar__line--green': percentage >= warning_limit,
-                                    'deriv-linear-progress-bar__line--yellow': percentage < warning_limit && percentage >= danger_limit,
-                                    'deriv-linear-progress-bar__line--red': percentage < danger_limit,
+                                className={clsx("deriv-linear-progress-bar__line", {
+                                    "deriv-linear-progress-bar__line--green": percentage >= warning_limit,
+                                    "deriv-linear-progress-bar__line--yellow": percentage < warning_limit && percentage >= danger_limit,
+                                    "deriv-linear-progress-bar__line--red": percentage < danger_limit,
                                 })}
                                 style={{ width: `${percentage}%` }}
                             />
                         </div>
                     )}
                 </React.Fragment>
-
         </div>
     );
 };
