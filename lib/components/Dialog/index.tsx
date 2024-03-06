@@ -1,27 +1,30 @@
-import React from "react"
+import React, { ComponentProps, ReactNode } from "react"
 import { Modal } from "../Modal"
 import { Text } from "../Text"
-import { Button } from "../Button"
 import "./Dialog.scss"
 
-export const Dialog  =()=>{
-    const [isOpen,setIsOpen]=React.useState(true);
-    return(
+type TDialogProps = ComponentProps<typeof Modal> & {
+  body: ReactNode;
+  header?: string;
+  primaryButton: ReactNode;
+  secondaryButton?: ReactNode;
+}
 
-        <Modal isOpen={isOpen} className={"deriv-dialog"} onRequestClose={()=>setIsOpen(false)} ariaHideApp={false}>
-       <Modal.Header hideBorder={true}>
+export const Dialog = ({ body, header, primaryButton, secondaryButton,...rest }: TDialogProps) => {
+  return (
+    <Modal className={"deriv-dialog"}  ariaHideApp={false} {...rest}>
+      <Modal.Header hideBorder={true}>
         <Text as='div' weight='bold' className='deriv-modal__header-title'>
-             Modal Header
-         </Text>
+          {header}
+        </Text>
       </Modal.Header>
       <Modal.Body>
-        <div>modal body</div>
+        {body}
       </Modal.Body>
       <Modal.Footer hideBorder={true}>
-         <Button color="black">cancel</Button>
-         <Button>ok</Button>
+        {primaryButton}
+        {secondaryButton}
       </Modal.Footer>
-     </Modal>
-
-    )
+    </Modal>
+  )
 }
