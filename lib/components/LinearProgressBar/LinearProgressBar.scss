@@ -1,0 +1,108 @@
+$inactive_color: var(--general-main-3, #999999);
+$success_color: var(--status-success, #4bb4b3 );
+$warning_color: var(--status-warning, #ffad3a);
+$error_color: var(--status-danger, #ec3f3f);
+$active_color:var(--state-active, #d6dadb);
+$border_section:var(--border-divider, #f2f3f4);
+$state_hover:var(--general-hover, #e6e9e9);
+$BORDER_RADIUS:4px;
+
+.deriv-linear-progress-bar {
+    position: relative;
+    width: 100%;
+    padding: unset;
+    box-sizing: border-box;
+    margin: 8px 0;
+    border-bottom: 1px solid $border_section ;
+
+    &__track {
+        background: $inactive_color;
+        position: relative;
+        margin: 2px 0 8px;
+        height: 6px;
+        width: 100%;
+        border-radius: #{$BORDER_RADIUS * 2};
+    }
+
+    &__line {
+        background: $state_hover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        border-radius: #{$BORDER_RADIUS * 2};
+        pointer-events: none;
+        transition: width 0.3s;
+
+        &--green {
+            background: $success_color !important;
+        }
+        &--yellow {
+            background: $warning_color !important;
+        }
+        &--red {
+            background: $error_color !important;
+        }
+    }
+    &__infinite-loader {
+        position: relative;
+        height: 4px;
+        display: block;
+        width: 100%;
+        background-color: $state_hover;
+        border-radius: 2px;
+        background-clip: padding-box;
+        margin: 0.5rem 0 1rem;
+        overflow: hidden;
+
+        &--skelton-loader {
+            background-color: $active_color;
+
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                background-color: inherit;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                will-change: left, right;
+            }
+            &:before {
+                animation: skelton-loader 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+            }
+            &:after {
+                animation: skelton-loader-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+                animation-delay: 1.15s;
+            }
+        }
+        @keyframes skelton-loader {
+            0% {
+                left: -35%;
+                right: 100%;
+            }
+            60% {
+                left: 100%;
+                right: -90%;
+            }
+            100% {
+                left: 100%;
+                right: -90%;
+            }
+        }
+        @keyframes skelton-loader-short {
+            0% {
+                left: -200%;
+                right: 100%;
+            }
+            60% {
+                left: 107%;
+                right: -8%;
+            }
+            100% {
+                left: 107%;
+                right: -8%;
+            }
+        }
+    }
+}
