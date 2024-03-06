@@ -64,8 +64,8 @@ describe('Button component', () => {
   });
 
   it('applies the correct rounded class based on the "rounded" prop', () => {
-    const { container } = render(<Button rounded="lg">Test Button</Button>);
-    expect(container.firstChild).toHaveClass('deriv-button__rounded--lg');
+    const { container } = render(<Button rounded="md">Test Button</Button>);
+    expect(container.firstChild).toHaveClass('deriv-button__rounded--md');
   });
 
   it('shows the icon when provided and not loading', () => {

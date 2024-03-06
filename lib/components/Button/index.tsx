@@ -84,7 +84,7 @@ export const Button = ({
                 className,
             )}
             disabled={rest.disabled || isLoading}
-            aria-label={rest.children}
+            aria-label={rest.children && typeof rest.children === 'string' ? rest.children : ''}
             {...rest}
         >
             {isLoading && (
