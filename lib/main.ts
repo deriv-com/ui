@@ -6,6 +6,7 @@ export { Dropdown } from "./components/Dropdown";
 export { InlineMessage } from "./components/InlineMessage";
 export { Input } from "./components/Input";
 export { Loader } from "./components/Loader";
+export { LinearProgressBar } from './components/LinearProgressBar'
 export { PageLayout } from "./components/PageLayout";
 export { PasswordInput } from "./components/PasswordInput";
 export { Table } from "./components/Table";
