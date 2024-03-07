@@ -12,8 +12,8 @@ type TDialogProps = ComponentProps<typeof Modal> & {
 
 export const Dialog = ({ body, header, primaryButton, secondaryButton,...rest }: TDialogProps) => {
   return (
-    <Modal className={"deriv-dialog"}  ariaHideApp={false} {...rest}>
-      <Modal.Header hideBorder={true}>
+    <Modal className={"deriv-dialog"}  ariaHideApp={false}  {...rest}>
+      <Modal.Header hideBorder={true} >
         <Text as='div' weight='bold' className='deriv-modal__header-title'>
           {header}
         </Text>
