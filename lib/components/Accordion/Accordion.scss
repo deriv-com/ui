@@ -46,10 +46,6 @@ $animation-duration: 0.3s;
         align-items: center;
         justify-content: space-between;
 
-        // TODO: For testing purposes only - remove this
-        font-size: map-get($font-sizes, "md");
-        color: var(--text-general);
-
         &--border-bottom {
             border-bottom: 1px solid var(--border-normal-1);
         }
@@ -90,10 +86,5 @@ $animation-duration: 0.3s;
         &--default {
             padding-top: 24px;
         }
-
-        // TODO: For testing purposes only - remove this
-        font-size: map-get($font-sizes, "default");
-        line-height: map-get($line-heights, "sm");
-        color: var(--text-general);
     }
 }
