@@ -1,4 +1,11 @@
-import { memo, useCallback, useEffect, useRef, useState } from "react";
+import {
+    ReactNode,
+    memo,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+} from "react";
 import clsx from "clsx";
 import Chevron from "./Chevron.svg";
 import "./Accordion.scss";
@@ -6,8 +13,8 @@ import "./Accordion.scss";
 type AccordionVariants = "underline" | "bordered" | "shadow";
 
 type AccordionSection = {
-    title: string;
-    content: string;
+    title: ReactNode;
+    content: ReactNode;
 };
 
 type AccordionSectionProps = {
