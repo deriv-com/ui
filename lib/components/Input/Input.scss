@@ -1,13 +1,12 @@
-$input-border: (
+$input-borders: (
     "general": var(--du-state-active, #d6dadb),
     "hover": var(--du-border-hover, #999999),
     "active": var(--du-brand-secondary, #85acb0),
-    "disabled": var(--du-state-active, #d6dadb),
     "success": var(--du-status-success, #4bb4b3),
     "error": var(--du-status-danger, #ec3f3f),
 );
 
-$label-color: (
+$label-colors: (
     "general": var(--du-border-hover, #999999),
     "active": var(--du-brand-secondary, #85acb0),
     "error": var(--du-status-danger, #ec3f3f),
@@ -43,25 +42,25 @@ $input-placement: 16px;
     color: var(--du-text-prominent, #333333);
 
     &--general {
-        border-color: map-get($input-border, "general");
+        border-color: map-get($input-borders, "general");
         &:hover:not(:disabled):not(:focus-within) {
-            border-color: map-get($input-border, "hover");
+            border-color: map-get($input-borders, "hover");
         }
         &:focus-within {
-            border-color: map-get($input-border, "active");
+            border-color: map-get($input-borders, "active");
         }
     }
     &--error {
-        border-color: map-get($input-border, "error");
+        border-color: map-get($input-borders, "error");
     }
     &--success {
-        border-color: map-get($input-border, "success");
+        border-color: map-get($input-borders, "success");
     }
     &--active {
-        border-color: map-get($input-border, "active");
+        border-color: map-get($input-borders, "active");
     }
     &--disabled {
-        border-color: map-get($input-border, "disabled");
+        border-color: map-get($input-borders, "general");
         cursor: not-allowed;
     }
 
@@ -96,20 +95,20 @@ $input-placement: 16px;
         transition: all 0.15s ease-out;
         font-size: var(--du-text-size-default, 14px);
         &--general {
-            color: map-get($label-color, "general");
+            color: map-get($label-colors, "general");
         }
         &--error {
-            color: map-get($label-color, "error");
+            color: map-get($label-colors, "error");
         }
         &--success {
-            color: map-get($label-color, "success");
+            color: map-get($label-colors, "success");
         }
         &--active {
-            color: map-get($label-color, "active");
+            color: map-get($label-colors, "active");
         }
 
         &--disabled {
-            color: map-get($label-color, "disabled");
+            color: map-get($label-colors, "disabled");
         }
     }
 
@@ -121,19 +120,19 @@ $input-placement: 16px;
 .deriv-input--general .deriv-input__field:disabled + .deriv-input__label,
 .deriv-input--error .deriv-input__field:disabled + .deriv-input__label,
 .deriv-input--success .deriv-input__field:disabled + .deriv-input__label {
-    color: map-get($label-color, "disabled");
+    color: map-get($label-colors, "disabled");
 }
 
 .deriv-input--general .deriv-input__field:focus + .deriv-input__label {
-    color: map-get($label-color, "active");
+    color: map-get($label-colors, "active");
 }
 
 .deriv-input--error .deriv-input__field:focus + .deriv-input__label {
-    color: map-get($label-color, "error");
+    color: map-get($label-colors, "error");
 }
 
 .deriv-input--success .deriv-input__field:focus + .deriv-input__label {
-    color: map-get($label-color, "success");
+    color: map-get($label-colors, "success");
 }
 
 .deriv-input__helper-message {
