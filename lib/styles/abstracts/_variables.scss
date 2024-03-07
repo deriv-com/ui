@@ -20,6 +20,9 @@ $mobile-width: 320px;
 $tablet-width: 601px;
 $desktop-width: 1280px;
 
+/* FONT FAMILIES */
+$font-serif: "IBM Plex Sans", sans-serif;
+
 /* FONT SIZES */
 $font-size-3xs: map-get($font-sizes, "3xs");
 $font-size-2xs: map-get($font-sizes, "2xs");

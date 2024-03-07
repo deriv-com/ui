@@ -6,6 +6,7 @@ export { Divider } from "./components/Divider";
 export { Dropdown } from "./components/Dropdown";
 export { InlineMessage } from "./components/InlineMessage";
 export { Input } from "./components/Input";
+export { LinearProgressBar } from "./components/LinearProgressBar";
 export { Loader } from "./components/Loader";
 export { Modal } from "./components/Modal";
 export { PageLayout } from "./components/PageLayout";
