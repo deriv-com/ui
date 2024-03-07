@@ -1,17 +1,15 @@
+// TODO: Refactor this file to use css variables
 $color-map: (
-    "general": #333333,
-    "primary": #999999,
-    "success": #4bb4b3,
-    "warning": #ffad3a,
-    "error": #ec3f3f,
-    "white": #ffffff,
-    "black": #000000,
-    "less-prominent": #999999,
-    "red": #ff444f,
-    "blue": #377cfc,
-    "green": #17eabd,
-    "orange": #ff9c13,
-    "system-dark-2-general-text": #c2c2c2,
+    "prominent": var(--du-text-prominent),
+    "less-prominent": var(--du-text-less-prominent, #999999),
+    "general": var(--du-text-general, #333333),
+    "primary": var(--du-text-primary, #999999),
+    "success": var(--du-text-profit-success, #4bb4b3),
+    "warning": var(--du-text-warning, #ffad3a),
+    "error": var(--du-text-loss-danger, #ec3f3f),
+    "red": var(--du-text-red, #ff444f),
+    "blue": var(--du-text-info-blue, #377cfc),
+    "green": var(--du-text-green, #17eabd),
 );
 
 $desktop-font-size-map: (
@@ -116,18 +114,6 @@ $line-height-map: (
     "7xl": 36px,
 );
 
-$font-weight-map: (
-    light: 300,
-    normal: 400,
-    bold: 700,
-);
-
-$font-align-map: (
-    left: left,
-    center: center,
-    right: right,
-);
-
 $font-style-map: (
     italic: italic,
     normal: normal,
@@ -142,16 +128,14 @@ $font-style-map: (
 
     @each $size, $values in $desktop-font-size-map {
         &__size--#{$size} {
-            @include desktop {
-                font-size: map-get($values, size);
-                line-height: map-get($values, line_height);
-            }
+            font-size: map-get($values, size);
+            line-height: map-get($values, line_height);
         }
     }
 
     @each $size, $values in $mobile-font-size-map {
         &__size--#{$size} {
-            @include mobile-up {
+            @include tablet-down {
                 font-size: map-get($values, size);
                 line-height: map-get($values, line_height);
             }
@@ -164,13 +148,13 @@ $font-style-map: (
         }
     }
 
-    @each $weight, $value in $font-weight-map {
+    @each $weight, $value in $font-weights {
         &__weight--#{$weight} {
             font-weight: $value;
         }
     }
 
-    @each $align, $value in $font-align-map {
+    @each $align, $value in $font-align {
         &__align--#{$align} {
             text-align: $value;
         }

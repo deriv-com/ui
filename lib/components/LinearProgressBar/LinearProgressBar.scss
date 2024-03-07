@@ -1,11 +1,10 @@
-$inactive_color: var(--general-main-3, #999999);
-$success_color: var(--status-success, #4bb4b3 );
-$warning_color: var(--status-warning, #ffad3a);
-$error_color: var(--status-danger, #ec3f3f);
-$active_color:var(--state-active, #d6dadb);
-$border_section:var(--border-divider, #f2f3f4);
-$state_hover:var(--general-hover, #e6e9e9);
-$BORDER_RADIUS:4px;
+$inactive_color: var(--du-general-main-3, #999999);
+$success_color: var(--du-status-success, #4bb4b3);
+$warning_color: var(--du-status-warning, #ffad3a);
+$error_color: var(--du-status-danger, #ec3f3f);
+$active_color: var(--du-state-active, #d6dadb);
+$border_section: var(--du-border-divider, #f2f3f4);
+$state_hover: var(--du-general-hover, #e6e9e9);
 
 .deriv-linear-progress-bar {
     position: relative;
@@ -13,7 +12,7 @@ $BORDER_RADIUS:4px;
     padding: unset;
     box-sizing: border-box;
     margin: 8px 0;
-    border-bottom: 1px solid $border_section ;
+    border-bottom: 1px solid $border_section;
 
     &__track {
         background: $inactive_color;
@@ -21,7 +20,7 @@ $BORDER_RADIUS:4px;
         margin: 2px 0 8px;
         height: 6px;
         width: 100%;
-        border-radius: #{$BORDER_RADIUS * 2};
+        border-radius: $border-radius-2;
     }
 
     &__line {
@@ -30,7 +29,7 @@ $BORDER_RADIUS:4px;
         top: 0;
         left: 0;
         height: 100%;
-        border-radius: #{$BORDER_RADIUS * 2};
+        border-radius: $border-radius-2;
         pointer-events: none;
         transition: width 0.3s;
 
@@ -60,7 +59,7 @@ $BORDER_RADIUS:4px;
 
             &:before,
             &:after {
-                content: '';
+                content: "";
                 position: absolute;
                 background-color: inherit;
                 top: 0;
@@ -69,10 +68,12 @@ $BORDER_RADIUS:4px;
                 will-change: left, right;
             }
             &:before {
-                animation: skelton-loader 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+                animation: skelton-loader 2.1s
+                    cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
             }
             &:after {
-                animation: skelton-loader-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+                animation: skelton-loader-short 2.1s
+                    cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
                 animation-delay: 1.15s;
             }
         }

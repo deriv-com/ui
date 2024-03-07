@@ -1,3 +1,25 @@
+## [1.10.4](https://github.com/deriv-com/ui/compare/v1.10.3...v1.10.4) (2024-03-07)
+
+
+### ♻️ 	 Chores
+
+* append prefix for css variables ([189cc82](https://github.com/deriv-com/ui/commit/189cc82ffbdf8dc18e1c44415fad8fd84ddf1e29))
+* refactor Text component ([9bc99e8](https://github.com/deriv-com/ui/commit/9bc99e8b07f84d0788f0e1d75af75e9779ee4122))
+
+## [1.10.3](https://github.com/deriv-com/ui/compare/v1.10.2...v1.10.3) (2024-03-07)
+
+
+### ♻️ 	 Chores
+
+* add unit tests for button ([5c5fb21](https://github.com/deriv-com/ui/commit/5c5fb21bd319be0f7e368889f8cc9baabc461e88))
+* add unit tests for button ([cf8c43f](https://github.com/deriv-com/ui/commit/cf8c43fffacae82734a456d02ec5c6c3f9f6dd95))
+* add unit tests for button ([a7f6af5](https://github.com/deriv-com/ui/commit/a7f6af58f4463a7df5ccdbc45ff2100c82de65f0))
+
+
+### 🐛 	 Bug Fixes
+
+* add lg type for rounded ([d94d8d8](https://github.com/deriv-com/ui/commit/d94d8d8873cf7a1e6cde2895ef77cf93868103a3))
+
 ## [1.10.2](https://github.com/deriv-com/ui/compare/v1.10.1...v1.10.2) (2024-03-06)
 
 
