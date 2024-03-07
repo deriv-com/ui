@@ -49,6 +49,17 @@ const meta = {
     },
 } satisfies Meta<typeof Accordion>;
 
+export const AllowMultiple: Story = {
+    args: {
+        allowMultiple: true,
+    },
+    render: (args) => (
+        <div className="theme--light">
+            <Accordion {...args} />
+        </div>
+    ),
+};
+
 export default meta;
 type Story = StoryObj<typeof meta>;
 

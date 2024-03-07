@@ -1,4 +1,4 @@
-$border: 1px solid var(--general-active);
+$border: 1px solid var(--du-general-active);
 $animation-duration: 0.3s;
 
 .deriv-accordion {
@@ -9,7 +9,7 @@ $animation-duration: 0.3s;
 
     &__wrapper {
         width: 100%;
-        background-color: var(--general-main-2);
+        background-color: var(--du-general-main-2);
 
         &--default {
             padding: 24px;
@@ -47,7 +47,7 @@ $animation-duration: 0.3s;
         justify-content: space-between;
 
         &--border-bottom {
-            border-bottom: 1px solid var(--border-normal-1);
+            border-bottom: 1px solid var(--du-border-normal-1);
         }
     }
 
