@@ -1,3 +1,11 @@
+## [1.10.4](https://github.com/deriv-com/ui/compare/v1.10.3...v1.10.4) (2024-03-07)
+
+
+### ♻️ 	 Chores
+
+* append prefix for css variables ([189cc82](https://github.com/deriv-com/ui/commit/189cc82ffbdf8dc18e1c44415fad8fd84ddf1e29))
+* refactor Text component ([9bc99e8](https://github.com/deriv-com/ui/commit/9bc99e8b07f84d0788f0e1d75af75e9779ee4122))
+
 ## [1.10.3](https://github.com/deriv-com/ui/compare/v1.10.2...v1.10.3) (2024-03-07)
 
 
