@@ -1,7 +1,18 @@
 import React, { CSSProperties, ElementType, ReactNode } from "react";
 import clsx from "clsx";
-
 import "./Text.scss";
+
+type TextColors =
+    | "prominent"
+    | "less-prominent"
+    | "general"
+    | "primary"
+    | "success"
+    | "warning"
+    | "error"
+    | "red"
+    | "blue"
+    | "green";
 
 type TGenericSizes =
     | "2xl"
@@ -21,18 +32,11 @@ export interface TextProps {
     align?: CSSProperties["textAlign"];
     as?: ElementType;
     children: ReactNode;
-    color?:
-        | CSSProperties["color"]
-        | "error"
-        | "general"
-        | "less-prominent"
-        | "primary"
-        | "success"
-        | "warning";
+    color?: TextColors;
     fontStyle?: CSSProperties["fontStyle"];
     lineHeight?: TGenericSizes;
     size?: Exclude<TGenericSizes, "3xs" | "6xl" | "7xl">;
-    weight?: CSSProperties["fontWeight"];
+    weight?: Exclude<CSSProperties["fontWeight"], "bolder" | "lighter">;
     className?: string;
 }
 
