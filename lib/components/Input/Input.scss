@@ -1,4 +1,19 @@
-// TODO: Remove fallback values when the design system is ready
+$input-border: (
+    "general": var(--du-state-active, #d6dadb),
+    "hover": var(--du-border-hover, #999999),
+    "active": var(--du-brand-secondary, #85acb0),
+    "disabled": var(--du-state-active, #d6dadb),
+    "success": var(--du-status-success, #4bb4b3),
+    "error": var(--du-status-danger, #ec3f3f),
+);
+
+$label-color: (
+    "general": var(--du-border-hover, #999999),
+    "active": var(--du-brand-secondary, #85acb0),
+    "error": var(--du-status-danger, #ec3f3f),
+    "success": var(--du-status-success, #4bb4b3),
+    "disabled": var(--du-state-active, #d6dadb),
+);
 
 $border: 1px solid;
 $input-placement: 16px;
@@ -28,25 +43,25 @@ $input-placement: 16px;
     color: var(--du-text-prominent, #333333);
 
     &--general {
-        border-color: var(--du-state-active, #d6dadb);
+        border-color: map-get($input-border, "general");
         &:hover:not(:disabled):not(:focus-within) {
-            border-color: var(--du-border-hover, #999999);
+            border-color: map-get($input-border, "hover");
         }
         &:focus-within {
-            border-color: var(--du-brand-secondary, #85acb0);
+            border-color: map-get($input-border, "active");
         }
     }
     &--error {
-        border-color: var(--du-status-danger, #ec3f3f);
+        border-color: map-get($input-border, "error");
     }
     &--success {
-        border-color: var(--du-status-success, #4bb4b3);
+        border-color: map-get($input-border, "success");
     }
     &--active {
-        border-color: var(--du-brand-secondary, #85acb0);
+        border-color: map-get($input-border, "active");
     }
     &--disabled {
-        border-color: var(--du-state-active, #d6dadb);
+        border-color: map-get($input-border, "disabled");
         cursor: not-allowed;
     }
 
@@ -81,20 +96,20 @@ $input-placement: 16px;
         transition: all 0.15s ease-out;
         font-size: var(--du-text-size-default, 14px);
         &--general {
-            color: var(--du-border-hover, #999999);
+            color: map-get($label-color, "general");
         }
         &--error {
-            color: var(--du-status-danger, #ec3f3f);
+            color: map-get($label-color, "error");
         }
         &--success {
-            color: var(--du-status-success, #4bb4b3);
+            color: map-get($label-color, "success");
         }
         &--active {
-            color: var(--du-brand-secondary, #85acb0);
+            color: map-get($label-color, "active");
         }
 
         &--disabled {
-            color: var(--du-state-active, #d6dadb);
+            color: map-get($label-color, "disabled");
         }
     }
 
@@ -106,19 +121,19 @@ $input-placement: 16px;
 .deriv-input--general .deriv-input__field:disabled + .deriv-input__label,
 .deriv-input--error .deriv-input__field:disabled + .deriv-input__label,
 .deriv-input--success .deriv-input__field:disabled + .deriv-input__label {
-    color: var(--du-state-active, #d6dadb);
+    color: map-get($label-color, "disabled");
 }
 
 .deriv-input--general .deriv-input__field:focus + .deriv-input__label {
-    color: var(--du-brand-secondary, #85acb0);
+    color: map-get($label-color, "active");
 }
 
 .deriv-input--error .deriv-input__field:focus + .deriv-input__label {
-    color: var(--du-status-danger, #ec3f3f);
+    color: map-get($label-color, "error");
 }
 
 .deriv-input--success .deriv-input__field:focus + .deriv-input__label {
-    color: var(--du-status-success, #4bb4b3);
+    color: map-get($label-color, "success");
 }
 
 .deriv-input__helper-message {
