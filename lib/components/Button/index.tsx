@@ -13,7 +13,7 @@ interface ButtonProps extends ComponentProps<"button"> {
     icon?: ReactElement;
     isFullWidth?: boolean;
     isLoading?: boolean;
-    rounded?: Extract<TGenericSizes, "md" | "sm">;
+    rounded?: Extract<TGenericSizes, "lg" | "md" | "sm">;
     size?: Extract<TGenericSizes, "lg" | "md" | "sm">;
     textSize?: ComponentProps<typeof Text>["size"];
     variant?: TVariant;
@@ -84,6 +84,7 @@ export const Button = ({
                 className,
             )}
             disabled={rest.disabled || isLoading}
+            aria-label={rest.children && typeof rest.children === 'string' ? rest.children : ''}
             {...rest}
         >
             {isLoading && (

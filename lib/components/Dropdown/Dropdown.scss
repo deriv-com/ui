@@ -7,7 +7,7 @@
         pointer-events: none;
 
         & label {
-            color: var(--system-light-5-active-background, #999);
+            color: var(--du-system-light-5-active-background, #999);
         }
     }
 
@@ -24,7 +24,7 @@
     }
     &__content {
         width: 100%;
-        background: var(--system-light-8-primary-background, #fff);
+        background: var(--du-system-light-8-primary-background, #fff);
         display: flex;
         align-items: center;
 
@@ -44,7 +44,7 @@
         outline: 0;
         font-size: 14px;
         background-color: transparent;
-        color: var(--system-light-2-general-text, #333);
+        color: var(--du-system-light-2-general-text, #333);
         transition: border-color 0.2s;
         cursor: unset;
         user-select: none;
@@ -84,7 +84,7 @@
     }
 
     &__field:focus ~ &__label {
-        color: var(--brand-blue, #85acb0);
+        color: var(--du-brand-blue, #85acb0);
     }
 
     &__items {
@@ -95,13 +95,13 @@
         align-items: flex-start;
         z-index: 2;
         border-radius: 4px;
-        background: var(--system-light-8-primary-background, #fff);
+        background: var(--du-system-light-8-primary-background, #fff);
         box-shadow: 0 32px 64px 0 rgba(14, 14, 14, 0.14);
         overflow-y: auto;
         width: 328px;
 
         &--full {
-          width: 100%;
+            width: 100%;
         }
 
         & > :first-child {
@@ -141,11 +141,11 @@
 
         &:hover:not(&--active) {
             cursor: pointer;
-            background: var(--system-light-6-hover-background, #e6e9e9);
+            background: var(--du-system-light-6-hover-background, #e6e9e9);
         }
 
         &--active {
-            background: var(--system-light-5-active-background, #d6dadb);
+            background: var(--du-system-light-5-active-background, #d6dadb);
         }
     }
 }

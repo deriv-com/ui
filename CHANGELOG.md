@@ -1,3 +1,99 @@
+## [1.10.4](https://github.com/deriv-com/ui/compare/v1.10.3...v1.10.4) (2024-03-07)
+
+
+### ♻️ 	 Chores
+
+* append prefix for css variables ([189cc82](https://github.com/deriv-com/ui/commit/189cc82ffbdf8dc18e1c44415fad8fd84ddf1e29))
+* refactor Text component ([9bc99e8](https://github.com/deriv-com/ui/commit/9bc99e8b07f84d0788f0e1d75af75e9779ee4122))
+
+## [1.10.3](https://github.com/deriv-com/ui/compare/v1.10.2...v1.10.3) (2024-03-07)
+
+
+### ♻️ 	 Chores
+
+* add unit tests for button ([5c5fb21](https://github.com/deriv-com/ui/commit/5c5fb21bd319be0f7e368889f8cc9baabc461e88))
+* add unit tests for button ([cf8c43f](https://github.com/deriv-com/ui/commit/cf8c43fffacae82734a456d02ec5c6c3f9f6dd95))
+* add unit tests for button ([a7f6af5](https://github.com/deriv-com/ui/commit/a7f6af58f4463a7df5ccdbc45ff2100c82de65f0))
+
+
+### 🐛 	 Bug Fixes
+
+* add lg type for rounded ([d94d8d8](https://github.com/deriv-com/ui/commit/d94d8d8873cf7a1e6cde2895ef77cf93868103a3))
+
+## [1.10.2](https://github.com/deriv-com/ui/compare/v1.10.1...v1.10.2) (2024-03-06)
+
+
+### ♻️ 	 Chores
+
+* fix ci/cd spelling ([1b40558](https://github.com/deriv-com/ui/commit/1b40558305f9aa9c9fab2cdc85b40d043a6d80c6))
+* rebuild package-lock ([6d96734](https://github.com/deriv-com/ui/commit/6d96734b0b14efc674e9ece22d2d5ad8afd29d32))
+* revert specific tag ([d829dba](https://github.com/deriv-com/ui/commit/d829dba9c879473da2e3d98ec019b67976e018d2))
+* revert specific tag ([2377475](https://github.com/deriv-com/ui/commit/23774756514750741cccf425518797a019a98804))
+* update ci/cd to latest npm ([4133dec](https://github.com/deriv-com/ui/commit/4133dec57e8b6c041a1e7948f42c6220e3aaf009))
+* update ci/cd to latest npm ([70232c3](https://github.com/deriv-com/ui/commit/70232c37132752d02c3cf8f05916197e241f5b4d))
+* upgrade dependencies ([b8747c7](https://github.com/deriv-com/ui/commit/b8747c762dc9a6f57e198b4137cd0ed5418d7ae9))
+* upgrade dependencies ([a46bc52](https://github.com/deriv-com/ui/commit/a46bc52529d44b7849391dd674dd0a602f6cd3a3))
+* use latest setup-node version ([daa4144](https://github.com/deriv-com/ui/commit/daa414443457440c8a756bdf60a8020abc3c1cca))
+
+## [1.10.1](https://github.com/deriv-com/ui/compare/v1.10.0...v1.10.1) (2024-03-06)
+
+
+### ♻️ 	 Chores
+
+* exported linear progress bar component from lib ([14811d1](https://github.com/deriv-com/ui/commit/14811d15a64c40e561cc4d60de3b569d644ce40c))
+* exported linear progress bar component from lib ([37f408c](https://github.com/deriv-com/ui/commit/37f408c28d8233c6e066bb00480be290cc4e89e0))
+* fixed the import state orders ([61a428d](https://github.com/deriv-com/ui/commit/61a428db7192a9e7b5171a22985bce56d27075ed))
+
+# [1.10.0](https://github.com/deriv-com/ui/compare/v1.9.7...v1.10.0) (2024-03-06)
+
+
+### ✨ 	 Features
+
+* added css properties from root file ([a2473aa](https://github.com/deriv-com/ui/commit/a2473aa671b628c0282cd475e610a9e8cd6fbed7))
+* added linear progress bar component ([0d7e936](https://github.com/deriv-com/ui/commit/0d7e9364b0c9e2422dde9f0b662dffd22a6e8d00))
+* added progress bar component ([92a6b68](https://github.com/deriv-com/ui/commit/92a6b68abe22c2043cec54e6dbc3a696b89dfe73))
+* changed css names ([5468817](https://github.com/deriv-com/ui/commit/54688171447e7796d9f48609a052b25d88855de7))
+* made changes in test cases and added div props ([9fde470](https://github.com/deriv-com/ui/commit/9fde4701c6bf001090d594e6b717083d1c4366d6))
+
+
+### 📦 	 Code Refactoring
+
+* added limit props ([1a0d270](https://github.com/deriv-com/ui/commit/1a0d2707c2ed39ebb8eb3c3439e6122731516002))
+* added stories for linear progressbar ([bf77376](https://github.com/deriv-com/ui/commit/bf7737686c05cc64c59407db8db0ad47a49c21c7))
+* added test cases for progress bar component ([8e42f04](https://github.com/deriv-com/ui/commit/8e42f04aadf222b6d2a2a8340f48869ce8d9a6f0))
+* changes scss name to linearprogressbar ([9127a51](https://github.com/deriv-com/ui/commit/9127a51f1de7342e07fcdd65c98f9eb7c9737a13))
+* deleted test file ([110e45a](https://github.com/deriv-com/ui/commit/110e45a99312e28f91b811fc02f593ef39e0922c))
+* removed test component from main file ([255bc4c](https://github.com/deriv-com/ui/commit/255bc4ccba9e72e1ae3c4d6f9e975193ab735457))
+
+## [1.9.7](https://github.com/deriv-com/ui/compare/v1.9.6...v1.9.7) (2024-03-06)
+
+
+### ♻️ 	 Chores
+
+* set margin-left for close-icon to auto ([ae9ec5e](https://github.com/deriv-com/ui/commit/ae9ec5ea062cca3d10737d110723c7a9848b3db4))
+
+
+### 🐛 	 Bug Fixes
+
+* added new classname to modal header ([1f4a52e](https://github.com/deriv-com/ui/commit/1f4a52e4f7e17635a0c9347ef83bf06f771f7841))
+* added new classname to modal header ([7d719f1](https://github.com/deriv-com/ui/commit/7d719f14476389e51be1bec58762240a9af82d37))
+
+## [1.9.6](https://github.com/deriv-com/ui/compare/v1.9.5...v1.9.6) (2024-03-06)
+
+
+### ♻️ 	 Chores
+
+* add unit tests for ActionScreen ([3f35736](https://github.com/deriv-com/ui/commit/3f357366b181294b3f0a369a9b02bd7a243de7e3))
+* add unit tests for ActionScreen ([41995fc](https://github.com/deriv-com/ui/commit/41995fc356e3f61c5c694748b0ac57aa8bbce674))
+
+## [1.9.5](https://github.com/deriv-com/ui/compare/v1.9.4...v1.9.5) (2024-03-06)
+
+
+### 🐛 	 Bug Fixes
+
+* fixed oveflow issue in modal body ([07cf63d](https://github.com/deriv-com/ui/commit/07cf63deab1178f68115701b78bc7332796e8531))
+* fixed oveflow issue in modal body ([e5627d8](https://github.com/deriv-com/ui/commit/e5627d8a7134732557ccc1efa851d7725933d237))
+
 ## [1.9.4](https://github.com/deriv-com/ui/compare/v1.9.3...v1.9.4) (2024-03-05)
 
 
