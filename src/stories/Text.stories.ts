@@ -26,10 +26,23 @@ const meta = {
     // More on argTypes: https://storybook.js.org/docs/api/argtypes
     argTypes: {
         color: {
-            control: { type: "text" },
+            options: [
+                "prominent",
+                "less-prominent",
+                "general",
+                "primary",
+                "success",
+                "warning",
+                "error",
+                "red",
+                "blue",
+                "green",
+            ],
+            control: { type: "select" },
         },
         weight: {
-            control: { type: "text" },
+            options: ["normal", "bold", "semi-bold", "light"],
+            control: { type: "select" },
         },
         as: {
             control: { type: "text" },
