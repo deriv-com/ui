@@ -24,29 +24,29 @@ $input-placement: 16px;
     text-align: left;
     padding: 10px 16px;
     border: $border;
-    font-size: var(--text-size-default, 14px);
-    color: var(--text-prominent, #333333);
+    font-size: var(--du-text-size-default, 14px);
+    color: var(--du-text-prominent, #333333);
 
     &--general {
-        border-color: var(--state-active, #d6dadb);
+        border-color: var(--du-state-active, #d6dadb);
         &:hover:not(:disabled):not(:focus-within) {
-            border-color: var(--border-hover, #999999);
+            border-color: var(--du-border-hover, #999999);
         }
         &:focus-within {
-            border-color: var(--brand-secondary, #85acb0);
+            border-color: var(--du-brand-secondary, #85acb0);
         }
     }
     &--error {
-        border-color: var(--status-danger, #ec3f3f);
+        border-color: var(--du-status-danger, #ec3f3f);
     }
     &--success {
-        border-color: var(--status-success, #4bb4b3);
+        border-color: var(--du-status-success, #4bb4b3);
     }
     &--active {
-        border-color: var(--brand-secondary, #85acb0);
+        border-color: var(--du-brand-secondary, #85acb0);
     }
     &--disabled {
-        border-color: var(--state-active, #d6dadb);
+        border-color: var(--du-state-active, #d6dadb);
         cursor: not-allowed;
     }
 
@@ -59,9 +59,9 @@ $input-placement: 16px;
         &:focus,
         &:not(:placeholder-shown) {
             & ~ label {
-                font-size: var(--text-size-xs, 10px);
+                font-size: var(--du-text-size-xs, 10px);
                 transform: translate(0, -50%);
-                background-color: var(--general-main-1, #ffffff);
+                background-color: var(--du-general-main-1, #ffffff);
                 padding: 0 4px;
                 height: fit-content;
             }
@@ -79,22 +79,22 @@ $input-placement: 16px;
         align-items: center;
         pointer-events: none;
         transition: all 0.15s ease-out;
-        font-size: var(--text-size-default, 14px);
+        font-size: var(--du-text-size-default, 14px);
         &--general {
-            color: var(--border-hover, #999999);
+            color: var(--du-border-hover, #999999);
         }
         &--error {
-            color: var(--status-danger, #ec3f3f);
+            color: var(--du-status-danger, #ec3f3f);
         }
         &--success {
-            color: var(--status-success, #4bb4b3);
+            color: var(--du-status-success, #4bb4b3);
         }
         &--active {
-            color: var(--brand-secondary, #85acb0);
+            color: var(--du-brand-secondary, #85acb0);
         }
 
         &--disabled {
-            color: var(--state-active, #d6dadb);
+            color: var(--du-state-active, #d6dadb);
         }
     }
 
@@ -106,19 +106,19 @@ $input-placement: 16px;
 .deriv-input--general .deriv-input__field:disabled + .deriv-input__label,
 .deriv-input--error .deriv-input__field:disabled + .deriv-input__label,
 .deriv-input--success .deriv-input__field:disabled + .deriv-input__label {
-    color: var(--state-active, #d6dadb);
+    color: var(--du-state-active, #d6dadb);
 }
 
 .deriv-input--general .deriv-input__field:focus + .deriv-input__label {
-    color: var(--brand-secondary, #85acb0);
+    color: var(--du-brand-secondary, #85acb0);
 }
 
 .deriv-input--error .deriv-input__field:focus + .deriv-input__label {
-    color: var(--status-danger, #ec3f3f);
+    color: var(--du-status-danger, #ec3f3f);
 }
 
 .deriv-input--success .deriv-input__field:focus + .deriv-input__label {
-    color: var(--status-success, #4bb4b3);
+    color: var(--du-status-success, #4bb4b3);
 }
 
 .deriv-input__helper-message {

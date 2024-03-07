@@ -1,21 +1,21 @@
 // TODO: Remove fallback values when the design system is ready
 
 .deriv-helper-message {
-    font-size: var(--text-size-sm, 12px);
-    line-height: var(--text-lh-2xs, 8px);
+    font-size: var(--du-text-size-sm, 12px);
+    line-height: var(--du-text-lh-2xs, 8px);
     font-style: normal;
-    font-weight: var(--text-weight-normal, 400);
-    color: var(--text-primary, #999999);
+    font-weight: var(--du-text-weight-normal, 400);
+    color: var(--du-text-primary, #999999);
     &--general {
-        color: var(--text-less-prominent, #999999);
+        color: var(--du-text-less-prominent, #999999);
     }
     &--success {
-        color: var(--text-profit-success, #4bb4b3);
+        color: var(--du-text-profit-success, #4bb4b3);
     }
     &--warning {
-        color: var(--text-warning, #ffad3a);
+        color: var(--du-text-warning, #ffad3a);
     }
     &--error {
-        color: var(--text-red, #ff444f);
+        color: var(--du-text-red, #ff444f);
     }
 }
