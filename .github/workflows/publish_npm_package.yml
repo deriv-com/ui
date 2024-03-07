@@ -32,7 +32,9 @@ jobs:
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
         run: npm audit signatures
       - name: Publish
-        run: npm publish --access public
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          npm config set _authToken=${NPM_TOKEN} 
+          npm publish --access public
         shell: bash
