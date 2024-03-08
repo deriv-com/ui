@@ -70,8 +70,7 @@ const AccordionSection = memo(
                     "deriv-accordion__wrapper",
                     AccordionVariant[variant],
                     {
-                        "deriv-accordion__wrapper--default": !isCompact,
-                        "deriv-accordion__wrapper--sm": isCompact,
+                        "deriv-accordion__wrapper--compact": isCompact,
                     },
                 )}
             >
@@ -94,21 +93,20 @@ const AccordionSection = memo(
                         />
                     </div>
                 </div>
-                <div
-                    className={clsx("deriv-accordion__content", {
-                        "deriv-accordion__content--active": isActiveSection,
-                        "deriv-accordion__content--default":
-                            isActiveSection && !isCompact,
-                        "deriv-accordion__content--sm":
-                            isActiveSection && isCompact,
-                        "deriv-accordion__content--no-animations":
-                            disableAnimation,
-                    })}
-                    ref={heightRef}
-                    style={{ maxHeight: isActiveSection ? height : "0px" }}
-                >
-                    {section.content}
-                </div>
+                {isActiveSection && (
+                    <div
+                        className={clsx("deriv-accordion__content", {
+                            "deriv-accordion__content--active": isActiveSection,
+                            "deriv-accordion__content--compact": !isCompact,
+                            "deriv-accordion__content--no-animations":
+                                disableAnimation,
+                        })}
+                        ref={heightRef}
+                        style={{ maxHeight: isActiveSection ? height : "0px" }}
+                    >
+                        {section.content}
+                    </div>
+                )}
             </div>
         );
     },

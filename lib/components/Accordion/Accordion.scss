@@ -10,18 +10,16 @@ $animation-duration: 0.3s;
     &__wrapper {
         width: 100%;
         background-color: var(--du-general-main-2);
+        padding: 24px;
 
-        &--default {
-            padding: 24px;
-        }
-
-        &--sm {
+        &--compact {
             padding: 16px;
         }
 
         &--underline {
             border-bottom: $border;
         }
+
         &--shadow,
         &--bordered {
             border-radius: $border-radius-2;
@@ -31,9 +29,11 @@ $animation-duration: 0.3s;
                 margin-bottom: 0;
             }
         }
+
         &--bordered {
             border: $border;
         }
+
         &--shadow {
             box-shadow: $deriv-box-shadow;
         }
@@ -77,14 +77,11 @@ $animation-duration: 0.3s;
 
         &--active {
             opacity: 1;
-        }
-
-        &--sm {
-            padding-top: 16px;
-        }
-
-        &--default {
             padding-top: 24px;
+
+            .deriv-accordion__content--compact {
+                padding-top: 16px;
+            }
         }
     }
 }

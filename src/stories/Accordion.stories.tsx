@@ -49,12 +49,22 @@ const meta = {
     },
 } satisfies Meta<typeof Accordion>;
 
+const styles = {
+    width: "500px",
+    color: "var(--du-text-general)",
+};
+
+const props = {
+    className: "theme--light",
+    style: styles,
+};
+
 export const AllowMultiple: Story = {
     args: {
         allowMultiple: true,
     },
     render: (args) => (
-        <div className="theme--light">
+        <div {...props}>
             <Accordion {...args} />
         </div>
     ),
@@ -68,7 +78,7 @@ export const Underline: Story = {
         variant: "underline",
     },
     render: (args) => (
-        <div className="theme--light">
+        <div {...props}>
             <Accordion {...args} />
         </div>
     ),
@@ -79,7 +89,7 @@ export const Bordered: Story = {
         variant: "bordered",
     },
     render: (args) => (
-        <div className="theme--light">
+        <div {...props}>
             <Accordion {...args} />
         </div>
     ),
@@ -90,7 +100,7 @@ export const Shadow: Story = {
         variant: "shadow",
     },
     render: (args) => (
-        <div className="theme--light">
+        <div {...props}>
             <Accordion {...args} />
         </div>
     ),
@@ -101,7 +111,7 @@ export const DisabledAnimation: Story = {
         disableAnimation: true,
     },
     render: (args) => (
-        <div className="theme--light">
+        <div {...props}>
             <Accordion {...args} />
         </div>
     ),
@@ -112,7 +122,7 @@ export const Compact: Story = {
         isCompact: true,
     },
     render: (args) => (
-        <div className="theme--light">
+        <div {...props}>
             <Accordion {...args} />
         </div>
     ),
