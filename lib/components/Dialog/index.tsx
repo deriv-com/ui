@@ -1,30 +1,23 @@
-import React, { ComponentProps, ReactNode } from "react"
+import React, { ReactNode } from "react"
 import { Modal } from "../Modal"
-import { Text } from "../Text"
+import { DialogHeader } from "./DialogHeader"
+import { DialogBody } from "./DialogBody"
+import { DialogFooter } from "./DIalogFooter"
 import "./Dialog.scss"
 
-type TDialogProps = ComponentProps<typeof Modal> & {
-  body: ReactNode;
+type TDialogProps = {
+  bodyChildren:ReactNode
   header?: string;
-  primaryButton: ReactNode;
-  secondaryButton?: ReactNode;
+  footerChildren:ReactNode;
+  title?: ReactNode;
 }
 
-export const Dialog = ({ body, header, primaryButton, secondaryButton,...rest }: TDialogProps) => {
+export const Dialog = ({ bodyChildren,footerChildren,header,title,...rest }: TDialogProps) => {
   return (
-    <Modal className={"deriv-dialog"}  ariaHideApp={false}  {...rest}>
-      <Modal.Header hideBorder={true} >
-        <Text as='div' weight='bold' className='deriv-modal__header-title'>
-          {header}
-        </Text>
-      </Modal.Header>
-      <Modal.Body>
-        {body}
-      </Modal.Body>
-      <Modal.Footer hideBorder={true}>
-        {primaryButton}
-        {secondaryButton}
-      </Modal.Footer>
+    <Modal className={"deriv-dialog"}  ariaHideApp={false} isOpen  {...rest}>
+      <DialogHeader title={title} />
+      <DialogBody children={bodyChildren}/>
+      <DialogFooter children={footerChildren}/>
     </Modal>
   )
 }
