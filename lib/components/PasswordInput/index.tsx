@@ -8,6 +8,7 @@ import React, {
 } from "react";
 import { zxcvbn, zxcvbnOptions } from "@zxcvbn-ts/core";
 import { dictionary } from "@zxcvbn-ts/language-common";
+import clsx from "clsx";
 import { Input } from "../Input";
 import { calculateScore, isPasswordValid } from "./PasswordUtils";
 import {
@@ -20,7 +21,6 @@ import {
 import { EyeIcon, EyeIconSlash } from "./PasswordIcon";
 import { PasswordMeter } from "./PasswordMeter";
 import "./PasswordInput.scss";
-import clsx from "clsx";
 
 export const validatePassword = (password: string) => {
     const score = calculateScore(password);
@@ -54,6 +54,29 @@ const PasswordVariant: Record<TScore, InputProps["variant"]> = {
     3: "success",
     4: "success",
 };
+
+/**
+ * PasswordInputProps interface
+ * @interface PasswordInputProps
+ * @extends {Omit<InputProps, "rightPlaceholder">}
+ * @property {boolean} [hidePasswordMeter] - If true, the password strength meter will be hidden.
+ * @property {string} [hint] - The hint message to display below the input field.
+ */
+
+/**
+ * PasswordInput component
+ * @component
+ * @param {PasswordInputProps} props - The props that define the PasswordInput field.
+ * @returns {ReactNode} The React Node that represents the PasswordInput field.
+ *
+ * @example
+ * <PasswordInput
+ *   hidePasswordMeter
+ *   hint="Password must be at least 8 characters"
+ *   label="Password"
+ *   isFullWidth={true}
+ * />
+ */
 
 export const PasswordInput = ({
     hidePasswordMeter,

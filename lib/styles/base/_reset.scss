@@ -60,6 +60,18 @@ textarea {
     -webkit-user-select: auto;
 }
 
+/* Safari, Edge, Opera - remove default spin button for [type=number] */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox - remove default spin button for [type=number] */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 /* revert the 'white-space' property for textarea elements on Safari */
 textarea {
     white-space: revert;

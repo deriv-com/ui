@@ -1,10 +1,21 @@
-$disabled_color: #d6dadb;
-$inactive_color: #999999;
-$active_color: #85acb0;
-$success_color: #4bb4b3;
-$warning_color: #ffad3a;
-$error_field: #ec3f3f;
+$input-borders: (
+    "general": var(--du-state-active, #d6dadb),
+    "hover": var(--du-border-hover, #999999),
+    "active": var(--du-brand-secondary, #85acb0),
+    "success": var(--du-status-success, #4bb4b3),
+    "error": var(--du-status-danger, #ec3f3f),
+);
+
+$label-colors: (
+    "general": var(--du-border-hover, #999999),
+    "active": var(--du-brand-secondary, #85acb0),
+    "error": var(--du-status-danger, #ec3f3f),
+    "success": var(--du-status-success, #4bb4b3),
+    "disabled": var(--du-state-active, #d6dadb),
+);
+
 $border: 1px solid;
+$input-placement: 16px;
 
 .deriv-input__container {
     display: inline-block;
@@ -22,32 +33,35 @@ $border: 1px solid;
 .deriv-input {
     display: inline-flex;
     position: relative;
-    border-radius: 4px;
+    border-radius: $border-radius;
     width: 100%;
     text-align: left;
     padding: 10px 16px;
     border: $border;
+    font-size: var(--du-text-size-default, 14px);
+    color: var(--du-text-prominent, #333333);
 
     &--general {
-        border-color: $disabled_color;
-        &:hover {
-            border-color: $inactive_color;
+        border-color: map-get($input-borders, "general");
+        &:hover:not(:disabled):not(:focus-within) {
+            border-color: map-get($input-borders, "hover");
         }
         &:focus-within {
-            border-color: $active_color;
+            border-color: map-get($input-borders, "active");
         }
     }
     &--error {
-        border-color: $error_field;
+        border-color: map-get($input-borders, "error");
     }
     &--success {
-        border-color: $success_color;
+        border-color: map-get($input-borders, "success");
     }
     &--active {
-        border-color: $active_color;
+        border-color: map-get($input-borders, "active");
     }
     &--disabled {
-        border-color: $disabled_color;
+        border-color: map-get($input-borders, "general");
+        cursor: not-allowed;
     }
 
     &__field {
@@ -59,10 +73,10 @@ $border: 1px solid;
         &:focus,
         &:not(:placeholder-shown) {
             & ~ label {
-                font-size: 10px;
+                font-size: var(--du-text-size-xs, 10px);
                 transform: translate(0, -50%);
-                background-color: #ffffff;
-                padding: 0px 4px;
+                background-color: var(--du-general-main-1, #ffffff);
+                padding: 0 4px;
                 height: fit-content;
             }
         }
@@ -74,51 +88,51 @@ $border: 1px solid;
         top: 0;
         bottom: 0;
         padding: 0;
-        left: 16px;
+        left: $input-placement;
         display: flex;
         align-items: center;
         pointer-events: none;
         transition: all 0.15s ease-out;
-        font-size: 14px;
+        font-size: var(--du-text-size-default, 14px);
         &--general {
-            color: $inactive_color;
+            color: map-get($label-colors, "general");
         }
         &--error {
-            color: $error_field;
+            color: map-get($label-colors, "error");
         }
         &--success {
-            color: $success_color;
+            color: map-get($label-colors, "success");
         }
         &--active {
-            color: $active_color;
+            color: map-get($label-colors, "active");
         }
 
         &--disabled {
-            color: $disabled_color;
+            color: map-get($label-colors, "disabled");
         }
     }
 
     &__right-content {
-        margin-left: 16px;
+        margin-left: $input-placement;
     }
 }
 
 .deriv-input--general .deriv-input__field:disabled + .deriv-input__label,
 .deriv-input--error .deriv-input__field:disabled + .deriv-input__label,
 .deriv-input--success .deriv-input__field:disabled + .deriv-input__label {
-    color: $disabled_color;
+    color: map-get($label-colors, "disabled");
 }
 
 .deriv-input--general .deriv-input__field:focus + .deriv-input__label {
-    color: $active_color;
+    color: map-get($label-colors, "active");
 }
 
 .deriv-input--error .deriv-input__field:focus + .deriv-input__label {
-    color: $error_field;
+    color: map-get($label-colors, "error");
 }
 
 .deriv-input--success .deriv-input__field:focus + .deriv-input__label {
-    color: $success_color;
+    color: map-get($label-colors, "success");
 }
 
 .deriv-input__helper-message {
