@@ -71,11 +71,13 @@ export const Default: Story = {
         const [value, setValue] = useState("");
 
         return (
-            <Input
-                {...args}
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-            />
+            <div className="theme--light">
+                <Input
+                    {...args}
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                />
+            </div>
         );
     },
 };
@@ -92,11 +94,13 @@ export const Disabled: Story = {
         const [value, setValue] = useState("");
 
         return (
-            <Input
-                {...args}
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-            />
+            <div className="theme--light">
+                <Input
+                    {...args}
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                />
+            </div>
         );
     },
 };
@@ -113,11 +117,13 @@ export const Success: Story = {
         const [value, setValue] = useState("");
 
         return (
-            <Input
-                {...args}
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-            />
+            <div className="theme--light">
+                <Input
+                    {...args}
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                />
+            </div>
         );
     },
 };
@@ -134,11 +140,13 @@ export const Error: Story = {
         const [value, setValue] = useState("");
 
         return (
-            <Input
-                {...args}
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-            />
+            <div className="theme--light">
+                <Input
+                    {...args}
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                />
+            </div>
         );
     },
 };
@@ -155,11 +163,13 @@ export const Warning: Story = {
         const [value, setValue] = useState("");
 
         return (
-            <Input
-                {...args}
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-            />
+            <div className="theme--light">
+                <Input
+                    {...args}
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                />
+            </div>
         );
     },
 };
@@ -176,11 +186,13 @@ export const RightPlaceholder: Story = {
         const [value, setValue] = useState("");
 
         return (
-            <Input
-                {...args}
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-            />
+            <div className="theme--light">
+                <Input
+                    {...args}
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                />
+            </div>
         );
     },
 };
