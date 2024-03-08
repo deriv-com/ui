@@ -7,14 +7,13 @@ import "./Dialog.scss"
 
 type TDialogProps = {
   bodyChildren:ReactNode
-  header?: string;
   footerChildren:ReactNode;
   title?: ReactNode;
 }
 
-export const Dialog = ({ bodyChildren,footerChildren,header,title,...rest }: TDialogProps) => {
+export const Dialog = ({ bodyChildren,footerChildren,title }: TDialogProps) => {
   return (
-    <Modal className={"deriv-dialog"}  ariaHideApp={false} isOpen  {...rest}>
+    <Modal className={"deriv-dialog"} isOpen={true} ariaHideApp={false} >
       <DialogHeader title={title} />
       <DialogBody children={bodyChildren}/>
       <DialogFooter children={footerChildren}/>
