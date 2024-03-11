@@ -12,7 +12,8 @@ type TextColors =
     | "error"
     | "red"
     | "blue"
-    | "green";
+    | "green"
+    | "white";
 
 type TGenericSizes =
     | "2xl"
