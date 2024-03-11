@@ -2,11 +2,7 @@ import React,{ ReactNode } from "react"
 import { Modal } from "../Modal"
 import { Text } from "../Text"
 
-type ExcludedProps ={
-    hideBorder:boolean
-}
-
-type TDialogHeaderProps = Exclude<React.ComponentProps<typeof Modal.Header>,ExcludedProps> & {
+type TDialogHeaderProps = Omit<React.ComponentProps<typeof Modal.Header>,"hideBorder"> & {
     hideCloseIcon?: boolean;
     title?: ReactNode;
     textClassName?: string
