@@ -12,6 +12,7 @@ const meta = {
     tags: ["autodocs"],
     args: {
         children: <p>This is basic dialog</p>,
+        isOpen:true
     },
     argTypes: {
         children: {
@@ -29,7 +30,7 @@ export const Default: Story = {
     render : ()=>{
         return (
             <>
-            <Dialog>
+            <Dialog isOpen={true}>
                 <Dialog.Header>title</Dialog.Header>
                 <Dialog.Body>body</Dialog.Body>
                 <Dialog.Footer>
@@ -47,7 +48,7 @@ export const HideHeaderCloseIcon: Story = {
     render : ()=>{
         return (
             <>
-            <Dialog>
+            <Dialog isOpen={true}>
                 <Dialog.Header hideCloseIcon >title</Dialog.Header>
                 <Dialog.Body>body</Dialog.Body>
                 <Dialog.Footer>
@@ -65,7 +66,7 @@ export const NoHeader: Story = {
     render : ()=>{
         return (
             <>
-            <Dialog>
+            <Dialog isOpen={true}>
                 <Dialog.Body>body</Dialog.Body>
                 <Dialog.Footer>
                     <Button color="black">cancel</Button>
@@ -82,7 +83,7 @@ export const NoFooter: Story = {
     render : ()=>{
         return (
             <>
-            <Dialog>
+            <Dialog isOpen={true}>
                 <Dialog.Header>title</Dialog.Header>
                 <Dialog.Body>body</Dialog.Body>
             </Dialog>

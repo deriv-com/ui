@@ -7,7 +7,7 @@ import { DialogHeader } from "../DialogHeader";
 describe("Dialog component", () => {
   it("should render the basic dialog without header, footer and body", () => {
     render(
-      <Dialog>
+      <Dialog isOpen={true}>
         <p>This is some dialog content</p>
       </Dialog>,
     );
@@ -19,7 +19,7 @@ describe("Dialog component", () => {
 
   it("should render dialog header", () => {
     render(
-      <Dialog>
+      <Dialog isOpen={true}>
         <Dialog.Header hideCloseIcon={false} title={"Dialog Title"} />
       </Dialog>,
     );
@@ -33,7 +33,7 @@ describe("Dialog component", () => {
 
   it("should render the dialog header without close icon ", () => {
     render(
-      <Dialog>
+      <Dialog isOpen={true}>
         <Dialog.Header hideCloseIcon={true} title={"Dialog Title"} />
       </Dialog>,
     );
@@ -48,7 +48,7 @@ describe("Dialog component", () => {
 
 it("should render dialog Footer", () => {
     render(
-      <Dialog>
+      <Dialog isOpen={true}>
         <Dialog.Footer>Dialog Footer</Dialog.Footer>
       </Dialog>,
     );
@@ -60,7 +60,7 @@ it("should render dialog Footer", () => {
 
 it("should close the modal when the close button in header is clicked", async () => {
     render(
-      <Dialog>
+      <Dialog isOpen={true}>
         <DialogHeader title={" Modal Title"} hideCloseIcon={false}></DialogHeader>
         <Dialog.Body>
         <p>This is some dialog content</p>

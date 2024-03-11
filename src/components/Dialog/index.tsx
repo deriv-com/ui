@@ -5,13 +5,13 @@ import { DialogBody } from "./DialogBody"
 import { DialogFooter } from "./DialogFooter"
 import "./Dialog.scss"
 
-type TDialogProps = {
+type TDialogProps = React.ComponentProps<typeof Modal> &{
   children: ReactNode
 }
 
-export const Dialog = ({ children }: TDialogProps) => {
+export const Dialog = ({ children,...rest }: TDialogProps) => {
   return (
-    <Modal className={"deriv-dialog"} isOpen={true} ariaHideApp={false} >
+    <Modal className={"deriv-dialog"} {...rest}>
       {children}
     </Modal>
   )
