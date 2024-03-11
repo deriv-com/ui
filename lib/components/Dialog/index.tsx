@@ -2,21 +2,22 @@ import React, { ReactNode } from "react"
 import { Modal } from "../Modal"
 import { DialogHeader } from "./DialogHeader"
 import { DialogBody } from "./DialogBody"
-import { DialogFooter } from "./DIalogFooter"
+import { DialogFooter } from "./DialogFooter"
 import "./Dialog.scss"
 
 type TDialogProps = {
-  bodyChildren:ReactNode
-  footerChildren:ReactNode;
-  title?: ReactNode;
+  children: ReactNode
 }
 
-export const Dialog = ({ bodyChildren,footerChildren,title }: TDialogProps) => {
+export const Dialog = ({ children }: TDialogProps) => {
   return (
     <Modal className={"deriv-dialog"} isOpen={true} ariaHideApp={false} >
-      <DialogHeader title={title} />
-      <DialogBody children={bodyChildren}/>
-      <DialogFooter children={footerChildren}/>
+      {children}
     </Modal>
   )
 }
+
+Dialog.Header = DialogHeader;
+Dialog.Body = DialogBody;
+Dialog.Footer = DialogFooter;
+Dialog.setAppElement = Modal.setAppElement;

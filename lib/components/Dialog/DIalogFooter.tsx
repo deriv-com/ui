@@ -1,14 +1,9 @@
-import { ReactNode } from "react"
+import React from "react"
 import { Modal } from "../Modal"
 
-type TDialogFooterProps = {
-    className?: string;
-    children: ReactNode
-}
-
-export const DialogFooter = ({ className, children }: TDialogFooterProps) => {
+export const DialogFooter = ({ className, children,...rest }: React.ComponentProps<"div">) => {
     return (
-        <Modal.Footer hideBorder className={className}>
+        <Modal.Footer hideBorder className={className} {...rest}>
             {children}
         </Modal.Footer>
     )
