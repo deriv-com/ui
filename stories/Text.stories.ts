@@ -37,6 +37,7 @@ const meta = {
                 "red",
                 "blue",
                 "green",
+                "white",
             ],
             control: { type: "select" },
         },
