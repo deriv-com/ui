@@ -1,6 +1,6 @@
 import { StoryObj, Meta } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-import { ToggleSwitch } from "../../lib/components/ToggleSwitch";
+import { ToggleSwitch } from "../src/components/ToggleSwitch";
 
 const meta = {
     title: "Components/ToggleSwitch",

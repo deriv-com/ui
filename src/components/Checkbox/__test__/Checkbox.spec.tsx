@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Checkbox } from '../';
+import { Checkbox } from '..';
 import userEvent from '@testing-library/user-event';
 
 describe('Checkbox', () => {

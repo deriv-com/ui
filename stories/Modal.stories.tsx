@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Modal } from "../../lib/main";
-import { Button } from "../../lib/components/Button";
+import { Modal } from "../src/main";
+import { Button } from "../src/components/Button";
 import { useEffect, useState } from "react";
 
 

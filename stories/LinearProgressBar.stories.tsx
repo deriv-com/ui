@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta,StoryObj } from '@storybook/react';
-import { LinearProgressBar } from '../../lib/components/LinearProgressBar';
+import { LinearProgressBar } from '../src/components/LinearProgressBar';
 
 const meta={
     title: 'Components/LinearProgressBar',

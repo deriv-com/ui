@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Table } from "../../lib/components/Table";
+import { Table } from "../src/components/Table";
 
 const data = [
     { id: 1, name: "person489", team: "civil engineer", country: "Brazil" },

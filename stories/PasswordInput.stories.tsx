@@ -1,5 +1,5 @@
 import { StoryObj, Meta } from "@storybook/react";
-import { PasswordInput } from "../../lib/main";
+import { PasswordInput } from "../src/main";
 import { useState } from "react";
 
 const meta = {

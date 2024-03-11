@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Button } from '../';
+import { Button } from '..';
 
 describe('Button component', () => {
   it('renders without crashing', () => {
