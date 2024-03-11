@@ -1,5 +1,5 @@
 import { StoryObj, Meta } from "@storybook/react";
-import { InlineMessage } from "../../lib/main";
+import { InlineMessage } from "../src/main";
 
 const meta = {
     title: "Components/InlineMessage",

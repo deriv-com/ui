@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { TextArea } from "../../lib/main";
+import { TextArea } from "../src/main";
 import { useState } from "react";
 
 const meta = {

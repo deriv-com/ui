@@ -1,5 +1,5 @@
 import { StoryObj, Meta } from "@storybook/react";
-import { Checkbox } from "../../lib/main";
+import { Checkbox } from "../src/main";
 import { useEffect, useState } from "react";
 
 const meta = {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { SideNote } from "../../lib/main";
+import { SideNote } from "../src/main";
 
 const meta = {
     title: "Components/SideNote",
