@@ -12,7 +12,7 @@ type TDialogProps = React.ComponentProps<typeof Modal> &{
 
 export const Dialog = ({ children,className,...rest }: TDialogProps) => {
   return (
-    <Modal className={clsx("deriv-dialog",className)} {...rest}>
+    <Modal className={clsx("deriv-dialog",className)} ariaHideApp={false} {...rest}>
       {children}
     </Modal>
   )
