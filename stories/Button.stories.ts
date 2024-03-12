@@ -18,7 +18,7 @@ const meta = {
         isFullWidth: false,
         rounded: "sm",
         type: "button",
-        textSize: "sm",
+        textSize: undefined,
     },
 
     argTypes: {

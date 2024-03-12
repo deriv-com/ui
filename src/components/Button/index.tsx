@@ -99,7 +99,7 @@ export const Button = ({
             {rest.children && !isLoading && (
                 <Text
                     align="center"
-                    size={FontSize[size] ?? textSize}
+                    size={ textSize ?? FontSize[size]}
                     weight="bold"
                     as="span"
                 >
