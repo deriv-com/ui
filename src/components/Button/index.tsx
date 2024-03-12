@@ -44,6 +44,12 @@ const ButtonRounded = {
     sm: "deriv-button__rounded--sm",
 } as const;
 
+const FontSize = {
+    lg: "lg",
+    md: "sm",
+    sm: "xs",
+} as const;
+
 const LoaderColor = {
     black: "#333333",
     primary: "#FFFFFF",
@@ -93,7 +99,7 @@ export const Button = ({
             {rest.children && !isLoading && (
                 <Text
                     align="center"
-                    size={textSize}
+                    size={ typeof textSize != "undefined" ? textSize : FontSize[size]}
                     weight="bold"
                     as="span"
                 >
