@@ -34,6 +34,13 @@ $general-hover: #e6e9e9;
                 border-bottom: 1px solid $general-color;
             }
         }
+
+        &__empty-message {
+            display: flex;
+            justify-content: center;
+            padding: 16px;
+            border-bottom: 1px solid $general-color;
+        }
     }
 
     &__header {
