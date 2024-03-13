@@ -17,7 +17,7 @@ npm i @deriv-com/ui
 ```
 import {Button} from "@deriv-com/ui"
 
-<Button  color="primary"  onClick={function  Ga(){}}  rounded="sm"  size="md"  type="button"  variant="contained"  >  Click me! </Button>
+<Button  color="primary" rounded="sm"  size="md"  type="button"  variant="contained"  >  Click me! </Button>
 ```
 you can explore the Storybook to learn about the available props for each component.
 ## Development
