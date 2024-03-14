@@ -8,7 +8,7 @@ type TVariant = "contained" | "bordered";
 type TColor = "blue" | "light-blue" | "primary" | "purple" | "success" | "warning" | "danger";
 type TPadding ="tight" | "loose"
 
-interface ButtonProps extends ComponentProps<"div"> {
+interface BadgeProps extends ComponentProps<"div"> {
     children?: ReactNode;
     color?: TColor;
     isBold: boolean;
@@ -20,7 +20,7 @@ interface ButtonProps extends ComponentProps<"div"> {
     variant?: TVariant;
 }
 
-const ButtonVariants = {
+const BadgeVariants = {
     contained: "deriv-badge__variant--contained",
     bordered: "deriv-badge__variant--bordered",
 } as const;
@@ -30,7 +30,7 @@ const PaddingVariants = {
     loose: "deriv-badge__variant--loose",
 } as const;
 
-const ButtonColor = {
+const BadgeColor = {
     blue:"deriv-badge__color--blue",
     "light-blue":"deriv-badge__color--lightblue",
     primary: "deriv-badge__color--primary",
@@ -40,7 +40,7 @@ const ButtonColor = {
     danger:"deriv-badge__color--danger"
 } as const;
 
-const ButtonSize = {
+const BadgeSize = {
     lg: "deriv-badge__size--lg",
     md: "deriv-badge__size--md",
     sm: "deriv-badge__size--sm",
@@ -66,15 +66,15 @@ export const Badge = ({
     textSize,
     variant = "contained",
     ...rest
-}: ButtonProps) => {
+}: BadgeProps) => {
     return (
         <div
             className={clsx(
                 "deriv-badge",
-                ButtonVariants[variant],
-                ButtonColor[color],
+                BadgeVariants[variant],
+                BadgeColor[color],
                 PaddingVariants[padding],
-                ButtonSize[badgeSize],
+                BadgeSize[badgeSize],
                 {
                     "deriv-badge__variant--bold-text": isBold,
                 },
