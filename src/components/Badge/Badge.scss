@@ -1,21 +1,10 @@
-$primary: #ff444f;
-$primary-light: #ff444f29;
-$white: #fff;
-$black: #0e0e0e;
-
-$primary-hover: #eb3e48;
-$primary-light-hover: #ff444f3d;
-$white-hover: #d6dadb;
-$black-hover: #323738;
-$white-outline-hover: #ffffff14;
-$black-outline-hover: rgba(0, 0, 0, 0.08);
 $white_color: var(--du-badge-white, #ffffff);
 $success_color: var(--du-badge-success, #4bb4b3);
 $warning_color: var(--du-badge-warning, #ffad3a);
 $danger_color: var(--du-badge-danger, #ec3f3f);
-$blue_color: var(--du-badge-blue, #115BFF);
-$purple_color: var(--du-badge-purple, #722FE4);
-$light_blue_color: var(--du-badge-light-blue, #0DC2E7);
+$blue_color: var(--du-badge-blue, #115bff);
+$purple_color: var(--du-badge-purple, #722fe4);
+$light_blue_color: var(--du-badge-light-blue, #0dc2e7);
 
 .deriv-badge {
     display: inline-flex;
@@ -28,32 +17,32 @@ $light_blue_color: var(--du-badge-light-blue, #0DC2E7);
             &.deriv-badge__padding--xs {
                 width: 34px;
                 height: 14px;
-                gap:4px;
-                padding:0 4px 0 4px;
+                gap: 4px;
+                padding: 0 4px 0 4px;
                 border-radius: 4px;
             }
 
             &.deriv-badge__padding--sm {
                 width: 34px;
                 height: 24px;
-                gap:4px;
-                padding:5px 4px 5px 4px;
+                gap: 4px;
+                padding: 5px 4px 5px 4px;
                 border-radius: 4px;
             }
 
-            &.deriv-badge__padding--md{
+            &.deriv-badge__padding--md {
                 width: 39px;
                 height: 26px;
-                gap:4px;
-                padding:4px 4px 4px 4px;
+                gap: 4px;
+                padding: 4px 4px 4px 4px;
                 border-radius: 4px;
             }
 
             &.deriv-badge__padding--lg {
                 width: 39px;
                 height: 28px;
-                gap:4px;
-                padding:4px 4px 4px 4px;
+                gap: 4px;
+                padding: 4px 4px 4px 4px;
                 border-radius: 4px;
             }
         }
@@ -62,32 +51,32 @@ $light_blue_color: var(--du-badge-light-blue, #0DC2E7);
             &.deriv-badge__padding--xs {
                 width: 42px;
                 height: 14px;
-                gap:8px;
-                padding:0 8px 0 8px;
+                gap: 8px;
+                padding: 0 8px 0 8px;
                 border-radius: 4px;
             }
 
             &.deriv-badge__padding--sm {
                 width: 42px;
                 height: 24px;
-                gap:8px;
-                padding:5px 8px 5px 8px;
+                gap: 8px;
+                padding: 5px 8px 5px 8px;
                 border-radius: 4px;
             }
 
-            &.deriv-badge__padding--md{
+            &.deriv-badge__padding--md {
                 width: 47px;
                 height: 26px;
-                gap:8px;
-                padding:4px 8px 4px 8px;
+                gap: 8px;
+                padding: 4px 8px 4px 8px;
                 border-radius: 4px;
             }
 
             &.deriv-badge__padding--lg {
                 width: 53px;
                 height: 28px;
-                gap:8px;
-                padding:4px 8px 4px 8px;
+                gap: 8px;
+                padding: 4px 8px 4px 8px;
                 border-radius: 4px;
             }
         }
@@ -213,7 +202,6 @@ $light_blue_color: var(--du-badge-light-blue, #0DC2E7);
                     color: $primary;
                 }
             }
-
         }
 
         &--bold-text {
@@ -222,5 +210,4 @@ $light_blue_color: var(--du-badge-light-blue, #0DC2E7);
             }
         }
     }
-
 }

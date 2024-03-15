@@ -5,8 +5,15 @@ import { Text } from "../Text";
 import "./Badge.scss";
 
 type TVariant = "contained" | "bordered";
-type TColor = "blue" | "light-blue" | "primary" | "purple" | "success" | "warning" | "danger";
-type TPadding ="tight" | "loose"
+type TColor =
+    | "blue"
+    | "light-blue"
+    | "primary"
+    | "purple"
+    | "success"
+    | "warning"
+    | "danger";
+type TPadding = "tight" | "loose";
 
 interface BadgeProps extends ComponentProps<"div"> {
     children?: ReactNode;
@@ -14,7 +21,7 @@ interface BadgeProps extends ComponentProps<"div"> {
     isBold: boolean;
     rightIcon?: ReactElement;
     leftIcon?: ReactElement;
-    padding?:TPadding;
+    padding?: TPadding;
     badgeSize?: Extract<TGenericSizes, "lg" | "md" | "sm" | "xs">;
     textSize?: ComponentProps<typeof Text>["size"];
     variant?: TVariant;
@@ -31,13 +38,13 @@ const PaddingVariants = {
 } as const;
 
 const BadgeColor = {
-    blue:"deriv-badge__color--blue",
-    "light-blue":"deriv-badge__color--lightblue",
+    blue: "deriv-badge__color--blue",
+    "light-blue": "deriv-badge__color--lightblue",
     primary: "deriv-badge__color--primary",
-    purple:"deriv-badge__color--purple",
-    success:"deriv-badge__color--success",
-    warning:"deriv-badge__color--warning",
-    danger:"deriv-badge__color--danger"
+    purple: "deriv-badge__color--purple",
+    success: "deriv-badge__color--success",
+    warning: "deriv-badge__color--warning",
+    danger: "deriv-badge__color--danger",
 } as const;
 
 const BadgeSize = {
@@ -51,7 +58,7 @@ const FontSize = {
     lg: "lg",
     md: "md",
     sm: "sm",
-    xs:"xs"
+    xs: "xs",
 } as const;
 
 export const Badge = ({
@@ -60,7 +67,7 @@ export const Badge = ({
     color = "primary",
     isBold = true,
     leftIcon,
-    padding="tight",
+    padding = "tight",
     rightIcon,
     badgeSize = "md",
     textSize,
@@ -69,33 +76,33 @@ export const Badge = ({
 }: BadgeProps) => {
     return (
         <>
-        <div
-            className={clsx(
-                "deriv-badge",
-                BadgeVariants[variant],
-                BadgeColor[color],
-                PaddingVariants[padding],
-                BadgeSize[badgeSize],
-                {
-                    "deriv-badge__variant--bold-text": isBold,
-                },
-                className,
-            )}
-            {...rest}
-        >
-            {leftIcon}
-            {children && (
-                <Text
-                    align="center"
-                    size={textSize ?? FontSize[badgeSize]}
-                    weight={isBold ? "bold" : "normal"}
-                    as="span"
-                >
-                    {children}
-                </Text>
-            )}
-            {rightIcon}
-        </div>
+            <div
+                className={clsx(
+                    "deriv-badge",
+                    BadgeVariants[variant],
+                    BadgeColor[color],
+                    PaddingVariants[padding],
+                    BadgeSize[badgeSize],
+                    {
+                        "deriv-badge__variant--bold-text": isBold,
+                    },
+                    className,
+                )}
+                {...rest}
+            >
+                {leftIcon}
+                {children && (
+                    <Text
+                        align="center"
+                        size={textSize ?? FontSize[badgeSize]}
+                        weight={isBold ? "bold" : "normal"}
+                        as="span"
+                    >
+                        {children}
+                    </Text>
+                )}
+                {rightIcon}
+            </div>
         </>
     );
 };

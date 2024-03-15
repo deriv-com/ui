@@ -13,10 +13,10 @@ const meta = {
         children: "label",
         color: "light-blue",
         badgeSize: "md",
-        isBold:true,
-        rightIcon:<span>👉</span>,
-        leftIcon:<span>👈</span>,
-        padding:"loose",
+        isBold: true,
+        rightIcon: <span>👉</span>,
+        leftIcon: <span>👈</span>,
+        padding: "loose",
         textSize: undefined,
     },
 
@@ -25,7 +25,14 @@ const meta = {
             options: ["contained", "bordered"],
         },
         color: {
-            options: ["primary","blue","purple","success","danger","warning"],
+            options: [
+                "primary",
+                "blue",
+                "purple",
+                "success",
+                "danger",
+                "warning",
+            ],
         },
     },
 } satisfies Meta<typeof Badge>;
@@ -37,7 +44,7 @@ export const Contained: Story = {
     args: {
         variant: "contained",
         children: "Click me!",
-        isBold:true
+        isBold: true,
     },
 };
 
@@ -45,8 +52,8 @@ export const Outlined: Story = {
     args: {
         variant: "bordered",
         children: "Badge",
-        isBold:true,
-        padding:"loose"
+        isBold: true,
+        padding: "loose",
     },
 };
 
@@ -68,7 +75,7 @@ export const ContainedRed: Story = {
     args: {
         ...meta.args,
         color: "danger",
-        padding:"loose"
+        padding: "loose",
     },
 };
 
@@ -77,7 +84,7 @@ export const ContainedYellow: Story = {
     args: {
         ...meta.args,
         color: "warning",
-        padding:"loose"
+        padding: "loose",
     },
 };
 
