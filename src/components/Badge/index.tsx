@@ -27,7 +27,7 @@ const BadgeVariants = {
 
 const PaddingVariants = {
     tight: "deriv-badge__size--tight",
-    loose: "deriv-badge__variant--loose",
+    loose: "deriv-badge__size--loose",
 } as const;
 
 const BadgeColor = {
@@ -68,6 +68,7 @@ export const Badge = ({
     ...rest
 }: BadgeProps) => {
     return (
+        <>
         <div
             className={clsx(
                 "deriv-badge",
@@ -95,5 +96,6 @@ export const Badge = ({
             )}
             {rightIcon}
         </div>
+        </>
     );
 };
