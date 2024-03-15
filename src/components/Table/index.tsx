@@ -13,6 +13,7 @@ import "./Table.scss";
 type TProps<T> = {
     columns?: ColumnDef<T>[];
     data: T[];
+    emptyDataMessage?: string;
     isFetching: boolean;
     loadMoreFunction: () => void;
     renderHeader?: (data: string) => JSX.Element;
@@ -23,6 +24,7 @@ type TProps<T> = {
 export const Table = <T,>({
     columns = [],
     data,
+    emptyDataMessage,
     isFetching,
     loadMoreFunction,
     renderHeader = () => <div />,
@@ -72,11 +74,20 @@ export const Table = <T,>({
                         : undefined
                 }
             >
-                {table.getRowModel().rows.map((row) => (
-                    <div className="deriv-table__content__row" key={row.id}>
-                        {rowRender(row.original)}
-                    </div>
-                ))}
+                {data && data.length > 0 ? (
+                    table.getRowModel().rows.map((row) => (
+                        <div className="deriv-table__content__row" key={row.id}>
+                            {rowRender(row.original)}
+                        </div>
+                    ))
+                ) : (
+                    <Text
+                        className="deriv-table__content__empty-message"
+                        size="sm"
+                    >
+                        {emptyDataMessage}
+                    </Text>
+                )}
             </div>
         </div>
     );
