@@ -8,11 +8,13 @@ type TVariant = "contained" | "bordered";
 type TColor =
     | "blue"
     | "light-blue"
-    | "primary"
+    | "general"
     | "purple"
     | "success"
     | "warning"
-    | "danger";
+    | "danger"
+    | "gold"
+    | "green"
 type TPadding = "tight" | "loose";
 
 interface BadgeProps extends ComponentProps<"div"> {
@@ -40,11 +42,13 @@ const PaddingVariants = {
 const BadgeColor = {
     blue: "deriv-badge__color--blue",
     "light-blue": "deriv-badge__color--lightblue",
-    primary: "deriv-badge__color--primary",
+    general: "deriv-badge__color--general",
     purple: "deriv-badge__color--purple",
     success: "deriv-badge__color--success",
     warning: "deriv-badge__color--warning",
     danger: "deriv-badge__color--danger",
+    gold: "deriv-badge__color--gold",
+    green: "deriv-badge__color--green",
 } as const;
 
 const BadgeSize = {
@@ -64,7 +68,7 @@ const FontSize = {
 export const Badge = ({
     children,
     className,
-    color = "primary",
+    color = "general",
     isBold = true,
     leftIcon,
     padding = "tight",

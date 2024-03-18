@@ -1,10 +1,18 @@
-$white_color: var(--du-badge-white, #ffffff);
-$success_color: var(--du-badge-success, #4bb4b3);
-$warning_color: var(--du-badge-warning, #ffad3a);
+$font-color-white:var(--du-badge-white,#ffffff);
+$font-color-gray:var( --du-text-general,#868686);
+$success_color_border: var(--du-badge-success, #4bb4b3);
+$warning_color_border: var(--du-badge-warning, #ffad3a);
+$white_color: linear-gradient(#e6e9e9,#f2f3f4);
+$success_color: $gradient-color-blue-5;
+$warning_color: $gradient-color-yellow;
 $danger_color: var(--du-badge-danger, #ec3f3f);
 $blue_color: var(--du-badge-blue, #115BFF);
 $purple_color: var(--du-badge-purple, #722FE4);
 $light_blue_color: var(--du-badge-light-blue, #0DC2E7);
+$gold_color:$gradient-color-gold;
+$gold_color_border:$color_yellow;
+$green_color:$gradient-color-green-4;
+$green_color_border:$color-green-6;
 
 .deriv-badge {
     display: inline-flex;
@@ -86,11 +94,11 @@ $light_blue_color: var(--du-badge-light-blue, #0DC2E7);
         &--contained {
             border: none;
 
-            &.deriv-badge__color--primary {
-                background-color: $white_color;
+            &.deriv-badge__color--general {
+                background-image: $white_color;
 
                 span {
-                    color: $success_color;
+                    color: $font-color-gray;
                 }
             }
 
@@ -98,23 +106,23 @@ $light_blue_color: var(--du-badge-light-blue, #0DC2E7);
                 background-color: $light_blue_color;
 
                 span {
-                    color: $success_color;
+                    color: $font-color-white;
                 }
             }
 
             &.deriv-badge__color--success {
-                background-color: $success_color;
+                background-image: $success_color;
 
                 span {
-                    color: $success_color;
+                    color: $font-color-white;
                 }
             }
 
             &.deriv-badge__color--warning {
-                background-color: $warning_color;
+                background-image: $warning_color;
 
                 span {
-                    color: $success_color;
+                    color: $font-color-white;
                 }
             }
 
@@ -122,7 +130,7 @@ $light_blue_color: var(--du-badge-light-blue, #0DC2E7);
                 background-color: $danger_color;
 
                 span {
-                    color: $success_color;
+                    color: $font-color-white;
                 }
             }
 
@@ -130,7 +138,7 @@ $light_blue_color: var(--du-badge-light-blue, #0DC2E7);
                 background-color: $blue_color;
 
                 span {
-                    color: $success_color;
+                    color: $font-color-white;
                 }
             }
 
@@ -138,7 +146,21 @@ $light_blue_color: var(--du-badge-light-blue, #0DC2E7);
                 background-color: $purple_color;
 
                 span {
-                    color: $success_color;
+                    color: $font-color-white;
+                }
+            }
+            &.deriv-badge__color--gold {
+                background-image: $gold_color;
+
+                span {
+                    color: $font-color-white;
+                }
+            }
+            &.deriv-badge__color--green {
+                background-image: $green_color;
+
+                span {
+                    color: $font-color-white;
                 }
             }
         }
@@ -147,11 +169,11 @@ $light_blue_color: var(--du-badge-light-blue, #0DC2E7);
             border-style: solid;
             background: none;
 
-            &.deriv-badge__color--primary {
-                border-color: $white_color;
+            &.deriv-badge__color--general {
+                border-color: $font-color-gray;
 
                 span {
-                    color: $success_color;
+                    color: $font-color-gray;
                 }
             }
 
@@ -159,23 +181,23 @@ $light_blue_color: var(--du-badge-light-blue, #0DC2E7);
                 border-color: $light_blue_color;
 
                 span {
-                    color: $success_color;
+                    color: $font-color-gray;
                 }
             }
 
             &.deriv-badge__color--success {
-                border-color: $success_color;
+                border-color: $success_color_border;
 
                 span {
-                    color: $success_color;
+                    color: $font-color-gray;
                 }
             }
 
             &.deriv-badge__color--warning {
-                border-color: $warning_color;
+                border-color: $warning_color_border;
 
                 span {
-                    color: $success_color;
+                    color: $font-color-gray;
                 }
             }
 
@@ -183,7 +205,7 @@ $light_blue_color: var(--du-badge-light-blue, #0DC2E7);
                 border-color: $danger_color;
 
                 span {
-                    color: $success_color;
+                    color: $font-color-gray;
                 }
             }
 
@@ -191,7 +213,7 @@ $light_blue_color: var(--du-badge-light-blue, #0DC2E7);
                 border-color: $blue_color;
 
                 span {
-                    color: $success_color;
+                    color: $font-color-gray;
                 }
             }
 
@@ -199,7 +221,21 @@ $light_blue_color: var(--du-badge-light-blue, #0DC2E7);
                 border-color: $purple_color;
 
                 span {
-                    color: $success_color;
+                    color: $font-color-gray;
+                }
+            }
+            &.deriv-badge__color--gold {
+                border-color: $gold_color_border;
+
+                span {
+                    color: $font-color-gray;
+                }
+            }
+            &.deriv-badge__color--green {
+                border-color: $green_color_border;
+
+                span {
+                    color: $font-color-gray;
                 }
             }
 

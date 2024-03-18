@@ -63,10 +63,10 @@ export const ContainedPrimary: Story = {
 };
 
 export const ContainedPurple: Story = {
-    name: "Contained (Purple)",
+    name: "Contained (General)",
     args: {
         ...meta.args,
-        color: "primary",
+        color: "general",
     },
 };
 
@@ -76,6 +76,15 @@ export const ContainedRed: Story = {
         ...meta.args,
         color: "danger",
         padding: "loose",
+    },
+};
+
+export const ContainedGold: Story = {
+    name: "Contained (Gold)",
+    args: {
+        ...meta.args,
+        color: "gold",
+        padding: "loose"
     },
 };
 
