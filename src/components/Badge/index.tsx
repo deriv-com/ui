@@ -18,7 +18,7 @@ type TColor =
 type TPadding = "tight" | "loose";
 
 interface BadgeProps extends ComponentProps<"div"> {
-    children?: ReactNode;
+    children: ReactNode;
     color?: TColor;
     isBold: boolean;
     rightIcon?: ReactElement;
