@@ -1,6 +1,7 @@
 export { ActionScreen } from "./components/ActionScreen";
 export { Button } from "./components/Button";
 export { Checkbox } from "./components/Checkbox";
+export { CircularProgressBar } from "./components/CircularProgressBar"
 export { Divider } from "./components/Divider";
 export { Dialog } from "./components/Dialog"
 export { Dropdown } from "./components/Dropdown";
