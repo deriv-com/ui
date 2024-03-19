@@ -9,15 +9,15 @@ describe("Badge component", () => {
     });
 
     it("renders left and right icons", () => {
-        const leftIcon = <span data-testid="left-icon">Left Icon</span>;
-        const rightIcon = <span data-testid="right-icon">Right Icon</span>;
+        const leftIcon = <span data-testid="dt-left-icon">Left Icon</span>;
+        const rightIcon = <span data-testid="dt-right-icon">Right Icon</span>;
         render(
             <Badge isBold={false} leftIcon={leftIcon} rightIcon={rightIcon}>
                 Test
             </Badge>,
         );
-        expect(screen.getByTestId("left-icon")).toBeInTheDocument();
-        expect(screen.getByTestId("right-icon")).toBeInTheDocument();
+        expect(screen.getByTestId("dt-left-icon")).toBeInTheDocument();
+        expect(screen.getByTestId("dt-right-icon")).toBeInTheDocument();
     });
 
     it("applies custom class", () => {
