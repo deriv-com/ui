@@ -1,4 +1,4 @@
-import { ComponentProps, ReactElement, ReactNode } from "react";
+import { ComponentProps, ReactElement, ReactNode,forwardRef } from "react";
 import clsx from "clsx";
 import { TGenericSizes } from "../../types";
 import { Text } from "../Text";
@@ -65,7 +65,7 @@ const FontSize = {
     xs: "xs",
 } as const;
 
-export const Badge = ({
+export const Badge = forwardRef<HTMLDivElement, BadgeProps>(({
     children,
     className,
     color = "general",
@@ -77,10 +77,11 @@ export const Badge = ({
     textSize,
     variant = "contained",
     ...rest
-}: BadgeProps) => {
+}: BadgeProps,ref) => {
     return (
         <>
             <div
+              ref={ref}
                 className={clsx(
                     "deriv-badge",
                     BadgeVariants[variant],
@@ -109,4 +110,4 @@ export const Badge = ({
             </div>
         </>
     );
-};
+});
