@@ -37,7 +37,7 @@ describe('TextArea component', () => {
         expect(handleChange).toHaveBeenCalledTimes(10);
     });
 
-    fit('limits input length based on maxLength prop', async() => {
+    it('limits input length based on maxLength prop', async() => {
         render(<TextArea textSize="md" maxLength={5}/>);
         const textareaElement = screen.getByRole('textbox');
         await userEvent.type(textareaElement, 'Too much input');
