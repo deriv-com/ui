@@ -58,7 +58,7 @@ describe("Badge component", () => {
             </Badge>,
         );
         expect(
-            document.querySelector(".deriv-badge__size--lg"),
+            document.querySelector(".deriv-badge__padding--lg"),
         ).toBeInTheDocument();
     });
 

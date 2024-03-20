@@ -15,8 +15,9 @@ const meta = {
         badgeSize: "md",
         isBold: true,
         rightIcon: <span>👉</span>,
+        rounded:"sm",
         leftIcon: <span>👈</span>,
-        padding: "loose",
+        padding: "tight",
         textSize: undefined,
     },
 
@@ -67,6 +68,15 @@ export const ContainedPurple: Story = {
     args: {
         ...meta.args,
         color: "general",
+    },
+};
+
+export const ContainedPurpleRounded: Story = {
+    name: "Contained (Round-lg)",
+    args: {
+        ...meta.args,
+        color: "general",
+        rounded:"lg"
     },
 };
 

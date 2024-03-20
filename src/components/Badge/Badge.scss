@@ -23,7 +23,7 @@ $green_color_border:$color-green-6;
     &__size {
         &--tight {
             &.deriv-badge__padding--xs {
-                width: 34px;
+                width: auto;
                 height: 14px;
                 gap: 4px;
                 padding: 0 4px 0 4px;
@@ -31,7 +31,7 @@ $green_color_border:$color-green-6;
             }
 
             &.deriv-badge__padding--sm {
-                width: 34px;
+                width: auto;
                 height: 24px;
                 gap: 4px;
                 padding: 5px 4px 5px 4px;
@@ -39,7 +39,7 @@ $green_color_border:$color-green-6;
             }
 
             &.deriv-badge__padding--md {
-                width: 39px;
+                width: auto;
                 height: 26px;
                 gap: 4px;
                 padding: 4px 4px 4px 4px;
@@ -47,7 +47,7 @@ $green_color_border:$color-green-6;
             }
 
             &.deriv-badge__padding--lg {
-                width: 39px;
+                width: auto;
                 height: 28px;
                 gap: 4px;
                 padding: 4px 4px 4px 4px;
@@ -57,7 +57,7 @@ $green_color_border:$color-green-6;
 
         &--loose {
             &.deriv-badge__padding--xs {
-                width: 42px;
+                width: auto;
                 height: 14px;
                 gap: 8px;
                 padding: 0 8px 0 8px;
@@ -65,7 +65,7 @@ $green_color_border:$color-green-6;
             }
 
             &.deriv-badge__padding--sm {
-                width: 42px;
+                width: auto;
                 height: 24px;
                 gap: 8px;
                 padding: 5px 8px 5px 8px;
@@ -73,7 +73,7 @@ $green_color_border:$color-green-6;
             }
 
             &.deriv-badge__padding--md {
-                width: 47px;
+                width: auto;
                 height: 26px;
                 gap: 8px;
                 padding: 4px 8px 4px 8px;
@@ -81,7 +81,7 @@ $green_color_border:$color-green-6;
             }
 
             &.deriv-badge__padding--lg {
-                width: 53px;
+                width: auto;
                 height: 28px;
                 gap: 8px;
                 padding: 4px 8px 4px 8px;
@@ -245,6 +245,17 @@ $green_color_border:$color-green-6;
             text {
                 font-weight: bold;
             }
+        }
+    }
+    &__rounded {
+        &--sm {
+            border-radius: 4px;
+        }
+        &--md {
+            border-radius: 8px;
+        }
+        &--lg {
+            border-radius: 24px;
         }
     }
 

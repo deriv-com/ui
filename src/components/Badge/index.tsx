@@ -18,13 +18,14 @@ type TColor =
 type TPadding = "tight" | "loose";
 
 interface BadgeProps extends ComponentProps<"div"> {
+    badgeSize?: Extract<TGenericSizes, "lg" | "md" | "sm" | "xs">;
     children: ReactNode;
     color?: TColor;
     isBold: boolean;
     rightIcon?: ReactElement;
     leftIcon?: ReactElement;
     padding?: TPadding;
-    badgeSize?: Extract<TGenericSizes, "lg" | "md" | "sm" | "xs">;
+    rounded?: Extract<TGenericSizes, "lg" | "md" | "sm">;
     textSize?: ComponentProps<typeof Text>["size"];
     variant?: TVariant;
 }
@@ -52,10 +53,16 @@ const BadgeColor = {
 } as const;
 
 const BadgeSize = {
-    lg: "deriv-badge__size--lg",
-    md: "deriv-badge__size--md",
-    sm: "deriv-badge__size--sm",
-    xs: "deriv-badge__size--xs",
+    lg: "deriv-badge__padding--lg",
+    md: "deriv-badge__padding--md",
+    sm: "deriv-badge__padding--sm",
+    xs: "deriv-badge__padding--xs",
+} as const;
+
+const BadgeRounded = {
+    lg: "deriv-badge__rounded--lg",
+    md: "deriv-badge__rounded--md",
+    sm: "deriv-badge__rounded--sm",
 } as const;
 
 const FontSize = {
@@ -73,6 +80,7 @@ export const Badge = forwardRef<HTMLDivElement, BadgeProps>(({
     leftIcon,
     padding = "tight",
     rightIcon,
+    rounded = "sm",
     badgeSize = "md",
     textSize,
     variant = "contained",
@@ -88,6 +96,7 @@ export const Badge = forwardRef<HTMLDivElement, BadgeProps>(({
                     BadgeColor[color],
                     PaddingVariants[padding],
                     BadgeSize[badgeSize],
+                    BadgeRounded[rounded],
                     {
                         "deriv-badge__variant--bold-text": isBold,
                     },
