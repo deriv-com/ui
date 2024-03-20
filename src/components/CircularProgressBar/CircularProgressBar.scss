@@ -7,7 +7,7 @@
         transform: scaleX(-1) rotate(-90deg);
         transform-origin: 50% 50%;
         transition: stroke-dashoffset 1s;
-        stroke: var(--brand-secondary);
+        stroke: var(--du-brand-secondary, #85acb0);
 
         &--warning {
             stroke: var(--du-status-warning, #ffad3a);
