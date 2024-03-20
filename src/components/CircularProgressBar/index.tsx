@@ -4,6 +4,7 @@ import "./CircularProgressBar.scss"
 
 
 type TCircularProgressProps = {
+    children:ReactNode
     className?: string;
     danger_limit?: number;
     is_clockwise?: boolean;
@@ -15,9 +16,9 @@ type TCircularProgressProps = {
 };
 
 export const CircularProgressBar = ({
+    children,
     className,
     danger_limit = 20,
-    icon,
     is_clockwise = false,
     progress = 0,
     radius = 22,
@@ -29,8 +30,14 @@ export const CircularProgressBar = ({
     const strokeDashoffset = circumference - (progress / 100) * circumference;
     return (
         <div className={clsx('deriv-circular-progress', className)}>
-            {icon}
             <svg height={radius * 2} width={radius * 2}>
+            {children && (
+                    <foreignObject x="0" y="0" width={radius * 2} height={radius * 2}>
+                        <div className={clsx("deriv-circular-progress__content")}>
+                            {children}
+                        </div>
+                    </foreignObject>
+                )}
                 <circle
                     className={clsx('deriv-circular-progress__bar', {
                         'deriv-circular-progress--clockwise': is_clockwise,

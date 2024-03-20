@@ -47,7 +47,7 @@ export const ClockwiseProgress: Story = {
 export const WithIcon: Story = {
     args: {
         progress: 80,
-        icon: <span>🔄</span>,
+        children: <span>🔄</span>,
     }
 }
 
