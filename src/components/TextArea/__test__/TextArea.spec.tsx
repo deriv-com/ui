@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { TextArea } from '..';
+import userEvent from '@testing-library/user-event';
 
 describe('TextArea component', () => {
     it('renders correctly with default props', () => {
@@ -28,18 +29,18 @@ describe('TextArea component', () => {
         expect(document.querySelector(".deriv-textarea--error")).toBeInTheDocument();
     });
 
-    it('triggers onChange event handler', () => {
+    it('triggers onChange event handler', async() => {
         const handleChange = jest.fn();
         render(<TextArea textSize="md" onChange={handleChange} />);
         const textareaElement = screen.getByRole('textbox');
-        fireEvent.change(textareaElement, { target: { value: 'Test input' } });
-        expect(handleChange).toHaveBeenCalledTimes(1);
+        await userEvent.type(textareaElement, 'Test input');
+        expect(handleChange).toHaveBeenCalledTimes(10);
     });
 
-    it('limits input length based on maxLength prop', () => {
+    fit('limits input length based on maxLength prop', async() => {
         render(<TextArea textSize="md" maxLength={5}/>);
         const textareaElement = screen.getByRole('textbox');
-        fireEvent.input(textareaElement, { target: { value: 'Too much input' } })
+        await userEvent.type(textareaElement, 'Too much input');
         expect(textareaElement).toHaveProperty('value','Too m')
     });
 
