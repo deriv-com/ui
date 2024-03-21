@@ -1,10 +1,10 @@
 import clsx from 'clsx';
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState } from 'react';
 import "./CircularProgressBar.scss"
 
-
+type TVariant = "clockwise" | "static" | "selectable"
 type TCircularProgressProps = {
-    children:ReactNode
+    children: ReactNode;
     className?: string;
     danger_limit?: number;
     is_clockwise?: boolean;
@@ -13,6 +13,8 @@ type TCircularProgressProps = {
     stroke?: number;
     warning_limit?: number;
     icon?: ReactNode;
+    variant: TVariant;
+    onSelect?: () => void;
 };
 
 export const CircularProgressBar = ({
@@ -24,14 +26,26 @@ export const CircularProgressBar = ({
     radius = 22,
     stroke = 3,
     warning_limit = 50,
+    variant = "clockwise",
+    onSelect // Function to be called when circle is selected
 }: TCircularProgressProps) => {
     const normalizedRadius = radius - stroke / 2;
     const circumference = normalizedRadius * 2 * Math.PI;
     const strokeDashoffset = circumference - (progress / 100) * circumference;
+
+    const [selected, setSelected] = useState(false);
+
+    const handleSelect = () => {
+        setSelected(!selected);
+        if (onSelect) {
+            onSelect();
+        }
+    };
+
     return (
         <div className={clsx('deriv-circular-progress', className)}>
-            <svg height={radius * 2} width={radius * 2}>
-            {children && (
+            <svg height={radius * 2} width={radius * 2} onClick={variant === 'selectable' ? handleSelect : undefined}>
+                {children && (
                     <foreignObject x="0" y="0" width={radius * 2} height={radius * 2}>
                         <div className={clsx("deriv-circular-progress__content")}>
                             {children}
@@ -43,15 +57,30 @@ export const CircularProgressBar = ({
                         'deriv-circular-progress--clockwise': is_clockwise,
                         'deriv-circular-progress__bar--warning': progress <= warning_limit && progress > danger_limit,
                         'deriv-circular-progress__bar--danger': progress <= danger_limit,
+                        'deriv-circular-progress__bar--selected': selected && variant === 'selectable'
                     })}
                     cx={radius}
                     cy={radius}
-                    fill='transparent'
+                    fill={variant === 'selectable' && selected ? 'blue' : 'transparent'}
                     r={normalizedRadius}
                     strokeDasharray={`${circumference} ${circumference}`}
                     strokeWidth={stroke}
-                    style={{ strokeDashoffset }}
+                    style={variant != "clockwise" ? { strokeDashoffset: 'none' } : { strokeDashoffset }}
                 />
+                {
+                    variant != "clockwise" && (
+                        <circle
+                            cx={radius}
+                            cy={radius}
+                            r={normalizedRadius}
+                            fill='none'
+                            stroke='#E8EEFC'
+                            strokeDasharray={`${circumference} ${circumference}`}
+                            strokeWidth={stroke}
+                            style={{ strokeDashoffset: circumference - strokeDashoffset }}
+                        />
+                    )
+                }
             </svg>
         </div>
     );

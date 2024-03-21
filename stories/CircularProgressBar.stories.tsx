@@ -13,6 +13,7 @@ const meta = {
         stroke: 3,
         danger_limit: 20,
         warning_limit: 50,
+        variant:"clockwise"
     },
     argTypes: {
         progress: {
@@ -26,6 +27,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     args: {
         progress: 50,
+        variant:"static"
     }
 }
 
@@ -34,6 +36,7 @@ export const CustomRadiusAndStroke: Story = {
         progress: 70,
         radius: 30,
         stroke: 5,
+        variant:"static"
     }
 }
 
@@ -48,6 +51,7 @@ export const WithIcon: Story = {
     args: {
         progress: 80,
         children: <span>🔄</span>,
+        variant:"selectable"
     }
 }
 
