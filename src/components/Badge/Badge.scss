@@ -260,3 +260,252 @@ $green_color_border:$color-green-6;
     }
 
 }
+
+@include mobile{
+    .deriv-badge {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        &__size {
+            &--tight {
+                &.deriv-badge__padding--xs {
+                    width: auto;
+                    height: 12px;
+                    gap: 4px;
+                    padding: 0 4px 0 4px;
+                    border-radius: 4px;
+                }
+
+                &.deriv-badge__padding--sm {
+                    width: auto;
+                    height: 20px;
+                    gap: 4px;
+                    padding: 4px;
+                    border-radius: 4px;
+                }
+
+                &.deriv-badge__padding--md {
+                    width: auto;
+                    height: 22px;
+                    gap: 4px;
+                    padding:4px;
+                    border-radius: 4px;
+                }
+
+                &.deriv-badge__padding--lg {
+                    width: auto;
+                    height: 24px;
+                    gap: 4px;
+                    padding: 3px 4px 3px 4px;
+                    border-radius: 4px;
+                }
+            }
+
+            &--loose {
+                &.deriv-badge__padding--xs {
+                    width: auto;
+                    height: 12px;
+                    gap: 8px;
+                    padding: 0 8px 0 8px;
+                    border-radius: 4px;
+                }
+
+                &.deriv-badge__padding--sm {
+                    width: auto;
+                    height: 20px;
+                    gap: 8px;
+                    padding: 4px 8px 4px 8px;
+                    border-radius: 4px;
+                }
+
+                &.deriv-badge__padding--md {
+                    width: auto;
+                    height: 22px;
+                    gap: 8px;
+                    padding: 4px 8px 4px 8px;
+                    border-radius: 4px;
+                }
+
+                &.deriv-badge__padding--lg {
+                    width: auto;
+                    height: 24px;
+                    gap: 8px;
+                    padding: 3px 8px 3px 8px;
+                    border-radius: 4px;
+                }
+            }
+        }
+
+        &__variant {
+            &--contained {
+                border: none;
+
+                &.deriv-badge__color--general {
+                    background-image: $white_color;
+
+                    span {
+                        color: $font-color-gray;
+                    }
+                }
+
+                &.deriv-badge__color--lightblue {
+                    background-color: $light_blue_color;
+
+                    span {
+                        color: $font-color-white;
+                    }
+                }
+
+                &.deriv-badge__color--success {
+                    background-image: $success_color;
+
+                    span {
+                        color: $font-color-white;
+                    }
+                }
+
+                &.deriv-badge__color--warning {
+                    background-image: $warning_color;
+
+                    span {
+                        color: $font-color-white;
+                    }
+                }
+
+                &.deriv-badge__color--danger {
+                    background-color: $danger_color;
+
+                    span {
+                        color: $font-color-white;
+                    }
+                }
+
+                &.deriv-badge__color--blue {
+                    background-color: $blue_color;
+
+                    span {
+                        color: $font-color-white;
+                    }
+                }
+
+                &.deriv-badge__color--purple {
+                    background-color: $purple_color;
+
+                    span {
+                        color: $font-color-white;
+                    }
+                }
+                &.deriv-badge__color--gold {
+                    background-image: $gold_color;
+
+                    span {
+                        color: $font-color-white;
+                    }
+                }
+                &.deriv-badge__color--green {
+                    background-image: $green_color;
+
+                    span {
+                        color: $font-color-white;
+                    }
+                }
+            }
+
+            &--bordered {
+                border-style: solid;
+                background: none;
+
+                &.deriv-badge__color--general {
+                    border-color: $font-color-gray;
+
+                    span {
+                        color: $font-color-gray;
+                    }
+                }
+
+                &.deriv-badge__color--lightblue {
+                    border-color: $light_blue_color;
+
+                    span {
+                        color: $font-color-gray;
+                    }
+                }
+
+                &.deriv-badge__color--success {
+                    border-color: $success_color_border;
+
+                    span {
+                        color: $font-color-gray;
+                    }
+                }
+
+                &.deriv-badge__color--warning {
+                    border-color: $warning_color_border;
+
+                    span {
+                        color: $font-color-gray;
+                    }
+                }
+
+                &.deriv-badge__color--danger {
+                    border-color: $danger_color;
+
+                    span {
+                        color: $font-color-gray;
+                    }
+                }
+
+                &.deriv-badge__color--blue {
+                    border-color: $blue_color;
+
+                    span {
+                        color: $font-color-gray;
+                    }
+                }
+
+                &.deriv-badge__color--purple {
+                    border-color: $purple_color;
+
+                    span {
+                        color: $font-color-gray;
+                    }
+                }
+                &.deriv-badge__color--gold {
+                    border-color: $gold_color_border;
+
+                    span {
+                        color: $font-color-gray;
+                    }
+                }
+                &.deriv-badge__color--green {
+                    border-color: $green_color_border;
+
+                    span {
+                        color: $font-color-gray;
+                    }
+                }
+
+            }
+
+            &--bold-text {
+                text {
+                    font-weight: bold;
+                }
+            }
+        }
+        &__rounded {
+            &--sm {
+                border-radius: 4px;
+            }
+            &--md {
+                border-radius: 8px;
+            }
+            &--lg {
+                border-radius: 24px;
+            }
+        }
+
+    }
+}
