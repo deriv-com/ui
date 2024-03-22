@@ -198,8 +198,12 @@
         // Badge
         --du-badge-white: #{$color-white};
         --du-badge-blue: #{$color-blue-4};
+        --du-badge-light-blue: #{$color-blue-4};
         --du-badge-violet: #{$color-blue-2};
-        --du-badge-green: #{$color-green-3};
+        --du-badge-success: #{$color-green-1};
+        --du-badge-warning: #{$color-yellow};
+        --du-badge-danger: #{$color-red-1};
+        --du-badge-purple: #{$color-purple};
         //TradersHub Banner
         --du-traders-hub-banner-border-color: #{$color-gray-4};
         // wallets
@@ -333,8 +337,12 @@
         // Badge
         --du-badge-white: #{$color-white};
         --du-badge-blue: #{$color-blue-4};
+        --du-badge-light-blue: #{$color-blue-9};
         --du-badge-violet: #{$color-blue-2};
-        --du-badge-green: #{$color-green-3};
+        --du-badge-success: #{$color-green-3};
+        --du-badge-warning: #{$color-yellow};
+        --du-badge-danger: #{$color-red-2};
+        --du-badge-purple: #{$color-purple-1};
         //TradersHub Banner
         --du-traders-hub-banner-border-color: #{$color-black-5};
         // Wallets
