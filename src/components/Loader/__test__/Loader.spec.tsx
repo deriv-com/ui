@@ -6,7 +6,6 @@ describe('Loader component', () => {
   it('renders with default props', () => {
     const { getByTestId } = render(<Loader />);
     const loader = getByTestId('dt_derivs-loader');
-    console.log(loader,"loader")
     expect(loader).toBeInTheDocument();
     expect(loader).toHaveClass('derivs-loader');
     expect(loader).toHaveClass('derivs-loader--fullscreen');
