@@ -21,7 +21,7 @@ interface BadgeProps extends ComponentProps<"div"> {
     badgeSize?: Extract<TGenericSizes, "lg" | "md" | "sm" | "xs">;
     children: ReactNode;
     color?: TColor;
-    isBold: boolean;
+    isBold?: boolean;
     rightIcon?: ReactElement;
     leftIcon?: ReactElement;
     padding?: TPadding;
@@ -76,7 +76,7 @@ export const Badge = forwardRef<HTMLDivElement, BadgeProps>(({
     children,
     className,
     color = "general",
-    isBold = true,
+    isBold = false,
     leftIcon,
     padding = "tight",
     rightIcon,
