@@ -24,8 +24,10 @@ describe("SideNote Component", () => {
         <div>Child content</div>
       </SideNote>
     );
-    expect(getByText("Title")).toBeInTheDocument();
-    expect(getByText("Child content")).toBeInTheDocument();
+    const title =getByText("Title");
+    const child=getByText("Child content")
+    expect(title).toBeInTheDocument();
+    expect(child).toBeInTheDocument();
   });
 
   it("renders action button and handles click event", () => {
@@ -51,8 +53,10 @@ describe("SideNote Component", () => {
 
   it("renders only title when children are not provided", () => {
     const { getByText, queryByText } = render(<SideNote title="Title" />);
-    expect(getByText("Title")).toBeInTheDocument();
-    expect(queryByText("Child content")).toBeNull();
+    const title = getByText("Title");
+    const child = queryByText("Child content");
+    expect(title).toBeInTheDocument();
+    expect(child).toBeNull();
   });
 
   it("renders only children when title is not provided", () => {
@@ -61,8 +65,10 @@ describe("SideNote Component", () => {
         <div>Child content</div>
       </SideNote>
     );
-    expect(getByText("Child content")).toBeInTheDocument();
-    expect(queryByText("Title")).toBeNull();
+    const title = queryByText("Title");
+    const child = getByText("Child content");
+    expect(child).toBeInTheDocument();
+    expect(title).toBeNull();
   });
 
   it("renders action button with default label if no actionLabel provided", () => {
@@ -71,7 +77,8 @@ describe("SideNote Component", () => {
         <div>Child content</div>
       </SideNote>
     );
-    expect(getByText("Learn more")).toBeInTheDocument();
+    const action = getByText("Learn more")
+    expect(action).toBeInTheDocument();
   });
 
 });
