@@ -1,4 +1,4 @@
-import React, { CSSProperties, ElementType, ReactNode } from "react";
+import React, { CSSProperties,ComponentProps, ElementType, ReactNode } from "react";
 import clsx from "clsx";
 import "./Text.scss";
 
@@ -29,7 +29,7 @@ type TGenericSizes =
     | "xl"
     | "xs";
 
-export interface TextProps {
+export interface TextProps extends ComponentProps<ElementType> {
     align?: CSSProperties["textAlign"];
     as?: ElementType;
     children: ReactNode;
@@ -51,6 +51,7 @@ export const Text = ({
     size = "md",
     weight = "normal",
     className,
+    ...rest
 }: TextProps) => {
     const textClassNames = clsx(
         "deriv-text",
@@ -65,5 +66,5 @@ export const Text = ({
 
     const Tag = as;
 
-    return <Tag className={textClassNames}>{children}</Tag>;
+    return <Tag className={textClassNames} {...rest}>{children}</Tag>;
 };

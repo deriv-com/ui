@@ -3,6 +3,21 @@ import { render, fireEvent } from "@testing-library/react";
 import { SideNote } from "..";
 
 describe("SideNote Component", () => {
+
+  it("renders properly with default props", () => {
+    const { getByText, queryByTestId, container } = render(
+      <SideNote>
+        <div>Child content</div>
+      </SideNote>,
+    );
+    const title = queryByTestId("dt_deriv-side-note-title");
+    const content = getByText("Child content");
+    const actionButton = container.getElementsByClassName('deriv-side-note__action');
+    expect(title).not.toBeInTheDocument();
+    expect(content).toBeInTheDocument();
+    expect(actionButton).toHaveLength(0);
+  });
+
   it("renders children and title correctly", () => {
     const { getByText } = render(
       <SideNote title="Title">
@@ -52,7 +67,7 @@ describe("SideNote Component", () => {
 
   it("renders action button with default label if no actionLabel provided", () => {
     const { getByText } = render(
-      <SideNote actionClick={() => {}}>
+      <SideNote actionClick={() => { }}>
         <div>Child content</div>
       </SideNote>
     );
