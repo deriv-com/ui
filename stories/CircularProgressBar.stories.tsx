@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { CircularProgressBar } from "../src/components/CircularProgressBar";
 
 const meta = {
-    title: "Components/ProgressBar",
+    title: "Components/CircularProgressBar",
     component: CircularProgressBar,
     parameters: {
         layout: "centered",
@@ -24,19 +24,30 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const DefaultClockWise: Story = {
     args: {
         progress: 50,
-        variant:"static"
     }
 }
+export const StaticProgressBar:Story = {
+    args:{
+        progress: 50,
+        variant: 'static',
+      }
+}
 
-export const CustomRadiusAndStroke: Story = {
+export const SelectableProgressBar:Story = {
+    args:{
+        progress: 30,
+        variant: 'selectable',
+      }
+}
+
+export const CustomRadiusAndStrokeClockwise: Story = {
     args: {
         progress: 70,
         radius: 30,
         stroke: 5,
-        variant:"static"
     }
 }
 
@@ -47,7 +58,7 @@ export const ClockwiseProgress: Story = {
     }
 }
 
-export const WithIcon: Story = {
+export const WithIconSelectable: Story = {
     args: {
         progress: 80,
         children: <span>🔄</span>,
@@ -55,13 +66,13 @@ export const WithIcon: Story = {
     }
 }
 
-export const WarningLimit = {
+export const WarningLimitClockWise = {
     args: {
         progress: 40,
         warning_limit: 30,
     }
 }
-export const DangerLimit: Story = {
+export const DangerLimitClockWise: Story = {
     args: {
         progress: 10,
         danger_limit: 20,
