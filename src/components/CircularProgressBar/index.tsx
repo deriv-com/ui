@@ -1,5 +1,5 @@
-import clsx from 'clsx';
-import React, { ReactNode, useState } from 'react';
+import clsx from "clsx";
+import React, { ReactNode, useState } from "react";
 import "./CircularProgressBar.scss"
 
 type TVariant = "clockwise" | "static" | "selectable"
@@ -13,7 +13,7 @@ type TCircularProgressProps = {
     stroke?: number;
     warning_limit?: number;
     icon?: ReactNode;
-    variant: TVariant;
+    variant?: TVariant;
     onSelect?: () => void;
 };
 
@@ -43,8 +43,8 @@ export const CircularProgressBar = ({
     };
 
     return (
-        <div className={clsx('deriv-circular-progress', className)}>
-            <svg height={radius * 2} width={radius * 2} onClick={variant === 'selectable' ? handleSelect : undefined}>
+        <div className={clsx("deriv-circular-progress", className)}>
+            <svg height={radius * 2} width={radius * 2} onClick={variant === "selectable" ? handleSelect : undefined}>
                 {children && (
                     <foreignObject x="0" y="0" width={radius * 2} height={radius * 2}>
                         <div className={clsx("deriv-circular-progress__content")}>
@@ -53,19 +53,19 @@ export const CircularProgressBar = ({
                     </foreignObject>
                 )}
                 <circle
-                    className={clsx('deriv-circular-progress__bar', {
-                        'deriv-circular-progress--clockwise': is_clockwise,
-                        'deriv-circular-progress__bar--warning': progress <= warning_limit && progress > danger_limit,
-                        'deriv-circular-progress__bar--danger': progress <= danger_limit,
-                        'deriv-circular-progress__bar--selected': selected && variant === 'selectable'
+                    className={clsx("deriv-circular-progress__bar", {
+                        "deriv-circular-progress--clockwise": is_clockwise,
+                        "deriv-circular-progress__bar--warning": progress <= warning_limit && progress > danger_limit,
+                        "deriv-circular-progress__bar--danger": progress <= danger_limit,
+                        "deriv-circular-progress__bar--selected": selected && variant === "selectable"
                     })}
                     cx={radius}
                     cy={radius}
-                    fill={variant === 'selectable' && selected ? 'blue' : 'transparent'}
+                    fill={variant === "selectable" && selected ? "blue" : "transparent"}
                     r={normalizedRadius}
                     strokeDasharray={`${circumference} ${circumference}`}
                     strokeWidth={stroke}
-                    style={variant != "clockwise" ? { strokeDashoffset: 'none' } : { strokeDashoffset }}
+                    style={variant != "clockwise" ? { strokeDashoffset: "none" } : { strokeDashoffset }}
                 />
                 {
                     variant != "clockwise" && (
@@ -73,8 +73,8 @@ export const CircularProgressBar = ({
                             cx={radius}
                             cy={radius}
                             r={normalizedRadius}
-                            fill='none'
-                            stroke='#E8EEFC'
+                            fill="none"
+                            stroke="#E8EEFC"
                             strokeDasharray={`${circumference} ${circumference}`}
                             strokeWidth={stroke}
                             style={{ strokeDashoffset: circumference - strokeDashoffset }}
