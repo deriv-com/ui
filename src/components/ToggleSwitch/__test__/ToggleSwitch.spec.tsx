@@ -1,18 +1,24 @@
 import React from "react";
-import { render, fireEvent,screen } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import { ToggleSwitch } from "..";
 
 describe("ToggleSwitch Component", () => {
 
-    fit("checks if value has been set to false before firing event and true after firing event", () => {
-        const onChange = jest.fn()
-        const { getByRole } = render(
-            <ToggleSwitch onChange={onChange} value={false}/>
+    it("checks if value has been set to false before firing event and true after firing event", () => {
+        let isChecked =false;
+        const onChange = jest.fn(() => {
+            isChecked = !isChecked; // Toggle isChecked when onChange is called
+            console.log(isChecked,"value")
+        });
+        const { getByRole,rerender } = render(
+            <ToggleSwitch onChange={onChange} value={isChecked}/>
         );
         const toggleSwitch = getByRole("checkbox");
-        screen.debug();
+        expect(toggleSwitch).not.toBeChecked();
         fireEvent.click(toggleSwitch);
+        rerender(<ToggleSwitch onChange={onChange} value={isChecked} />);
         expect(onChange).toHaveBeenCalledTimes(1);
+        expect(toggleSwitch).toBeChecked();
     });
 
     it("should render and function properly with default Props", () => {
