@@ -7,7 +7,7 @@ describe("ToggleSwitch Component", () => {
     it("checks if value has been set to false before firing event and true after firing event", () => {
         let isChecked =false;
         const onChange = jest.fn(() => {
-            isChecked = !isChecked; // Toggle isChecked when onChange is called
+            isChecked = !isChecked;
             console.log(isChecked,"value")
         });
         const { getByRole,rerender } = render(
