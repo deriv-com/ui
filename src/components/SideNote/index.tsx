@@ -26,6 +26,7 @@ type SideNoteProps = Omit<ComponentProps<"div">, "className"> & {
  * @param {SideNoteProps.className} className - Add an extra className to the container.
  * @param {SideNoteProps.actionClick} actionClick - An onclick handler for the action button.
  * @param {SideNoteProps.actionClassName} actionClassName - Add an extra className to the action button.
+ *  * @param {SideNoteProps.titleClassName} titleClassName - Add an extra className to the action button.
  * @param {SideNoteProps.actionLabel} actionLabel - Display the label of the action. (default: "Learn more")
  * @returns {React.JSX.Element} - Returns the SideNote component.
  */
