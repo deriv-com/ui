@@ -4,7 +4,7 @@ import "./CircularProgressBar.scss"
 
 type TVariant = "clockwise" | "static" | "selectable"
 type TCircularProgressProps = {
-    children: ReactNode;
+    children?: ReactNode;
     className?: string;
     danger_limit?: number;
     is_clockwise?: boolean;
