@@ -36,7 +36,7 @@ export const CircularProgressBar = ({
     const [selected, setSelected] = useState(false);
 
     const handleSelect = () => {
-        setSelected(!selected);
+        setSelected(prev=>!prev);
         if (onSelect) {
             onSelect();
         }
