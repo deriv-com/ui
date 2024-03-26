@@ -40,7 +40,7 @@ export const SideNote = ({
 }: PropsWithChildren<SideNoteProps>) => (
     <div className={clsx("deriv-side-note", className)} {...props}>
         {title && (
-            <Text size={titleSize} align="left" weight="bold">
+            <Text data-testid="dt_deriv-side-note-title" size={titleSize} align="left" weight="bold">
                 {title}
             </Text>
         )}
