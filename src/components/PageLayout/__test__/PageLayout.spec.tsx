@@ -1,40 +1,42 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { PageLayout } from "..";
 
 // Mocking the useDevice hook
-jest.mock("../../../main", () => ({
-    ...jest.requireActual('../../../main'),
-  useDevice: jest.fn(),
+jest.mock("../../../hooks/useDevice", () => ({
+    ...jest.requireActual('../../../hooks/useDevice'),
+  useDevice: jest.fn().mockReturnValue({isMobile:false}),
 }));
 
 describe("PageLayout Component", () => {
   it("renders children correctly", () => {
-    const { getByText } = render(
+    render(
       <PageLayout>
         <div>Content</div>
       </PageLayout>
     );
-    expect(getByText("Content")).toBeInTheDocument();
+    const content =screen.getByText("Content")
+    expect(content).toBeInTheDocument();
   });
 
   it("renders sidebar when provided and not on mobile", () => {
     const sidebar = <div>Sidebar</div>;
-    const { getByText } = render(<PageLayout sidebar={sidebar} />);
-    expect(getByText("Sidebar")).toBeInTheDocument();
+    render(<PageLayout sidebar={sidebar} />);
+    const sidebarContent =screen.getByText("Sidebar")
+    expect(sidebarContent).toBeInTheDocument();
   });
 
-  fit("does not render sidebar on mobile", () => {
-    // Mocking isMobile to be true
-    jest.spyOn(require("../../../main"), "useDevice").mockImplementation(() => ({ isMobile: true }));
-
+  it("does not render sidebar on mobile", () => {
+    jest.spyOn(require("../../../hooks/useDevice"), "useDevice").mockImplementation(() => ({ isMobile: true }));
     const sidebar = <div>Sidebar</div>;
-    const { queryByText } = render(<PageLayout sidebar={sidebar} />);
-    expect(queryByText("Sidebar")).toBeNull();
+    render(<PageLayout sidebar={sidebar} />);
+    const sidebarContent =screen.queryByText("Sidebar")
+    expect(sidebarContent).not.toBeInTheDocument()
   });
 
   it("does not render sidebar when not provided", () => {
-    const { queryByTestId } = render(<PageLayout />);
-    expect(queryByTestId("sidebar")).toBeNull();
+    render(<PageLayout />);
+    const sidebarContent=screen.queryByTestId("sidebar")
+    expect(sidebarContent).toBeNull();
   });
 });
