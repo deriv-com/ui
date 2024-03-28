@@ -27,7 +27,7 @@ const meta = {
         },
         color: {
             options: [
-                "primary",
+                "gray",
                 "blue",
                 "purple",
                 "success",
@@ -58,12 +58,12 @@ export const Outlined: Story = {
     },
 };
 
-export const ContainedPrimary: Story = {
+export const ContainedBlue: Story = {
     name: "Contained (Success)",
     args: { ...meta.args },
 };
 
-export const ContainedPurple: Story = {
+export const ContainedGray: Story = {
     name: "Contained (General)",
     args: {
         ...meta.args,
@@ -75,13 +75,13 @@ export const ContainedPurpleRounded: Story = {
     name: "Contained (Round-lg)",
     args: {
         ...meta.args,
-        color: "general",
+        color: "purple",
         rounded:"lg"
     },
 };
 
 export const ContainedRed: Story = {
-    name: "Contained (Yellow)",
+    name: "Contained (Red)",
     args: {
         ...meta.args,
         color: "danger",
@@ -98,19 +98,20 @@ export const ContainedGold: Story = {
     },
 };
 
-export const ContainedYellow: Story = {
-    name: "Contained (Yellow)",
+export const ContainedGreen: Story = {
+    name: "Contained (Green)",
     args: {
         ...meta.args,
-        color: "warning",
-        padding: "loose",
+        color: "green",
+        padding: "loose"
     },
 };
 
-export const OutlinedPrimary: Story = {
-    name: "Outlined (Primary)",
+export const OutlinedGray: Story = {
+    name: "Outlined (Gray)",
     args: {
         ...meta.args,
+        color:"general",
         variant: "bordered",
     },
 };
@@ -139,5 +140,18 @@ export const OutlinedRed: Story = {
         ...meta.args,
         variant: "bordered",
         color: "danger",
+    },
+};
+
+export const BadgeRed: Story = {
+    name: "Badge (Red)",
+    args: {
+        ...meta.args,
+        children:"1",
+        variant: "contained",
+        color: "danger",
+        rightIcon:undefined,
+        rounded:"bd",
+        leftIcon:undefined,
     },
 };
