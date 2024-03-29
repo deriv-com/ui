@@ -11,6 +11,7 @@ const meta = {
         actionLabel: "Learn more",
         actionClick: () => console.log("Test action"),
         actionClassName: "",
+        titleClassName: "",
     },
     argTypes: {
         title: { control: false, description: "Display the title content." },
@@ -31,6 +32,10 @@ const meta = {
             control: false,
             description: "Add an extra className to the action button.",
         },
+        titleClassName: {
+            control: false,
+            description: "Add an extra className to the title wrapper.",
+        },
     },
     parameters: { layout: "centered" },
     tags: ["autodocs"],
@@ -48,7 +53,7 @@ export const Default: Story = {
                 actionLabel="Learn more"
                 actionClick={() => console.log("test click!")}
             >
-                <p style={{ margin: "10px 0" }}>This is a test note</p>
+                This is a test note
             </SideNote>
         </div>
     ),
