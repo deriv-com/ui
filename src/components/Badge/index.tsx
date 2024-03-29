@@ -25,7 +25,7 @@ interface BadgeProps extends ComponentProps<"div"> {
     rightIcon?: ReactElement;
     leftIcon?: ReactElement;
     padding?: TPadding;
-    rounded?: Extract<TGenericSizes, "lg" | "md" | "sm" | "bd">;
+    rounded?: Extract<TGenericSizes, "lg" | "md" | "sm" | "full">;
     textSize?: ComponentProps<typeof Text>["size"];
     variant?: TVariant;
 }
@@ -63,7 +63,7 @@ const BadgeRounded = {
     lg: "deriv-badge__rounded--lg",
     md: "deriv-badge__rounded--md",
     sm: "deriv-badge__rounded--sm",
-    bd: "deriv-badge__rounded--bd",
+    full: "deriv-badge__rounded--full",
 } as const;
 
 const FontSize = {

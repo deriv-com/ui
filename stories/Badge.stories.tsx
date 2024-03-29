@@ -27,12 +27,28 @@ const meta = {
         },
         color: {
             options: [
-                "gray",
+                "general",
                 "blue",
                 "purple",
                 "success",
                 "danger",
                 "warning",
+            ],
+        },
+        badgeSize: {
+            options: [
+               "lg",
+               "md",
+               "sm",
+               "xs",
+            ],
+        },
+        rounded: {
+            options: [
+                "lg",
+                "md",
+                "sm",
+                "full",
             ],
         },
     },
@@ -151,7 +167,7 @@ export const BadgeRed: Story = {
         variant: "contained",
         color: "danger",
         rightIcon:undefined,
-        rounded:"bd",
+        rounded:"full",
         leftIcon:undefined,
     },
 };
