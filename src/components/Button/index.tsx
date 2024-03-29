@@ -15,6 +15,7 @@ interface ButtonProps extends ComponentProps<"button"> {
     isLoading?: boolean;
     rounded?: Extract<TGenericSizes, "lg" | "md" | "sm">;
     size?: Extract<TGenericSizes, "lg" | "md" | "sm">;
+    hasHoverStyle?:boolean;
     textSize?: ComponentProps<typeof Text>["size"];
     variant?: TVariant;
 }
