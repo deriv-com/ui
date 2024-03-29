@@ -39,4 +39,14 @@ describe("InlineMessage Component", () => {
     );
     expect(container.firstChild).toHaveClass("custom-class");
   });
+
+  it("should position the icon at the top", () => {
+    const { container } = render(
+      <InlineMessage iconPosition="top" variant="info">
+        Test Message
+      </InlineMessage>
+    );
+    const iconElement = container.querySelector(".deriv-inline-message__icon--top")
+    expect(iconElement).toBeInTheDocument();
+  });
 });
