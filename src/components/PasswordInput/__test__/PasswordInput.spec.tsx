@@ -77,10 +77,10 @@ describe("PasswordInput component", () => {
     });
 
     it("hides password meter when hidePasswordMeter prop is true", () => {
-        const { queryByTestId } = render(
+        const { container } = render(
             <PasswordInput label="Password" hidePasswordMeter />
         );
-        expect(queryByTestId("password-meter")).not.toBeInTheDocument();
+        expect(container.querySelector(".deriv-password__meter")).not.toBeInTheDocument();
     });
 
 });
