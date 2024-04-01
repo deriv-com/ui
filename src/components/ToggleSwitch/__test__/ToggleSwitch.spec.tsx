@@ -1,51 +1,42 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { ToggleSwitch } from "..";
+import userEvent from "@testing-library/user-event";
 
 describe("ToggleSwitch Component", () => {
+    it("should renders with correct value passed as prop", () => {
+        const { getByRole, rerender } = render(<ToggleSwitch value={true} />);
+        const toggleSwitch = getByRole("checkbox");
+        expect(toggleSwitch).toBeChecked();
+        rerender(<ToggleSwitch value={false} />);
+        expect(toggleSwitch).not.toBeChecked();
+    });
 
-    it("checks if value has been set to false before firing event and true after firing event", () => {
-        let isChecked =false;
-        const onChange = jest.fn(() => {
-            isChecked = !isChecked;
-            console.log(isChecked,"value")
-        });
-        const { getByRole,rerender } = render(
-            <ToggleSwitch onChange={onChange} value={isChecked}/>
-        );
+    it("should be set to false when no value prop is provided", () => {
+        const { getByRole } = render(<ToggleSwitch/>);
         const toggleSwitch = getByRole("checkbox");
         expect(toggleSwitch).not.toBeChecked();
-        fireEvent.click(toggleSwitch);
-        rerender(<ToggleSwitch onChange={onChange} value={isChecked} />);
-        expect(onChange).toHaveBeenCalledTimes(1);
+    });
+    it("should update the value when user clicks on it", async () => {
+        const { getByRole } = render(<ToggleSwitch/>);
+        const toggleSwitch = getByRole("checkbox");
+        expect(toggleSwitch).not.toBeChecked();
+        await userEvent.click(toggleSwitch);
         expect(toggleSwitch).toBeChecked();
     });
 
-    it("should render and function properly with default Props", () => {
-        const onChange = jest.fn();
-        const { getByRole } = render(<ToggleSwitch onChange={onChange} value={false} />);
+    it("should call the onChange prop when user clicks on it", async () => {
+        const mockedOnChange = jest.fn();
+        const { getByRole } = render(<ToggleSwitch onChange={mockedOnChange} />);
         const toggleSwitch = getByRole("checkbox");
-        fireEvent.click(toggleSwitch);
-        expect(onChange).toHaveBeenCalledTimes(1);
+        await userEvent.click(toggleSwitch);
+        expect(mockedOnChange).toHaveBeenCalled();
     });
 
-    it("displays correct checked state based on value prop", () => {
-        const onChange = jest.fn();
-        const { getByRole, rerender } = render(<ToggleSwitch onChange={onChange} value={false} />);
-        let toggleSwitch = getByRole("checkbox");
-        expect(toggleSwitch).not.toBeChecked();
 
-        rerender(<ToggleSwitch onChange={onChange} value={true} />);
-        toggleSwitch = getByRole("checkbox");
-        expect(toggleSwitch).toBeChecked();
-    });
-
-    it("applies wrapperClassName and className correctly", () => {
-        const onChange = jest.fn();
+    it("should apply wrapperClassName and className correctly", () => {
         const { container } = render(
             <ToggleSwitch
-                onChange={onChange}
-                value={false}
                 wrapperClassName="wrapper-class"
                 className="custom-class"
             />
@@ -57,11 +48,8 @@ describe("ToggleSwitch Component", () => {
     });
 
     it("applies wrapperStyle and style correctly", () => {
-        const onChange = jest.fn();
         const { container } = render(
             <ToggleSwitch
-                onChange={onChange}
-                value={false}
                 wrapperStyle={{ backgroundColor: "red" }}
                 style={{ fontSize: "16px" }}
             />
@@ -71,12 +59,4 @@ describe("ToggleSwitch Component", () => {
         const label = input?.parentElement;
         expect(label).toHaveStyle({ backgroundColor: "red" });
     });
-
-    it("defaults to unchecked when no value prop is provided", () => {
-        const onChange = jest.fn();
-        const { getByRole } = render(<ToggleSwitch onChange={onChange} value={false} />);
-        const toggleSwitch = getByRole("checkbox");
-        expect(toggleSwitch).not.toBeChecked();
-    });
-
 });
