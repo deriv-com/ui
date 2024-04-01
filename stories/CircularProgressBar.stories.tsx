@@ -4,6 +4,7 @@ import { CircularProgressBar } from "../src/components/CircularProgressBar";
 const meta = {
     title: "Components/CircularProgressBar",
     component: CircularProgressBar,
+    tags: ["autodocs"],
     parameters: {
         layout: "centered",
     },
