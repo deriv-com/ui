@@ -81,7 +81,7 @@ export const ContainedPurpleRounded: Story = {
 };
 
 export const ContainedRed: Story = {
-    name: "Contained (Red)",
+    name: "Contained (Yellow)",
     args: {
         ...meta.args,
         color: "danger",
