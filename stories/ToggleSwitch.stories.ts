@@ -5,6 +5,7 @@ import { ToggleSwitch } from "../src/components/ToggleSwitch";
 const meta = {
     title: "Components/ToggleSwitch",
     component: ToggleSwitch,
+    tags: ["autodocs"],
     args: {
         onChange: action("ToggleSwitch changed"),
         value: false,
@@ -22,9 +23,3 @@ export const Default: Story = {
     },
 };
 
-export const Checked: Story = {
-    args: {
-        ...Default.args,
-        value: true,
-    },
-};
