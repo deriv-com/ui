@@ -1,9 +1,9 @@
-# Deriv Ui Library (@deriv-com/ui)   
-<img alt="NPM Version" src="https://img.shields.io/npm/v/@deriv-com/ui"> <img alt="NPM Downloads" src="https://img.shields.io/npm/dw/@deriv-com/ui"> [![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.png?v=101)](https://github.com/ellerbrock/typescript-badges/) [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.png?v=102)](https://opensource.org/licenses/mit-license.php)
+# Deriv Ui Library (@deriv-com/ui)
+<img alt="NPM Version" src="https://img.shields.io/npm/v/@deriv-com/ui"> <img alt="NPM Downloads" src="https://img.shields.io/npm/dw/@deriv-com/ui"> <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="@deriv-com/ui is released under the MIT license." /> [![Coverage Status](https://coveralls.io/repos/github/deriv-com/ui/badge.svg)](https://coveralls.io/github/deriv-com/ui)
 
 
 ## Overview
-This is a UI component library made for ReactJS that conforms to the  [Deriv Design System](https://zeroheight.com/36313d3c8/p/439a5c-deriv-design-system). Explore our [Storybook](https://deriv-ui.pages.dev/)  for for comprehensive development documentation . 
+This is a UI component library made for ReactJS that conforms to the  [Deriv Design System](https://zeroheight.com/36313d3c8/p/439a5c-deriv-design-system). Explore our [Storybook](https://deriv-ui.pages.dev/)  for for comprehensive development documentation .
 
 Also available on [npm](https://www.npmjs.com/package/@deriv-com/ui).
 
