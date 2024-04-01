@@ -66,6 +66,7 @@ export const Button = ({
     isLoading = false,
     rounded = "sm",
     size = "md",
+    hasHoverStyle=true,
     textSize,
     variant = "contained",
     ...rest
@@ -81,6 +82,7 @@ export const Button = ({
                 ButtonRounded[rounded],
                 {
                     "deriv-button__full-width": isFullWidth,
+                    "deriv-button__disable-hover": !hasHoverStyle,
                 },
                 className,
             )}
