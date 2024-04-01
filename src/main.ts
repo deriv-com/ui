@@ -19,6 +19,5 @@ export { Text } from "./components/Text";
 export { TextArea } from "./components/TextArea";
 export { ToggleSwitch } from "./components/ToggleSwitch";
 export { Tooltip } from "./components/Tooltip";
-export { useDevice } from "./hooks/useDevice";
-export { useOnClickOutside } from "./hooks/useOnClickOutside";
+export { useDevice,useOnClickOutside } from "./hooks";
 export { VerticalTab, VerticalTabItems } from "./components/VerticalTab";
