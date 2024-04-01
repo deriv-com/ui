@@ -38,3 +38,10 @@ npm run storybook
 
 ## Contributing
 Contributions to the @deriv-com/ui library are warmly encouraged. If you have suggestions for enhancements or encounter a bug, please feel free to open an issue or submit a pull request (ensure you fork it first).
+
+<a height="15" href = "https://github.com/deriv-com/ui/contributors">
+  <img src = "https://contrib.rocks/image?repo=deriv-com/ui&anon=0&columns=20"/>
+</a>
+
+
+
