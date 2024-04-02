@@ -9,6 +9,8 @@ const meta = {
     },
     tags: ["autodocs"],
     args: {
+        children:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         defaultOpen: false,
         isCompact: false,
         title: "What is your return policy?",
