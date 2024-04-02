@@ -49,6 +49,7 @@ export const Accordion = ({
                     "deriv-accordion__header--active": active,
                 })}
                 onClick={toggleAccordion}
+                aria-expanded={active}
             >
                 <p>{title}</p>
                 <img
