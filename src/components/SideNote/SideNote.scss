@@ -1,0 +1,25 @@
+.deriv-side-note {
+    background-color: #f2f3f4;
+    color: #333333;
+    padding: 16px 24px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        margin-bottom: 8px;
+    }
+
+    &:hover > &__action {
+        text-decoration: underline;
+        text-decoration-color: red;
+    }
+    &__action {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        margin-top: 16px;
+    }
+}

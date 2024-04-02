@@ -12,19 +12,19 @@ export default defineConfig({
     plugins: [
         react(),
         libInjectCss(),
-        dts({ include: ["lib"], exclude: ["lib/**/*.spec.tsx"] }),
+        dts({ include: ["src"], exclude: ["src/**/*.spec.tsx"] }),
     ],
     css: {
         preprocessorOptions: {
             scss: {
                 implementation: sass,
-                additionalData: ['@use "./lib/styles/index.scss" as *;'],
+                additionalData: ['@use "./src/styles/index.scss" as *;'],
             },
         },
     },
     build: {
         lib: {
-            entry: resolve(__dirname, "lib/main.ts"),
+            entry: resolve(__dirname, "src/main.ts"),
             formats: ["es"],
         },
         copyPublicDir: false,
@@ -32,7 +32,7 @@ export default defineConfig({
             external: ["react", "react/jsx-runtime", 'react-dom'],
             input: Object.fromEntries(
                 glob
-                    .sync("lib/**/*.{ts,tsx}", {
+                    .sync("src/**/*.{ts,tsx}", {
                         ignore: [
                             "**/*.test.ts",
                             "**/*.test.tsx",
@@ -44,16 +44,16 @@ export default defineConfig({
                     .map((file) => {
                         return [
                             // The name of the entry point
-                            // lib/nested/foo.ts becomes nested/foo
+                            // src/nested/foo.ts becomes nested/foo
                             relative(
-                                "lib",
+                                "src",
                                 file.slice(
                                     0,
                                     file.length - extname(file).length,
                                 ),
                             ),
                             // The absolute path to the entry file
-                            // lib/nested/foo.ts becomes /project/lib/nested/foo.ts
+                            // src/nested/foo.ts becomes /project/src/nested/foo.ts
                             fileURLToPath(new URL(file, import.meta.url)),
                         ];
                     }),

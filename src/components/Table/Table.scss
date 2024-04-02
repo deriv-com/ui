@@ -1,0 +1,78 @@
+$general-color: #f2f3f4;
+$scroll-color: #d6dadb;
+$general-hover: #e6e9e9;
+
+@supports (-moz-appearance: none) {
+    .deriv-table__content {
+        scrollbar-color: transparent transparent;
+        scrollbar-width: thin;
+        /* Show scrollbar on hover */
+        &:hover {
+            scrollbar-width: thin; /* Show scrollbar on hover in Firefox */
+            scrollbar-color: $scroll-color transparent; /* Specify scrollbar color */
+        }
+    }
+}
+.deriv-table {
+    width: 100%;
+    &__content {
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        @include mobile {
+            height: 100%;
+        }
+
+        &__row {
+            padding: 16px;
+            &:hover {
+                background-color: $general-hover;
+            }
+            &:not(:last-child) {
+                border-bottom: 1px solid $general-color;
+            }
+        }
+
+        &__empty-message {
+            display: flex;
+            justify-content: center;
+            padding: 16px;
+            border-bottom: 1px solid $general-color;
+        }
+    }
+
+    &__header {
+        display: grid;
+        border-bottom: 2px solid $general-color;
+        padding: 16px;
+        grid-auto-flow: column;
+    }
+}
+
+::-webkit-scrollbar {
+    scrollbar-width: thin;
+    width: 5px;
+    height: 5px;
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    scrollbar-width: thin;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+:hover {
+    &::-webkit-scrollbar-thumb {
+        scrollbar-width: thin;
+        display: unset;
+        border-radius: 10px;
+        background-color: $scroll-color;
+    }
+}

@@ -1,0 +1,169 @@
+// TODO: Refactor this file to use css variables
+$color-map: (
+    "prominent": var(--du-text-prominent),
+    "less-prominent": var(--du-text-less-prominent, #999999),
+    "general": var(--du-text-general, #333333),
+    "primary": var(--du-text-primary, #999999),
+    "success": var(--du-text-profit-success, #4bb4b3),
+    "warning": var(--du-text-warning, #ffad3a),
+    "error": var(--du-text-loss-danger, #ec3f3f),
+    "red": var(--du-text-red, #ff444f),
+    "blue": var(--du-text-info-blue, #377cfc),
+    "green": var(--du-text-green, #17eabd),
+    "white": var(--du-text-white, #ffffff),
+);
+
+$desktop-font-size-map: (
+    "2xs": (
+        size: 10px,
+        line_height: 14px,
+    ),
+    "xs": (
+        size: 12px,
+        line_height: 18px,
+    ),
+    "sm": (
+        size: 14px,
+        line_height: 20px,
+    ),
+    "md": (
+        size: 16px,
+        line_height: 24px,
+    ),
+    "lg": (
+        size: 20px,
+        line_height: 30px,
+    ),
+    "xl": (
+        size: 24px,
+        line_height: 36px,
+    ),
+    "2xl": (
+        size: 32px,
+        line_height: 40px,
+    ),
+    "3xl": (
+        size: 48px,
+        line_height: 60px,
+    ),
+    "4xl": (
+        size: 64px,
+        line_height: 80px,
+    ),
+    "5xl": (
+        size: 80px,
+        line_height: 10px,
+    ),
+);
+
+$mobile-font-size-map: (
+    "2xs": (
+        size: 8px,
+        line_height: 12px,
+    ),
+    "xs": (
+        size: 10px,
+        line_height: 14px,
+    ),
+    "sm": (
+        size: 12px,
+        line_height: 18px,
+    ),
+    "md": (
+        size: 14px,
+        line_height: 20px,
+    ),
+    "lg": (
+        size: 16px,
+        line_height: 24px,
+    ),
+    "xl": (
+        size: 18px,
+        line_height: 26px,
+    ),
+    "2xl": (
+        size: 24px,
+        line_height: 30px,
+    ),
+    "3xl": (
+        size: 28px,
+        line_height: 34px,
+    ),
+    "4xl": (
+        size: 32px,
+        line_height: 40px,
+    ),
+    "5xl": (
+        size: 40px,
+        line_height: 50px,
+    ),
+);
+
+$line-height-map: (
+    "3xs": 12px,
+    "2xs": 14px,
+    "xs": 16px,
+    "sm": 18px,
+    "md": 20px,
+    "lg": 22px,
+    "xl": 24px,
+    "2xl": 26px,
+    "3xl": 28px,
+    "4xl": 30px,
+    "5xl": 32px,
+    "6xl": 34px,
+    "7xl": 36px,
+);
+
+$font-style-map: (
+    italic: italic,
+    normal: normal,
+);
+
+.derivs-text {
+    @each $color, $value in $color-map {
+        &__color--#{$color} {
+            color: $value;
+        }
+    }
+
+    @each $size, $values in $desktop-font-size-map {
+        &__size--#{$size} {
+            font-size: map-get($values, size);
+            line-height: map-get($values, line_height);
+        }
+    }
+
+    @each $size, $values in $mobile-font-size-map {
+        &__size--#{$size} {
+            @include tablet-down {
+                font-size: map-get($values, size);
+                line-height: map-get($values, line_height);
+            }
+        }
+    }
+
+    @each $lineHeight, $value in $line-height-map {
+        &__line-height--#{$lineHeight} {
+            line-height: $value;
+        }
+    }
+
+    @each $weight, $value in $font-weights {
+        &__weight--#{$weight} {
+            font-weight: $value;
+        }
+    }
+
+    @each $align, $value in $font-align {
+        &__align--#{$align} {
+            text-align: $value;
+        }
+    }
+
+    @each $fontStyle, $value in $font-style-map {
+        &__font-style--#{$fontStyle} {
+            font-style: $value;
+        }
+    }
+}
