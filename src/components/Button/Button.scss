@@ -24,7 +24,7 @@ $black-outline-hover: rgba(0, 0, 0, 0.08);
         cursor: not-allowed;
     }
 
-    &.deriv-button__hover--disabled {
+    &__hover--disabled {
         pointer-events: none;
         cursor: default;
 
