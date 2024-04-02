@@ -117,6 +117,17 @@
         "moduleNameMapper": {
             "\\.(css|less|scss|sass)$": "identity-obj-proxy",
             "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/test/__mocks__/fileMock.js"
-        }
+        },
+        "collectCoverageFrom": [
+            "./src/components/*/*.{ts,tsx}",
+            "./src/hooks/*.{ts,tsx}",
+            "!./src/hooks/index.ts",
+            "!./node_modules/**",
+            "!./dist/**",
+            "!./stories/**",
+            "!/vite.config.ts",
+            "!./.storybook/**",
+            "!./coverage/**"
+        ]
     }
 }
