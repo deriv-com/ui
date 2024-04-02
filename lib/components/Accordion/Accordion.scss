@@ -66,8 +66,7 @@ $animation-duration: 0.3s;
 
     &__content {
         width: 100%;
-        overflow: hidden;
-        max-height: 0px;
+        overflow: auto;
         opacity: 0;
         transition: all $animation-duration ease-in-out;
 

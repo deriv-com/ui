@@ -78,12 +78,10 @@ const AccordionSection = memo(
                     className={clsx("deriv-accordion__header", {
                         "deriv-accordion__header--active": isActiveSection,
                     })}
+                    onClick={toggleSection}
                 >
                     <div>{section.title}</div>
-                    <div
-                        className="deriv-accordion__icon"
-                        onClick={toggleSection}
-                    >
+                    <div className="deriv-accordion__icon">
                         <img
                             src={Chevron}
                             className={clsx("deriv-accordion__icon", {
