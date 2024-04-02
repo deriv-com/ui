@@ -1,10 +1,10 @@
 export { Accordion } from "./components/Accordion";
 export { ActionScreen } from "./components/ActionScreen";
 export { Button } from "./components/Button";
-export {Badge} from "./components/Badge";
+export { Badge } from "./components/Badge";
 export { Checkbox } from "./components/Checkbox";
 export { Divider } from "./components/Divider";
-export { Dialog } from "./components/Dialog"
+export { Dialog } from "./components/Dialog";
 export { Dropdown } from "./components/Dropdown";
 export { InlineMessage } from "./components/InlineMessage";
 export { Input } from "./components/Input";
@@ -20,5 +20,5 @@ export { Text } from "./components/Text";
 export { TextArea } from "./components/TextArea";
 export { ToggleSwitch } from "./components/ToggleSwitch";
 export { Tooltip } from "./components/Tooltip";
-export { useDevice,useOnClickOutside } from "./hooks";
+export { useDevice, useOnClickOutside } from "./hooks";
 export { VerticalTab, VerticalTabItems } from "./components/VerticalTab";
