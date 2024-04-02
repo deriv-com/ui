@@ -1,3 +1,4 @@
+/* Style the accordion section */
 $border: 1px solid var(--du-general-active);
 $animation-duration: 0.3s;
 
@@ -6,37 +7,33 @@ $animation-duration: 0.3s;
     display: inline-flex;
     flex-direction: column;
     min-width: 100%;
+    background-color: var(--du-general-main-2);
+    padding: 24px;
 
-    &__wrapper {
-        width: 100%;
-        background-color: var(--du-general-main-2);
-        padding: 24px;
+    &--compact {
+        padding: 16px;
+    }
 
-        &--compact {
-            padding: 16px;
+    &--underline {
+        border-bottom: $border;
+    }
+
+    &--shadow,
+    &--bordered {
+        border-radius: $border-radius-2;
+        margin-bottom: 8px;
+
+        &:last-child {
+            margin-bottom: 0;
         }
+    }
 
-        &--underline {
-            border-bottom: $border;
-        }
+    &--bordered {
+        border: $border;
+    }
 
-        &--shadow,
-        &--bordered {
-            border-radius: $border-radius-2;
-            margin-bottom: 8px;
-
-            &:last-child {
-                margin-bottom: 0;
-            }
-        }
-
-        &--bordered {
-            border: $border;
-        }
-
-        &--shadow {
-            box-shadow: $deriv-box-shadow;
-        }
+    &--shadow {
+        box-shadow: $deriv-box-shadow;
     }
 
     &__header {
@@ -45,42 +42,43 @@ $animation-duration: 0.3s;
         display: flex;
         align-items: center;
         justify-content: space-between;
-
-        &--border-bottom {
-            border-bottom: 1px solid var(--du-border-normal-1);
-        }
+        color: var(--du-text-general);
+        cursor: pointer;
     }
 
     &__icon {
         margin-left: auto;
         display: inline-block;
         transition: all $animation-duration ease-in-out;
-        &:hover {
-            cursor: pointer;
-        }
 
         &--active {
             transform: rotate(-180deg);
         }
     }
-
     &__content {
         width: 100%;
         overflow: auto;
         opacity: 0;
-        transition: all $animation-duration ease-in-out;
-
-        &--no-animations {
-            transition: none;
-        }
+        background-color: white;
+        transition: all $animation-duration ease;
 
         &--active {
             opacity: 1;
-            padding-top: 24px;
-
-            .deriv-accordion__content--compact {
-                padding-top: 16px;
-            }
         }
     }
+
+    &__text {
+        margin-top: 24px;
+        color: var(--du-text-general);
+
+        &--compact {
+            margin-top: 16px;
+        }
+    }
+}
+.accordion__section {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    min-width: 100%;
 }

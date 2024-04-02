@@ -1,153 +1,78 @@
-import {
-    ReactNode,
-    memo,
-    useCallback,
-    useEffect,
-    useRef,
-    useState,
-} from "react";
-import clsx from "clsx";
+import React, { useState, useRef, ReactNode, useEffect } from "react";
 import Chevron from "./Chevron.svg";
+import clsx from "clsx";
 import "./Accordion.scss";
 
 type AccordionVariants = "underline" | "bordered" | "shadow";
 
-type AccordionSection = {
-    title: ReactNode;
-    content: ReactNode;
-};
-
-type AccordionSectionProps = {
-    disableAnimation?: boolean;
-    isActiveSection: boolean;
+type AccordionProps = {
+    children: ReactNode;
+    defaultOpen?: boolean;
     isCompact?: boolean;
-    section: AccordionSection;
-    sectionIndex: number;
-    setActiveIndex: (index: number | null) => void;
+    title: string;
     variant?: AccordionVariants;
 };
 
-type AccordionProps = {
-    allowMultiple?: boolean;
-    disableAnimation?: boolean;
-    isCompact?: AccordionSectionProps["isCompact"];
-    sections: AccordionSection[];
-    variant?: AccordionSectionProps["variant"];
-};
-
 const AccordionVariant = {
-    bordered: "deriv-accordion__wrapper--bordered",
-    shadow: "deriv-accordion__wrapper--shadow",
-    underline: "deriv-accordion__wrapper--underline",
+    bordered: "deriv-accordion--bordered",
+    shadow: "deriv-accordion--shadow",
+    underline: "deriv-accordion--underline",
 } as const;
 
-const AccordionSection = memo(
-    ({
-        disableAnimation = false,
-        isActiveSection,
-        isCompact = false,
-        section,
-        sectionIndex,
-        setActiveIndex,
-        variant = "underline",
-    }: AccordionSectionProps) => {
-        const toggleSection = () => {
-            const nextIndex = isActiveSection ? null : sectionIndex;
-            setActiveIndex(nextIndex);
-        };
-
-        const [height, setHeight] = useState("");
-        const heightRef = useRef<HTMLDivElement>(null);
-
-        useEffect(() => {
-            const scrollHeight = heightRef.current?.scrollHeight;
-            setHeight(`${scrollHeight}px`);
-        }, [isActiveSection]);
-
-        return (
-            <div
-                className={clsx(
-                    "deriv-accordion__wrapper",
-                    AccordionVariant[variant],
-                    {
-                        "deriv-accordion__wrapper--compact": isCompact,
-                    },
-                )}
-            >
-                <div
-                    className={clsx("deriv-accordion__header", {
-                        "deriv-accordion__header--active": isActiveSection,
-                    })}
-                    onClick={toggleSection}
-                >
-                    <div>{section.title}</div>
-                    <div className="deriv-accordion__icon">
-                        <img
-                            src={Chevron}
-                            className={clsx("deriv-accordion__icon", {
-                                "deriv-accordion__icon--active":
-                                    isActiveSection,
-                            })}
-                        />
-                    </div>
-                </div>
-                {isActiveSection && (
-                    <div
-                        className={clsx("deriv-accordion__content", {
-                            "deriv-accordion__content--active": isActiveSection,
-                            "deriv-accordion__content--compact": !isCompact,
-                            "deriv-accordion__content--no-animations":
-                                disableAnimation,
-                        })}
-                        ref={heightRef}
-                        style={{ maxHeight: isActiveSection ? height : "0px" }}
-                    >
-                        {section.content}
-                    </div>
-                )}
-            </div>
-        );
-    },
-);
-
 export const Accordion = ({
-    allowMultiple = false,
-    disableAnimation = false,
+    defaultOpen = false,
+    children,
     isCompact = false,
-    sections,
-    variant,
+    title,
+    variant = "underline",
 }: AccordionProps) => {
-    const [activeIndexes, setActiveIndexes] = useState<number[]>([]);
+    const [active, setActive] = useState(defaultOpen);
+    const [setHeight, setHeightState] = useState(defaultOpen ? "auto" : "0px");
 
-    const setActiveIndex = useCallback(
-        (index: number) => {
-            setActiveIndexes((prevIndexes) => {
-                if (prevIndexes.includes(index)) {
-                    return prevIndexes.filter((i) => i !== index);
-                } else if (allowMultiple) {
-                    return [...prevIndexes, index];
-                } else {
-                    return [index];
-                }
-            });
-        },
-        [allowMultiple],
-    );
+    const content = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        const scrollHeight = content?.current?.scrollHeight;
+        setHeightState(active ? `${scrollHeight}px` : "0px");
+    }, [active]);
+
+    const toggleAccordion = () => setActive(!active);
 
     return (
-        <div className="deriv-accordion">
-            {sections.map((section, sectionIndex) => (
-                <AccordionSection
-                    disableAnimation={disableAnimation}
-                    isActiveSection={activeIndexes.includes(sectionIndex)}
-                    isCompact={isCompact}
-                    key={sectionIndex}
-                    section={section}
-                    sectionIndex={sectionIndex}
-                    setActiveIndex={() => setActiveIndex(sectionIndex)}
-                    variant={variant}
+        <div
+            className={clsx("deriv-accordion", AccordionVariant[variant], {
+                "deriv-accordion--compact": isCompact,
+            })}
+        >
+            <button
+                className={clsx("deriv-accordion__header", {
+                    "deriv-accordion__header--active": active,
+                })}
+                onClick={toggleAccordion}
+            >
+                <p>{title}</p>
+                <img
+                    src={Chevron}
+                    className={clsx("deriv-accordion__icon", {
+                        "deriv-accordion__icon--active": active,
+                    })}
                 />
-            ))}
+            </button>
+            <div
+                ref={content}
+                style={{ maxHeight: setHeight }}
+                className={clsx("deriv-accordion__content", {
+                    "deriv-accordion__content--active": active,
+                })}
+            >
+                <div
+                    className={clsx("deriv-accordion__text", {
+                        "deriv-accordion__text--compact": isCompact,
+                    })}
+                >
+                    {children}
+                </div>
+            </div>
         </div>
     );
 };
