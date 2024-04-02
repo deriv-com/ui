@@ -16,6 +16,8 @@ const meta = {
         error: false,
         disabled: false,
         hideMessage: false,
+        maxLength:100,
+        shouldShowCounter:false,
     },
     argTypes: {
         leftPlaceholder: {
@@ -50,6 +52,11 @@ const meta = {
             },
         },
         hideMessage: {
+            control: {
+                type: "boolean",
+            },
+        },
+        shouldShowCounter: {
             control: {
                 type: "boolean",
             },

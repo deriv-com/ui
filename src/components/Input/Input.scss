@@ -115,6 +115,14 @@ $input-placement: 16px;
     &__right-content {
         margin-left: $input-placement;
     }
+    &__footer {
+        display: flex;
+        line-height: 1.5;
+
+        & span {
+            margin-left: auto;
+        }
+    }
 }
 
 .deriv-input--general .deriv-input__field:disabled + .deriv-input__label,

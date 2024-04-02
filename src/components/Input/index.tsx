@@ -1,5 +1,6 @@
 import React, { ComponentProps, ReactNode, Ref, forwardRef } from "react";
 import clsx from "clsx";
+import { Text } from "../Text";
 import HelperMessage from "./HelperMessage";
 import "./Input.scss";
 
@@ -16,6 +17,8 @@ interface InputProps extends Omit<ComponentProps<"input">, "placeholder"> {
     error?: boolean;
     variant?: InputVariants;
     message?: ReactNode;
+    maxLength?:number;
+    shouldShowCounter?:boolean;
     wrapperClassName?: string;
     hideMessage?: boolean;
     isFullWidth?: boolean;
@@ -89,6 +92,8 @@ export const Input = forwardRef(
             label,
             leftPlaceholder,
             message,
+            maxLength,
+            shouldShowCounter,
             rightPlaceholder,
             variant = "general",
             wrapperClassName,
@@ -147,15 +152,24 @@ export const Input = forwardRef(
                         </div>
                     )}
                 </div>
-                <div className="deriv-input__helper-message">
-                    {!hideMessage && message && (
-                        <HelperMessage
-                            message={message}
-                            variant={variant}
-                            error={error}
-                            disabled={disabled}
-                        />
-                    )}
+                <div className="deriv-input__footer">
+                    <div className="deriv-input__helper-message">
+                        {!hideMessage && message && (
+                            <HelperMessage
+                                message={message}
+                                variant={variant}
+                                error={error}
+                                disabled={disabled}
+                            />
+                        )}
+                    </div>
+                    <div>
+                    {shouldShowCounter && (
+                    <Text>
+                        {(rest.value as string).length ?? 0}/{maxLength}
+                    </Text>
+                )}
+                    </div>
                 </div>
             </div>
         );
