@@ -18,6 +18,22 @@ describe("PasswordInput component", () => {
         expect(screen.getByText('Password must be at least 8 characters')).toBeInTheDocument();
     });
 
+    it('renders with placeholder text', () => {
+        const { getByPlaceholderText } = render(
+            <PasswordInput label="Enter your password" />
+        );
+        expect(getByPlaceholderText('Enter your password')).toBeInTheDocument();
+    });
+
+    it('displays custom error message when provided', async () => {
+        const { getByLabelText, getByText } = render(
+            <PasswordInput label="Password" value="weak" message="Custom error message" />
+        );
+        const input = getByLabelText('Password');
+        await userEvent.click(input);
+        expect(getByText('Custom error message')).toBeInTheDocument();
+    })
+
     it("handles onChange event", async () => {
         const handleChange = jest.fn();
         render(
@@ -73,5 +89,12 @@ describe("PasswordInput component", () => {
         );
         expect(container.querySelector(".deriv-password__meter")).not.toBeInTheDocument();
     });
+
+    it('initializes isTouched state correctly', async() => {
+        render(<PasswordInput label="Password" />);
+        const input = screen.getByLabelText("Password");
+        await userEvent.click(input);
+        expect(input).toHaveValue('');
+      });
 
 });
