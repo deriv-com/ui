@@ -1,17 +1,7 @@
 import React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from '@testing-library/user-event';
 import { PasswordInput } from "..";
-
-jest.mock('@zxcvbn-ts/core', () => ({
-    ...jest.requireActual('@zxcvbn-ts/core'),
-    zxcvbn: jest.fn(() => ({
-        score: 0,
-        feedback: {
-            warning: '',
-            suggestions: [],
-        },
-    })),
-}));
 
 describe("PasswordInput component", () => {
     it("renders with default props", () => {
@@ -28,44 +18,45 @@ describe("PasswordInput component", () => {
         expect(screen.getByText('Password must be at least 8 characters')).toBeInTheDocument();
     });
 
-    it("handles onChange event", () => {
+    it("handles onChange event", async () => {
         const handleChange = jest.fn();
         render(
             <PasswordInput label="Password" onChange={handleChange} />
         );
         const input = screen.getByLabelText("Password");
-        fireEvent.change(input, { target: { value: "password123" } });
-        expect(handleChange).toHaveBeenCalledTimes(1);
+        await userEvent.type(input, "password123");
+        expect(handleChange).toHaveBeenCalledTimes(11);
     });
 
-    it("handles onBlur event", () => {
+    it("handles onBlur event", async () => {
         const handleBlur = jest.fn();
         render(
             <PasswordInput label="Password" onBlur={handleBlur} />
         );
         const input = screen.getByLabelText("Password");
-        fireEvent.blur(input);
+        await userEvent.click(input);
+        await userEvent.click(input?.parentElement || document.body);
         expect(handleBlur).toHaveBeenCalledTimes(1);
     });
 
-    it("toggles password visibility", () => {
+    it("toggles password visibility", async () => {
         render(
             <PasswordInput label="Password" />
         );
         const input = screen.getByLabelText("Password");
         const toggleButton = screen.getByRole("button");
-        fireEvent.click(toggleButton);
+        await userEvent.click(toggleButton);
         expect(input).toHaveAttribute("type", "text");
-        fireEvent.click(toggleButton);
+        await userEvent.click(toggleButton);
         expect(input).toHaveAttribute("type", "password");
     });
 
-    it("validates password and shows meter", () => {
+    it("validates password and shows meter", async () => {
         const { container } = render(
             <PasswordInput label="Password" />
         );
         const input = screen.getByLabelText("Password");
-        fireEvent.change(input, { target: { value: "pass" } });
+        await userEvent.type(input, "pass");
         expect(container.querySelector(".deriv-password__meter__bar--weak")).toBeInTheDocument();
     });
 
