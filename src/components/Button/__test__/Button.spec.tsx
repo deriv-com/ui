@@ -92,7 +92,7 @@ describe("Button component", () => {
 
   it("hover styles are applied when hideHoverStyles is true", () => {
     render(
-      <Button hideHoverStyles={true}>Hover Button</Button>
+      <Button hideHoverStyles>Hover Button</Button>
     );
     const button = screen.getByRole("button");
     expect(button).toHaveClass("deriv-button__hover--disabled");
