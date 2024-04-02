@@ -90,20 +90,20 @@ describe("Button component", () => {
     expect(screen.queryByText("Test Button")).toBeNull();
   });
 
-  it("hover styles are applied when hasHoverStyle is true", () => {
+  it("hover styles are applied when hideHoverStyles is true", () => {
     render(
-      <Button hasHoverStyle={true}>Hover Button</Button>
+      <Button hideHoverStyles={true}>Hover Button</Button>
     );
     const button = screen.getByRole("button");
-    expect(button).not.toHaveClass("deriv-button__disable-hover");
+    expect(button).not.toHaveClass("deriv-button__hover--disabled");
   });
 
-  it("hover styles are not applied when hasHoverStyle is false", () => {
+  it("hover styles are not applied when hideHoverStyles is false", () => {
     render(
-      <Button hasHoverStyle={false}>Hover Button</Button>
+      <Button>Hover Button</Button>
     );
     const button = screen.getByRole("button");
-    expect(button).toHaveClass("deriv-button__disable-hover");
+    expect(button).toHaveClass("deriv-button__hover--disabled");
   });
 
 });
