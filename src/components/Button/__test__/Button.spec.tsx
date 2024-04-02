@@ -95,7 +95,7 @@ describe("Button component", () => {
       <Button hideHoverStyles={true}>Hover Button</Button>
     );
     const button = screen.getByRole("button");
-    expect(button).not.toHaveClass("deriv-button__hover--disabled");
+    expect(button).toHaveClass("deriv-button__hover--disabled");
   });
 
   it("hover styles are not applied when hideHoverStyles is false", () => {
@@ -103,7 +103,7 @@ describe("Button component", () => {
       <Button>Hover Button</Button>
     );
     const button = screen.getByRole("button");
-    expect(button).toHaveClass("deriv-button__hover--disabled");
+    expect(button).not.toHaveClass("deriv-button__hover--disabled");
   });
 
 });
