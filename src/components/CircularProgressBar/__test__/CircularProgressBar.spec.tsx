@@ -22,4 +22,30 @@ describe("CircularProgressBar Component", () => {
         expect(container.querySelector(".deriv-circular-progress--clockwise")).toBeInTheDocument();
     });
 
+    it("renders circular progress bar with custom className", () => {
+        const { container } = render(<CircularProgressBar className="custom-class" />);
+        const circularProgressBar = container.querySelector(".custom-class");
+        expect(circularProgressBar).toBeInTheDocument();
+        expect(circularProgressBar).toHaveClass("deriv-circular-progress", "custom-class");
+      });
+
+      it("renders circular progress bar with custom radius and stroke", () => {
+        const { container } = render(<CircularProgressBar radius={30} stroke={5} />);
+        const circularProgressBar = container.querySelector(".deriv-circular-progress__bar");
+        expect(circularProgressBar).toHaveAttribute("r", "27.5");
+        expect(circularProgressBar).toHaveAttribute("stroke-width", "5");
+      });
+
+      it("renders circular progress bar with custom progress and warning limits", () => {
+        const { container } = render(<CircularProgressBar progress={20} warning_limit={30} danger_limit={10} />);
+        const circularProgressBar = container.querySelector(".deriv-circular-progress__bar");
+        expect(circularProgressBar).toHaveClass("deriv-circular-progress__bar--warning");
+      });
+
+      it("renders circular progress bar with custom progress and danger limits", () => {
+        const { container } = render(<CircularProgressBar progress={5} warning_limit={30} danger_limit={10} />);
+        const circularProgressBar = container.querySelector(".deriv-circular-progress__bar");
+        expect(circularProgressBar).toHaveClass("deriv-circular-progress__bar--danger");
+      });
+
 });
