@@ -15,6 +15,7 @@ type SideNoteProps = Omit<ComponentProps<"div">, "className"> & {
     className?: HTMLDivElement["className"];
     actionClick?: MouseEventHandler<HTMLButtonElement>;
     actionClassName?: HTMLDivElement["className"];
+    titleClassName?: HTMLDivElement["className"];
     actionLabel?: ReactNode;
 };
 
@@ -25,6 +26,7 @@ type SideNoteProps = Omit<ComponentProps<"div">, "className"> & {
  * @param {SideNoteProps.className} className - Add an extra className to the container.
  * @param {SideNoteProps.actionClick} actionClick - An onclick handler for the action button.
  * @param {SideNoteProps.actionClassName} actionClassName - Add an extra className to the action button.
+ * @param {SideNoteProps.titleClassName} titleClassName - Add an extra className to the title.
  * @param {SideNoteProps.actionLabel} actionLabel - Display the label of the action. (default: "Learn more")
  * @returns {React.JSX.Element} - Returns the SideNote component.
  */
@@ -35,17 +37,18 @@ export const SideNote = ({
     className,
     actionClick,
     actionClassName,
+    titleClassName,
     actionLabel = "Learn more",
     ...props
 }: PropsWithChildren<SideNoteProps>) => (
     <div className={clsx("deriv-side-note", className)} {...props}>
         {title && (
-            <Text data-testid="dt_deriv-side-note-title" size={titleSize} align="left" weight="bold">
+            <Text data-testid="dt_deriv-side-note-title" className={clsx("deriv-side-note__title", titleClassName)} size={titleSize} align="left" weight="bold">
                 {title}
             </Text>
         )}
 
-        <div>{children}</div>
+        {children}
 
         {actionClick && (
             <button

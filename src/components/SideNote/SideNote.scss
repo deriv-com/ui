@@ -3,6 +3,12 @@
     color: #333333;
     padding: 16px 24px;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        margin-bottom: 8px;
+    }
 
     &:hover > &__action {
         text-decoration: underline;
@@ -14,5 +20,6 @@
         align-items: center;
         gap: 8px;
         cursor: pointer;
+        margin-top: 16px;
     }
 }

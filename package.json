@@ -31,6 +31,9 @@
         "test": "jest",
         "test:report": "jest --collectCoverage"
     },
+    "dependencies": {
+        "@types/react-modal": "^3.16.3"
+    },
     "devDependencies": {
         "@babel/preset-env": "^7.24.3",
         "@babel/preset-react": "^7.24.1",
@@ -53,9 +56,8 @@
         "@testing-library/user-event": "^14.5.2",
         "@types/jest": "^29.5.12",
         "@types/node": "^20.11.30",
-        "@types/react": "^18.2.71",
+        "@types/react": "^18.2.72",
         "@types/react-dom": "^18.2.22",
-        "@types/react-modal": "^3.16.3",
         "@typescript-eslint/eslint-plugin": "^7.4.0",
         "@typescript-eslint/parser": "^7.4.0",
         "@vitejs/plugin-react": "^4.2.1",
@@ -82,6 +84,7 @@
         "storybook": "^8.0.4",
         "ts-jest": "^29.1.2",
         "typescript": "^5.4.3",
+        "usehooks-ts": "^3.0.2",
         "vite": "^5.2.6",
         "vite-plugin-classname": "^0.0.3",
         "vite-plugin-dts": "^3.7.3",
@@ -115,6 +118,17 @@
         "moduleNameMapper": {
             "\\.(css|less|scss|sass)$": "identity-obj-proxy",
             "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/test/__mocks__/fileMock.js"
-        }
+        },
+        "collectCoverageFrom": [
+            "./src/components/*/*.{ts,tsx}",
+            "./src/hooks/*.{ts,tsx}",
+            "!./src/hooks/index.ts",
+            "!./node_modules/**",
+            "!./dist/**",
+            "!./stories/**",
+            "!/vite.config.ts",
+            "!./.storybook/**",
+            "!./coverage/**"
+        ]
     }
 }

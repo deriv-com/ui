@@ -1,5 +1,5 @@
 import React from "react";
-import { useDevice } from "../../hooks/useDevice";
+import { useDevice } from "../../hooks";
 import "./PageLayout.scss";
 
 type PageLayoutProps = {
