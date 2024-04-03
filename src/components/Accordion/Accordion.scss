@@ -1,0 +1,84 @@
+/* Style the accordion section */
+$border: 1px solid var(--du-general-active);
+$animation-duration: 0.3s;
+
+.deriv-accordion {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    min-width: 100%;
+    background-color: var(--du-general-main-2);
+    padding: 24px;
+
+    &--compact {
+        padding: 16px;
+    }
+
+    &--underline {
+        border-bottom: $border;
+    }
+
+    &--shadow,
+    &--bordered {
+        border-radius: $border-radius-2;
+        margin-bottom: 8px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &--bordered {
+        border: $border;
+    }
+
+    &--shadow {
+        box-shadow: $deriv-box-shadow;
+    }
+
+    &__header {
+        outline: none;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--du-text-general);
+        cursor: pointer;
+    }
+
+    &__icon {
+        margin-left: auto;
+        display: inline-block;
+        transition: all $animation-duration ease-in-out;
+
+        &--active {
+            transform: rotate(-180deg);
+        }
+    }
+    &__content {
+        width: 100%;
+        overflow: auto;
+        opacity: 0;
+        background-color: white;
+        transition: all $animation-duration ease;
+
+        &--active {
+            opacity: 1;
+        }
+    }
+
+    &__text {
+        margin-top: 24px;
+        color: var(--du-text-general);
+
+        &--compact {
+            margin-top: 16px;
+        }
+    }
+}
+.accordion__section {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    min-width: 100%;
+}
