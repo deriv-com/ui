@@ -15,6 +15,7 @@ interface ButtonProps extends ComponentProps<"button"> {
     isLoading?: boolean;
     rounded?: Extract<TGenericSizes, "lg" | "md" | "sm">;
     size?: Extract<TGenericSizes, "lg" | "md" | "sm">;
+    hideHoverStyles?:boolean;
     textSize?: ComponentProps<typeof Text>["size"];
     variant?: TVariant;
 }
@@ -65,6 +66,7 @@ export const Button = ({
     isLoading = false,
     rounded = "sm",
     size = "md",
+    hideHoverStyles=false,
     textSize,
     variant = "contained",
     ...rest
@@ -80,6 +82,7 @@ export const Button = ({
                 ButtonRounded[rounded],
                 {
                     "deriv-button__full-width": isFullWidth,
+                    "deriv-button__hover--disabled": hideHoverStyles,
                 },
                 className,
             )}

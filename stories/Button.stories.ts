@@ -15,6 +15,7 @@ const meta = {
         isLoading: false,
         disabled: false,
         size: "md",
+        hideHoverStyles:false,
         isFullWidth: false,
         rounded: "sm",
         type: "button",
@@ -32,6 +33,10 @@ const meta = {
             },
         },
         isLoading: {
+            options: ["true", "false"],
+            control: { type: "boolean" },
+        },
+        hideHoverStyles: {
             options: ["true", "false"],
             control: { type: "boolean" },
         },
@@ -83,6 +88,14 @@ export const Outlined: Story = {
 export const ContainedPrimary: Story = {
     name: "Contained (Primary)",
     args: { ...meta.args },
+};
+
+export const ContainedPrimaryWithNoHover: Story = {
+    name: "Contained (Primary No Hover Style)",
+    args: {
+        ...meta.args,
+        hideHoverStyles:true,
+     },
 };
 
 export const ContainedPrimaryLight: Story = {

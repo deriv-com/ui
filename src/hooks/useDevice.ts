@@ -1,4 +1,4 @@
-import { useMediaQuery } from "./useMediaQuery";
+import { useMediaQuery } from "usehooks-ts";
 
 /** A custom hook to check for the client device and determine the layout to be rendered */
 export const useDevice = () => {
