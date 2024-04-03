@@ -1,6 +1,6 @@
 import React, { ReactNode, useRef, useState } from "react";
 import clsx from "clsx";
-import { useOnClickOutside } from "../../hooks/useOnClickOutside";
+import { useOnClickOutside } from "usehooks-ts";
 import "./Tooltip.scss";
 
 type TooltipPositionType = "top" | "bottom" | "left" | "right";
@@ -45,7 +45,7 @@ export const Tooltip = ({
         }
     };
 
-    const handleClickOutside = (event: globalThis.MouseEvent) => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent | FocusEvent) => {
         if (
             triggerAction === "click" &&
             active &&
