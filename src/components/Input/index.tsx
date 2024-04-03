@@ -166,7 +166,7 @@ export const Input = forwardRef(
                     <div>
                     {shouldShowCounter && !disabled &&(
                     <Text size="xs" color="less-prominent" >
-                        {(rest.value as string).length ?? 0}/{maxLength}
+                        {(rest.value as string)?.length ?? 0}/{maxLength}
                     </Text>
                 )}
                     </div>

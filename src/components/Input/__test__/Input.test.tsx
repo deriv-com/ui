@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+//import userEvent from "@testing-library/user-event";
 import { Input } from "..";
 
 const props = { label: "Test", message: "Test message", id: "test" };
@@ -106,5 +107,29 @@ describe("Input", () => {
         expect(input).toHaveClass("deriv-input--disabled");
         expect(input).not.toHaveClass("deriv-input--error");
         expect(inputLabel).toHaveClass("deriv-input__label--disabled");
+    });
+
+    // fit("should update character counter as user types", async () => {
+    //     const maxLength = 10;
+    //     const { container } = render(
+    //         <Input
+    //             label="Username"
+    //             shouldShowCounter
+    //             maxLength={maxLength}
+    //         />
+    //     );
+    //     const inputContainer = container.firstChild;
+    //     const input = inputContainer?.firstChild;
+    //     await userEvent.type(input, "hello");
+    //     expect(screen.getByText("5/10")).toBeInTheDocument();
+    // });
+
+    it("should not display character counter if shouldShowCounter is false", () => {
+        const { container } = render(
+            <Input
+                label="Username"
+            />
+        );
+        expect(container.querySelector(".deriv-text")).not.toBeInTheDocument();
     });
 });
