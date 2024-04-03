@@ -14,12 +14,16 @@ const meta = {
         stroke: 3,
         danger_limit: 20,
         warning_limit: 50,
-        variant:"clockwise"
+        is_clockwise:false
     },
     argTypes: {
         progress: {
             control: { type: "range", min: 0, max: 100, step: 1 },
         },
+        is_clockwise: {
+            options: ["true", "false"],
+            control: { type: "boolean" },
+        }
     },
 } as Meta<typeof CircularProgressBar>;
 export default meta;
@@ -29,19 +33,6 @@ export const DefaultClockWise: Story = {
     args: {
         progress: 50,
     }
-}
-export const StaticProgressBar:Story = {
-    args:{
-        progress: 50,
-        variant: 'static',
-      }
-}
-
-export const SelectableProgressBar:Story = {
-    args:{
-        progress: 30,
-        variant: 'selectable',
-      }
 }
 
 export const CustomRadiusAndStrokeClockwise: Story = {
@@ -59,17 +50,9 @@ export const ClockwiseProgress: Story = {
     }
 }
 
-export const WithIconSelectable: Story = {
-    args: {
-        progress: 80,
-        children: <span>🔄</span>,
-        variant:"selectable"
-    }
-}
-
 export const WarningLimitClockWise = {
     args: {
-        progress: 40,
+        progress: 30,
         warning_limit: 30,
     }
 }
