@@ -112,7 +112,7 @@ describe("PasswordUtils", () => {
         expect(validPassword("ValidPassword123")).toBe(true);
       });
 
-      it("returns false for an invalid password", () => {
+      it("returns true for an invalid password", () => {
         expect(validPassword("short")).toBe(false);
         expect(validPassword("noUpperNoSymbol123")).toBe(true);
         expect(validPassword("NoLowerNoSymbol123")).toBe(true);
@@ -124,7 +124,7 @@ describe("PasswordUtils", () => {
         expect(isPasswordValid("ValidPassword123")).toBe(true);
       });
 
-      it("returns false for an invalid password", () => {
+      it("returns true for an invalid password", () => {
         expect(isPasswordValid("short")).toBe(false);
         expect(isPasswordValid("noUpperNoSymbol123")).toBe(true);
         expect(isPasswordValid("NoLowerNoSymbol123")).toBe(true);
