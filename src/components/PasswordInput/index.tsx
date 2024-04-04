@@ -28,7 +28,9 @@ export const validatePassword = (password: string) => {
 
     const options = { dictionary: { ...dictionary } };
     zxcvbnOptions.setOptions(options);
-
+    if(!password){
+        return { errorMessage, score };
+    }
     const { feedback } = zxcvbn(password);
     if (!passwordRegex.isLengthValid.test(password)) {
         errorMessage = passwordErrorMessage.invalidLength;
@@ -121,6 +123,7 @@ export const PasswordInput = ({
             })}
         >
             <Input
+                aria-label={rest?.label}
                 wrapperClassName="deriv-password__wrapper"
                 value={value}
                 type={showPassword ? "text" : "password"}
