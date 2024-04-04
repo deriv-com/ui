@@ -32,7 +32,7 @@ export const isPasswordStrong = (password: string) => {
 };
 
 export const calculateScore = (password: string) => {
-    if (password.length === 0) return 0;
+    if (password?.length === 0) return 0;
     if (!isPasswordValid(password)) return 1;
     if (
         !isPasswordStrong(password) &&
