@@ -141,7 +141,6 @@ export const Input = forwardRef(
                         placeholder={label}
                         className="deriv-input__field"
                         id={id}
-                        data-testid='test'
                         disabled={disabled}
                         ref={ref}
                         onChange={handleInputChange}
