@@ -203,3 +203,26 @@ export const RightPlaceholder: Story = {
         );
     },
 };
+
+export const ShowCounter: Story = {
+    name: "Input with Counter",
+    args: {
+        label: "Enter name",
+        value: "",
+        message: "This is a helper message",
+    },
+    render: (args) => {
+        const [value, setValue] = useState("");
+
+        return (
+            <div className="theme--light">
+                <Input
+                    {...args}
+                    value={value}
+                    shouldShowCounter
+                    onChange={(e) => setValue(e.target.value)}
+                />
+            </div>
+        );
+    },
+};
