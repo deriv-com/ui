@@ -208,8 +208,7 @@ export const ShowCounter: Story = {
     name: "Input with Counter",
     args: {
         label: "Enter name",
-        value: "",
-        message: "This is a helper message",
+        value: ""
     },
     render: (args) => {
         const [value, setValue] = useState("");
@@ -219,6 +218,7 @@ export const ShowCounter: Story = {
                 <Input
                     {...args}
                     value={value}
+                    hideMessage
                     shouldShowCounter
                     onChange={(e) => setValue(e.target.value)}
                 />
