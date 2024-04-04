@@ -1,6 +1,8 @@
-import { render, screen } from "@testing-library/react";
-//import userEvent from "@testing-library/user-event";
+import { render, screen, act } from "@testing-library/react";
+import { userEvent } from '@testing-library/user-event';
 import { Input } from "..";
+import { createRef } from 'react';
+
 
 const props = { label: "Test", message: "Test message", id: "test" };
 
@@ -109,20 +111,32 @@ describe("Input", () => {
         expect(inputLabel).toHaveClass("deriv-input__label--disabled");
     });
 
-    // fit("should update character counter as user types", async () => {
-    //     const maxLength = 10;
-    //     const { container } = render(
-    //         <Input
-    //             label="Username"
-    //             shouldShowCounter
-    //             maxLength={maxLength}
-    //         />
-    //     );
-    //     const inputContainer = container.firstChild;
-    //     const input = inputContainer?.firstChild;
-    //     await userEvent.type(input, "hello");
-    //     expect(screen.getByText("5/10")).toBeInTheDocument();
-    // });
+    it("should update character counter as user types", async () => {
+        const handleChange = jest.fn();
+        const maxLength = 10;
+        render(
+            <Input
+                label="Username"
+                shouldShowCounter
+                maxLength={maxLength}
+                onChange={handleChange}
+            />
+        );
+        const input = screen.getByLabelText("Username");
+        await userEvent.type(input, "input")
+        expect(handleChange).toHaveBeenCalledTimes(5);
+    });
+
+    it('limits input length based on maxLength prop', async() => {
+        render(<Input
+            label="Username"
+            shouldShowCounter
+            maxLength={5}
+        />);
+        const input = screen.getByLabelText("Username");
+        await userEvent.type(input, 'Too much input');
+        expect(input).toHaveProperty('value','Too m')
+    });
 
     it("should not display character counter if shouldShowCounter is false", () => {
         const { container } = render(
@@ -131,5 +145,19 @@ describe("Input", () => {
             />
         );
         expect(container.querySelector(".deriv-text")).not.toBeInTheDocument();
+    });
+
+    it("should not display character counter if shouldShowCounter is true", () => {
+        const maxLength = 10;
+        const { container } = render(
+            <Input
+                label="Username"
+                shouldShowCounter
+                maxLength={maxLength}
+            />
+        );
+        const counterElement = screen.getByText('0/10');
+        expect(counterElement).toBeInTheDocument();
+        expect(container.querySelector(".deriv-text")).toBeInTheDocument();
     });
 });

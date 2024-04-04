@@ -96,11 +96,21 @@ export const Input = forwardRef(
             shouldShowCounter,
             rightPlaceholder,
             variant = "general",
+            value,
+            onChange,
             wrapperClassName,
             ...rest
         }: InputProps,
         ref: Ref<HTMLInputElement>,
     ) => {
+        const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+            if (maxLength && e.target.value.length > maxLength) {
+                e.target.value = e.target.value.slice(0, maxLength);
+            }
+            if (onChange) {
+                onChange(e);
+            }
+        };
         return (
             <div
                 className={clsx(
@@ -127,11 +137,15 @@ export const Input = forwardRef(
                         </div>
                     )}
                     <input
+                        aria-label={label}
                         placeholder={label}
                         className="deriv-input__field"
                         id={id}
+                        data-testid='test'
                         disabled={disabled}
                         ref={ref}
+                        onChange={handleInputChange}
+                        value={value}
                         {...rest}
                     />
                     <label
@@ -166,7 +180,7 @@ export const Input = forwardRef(
                     <div>
                     {shouldShowCounter && !disabled &&(
                     <Text size="xs" color="less-prominent" >
-                        {(rest.value as string)?.length ?? 0}/{maxLength}
+                        {(value as string)?.length ?? 0}/{maxLength}
                     </Text>
                 )}
                     </div>
