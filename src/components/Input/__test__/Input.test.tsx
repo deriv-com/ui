@@ -1,7 +1,6 @@
-import { render, screen, act } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { userEvent } from '@testing-library/user-event';
 import { Input } from "..";
-import { createRef } from 'react';
 
 
 const props = { label: "Test", message: "Test message", id: "test" };
@@ -127,7 +126,7 @@ describe("Input", () => {
         expect(handleChange).toHaveBeenCalledTimes(5);
     });
 
-    it('limits input length based on maxLength prop', async() => {
+    it('limits input length based on maxLength prop', async () => {
         render(<Input
             label="Username"
             shouldShowCounter
@@ -135,7 +134,7 @@ describe("Input", () => {
         />);
         const input = screen.getByLabelText("Username");
         await userEvent.type(input, 'Too much input');
-        expect(input).toHaveProperty('value','Too m')
+        expect(input).toHaveProperty('value', 'Too m')
     });
 
     it("should not display character counter if shouldShowCounter is false", () => {
