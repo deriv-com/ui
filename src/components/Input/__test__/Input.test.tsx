@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { userEvent } from '@testing-library/user-event';
+import { userEvent } from "@testing-library/user-event";
 import { Input } from "..";
 
 
@@ -126,15 +126,15 @@ describe("Input", () => {
         expect(handleChange).toHaveBeenCalledTimes(5);
     });
 
-    it('limits input length based on maxLength prop', async () => {
+    it("limits input length based on maxLength prop", async () => {
         render(<Input
             label="Username"
             shouldShowCounter
             maxLength={5}
         />);
         const input = screen.getByLabelText("Username");
-        await userEvent.type(input, 'Too much input');
-        expect(input).toHaveProperty('value', 'Too m')
+        await userEvent.type(input, "Too much input");
+        expect(input).toHaveProperty("value", "Too m")
     });
 
     it("should not display character counter if shouldShowCounter is false", () => {
@@ -155,7 +155,7 @@ describe("Input", () => {
                 maxLength={maxLength}
             />
         );
-        const counterElement = screen.getByText('0/10');
+        const counterElement = screen.getByText("0/10");
         expect(counterElement).toBeInTheDocument();
         expect(container.querySelector(".deriv-text")).toBeInTheDocument();
     });
