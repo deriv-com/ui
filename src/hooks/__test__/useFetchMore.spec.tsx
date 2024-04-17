@@ -4,7 +4,7 @@ import { useFetchMore } from '../index';
 describe('useFetchMore', () => {
     it('should call loadMore when scrolled to the bottom of the container', () => {
         const loadMoreMock = jest.fn();
-        const containerRef = { clientHeight: 500, scrollHeight: 1000, scrollTop: 300 } ;
+        const containerRef = { current:{clientHeight: 500, scrollHeight: 1000, scrollTop: 300 }} ;
         const { result } = renderHook(() =>
             useFetchMore({ isFetching: false, loadMore: loadMoreMock, ref: containerRef })
         );
