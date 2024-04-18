@@ -9,6 +9,7 @@ const meta = {
     tags: ["autodocs"],
     args: {
         isFullWidth: false,
+        islabelAnimationDisabled:false,
         label: "Enter Password",
         value: "",
         variant: "general",
@@ -189,6 +190,29 @@ export const RightPlaceholder: Story = {
             <div className="theme--light">
                 <Input
                     {...args}
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                />
+            </div>
+        );
+    },
+};
+
+export const LabelAnimationDisabled: Story = {
+    name: "Label Animation Disabled Input",
+    args: {
+        label: "Enter name",
+        value: "",
+        message: "This is a helper message",
+    },
+    render: (args) => {
+        const [value, setValue] = useState("");
+
+        return (
+            <div className="theme--light">
+                <Input
+                    {...args}
+                    islabelAnimationDisabled
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
                 />

@@ -107,4 +107,10 @@ describe("Input", () => {
         expect(input).not.toHaveClass("deriv-input--error");
         expect(inputLabel).toHaveClass("deriv-input__label--disabled");
     });
+
+    it("should show disable label animation", () => {
+        const {container}=render(<Input islabelAnimationDisabled {...props} />);
+        const input = container.querySelector(".deriv-input__fieldDisabled");
+        expect(input).toBeInTheDocument();
+    });
 });

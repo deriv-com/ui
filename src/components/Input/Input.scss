@@ -81,6 +81,19 @@ $input-placement: 16px;
             }
         }
     }
+    &__fieldDisabled{
+        width: 100%;
+        outline: none;
+        &::placeholder {
+            visibility: hidden;
+        }
+        &:focus,
+        &:not(:placeholder-shown) {
+            & ~ label {
+                visibility: hidden;
+            }
+        }
+    }
 
     &__label {
         display: inline-block;
