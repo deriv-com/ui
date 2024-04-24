@@ -31,8 +31,9 @@ export const isPasswordStrong = (password: string) => {
     );
 };
 
-export const calculateScore = (password: string) => {
+export const calculateScore = (password: string, customErrorMessage = "") => {
     if (password?.length === 0) return 0;
+    if (customErrorMessage) return 5;
     if (!isPasswordValid(password)) return 1;
     if (
         !isPasswordStrong(password) &&

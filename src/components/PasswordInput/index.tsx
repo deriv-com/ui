@@ -3,6 +3,7 @@ import React, {
     ComponentProps,
     FocusEvent,
     useCallback,
+    useEffect,
     useMemo,
     useState,
 } from "react";
@@ -22,13 +23,13 @@ import { EyeIcon, EyeIconSlash } from "./PasswordIcon";
 import { PasswordMeter } from "./PasswordMeter";
 import "./PasswordInput.scss";
 
-export const validatePassword = (password: string) => {
-    const score = calculateScore(password);
+export const validatePassword = (password: string, customErrorMessage = "") => {
+    const score = calculateScore(password, customErrorMessage);
     let errorMessage = "";
 
     const options = { dictionary: { ...dictionary } };
     zxcvbnOptions.setOptions(options);
-    if(!password){
+    if (!password) {
         return { errorMessage, score };
     }
     const { feedback } = zxcvbn(password);
@@ -36,9 +37,14 @@ export const validatePassword = (password: string) => {
         errorMessage = passwordErrorMessage.invalidLength;
     } else if (!isPasswordValid(password)) {
         errorMessage = passwordErrorMessage.missingCharacter;
-    } else {
+    }
+    else if (customErrorMessage) {
+        errorMessage = customErrorMessage;
+    }
+    else {
         errorMessage = warningMessages[feedback.warning as passwordKeys] ?? "";
     }
+
     return { errorMessage, score };
 };
 
@@ -47,6 +53,7 @@ type InputProps = ComponentProps<typeof Input>;
 interface PasswordInputProps extends Omit<InputProps, "rightPlaceholder"> {
     hidePasswordMeter?: boolean;
     hint?: string;
+    customErrorMessage?: string;
 }
 
 const PasswordVariant: Record<TScore, InputProps["variant"]> = {
@@ -55,6 +62,7 @@ const PasswordVariant: Record<TScore, InputProps["variant"]> = {
     2: "warning",
     3: "success",
     4: "success",
+    5: "error",
 };
 
 /**
@@ -86,19 +94,25 @@ export const PasswordInput = ({
     onBlur,
     onChange,
     value,
+    customErrorMessage = "",
     ...rest
 }: PasswordInputProps) => {
+    useEffect(() => {
+        setBackendErrorMessage(customErrorMessage);
+    }, [customErrorMessage]);
     const [isTouched, setIsTouched] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const [backendErrorMessage, setBackendErrorMessage] = useState(customErrorMessage);
 
     const { errorMessage, score } = useMemo(
-        () => validatePassword(value as string),
-        [value],
+        () => validatePassword(value as string, backendErrorMessage),
+        [value, backendErrorMessage],
     );
 
     const handleChange = useCallback(
         (e: ChangeEvent<HTMLInputElement>) => {
             onChange?.(e);
+            setBackendErrorMessage("");
             if (!isTouched) {
                 setIsTouched(true);
             }
