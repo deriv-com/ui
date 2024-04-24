@@ -23,13 +23,13 @@ import { EyeIcon, EyeIconSlash } from "./PasswordIcon";
 import { PasswordMeter } from "./PasswordMeter";
 import "./PasswordInput.scss";
 
-export const validatePassword = (password: string, customErrorMessage="") => {
+export const validatePassword = (password: string, customErrorMessage = "") => {
     const score = calculateScore(password, customErrorMessage);
     let errorMessage = "";
 
     const options = { dictionary: { ...dictionary } };
     zxcvbnOptions.setOptions(options);
-    if(!password){
+    if (!password) {
         return { errorMessage, score };
     }
     const { feedback } = zxcvbn(password);
@@ -38,7 +38,7 @@ export const validatePassword = (password: string, customErrorMessage="") => {
     } else if (!isPasswordValid(password)) {
         errorMessage = passwordErrorMessage.missingCharacter;
     }
-    else if( customErrorMessage){
+    else if (customErrorMessage) {
         errorMessage = customErrorMessage;
     }
     else {
@@ -94,7 +94,7 @@ export const PasswordInput = ({
     onBlur,
     onChange,
     value,
-    customErrorMessage="",
+    customErrorMessage = "",
     ...rest
 }: PasswordInputProps) => {
     useEffect(() => {

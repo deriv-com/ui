@@ -1,7 +1,7 @@
 import { StoryObj, Meta } from "@storybook/react";
 import { PasswordInput } from "../src/main";
 import { useState } from "react";
-import {Button} from "../src/main";
+import { Button } from "../src/main";
 
 const meta = {
     title: "Components/PasswordInput",
@@ -13,7 +13,7 @@ const meta = {
         hideMessage: false,
         label: "Enter Password",
         value: "",
-        onChange: () => {},
+        onChange: () => { },
         hidePasswordMeter: false,
         hint: "This is a hint message",
     },
@@ -55,7 +55,7 @@ export const Default: Story = {
     args: {
         label: "Enter Password",
         value: "",
-        onChange: () => {},
+        onChange: () => { },
         hidePasswordMeter: false,
         hint: "This is a hint message",
     },
@@ -80,7 +80,7 @@ export const HideMessage: Story = {
         hideMessage: true,
         label: "Enter Password",
         value: "",
-        onChange: () => {},
+        onChange: () => { },
         hidePasswordMeter: false,
         hint: "This is a hint message",
     },
@@ -104,7 +104,7 @@ export const HidePasswordMeter: Story = {
     args: {
         label: "Enter Password",
         value: "",
-        onChange: () => {},
+        onChange: () => { },
         hidePasswordMeter: true,
         hint: "This is a hint message",
     },
@@ -128,7 +128,7 @@ export const customErrorMessage: Story = {
     args: {
         label: "Enter Password",
         value: "",
-        onChange: () => {},
+        onChange: () => { },
         hidePasswordMeter: true,
         hint: "This is a hint message",
     },
@@ -138,7 +138,7 @@ export const customErrorMessage: Story = {
 
 
         return (
-            <div className="theme--light" style={{display:"flex", flexDirection:"column"}}>
+            <div className="theme--light" style={{ display: "flex", flexDirection: "column" }}>
                 <PasswordInput
                     {...args}
                     value={value}
