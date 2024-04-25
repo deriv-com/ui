@@ -51,7 +51,7 @@ export const Accordion = ({
                 onClick={toggleAccordion}
                 aria-expanded={active}
             >
-                <p>{title}</p>
+                {typeof title === "string" ? <p>{title}</p> : title}
                 <img
                     src={Chevron}
                     className={clsx("deriv-accordion__icon", {
