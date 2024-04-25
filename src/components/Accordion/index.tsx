@@ -9,7 +9,7 @@ type AccordionProps = {
     children: ReactNode;
     defaultOpen?: boolean;
     isCompact?: boolean;
-    title: string;
+    title: string | JSX.Element;
     variant?: AccordionVariants;
 };
 
@@ -51,7 +51,7 @@ export const Accordion = ({
                 onClick={toggleAccordion}
                 aria-expanded={active}
             >
-                <p>{title}</p>
+                {typeof title === "string" ? <p>{title}</p> : title}
                 <img
                     src={Chevron}
                     className={clsx("deriv-accordion__icon", {

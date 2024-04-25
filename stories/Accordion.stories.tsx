@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Accordion } from "../src/main";
+import DerivBrandLogo from "./mock/brand-deriv-logo.svg";
 
 const meta = {
     title: "Components/Accordion",
@@ -17,7 +18,6 @@ const meta = {
         variant: "underline",
     },
     argTypes: {
-        title: { control: { type: "text" } },
         defaultOpen: { control: { type: "boolean" } },
         variant: {
             options: ["underline", "bordered", "shadow"],
@@ -56,6 +56,26 @@ export const Underline: Story = {
 export const Bordered: Story = {
     args: {
         variant: "bordered",
+    },
+    render: (args) => (
+        <div {...props}>
+            <Accordion {...args}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </Accordion>
+        </div>
+    ),
+};
+
+export const BorderedWithIcons: Story = {
+    args: {
+        variant: "bordered",
+        title: (
+            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <img src={DerivBrandLogo} height={40} width={40} />
+                <span>What is your return policy?</span>
+            </div>
+        ),
     },
     render: (args) => (
         <div {...props}>
