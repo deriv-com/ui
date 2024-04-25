@@ -9,7 +9,7 @@ type AccordionProps = {
     children: ReactNode;
     defaultOpen?: boolean;
     isCompact?: boolean;
-    title: string;
+    title: string | JSX.Element;
     variant?: AccordionVariants;
 };
 
