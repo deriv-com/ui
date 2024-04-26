@@ -126,7 +126,7 @@ export const Input = forwardRef(
                     )}
                     <input
                         placeholder={label}
-                        className={clsx(islabelAnimationDisabled? "deriv-input__fieldDisabled" : "deriv-input__field" )}
+                        className={islabelAnimationDisabled? "deriv-input--label-animation-disabled" : "deriv-input__field" }
                         id={id}
                         disabled={disabled}
                         ref={ref}

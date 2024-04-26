@@ -81,7 +81,7 @@ $input-placement: 16px;
             }
         }
     }
-    &__fieldDisabled{
+    &--label-animation-disabled{
         width: 100%;
         outline: none;
         &::placeholder {

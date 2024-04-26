@@ -110,7 +110,7 @@ describe("Input", () => {
 
     it("should show disable label animation", () => {
         const {container}=render(<Input islabelAnimationDisabled {...props} />);
-        const input = container.querySelector(".deriv-input__fieldDisabled");
+        const input = container.querySelector(".deriv-input--label-animation-disabled");
         expect(input).toBeInTheDocument();
     });
 });
