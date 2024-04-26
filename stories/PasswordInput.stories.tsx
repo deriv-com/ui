@@ -1,6 +1,7 @@
 import { StoryObj, Meta } from "@storybook/react";
 import { PasswordInput } from "../src/main";
 import { useState } from "react";
+import { Button } from "../src/main";
 
 const meta = {
     title: "Components/PasswordInput",
@@ -12,7 +13,7 @@ const meta = {
         hideMessage: false,
         label: "Enter Password",
         value: "",
-        onChange: () => {},
+        onChange: () => { },
         hidePasswordMeter: false,
         hint: "This is a hint message",
     },
@@ -54,7 +55,7 @@ export const Default: Story = {
     args: {
         label: "Enter Password",
         value: "",
-        onChange: () => {},
+        onChange: () => { },
         hidePasswordMeter: false,
         hint: "This is a hint message",
     },
@@ -79,7 +80,7 @@ export const HideMessage: Story = {
         hideMessage: true,
         label: "Enter Password",
         value: "",
-        onChange: () => {},
+        onChange: () => { },
         hidePasswordMeter: false,
         hint: "This is a hint message",
     },
@@ -103,7 +104,7 @@ export const HidePasswordMeter: Story = {
     args: {
         label: "Enter Password",
         value: "",
-        onChange: () => {},
+        onChange: () => { },
         hidePasswordMeter: true,
         hint: "This is a hint message",
     },
@@ -117,6 +118,34 @@ export const HidePasswordMeter: Story = {
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
                 />
+            </div>
+        );
+    },
+};
+
+export const customErrorMessage: Story = {
+    name: "Password Input with custom error message",
+    args: {
+        label: "Enter Password",
+        value: "",
+        onChange: () => { },
+        hidePasswordMeter: true,
+        hint: "This is a hint message",
+    },
+    render: (args) => {
+        const [value, setValue] = useState(args.value);
+        const [errorMessage, setErrorMessage] = useState("");
+
+
+        return (
+            <div className="theme--light" style={{ display: "flex", flexDirection: "column" }}>
+                <PasswordInput
+                    {...args}
+                    value={value}
+                    customErrorMessage={errorMessage}
+                    onChange={(e) => setValue(e.target.value)}
+                />
+                <Button onClick={() => setErrorMessage("This is a custom error message")}>submit</Button>
             </div>
         );
     },

@@ -13,6 +13,7 @@ const PasswordStrengthClass: Record<TScore, string> = {
     2: "deriv-password__meter__bar--moderate",
     3: "deriv-password__meter__bar--strong",
     4: "deriv-password__meter__bar--complete",
+    5: "deriv-password__meter__bar--error",
 };
 
 export const PasswordMeter = ({ score }: PasswordMeterProps) => (
