@@ -11,6 +11,7 @@ export type InputVariants =
     | "disabled";
 interface InputProps extends Omit<ComponentProps<"input">, "placeholder"> {
     label?: string;
+    islabelAnimationDisabled?: boolean;
     leftPlaceholder?: ReactNode;
     rightPlaceholder?: ReactNode;
     error?: boolean;
@@ -48,6 +49,7 @@ const LabelVariant: Record<InputVariants, string> = {
  * @interface InputProps
  * @extends {Omit<ComponentProps<"input">, "placeholder">}
  * @property {string} [label] - The label for the input field.
+ * @property {boolean} [islabelAnimationDisabled] - The label for the input field.
  * @property {ReactNode} [leftPlaceholder] - The placeholder for the left side of the input field.
  * @property {ReactNode} [rightPlaceholder] - The placeholder for the right side of the input field.
  * @property {boolean} [error] - If true, the input field will display an error state.
@@ -86,6 +88,7 @@ export const Input = forwardRef(
             hideMessage,
             id,
             isFullWidth = false,
+            islabelAnimationDisabled=false,
             label,
             leftPlaceholder,
             message,
@@ -123,7 +126,7 @@ export const Input = forwardRef(
                     )}
                     <input
                         placeholder={label}
-                        className="deriv-input__field"
+                        className={islabelAnimationDisabled? "deriv-input--label-animation-disabled" : "deriv-input__field" }
                         id={id}
                         disabled={disabled}
                         ref={ref}
@@ -147,16 +150,16 @@ export const Input = forwardRef(
                         </div>
                     )}
                 </div>
-                <div className="deriv-input__helper-message">
                     {!hideMessage && message && (
+                         <div className="deriv-input__helper-message">
                         <HelperMessage
                             message={message}
                             variant={variant}
                             error={error}
                             disabled={disabled}
                         />
+                        </div>
                     )}
-                </div>
             </div>
         );
     },
