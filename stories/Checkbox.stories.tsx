@@ -11,6 +11,7 @@ const meta = {
         disabled: false,
         checked: false,
         className: "",
+        isPartialEnable:false,
         label: "Get updates about Deriv products, services and events.",
         onChange: () => {},
         wrapperClassName: "",
@@ -48,6 +49,11 @@ const meta = {
                 disable: true,
             },
         },
+        isPartialEnable: {
+            control: {
+                type: "boolean",
+            },
+        },
         label: {
             control: {
                 type: "text",
@@ -82,6 +88,32 @@ export const Default: Story = {
         return (
             <Checkbox
                 {...args}
+                checked={checked}
+                onChange={() => setChecked((previous) => !previous)}
+            />
+        );
+    },
+};
+
+export const PartialCheckbox: Story = {
+    name: "Partial Checkbox Input",
+    args: {
+        checked: false,
+        onChange: () => {},
+        name: "example-checkbox",
+        label: "Get updates about Deriv products, services and events.",
+    },
+    render: (args) => {
+        const [checked, setChecked] = useState(args.checked);
+
+        useEffect(() => {
+            setChecked(args.checked);
+        }, [args.checked]);
+
+        return (
+            <Checkbox
+                {...args}
+                isPartialEnable
                 checked={checked}
                 onChange={() => setChecked((previous) => !previous)}
             />

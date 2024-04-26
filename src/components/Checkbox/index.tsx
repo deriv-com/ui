@@ -9,6 +9,7 @@ interface CheckboxProps
     > {
     name: string;
     error?: boolean;
+    isPartialEnable?:boolean;
     label?: ReactNode;
     labelClassName?: string;
     wrapperClassName?: string;
@@ -21,6 +22,7 @@ export const Checkbox = forwardRef(
             className,
             disabled,
             error,
+            isPartialEnable=false,
             label,
             labelClassName,
             wrapperClassName,
@@ -40,6 +42,7 @@ export const Checkbox = forwardRef(
                                 "deriv-checkbox__box--unchecked": !checked,
                                 "deriv-checkbox__box--checked": checked,
                                 "deriv-checkbox__box--disabled": disabled,
+                                "deriv-checkbox__box--partial": isPartialEnable && checked,
                             },
                             className,
                         )}

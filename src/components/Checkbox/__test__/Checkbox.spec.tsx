@@ -59,4 +59,11 @@ describe('Checkbox', () => {
     const checkboxWrapper = getByLabelText('Test Checkbox')?.parentElement?.parentElement;
     expect(checkboxWrapper).toHaveClass('custom-wrapper-class');
   });
+
+  test('applies partial checkbox with isPartialEnable prop value as true', () => {
+    const { container } = render(
+      <Checkbox name="test-checkbox" label="Test Checkbox" isPartialEnable checked />
+    );
+    expect(container?.querySelector('.deriv-checkbox__box--partial')).toBeInTheDocument();
+  });
 });

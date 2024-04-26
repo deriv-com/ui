@@ -38,6 +38,15 @@ $error_color: #ec3f3f;
             border-radius: $border_radius;
         }
 
+        &--partial {
+            border: none;
+            background-color: $brand_color;
+            background-image: url("./checkbox-icon-partial.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: $border_radius;
+        }
+
         &--disabled {
             opacity: 0.5;
         }
