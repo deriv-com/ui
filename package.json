@@ -29,8 +29,7 @@
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
         "test": "jest",
-        "test:report": "jest --collectCoverage",
-        "dev": "vite"
+        "test:report": "jest --collectCoverage"
     },
     "dependencies": {
         "@deriv/quill-icons": "^1.22.4",
