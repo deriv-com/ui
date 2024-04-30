@@ -10,6 +10,7 @@ import { PlatformSwitcher } from "./PlatformSwitcher";
 
 import "./Header.scss";
 import { MenuItem } from "./MenuItem";
+import { LegacyReportsIcon } from "@deriv/quill-icons/Legacy";
 
 // const platforms = [
 //     {
@@ -38,7 +39,12 @@ const Header = () => (
         <div className="deriv-header__left">
             <DerivLogo />
             <PlatformSwitcher />
-            <MenuItem />
+            <MenuItem
+                label="Cashier"
+                href="https://app.deriv.com/cashier/deposit"
+                Icon={LegacyReportsIcon}
+                iconSize={16}
+            />
         </div>
         {/* <div className="deriv-header__right">
             <div style={{ backgroundColor: "blue", color: "white" }}>

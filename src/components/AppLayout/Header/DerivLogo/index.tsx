@@ -9,7 +9,7 @@ import "./DerivLogo.scss";
 
 type TDerivLogo = {
     variant?: TVariant;
-    className?: HTMLDivElement["className"];
+    className?: HTMLAnchorElement["className"];
 };
 
 const logo = {
