@@ -1,3 +1,61 @@
 .deriv-platform-switcher {
     height: 100%;
 }
+
+.deriv-platform-switcher-button {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    cursor: pointer;
+
+    &__chevron-icon {
+        margin-left: 8px;
+    }
+
+    &:hover {
+        background: var(--du-general-hover, #e6e9e9);
+    }
+}
+
+.deriv-platform-switcher-open {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 3rem;
+    background: rgba(0, 0, 0, 0.72);
+
+    &__items {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100vw;
+        padding: 32px;
+        gap: 32px;
+        background: var(--du-general-main-2, #fff);
+    }
+}
+
+.deriv-platform-switcher-item {
+    padding: 16px;
+    border-radius: 8px;
+    width: 360px;
+    height: 132px;
+
+    &__text {
+        margin-top: 8px;
+    }
+
+    &:hover {
+        background: var(--du-general-hover, #e6e9e9);
+    }
+
+    &--active {
+        border: 2px solid var(--du-brand-secondary, #85acb0);
+
+        &:hover {
+            background: transparent;
+        }
+    }
+}

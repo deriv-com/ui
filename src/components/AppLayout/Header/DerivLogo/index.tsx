@@ -1,15 +1,15 @@
+import { ComponentProps } from "react";
+import clsx from "clsx";
 import {
     BrandDerivLogoCoralIcon,
     BrandDerivWordmarkCoralIcon,
 } from "@deriv/quill-icons/Logo";
-import clsx from "clsx";
 import { TVariant } from "../../LayoutTypes";
 
 import "./DerivLogo.scss";
 
-type TDerivLogo = {
+type TDerivLogo = ComponentProps<"a"> & {
     variant?: TVariant;
-    className?: HTMLAnchorElement["className"];
 };
 
 const logo = {
@@ -23,7 +23,11 @@ const logo = {
     },
 };
 
-export const DerivLogo = ({ variant = "default", className }: TDerivLogo) => {
+export const DerivLogo = ({
+    variant = "default",
+    className,
+    ...props
+}: TDerivLogo) => {
     const LogoIcon = logo[variant].icon;
 
     return (
@@ -31,6 +35,7 @@ export const DerivLogo = ({ variant = "default", className }: TDerivLogo) => {
             className={clsx(logo[variant].className, className)}
             href="https://deriv.com/"
             target="_blank"
+            {...props}
         >
             <LogoIcon />
         </a>

@@ -1,36 +1,36 @@
-import { ReactNode } from "react";
+import { ComponentProps, ReactNode } from "react";
 import clsx from "clsx";
 import { Text } from "../../../Text";
 
 import "./MenuItem.scss";
 
-type TMenuItem = {
-    href: HTMLAnchorElement["href"];
-    className?: HTMLAnchorElement["className"];
+type TMenuItem = ComponentProps<"a"> & {
     icon: ReactNode;
     label: string;
-    isActive?: boolean;
+    active?: boolean;
 };
 
 export const MenuItem = ({
     href,
     className,
     label,
-    isActive,
+    active,
     icon,
+    ...props
 }: TMenuItem) => (
     <a
         href={href}
         className={clsx(
             "deriv-menu-item",
-            { "deriv-menu-item--active": isActive },
+            { "deriv-menu-item--active": active },
             className,
         )}
+        {...props}
     >
         {icon}
         <Text
             size="md"
-            weight={isActive ? "bold" : "normal"}
+            weight={active ? "bold" : "normal"}
             className={clsx("deriv-menu-item__label")}
         >
             {label}
