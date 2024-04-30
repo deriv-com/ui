@@ -3,11 +3,13 @@ import {
     BrandDerivWordmarkCoralIcon,
 } from "@deriv/quill-icons/Logo";
 import clsx from "clsx";
-import { TVariant } from "./types";
+import { TVariant } from "../../LayoutTypes";
+
 import "./DerivLogo.scss";
 
 type TDerivLogo = {
     variant?: TVariant;
+    className?: HTMLDivElement["className"];
 };
 
 const logo = {
@@ -21,12 +23,12 @@ const logo = {
     },
 };
 
-const DerivLogo = ({ variant = "default" }: TDerivLogo) => {
+export const DerivLogo = ({ variant = "default", className }: TDerivLogo) => {
     const LogoIcon = logo[variant].icon;
 
     return (
         <a
-            className={clsx(logo[variant].className)}
+            className={clsx(logo[variant].className, className)}
             href="https://deriv.com/"
             target="_blank"
         >
@@ -35,4 +37,4 @@ const DerivLogo = ({ variant = "default" }: TDerivLogo) => {
     );
 };
 
-export default DerivLogo;
+DerivLogo.displayName = "DerivLogo";
