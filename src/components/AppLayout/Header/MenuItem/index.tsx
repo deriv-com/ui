@@ -1,4 +1,4 @@
-import { IconTypes } from "@deriv/quill-icons";
+import { ReactNode } from "react";
 import clsx from "clsx";
 import { Text } from "../../../Text";
 
@@ -7,8 +7,7 @@ import "./MenuItem.scss";
 type TMenuItem = {
     href: HTMLAnchorElement["href"];
     className?: HTMLAnchorElement["className"];
-    Icon: IconTypes;
-    iconSize: number;
+    icon: ReactNode;
     label: string;
     isActive?: boolean;
 };
@@ -16,10 +15,9 @@ type TMenuItem = {
 export const MenuItem = ({
     href,
     className,
-    Icon,
     label,
-    iconSize,
     isActive,
+    icon,
 }: TMenuItem) => (
     <a
         href={href}
@@ -29,7 +27,7 @@ export const MenuItem = ({
             className,
         )}
     >
-        <Icon width={iconSize} height={iconSize} />
+        {icon}
         <Text
             size="md"
             weight={isActive ? "bold" : "normal"}

@@ -42,8 +42,7 @@ const Header = () => (
             <MenuItem
                 label="Cashier"
                 href="https://app.deriv.com/cashier/deposit"
-                Icon={LegacyReportsIcon}
-                iconSize={16}
+                icon={<LegacyReportsIcon width={16} height={16} />}
             />
         </div>
         {/* <div className="deriv-header__right">
