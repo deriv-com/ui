@@ -47,6 +47,7 @@ const TabTitle = ({
                 },
                 className,
             )}
+            type="button"
             onClick={() => handleOnClick(title)}
         >
             {icon}

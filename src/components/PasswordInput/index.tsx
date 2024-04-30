@@ -37,11 +37,9 @@ export const validatePassword = (password: string, customErrorMessage = "") => {
         errorMessage = passwordErrorMessage.invalidLength;
     } else if (!isPasswordValid(password)) {
         errorMessage = passwordErrorMessage.missingCharacter;
-    }
-    else if (customErrorMessage) {
+    } else if (customErrorMessage) {
         errorMessage = customErrorMessage;
-    }
-    else {
+    } else {
         errorMessage = warningMessages[feedback.warning as passwordKeys] ?? "";
     }
 
@@ -102,7 +100,8 @@ export const PasswordInput = ({
     }, [customErrorMessage]);
     const [isTouched, setIsTouched] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
-    const [backendErrorMessage, setBackendErrorMessage] = useState(customErrorMessage);
+    const [backendErrorMessage, setBackendErrorMessage] =
+        useState(customErrorMessage);
 
     const { errorMessage, score } = useMemo(
         () => validatePassword(value as string, backendErrorMessage),
@@ -151,6 +150,7 @@ export const PasswordInput = ({
                     <button
                         className="deriv-password__icon"
                         onClick={() => setShowPassword(!showPassword)}
+                        type="button"
                     >
                         {showPassword ? <EyeIcon /> : <EyeIconSlash />}
                     </button>
