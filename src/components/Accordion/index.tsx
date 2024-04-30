@@ -50,6 +50,7 @@ export const Accordion = ({
                 })}
                 onClick={toggleAccordion}
                 aria-expanded={active}
+                type="button"
             >
                 {typeof title === "string" ? <p>{title}</p> : title}
                 <img
