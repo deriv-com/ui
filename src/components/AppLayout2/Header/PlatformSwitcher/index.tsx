@@ -1,7 +1,4 @@
-import "./PlatformSwitcher.scss";
-
-
-const PlatformSwitcher = () => {
+export const PlatformSwitcher = () => {
     return (
         <div className="deriv-platform-switcher">
             <span>PlatformSwitcher</span>
@@ -9,4 +6,4 @@ const PlatformSwitcher = () => {
     );
 };
 
-export default PlatformSwitcher;
+PlatformSwitcher.displayName = "PlatformSwitcher";

@@ -1,0 +1,29 @@
+.deriv-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3rem;
+    padding: 0px 16px;
+
+    border-bottom: 1px solid var(--du-general-section-1, #f2f3f4);
+    background: var(--du-general-main-2, #fff);
+    box-shadow: 0px -1px 0px 0px var(--du-general-section-1, "#F2F3F4") inset;
+
+    &__left {
+        display: flex;
+    }
+
+    &__right {
+        display: flex;
+    }
+
+    &__default {
+        width: 48.222px;
+        height: 16px;
+    }
+
+    &__wallets {
+        width: 24px;
+        height: 24px;
+    }
+}
