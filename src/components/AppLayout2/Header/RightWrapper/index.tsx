@@ -4,7 +4,7 @@ import { DerivLogo } from "../Logo";
 import {MenuItems} from "../MenuItems"
 
 export const RightWrapper = ({ children }: React.PropsWithChildren) => {
-    return <>{children}</>
+    return <div className="deriv-header__right">{children}</div>
 }
 
 RightWrapper.Logo = DerivLogo;

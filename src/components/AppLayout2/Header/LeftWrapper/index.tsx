@@ -4,7 +4,7 @@ import { AccountSetting } from "../AccountSetting";
 import { AccountSwitcher } from "../AccountSwitcher";
 
 export const LeftWrapper = ({children}: React.PropsWithChildren)=>{
-    return <>{children}</>
+    return <div className="deriv-header__left">{children}</div>
 }
 
 LeftWrapper.Notification = Notification;

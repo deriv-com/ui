@@ -4,7 +4,7 @@ import { RightWrapper } from "./RightWrapper";
 import { LeftWrapper } from "./LeftWrapper";
 
 
-const Header = ({children }: React.PropsWithChildren) => (
+export const Header = ({children }: React.PropsWithChildren) => (
     <header className="deriv-header">
         {children}
     </header>
@@ -13,6 +13,5 @@ const Header = ({children }: React.PropsWithChildren) => (
 Header.RightWrapper = RightWrapper;
 Header.LeftWrapper = LeftWrapper;
 
-export default Header;
 
 Header.displayName = "Header";
