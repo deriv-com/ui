@@ -15,7 +15,7 @@ const Header = () => (
                 icon={<LegacyReportsIcon width={16} height={16} />}
             />
         </div>
-        {/* <div className="deriv-header__right">
+        <div className="deriv-header__right">
             <div style={{ backgroundColor: "blue", color: "white" }}>
                 Tutorial
             </div>
@@ -23,7 +23,7 @@ const Header = () => (
             <div style={{ backgroundColor: "pink" }}>account</div>
             <div style={{ backgroundColor: "yellow" }}>account switcher</div>
             <div style={{ backgroundColor: "orange" }}>buttons</div>
-        </div> */}
+        </div>
     </header>
 );
 
