@@ -1,13 +1,8 @@
 import { Tabs, Tab } from "../../../Tabs";
 import { Accordion } from "../../../Accordion";
-import {
-    LegacyChevronDown2pxIcon,
-    CurrencyUsdIcon,
-    // CurrencyBtcIcon,
-    // CurrencyDemoIcon,
-    // CurrencyUsdtIcon,
-    // CurrencyEthIcon,
-} from "@deriv/quill-icons";
+import { Divider} from "../../../Divider"
+import { AccountSwitcherItem } from "./AccountSwitcherItem";
+import { LegacyChevronDown2pxIcon, CurrencyUsdIcon } from "@deriv/quill-icons";
 
 import "./AccountSwitcher.scss";
 
@@ -25,22 +20,6 @@ type AccountSwitcherProps = {
     accounts_list: TAccount[];
 };
 
-// const getCurrencyIcon = (currency: string) => {
-//     const CurrencyIcons: {
-//         [key: string]: React.ForwardRefExoticComponent<
-//             React.SVGProps<SVGSVGElement>
-//         >;
-//     } = {
-//         usd: CurrencyBtcIcon,
-//         demo: CurrencyDemoIcon,
-//         btc: CurrencyBtcIcon,
-//         usdt: CurrencyUsdtIcon,
-//         eth: CurrencyEthIcon,
-//     };
-
-//     return CurrencyIcons[currency] || CurrencyUsdIcon;
-// };
-
 export const AccountSwitcher = ({ accounts_list }: AccountSwitcherProps) => {
     return (
         <div className="deriv-account-switcher">
@@ -55,20 +34,26 @@ export const AccountSwitcher = ({ accounts_list }: AccountSwitcherProps) => {
                         <div className="deriv-account-switcher__tab--real">
                             <div className="account-switcher__accounts">
                                 <Accordion
-                                    title="Non-EU Deriv account"
+                                    title={<div style={{
+                                        fontSize: "14px",
+                                        fontWeight: "bold",
+                                    }}>Non-EU Deriv account</div>}
                                     defaultOpen
                                 >
-                                    {accounts_list.map((account) => (
-                                        <div className="deriv-account-switcher__account" key={account.loginId}>
-                                            <div className="icon">
-                                                {/* {getCurrencyIcon(account.icon)} */}
-                                            </div>
-                                        </div>
-                                    ))}
+                                    {accounts_list
+                                        .filter((account) => !account.is_eu)
+                                        .map((account) => (
+                                            <AccountSwitcherItem
+                                                account={account}
+                                                key={account.loginId}
+                                            />
+                                        ))}
                                 </Accordion>
+                                <Divider height="2px" />
                                 <Accordion title="EU Deriv account">
                                     account for EU
                                 </Accordion>
+                                <Divider height="2px" />
                             </div>
                             <div className="account-switcher__total-asset">
                                 total asset

@@ -32,8 +32,8 @@ export const Accordion = ({
     const content = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        const scrollHeight = content?.current?.scrollHeight;
-        setHeightState(active ? `${scrollHeight}px` : "0px");
+        const scrollHeight = content?.current?.scrollHeight || 0;
+        setHeightState(active ? `${scrollHeight +1 }px` : "0px");
     }, [active]);
 
     const toggleAccordion = () => setActive(!active);
