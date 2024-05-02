@@ -1,7 +1,6 @@
 import { ComponentProps, ReactNode } from "react";
 import clsx from "clsx";
 import { Text } from "../../../Text";
-
 import "./MenuItem.scss";
 
 type TMenuItem = ComponentProps<"a"> & {
@@ -31,7 +30,7 @@ export const MenuItem = ({
         <Text
             size="md"
             weight={active ? "bold" : "normal"}
-            className={clsx("deriv-menu-item__label")}
+            className="deriv-menu-item__label"
         >
             {label}
         </Text>
