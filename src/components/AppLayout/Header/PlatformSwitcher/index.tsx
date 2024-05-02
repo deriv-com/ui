@@ -1,33 +1,32 @@
-import { DerivProductDerivTraderBrandLightLogoWordmarkHorizontalIcon } from "@deriv/quill-icons/Logo";
-import "./PlatformSwitcher.scss";
 import { PlatformSwitcherButton } from "./PlatformSwitcherButton";
 import { PlatformSwitcherItem } from "./PlatformSwitcherItem";
-
-type TPlatformSwitcher = {
-    // Icon:
-};
+import { platformsConfig } from "./platformsConfig";
+import "./PlatformSwitcher.scss";
 
 export const PlatformSwitcher = () => {
     return (
         <div className="deriv-platform-switcher">
-            <PlatformSwitcherButton
-                Icon={
-                    DerivProductDerivTraderBrandLightLogoWordmarkHorizontalIcon
-                }
-            />
+            <PlatformSwitcherButton icon={platformsConfig[3].buttonIcon} />
 
             <div className="deriv-platform-switcher-open">
-                <div className="deriv-platform-switcher-open__items">
-                    <PlatformSwitcherItem
-                        Icon={
-                            DerivProductDerivTraderBrandLightLogoWordmarkHorizontalIcon
-                        }
-                        active
-                        href="/"
-                        description="A whole new trading experience on a powerful yet easy to use platform."
-                    />
+                <div className="deriv-platform-switcher-open__wrapper">
+                    <div className="deriv-platform-switcher-open__items">
+                        {platformsConfig.map(({ description, href, icon }) => (
+                            <PlatformSwitcherItem
+                                key={description}
+                                description={description}
+                                href={href}
+                                icon={icon}
+                                active
+                            />
+                        ))}
+                    </div>
 
-                    <a href="">Looking for CFDs? Go to Trader’s Hub</a>
+                    <div className="deriv-platform-switcher-open__link">
+                        <a href="https://app.deriv.com/appstore/traders-hub">
+                            Looking for CFDs? Go to Trader’s Hub
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

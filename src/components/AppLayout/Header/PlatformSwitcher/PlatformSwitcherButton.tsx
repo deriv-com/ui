@@ -1,18 +1,17 @@
-import { ComponentProps } from "react";
-import { LegacyChevronDown2pxIcon, IconTypes } from "@deriv/quill-icons";
-
+import { ComponentProps, ReactNode } from "react";
+import { LegacyChevronDown2pxIcon } from "@deriv/quill-icons";
 import "./PlatformSwitcher.scss";
 
 type TPlatformSwitcherButton = ComponentProps<"button"> & {
-    Icon: IconTypes;
+    icon: ReactNode;
 };
 
 export const PlatformSwitcherButton = ({
-    Icon,
+    icon,
     ...props
 }: TPlatformSwitcherButton) => (
     <button className="deriv-platform-switcher-button" {...props}>
-        <Icon width={110.67} height={24} />
+        {icon}
         <LegacyChevronDown2pxIcon
             className="deriv-platform-switcher-button__chevron-icon"
             width={16}
