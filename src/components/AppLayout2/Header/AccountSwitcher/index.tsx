@@ -1,5 +1,7 @@
 export const AccountSwitcher = () => {
-    return <div style={{ backgroundColor: "yellow" }}>account switcher</div>
+    return <div style={{ backgroundColor: "yellow" }}>
+
+    </div>
 }
 
 AccountSwitcher.displayName = "AccountSwitcher";
