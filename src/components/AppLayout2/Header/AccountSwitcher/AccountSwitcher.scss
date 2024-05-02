@@ -1,0 +1,25 @@
+.deriv-account-switcher{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    position: relative;
+
+    &__dropdown{
+        position: absolute;
+        padding: 8px 0;
+        width:300px;
+        height: auto;
+        top: 55px;
+        right: 15px;
+        border:1px solid #e3e3e3;
+    }
+
+    &__tab{
+        &--real{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+    }
+}
