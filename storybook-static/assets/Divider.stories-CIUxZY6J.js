@@ -1,8 +1,0 @@
-import{j as e}from"./jsx-runtime-DRTy3Uxn.js";import"./index-BBkUAzwr.js";const s=({color:o="#d6dadb",height:n="1px",margin:d,className:p})=>e.jsx("div",{style:{margin:d,backgroundColor:o,height:n},className:p});s.__docgenInfo={description:"",methods:[],displayName:"Divider",props:{color:{required:!1,tsType:{name:"string"},description:"",defaultValue:{value:'"#d6dadb"',computed:!1}},margin:{required:!1,tsType:{name:'CSSProperties["margin"]',raw:'CSSProperties["margin"]'},description:""},height:{required:!1,tsType:{name:'CSSProperties["height"]',raw:'CSSProperties["height"]'},description:"",defaultValue:{value:'"1px"',computed:!1}},className:{required:!1,tsType:{name:'HTMLDivElement["className"]',raw:'HTMLDivElement["className"]'},description:""}}};const m={title:"Components/Divider",component:s,parameters:{layout:"centered"},tags:["autodocs"],args:{color:"",height:"",margin:"",className:""},argTypes:{color:{control:{type:"color"}},height:{control:{type:"text"}},margin:{control:{type:"text"}},className:{control:{type:"text"}}}},t={name:"Divider",render:()=>e.jsxs("div",{children:[e.jsx("span",{children:"This is a test text"}),e.jsx(s,{}),e.jsx("span",{children:"This is another test text"})]})};var r,a,i;t.parameters={...t.parameters,docs:{...(r=t.parameters)==null?void 0:r.docs,source:{originalSource:`{
-  name: "Divider",
-  render: () => <div>
-            <span>This is a test text</span>
-            <Divider />
-            <span>This is another test text</span>
-        </div>
-}`,...(i=(a=t.parameters)==null?void 0:a.docs)==null?void 0:i.source}}};const u=["Default"];export{t as Default,u as __namedExportsOrder,m as default};
