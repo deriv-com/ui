@@ -20,7 +20,7 @@ type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
     icon?: React.ReactNode;
     isRequired?: boolean;
     isFullWidth?: boolean;
-    label?: InputProps['label'];
+    label?: InputProps["label"];
     list: {
         text?: React.ReactNode;
         value?: string;
@@ -123,6 +123,7 @@ export const Dropdown = ({
                 className={clsx("deriv-dropdown__button", {
                     "deriv-dropdown__button--active": isOpen,
                 })}
+                type="button"
             >
                 {dropdownIcon}
             </button>
@@ -157,14 +158,17 @@ export const Dropdown = ({
                     {...rest}
                 />
             </div>
-            <ul className={clsx(
-                'deriv-dropdown__items',
-                `deriv-dropdown__items--${listHeight}`,
-                {
-                    'deriv-dropdown__items--full': isFullWidth,
-             }
-            )} {...getMenuProps()}>
-                {isOpen && (
+            <ul
+                className={clsx(
+                    "deriv-dropdown__items",
+                    `deriv-dropdown__items--${listHeight}`,
+                    {
+                        "deriv-dropdown__items--full": isFullWidth,
+                    },
+                )}
+                {...getMenuProps()}
+            >
+                {isOpen &&
                     items.map((item, index) => (
                         <li
                             className={clsx("deriv-dropdown__item", {
@@ -184,9 +188,7 @@ export const Dropdown = ({
                                 {item.text}
                             </Text>
                         </li>
-                    ))
-                )
-                }
+                    ))}
             </ul>
         </div>
     );

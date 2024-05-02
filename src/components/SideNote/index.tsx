@@ -43,7 +43,13 @@ export const SideNote = ({
 }: PropsWithChildren<SideNoteProps>) => (
     <div className={clsx("deriv-side-note", className)} {...props}>
         {title && (
-            <Text data-testid="dt_deriv-side-note-title" className={clsx("deriv-side-note__title", titleClassName)} size={titleSize} align="left" weight="bold">
+            <Text
+                data-testid="dt_deriv-side-note-title"
+                className={clsx("deriv-side-note__title", titleClassName)}
+                size={titleSize}
+                align="left"
+                weight="bold"
+            >
                 {title}
             </Text>
         )}
@@ -54,6 +60,7 @@ export const SideNote = ({
             <button
                 className={clsx("deriv-side-note__action", actionClassName)}
                 onClick={actionClick}
+                type="button"
             >
                 <Text color="red" size="xs">
                     {actionLabel}
