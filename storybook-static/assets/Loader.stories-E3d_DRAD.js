@@ -1,3 +1,0 @@
-import{L as t}from"./index-CzmRjn8P.js";import"./jsx-runtime-DRTy3Uxn.js";import"./index-BBkUAzwr.js";import"./clsx-B-dksMZM.js";const l={title:"Components/Loader",component:t,parameters:{layout:"centered"},tags:["autodocs"],args:{color:"red",isFullScreen:!1},argTypes:{className:{table:{disable:!0}},color:{control:{type:"text"}}}},e={name:"Loader"};var r,a,o;e.parameters={...e.parameters,docs:{...(r=e.parameters)==null?void 0:r.docs,source:{originalSource:`{
-  name: "Loader"
-}`,...(o=(a=e.parameters)==null?void 0:a.docs)==null?void 0:o.source}}};const p=["Default"];export{e as Default,p as __namedExportsOrder,l as default};
