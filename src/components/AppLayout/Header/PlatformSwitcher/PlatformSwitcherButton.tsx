@@ -2,7 +2,7 @@ import { ComponentProps, ReactNode } from "react";
 import { LegacyChevronDown2pxIcon } from "@deriv/quill-icons";
 import "./PlatformSwitcher.scss";
 
-type TPlatformSwitcherButton = ComponentProps<"button"> & {
+type TPlatformSwitcherButton = Omit<ComponentProps<"button">, "className"> & {
     icon: ReactNode;
 };
 
