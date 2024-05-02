@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ActionScreen } from "../src/components/ActionScreen";
-import { Button } from "../src/main";
+import { Button } from "../src/components/Button";
 
 const meta = {
     title: "Components/ActionScreen",
