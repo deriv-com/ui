@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type TVariant = "default" | "wallets";
 
 export type TAccountList = {
@@ -7,4 +9,5 @@ export type TAccountList = {
     currency: string;
     token: string;
     showInEU: boolean;
+    icon: ReactNode;
 };

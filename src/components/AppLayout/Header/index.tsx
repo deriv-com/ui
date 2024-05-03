@@ -14,6 +14,7 @@ type THeader = {
     variant: THeaderVariants;
     showInEU: boolean;
     accountList: TAccountList[];
+    totalAssets: string;
     isUserAuthorized: boolean;
     actionButtonCallBack: () => void;
     notificationData: {
