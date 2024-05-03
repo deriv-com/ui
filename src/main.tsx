@@ -23,4 +23,5 @@ export { ToggleSwitch } from "./components/ToggleSwitch";
 export { Tooltip } from "./components/Tooltip";
 export { useDevice } from "./hooks";
 export { VerticalTab, VerticalTabItems } from "./components/VerticalTab";
-export {Header} from "./components/AppLayout2"
+export { Header } from "./components/AppLayout/Header";
+export { Header as Header2 } from "./components/AppLayout2/Header";

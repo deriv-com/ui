@@ -4,18 +4,7 @@
     gap: 8px;
     padding: 16px;
     position: relative;
-
-    &__dropdown{
-        position: absolute;
-        padding: 8px 0;
-        width:350px;
-        height: auto;
-        top: 55px;
-        right: 15px;
-        // border:1px solid #e3e3e3;
-        border-radius: 4px;
-        box-shadow: 0 8px 16px 0 var(--du-shadow-box, transparentize($color-black-7, 0.92));
-    }
+    cursor: pointer;
 
     &__tab{
         &--real{

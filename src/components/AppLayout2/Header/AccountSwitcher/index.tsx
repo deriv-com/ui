@@ -1,10 +1,16 @@
 import { Tabs, Tab } from "../../../Tabs";
 import { Accordion } from "../../../Accordion";
-import { Divider} from "../../../Divider"
+import { Divider } from "../../../Divider";
 import { AccountSwitcherItem } from "./AccountSwitcherItem";
-import { LegacyChevronDown2pxIcon, CurrencyUsdIcon } from "@deriv/quill-icons";
+import { DropDown } from "../DropDown";
+import {
+    LegacyChevronDown2pxIcon,
+    LegacyChevronUp2pxIcon,
+    CurrencyUsdIcon,
+} from "@deriv/quill-icons";
 
 import "./AccountSwitcher.scss";
+import React from "react";
 
 type TAccount = {
     icon: string;
@@ -21,23 +27,38 @@ type AccountSwitcherProps = {
 };
 
 export const AccountSwitcher = ({ accounts_list }: AccountSwitcherProps) => {
+    const [isOpen, setIsOpen] = React.useState(false);
+
     return (
-        <div className="deriv-account-switcher">
+        <div
+            className="deriv-account-switcher"
+            onClick={() => setIsOpen(!isOpen)}
+        >
             <div className="deriv-account-switcher__currency-icon">
                 <CurrencyUsdIcon iconSize="sm" />
             </div>
             <div className="deriv-account-switcher__balance">0.00 USD</div>
-            <LegacyChevronDown2pxIcon iconSize="xs" />
-            <div className="deriv-account-switcher__dropdown">
+            {isOpen ? (
+                <LegacyChevronUp2pxIcon iconSize="xs" />
+            ) : (
+                <LegacyChevronDown2pxIcon iconSize="xs" />
+            )}
+            <DropDown isOpen={isOpen}>
                 <Tabs activeTab="Real" variant="secondary">
                     <Tab title="Real">
                         <div className="deriv-account-switcher__tab--real">
                             <div className="account-switcher__accounts">
                                 <Accordion
-                                    title={<div style={{
-                                        fontSize: "14px",
-                                        fontWeight: "bold",
-                                    }}>Non-EU Deriv account</div>}
+                                    title={
+                                        <div
+                                            style={{
+                                                fontSize: "14px",
+                                                fontWeight: "bold",
+                                            }}
+                                        >
+                                            Non-EU Deriv account
+                                        </div>
+                                    }
                                     defaultOpen
                                 >
                                     {accounts_list
@@ -50,11 +71,19 @@ export const AccountSwitcher = ({ accounts_list }: AccountSwitcherProps) => {
                                         ))}
                                 </Accordion>
                                 <Divider height="2px" />
-                                <Accordion title={<div style={{
-                                        fontSize: "14px",
-                                        fontWeight: "bold",
-                                    }}>EU Deriv account</div>}>
-                                {accounts_list
+                                <Accordion
+                                    title={
+                                        <div
+                                            style={{
+                                                fontSize: "14px",
+                                                fontWeight: "bold",
+                                            }}
+                                        >
+                                            EU Deriv account
+                                        </div>
+                                    }
+                                >
+                                    {accounts_list
                                         .filter((account) => account.is_eu)
                                         .map((account) => (
                                             <AccountSwitcherItem
@@ -83,7 +112,7 @@ export const AccountSwitcher = ({ accounts_list }: AccountSwitcherProps) => {
                         Demo Tab content
                     </Tab>
                 </Tabs>
-            </div>
+            </DropDown>
         </div>
     );
 };
