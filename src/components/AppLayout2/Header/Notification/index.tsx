@@ -1,5 +1,7 @@
+import {LegacyNotification1pxIcon} from "@deriv/quill-icons"
+
 export const Notification = () => {
-    return <div style={{ backgroundColor: "red" }}>notification</div>;
+    return <div><LegacyNotification1pxIcon iconSize="sm" /></div>;
 }
 
 Notification.displayName = "Notification";
