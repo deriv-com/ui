@@ -50,8 +50,18 @@ export const AccountSwitcher = ({ accounts_list }: AccountSwitcherProps) => {
                                         ))}
                                 </Accordion>
                                 <Divider height="2px" />
-                                <Accordion title="EU Deriv account">
-                                    account for EU
+                                <Accordion title={<div style={{
+                                        fontSize: "14px",
+                                        fontWeight: "bold",
+                                    }}>EU Deriv account</div>}>
+                                {accounts_list
+                                        .filter((account) => account.is_eu)
+                                        .map((account) => (
+                                            <AccountSwitcherItem
+                                                account={account}
+                                                key={account.loginId}
+                                            />
+                                        ))}
                                 </Accordion>
                                 <Divider height="2px" />
                             </div>

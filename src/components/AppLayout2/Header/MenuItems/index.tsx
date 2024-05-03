@@ -1,5 +1,20 @@
-export const MenuItems = () => {
-    return <div className="menu-items">menu items</div>
-}
+import { MenuItem } from "./MenuItem";
 
-MenuItems.displayName = "MenuItems";
+type MenuItem = {
+    icon: React.JSX.Element;
+    label: string;
+};
+
+type MenuItemProps = {
+    items: MenuItem[];
+};
+
+export const MenuItems = ({ items }: MenuItemProps) => {
+    return (
+        <>
+            {items.map((item) => (
+                <MenuItem key={item.label} icon={item.icon} label={item.label} />
+            ))}
+        </>
+    );
+};

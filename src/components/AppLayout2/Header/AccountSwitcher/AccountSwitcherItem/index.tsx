@@ -24,11 +24,11 @@ type AccountSwitcherProps = {
 
 const getCurrencyIcon = (currency: string) => {
     const CurrencyIcons: { [key: string]: JSX.Element } = {
-        usd: <CurrencyBtcIcon />,
-        demo: <CurrencyDemoIcon />,
-        btc: <CurrencyBtcIcon />,
-        usdt: <CurrencyUsdtIcon />,
-        eth: <CurrencyEthIcon />,
+        USD: <CurrencyBtcIcon />,
+        Demo: <CurrencyDemoIcon />,
+        BTC: <CurrencyBtcIcon />,
+        USDT: <CurrencyUsdtIcon />,
+        ETH: <CurrencyEthIcon />,
     };
 
     return CurrencyIcons[currency] || <CurrencyUsdIcon />;

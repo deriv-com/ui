@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Header,Button } from "../src/main"
+import {LegacyCashierIcon, LegacyReportsIcon} from "@deriv/quill-icons"
 
 const account_list = [
   {
@@ -32,21 +33,33 @@ const account_list = [
   },
 ];
 
+
+const menuItems = [
+  {
+    icon:<LegacyReportsIcon iconSize='xs'/> ,
+    label:'Reports'
+  },
+  {
+    icon:<LegacyCashierIcon iconSize='xs'/> ,
+    label:'Cashier'
+  },
+]
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Header>
-      <Header.RightWrapper>
-        <Header.RightWrapper.Logo />
-        <Header.RightWrapper.PlatformSwitcher />
-        <Header.RightWrapper.MenuItems />
-      </Header.RightWrapper>
       <Header.LeftWrapper>
-        <Header.LeftWrapper.Notification />
-        <Header.LeftWrapper.AccountSetting />
-        <Header.LeftWrapper.AccountSwitcher accounts_list={account_list}  />
-        <Button size='sm'> Deposit </Button>
+        <Header.Logo />
+        <Header.PlatformSwitcher />
+        <Header.MenuItems items={menuItems} />
       </Header.LeftWrapper>
-
+      <Header.RightWrapper>
+        <Header.Notification />
+        <Header.AccountSetting />
+        <Header.AccountSwitcher accounts_list={account_list}  />
+        <Button size='sm'> Deposit </Button>
+      </Header.RightWrapper>
     </Header>
+
   </React.StrictMode>,
 )

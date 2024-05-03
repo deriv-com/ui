@@ -1,0 +1,21 @@
+.deriv-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    height: 100%;
+
+    &__label {
+        color: var(--du-text-general, #333);
+        margin-left: 8px;
+    }
+
+    &:hover {
+        background: var(--du-general-hover, #e6e9e9);
+    }
+
+    &--active {
+        &:hover {
+            background: transparent;
+        }
+    }
+}
