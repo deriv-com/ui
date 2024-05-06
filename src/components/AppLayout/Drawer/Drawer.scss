@@ -1,0 +1,76 @@
+@keyframes openDrawer {
+    0% {
+        transform: translateX(-100%);
+    }
+    60%,
+    100% {
+        transform: translateX(0);
+    }
+    80% {
+        transform: translateX(-5%);
+    }
+}
+
+@keyframes closeDrawer {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes disappear {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+.deriv-drawer__container {
+    background-color: white;
+    position: absolute;
+    width: 60%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    box-shadow:
+        0 16px 16px 0 rgba(0, 0, 0, 0.16),
+        0 0 16px 0 rgba(0, 0, 0, 0.16);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    will-change: transform;
+    transform: translateX(-100%);
+    animation-name: openDrawer;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+    overflow: hidden;
+
+    &.exit {
+        animation: closeDrawer 0.3s;
+    }
+}
+
+.deriv-drawer__overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    overflow-y: hidden;
+    z-index: 9999;
+    will-change: transform;
+    transition-delay: 0.4s;
+
+    &.exit {
+        animation: disappear 0.3s;
+        opacity: 0;
+    }
+}
+
+
