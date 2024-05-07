@@ -17,7 +17,7 @@ describe("DrawerFooter Component", () => {
     it("applies className correctly", () => {
         render(
             <DrawerFooter className="test-class">
-                <div>some test content</div>
+                some test content
             </DrawerFooter>,
         );
 
