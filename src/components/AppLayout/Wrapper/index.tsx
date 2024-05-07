@@ -21,23 +21,19 @@ export const Wrapper = ({
     className,
     variant,
     ...rest
-}: PropsWithChildren<TWrapper>) => {
-    const [left, right] = [variant == "left", variant == "right"];
-
-    return (
-        <div
-            className={clsx(
-                "deriv-wrapper",
-                { "deriv-wrapper__left": left },
-                { "deriv-wrapper__right": right },
-                className,
-            )}
-            {...rest}
-        >
-            {children}
-        </div>
-    );
-};
+}: PropsWithChildren<TWrapper>) => (
+    <div
+        className={clsx(
+            "deriv-wrapper",
+            { "deriv-wrapper__left": variant == "left" },
+            { "deriv-wrapper__right": variant == "right" },
+            className,
+        )}
+        {...rest}
+    >
+        {children}
+    </div>
+);
 
 /**
  * The display name for the Wrapper component.
