@@ -1,0 +1,23 @@
+.deriv-drawer__header {
+    display: flex;
+    height: 50px;
+    z-index: 1001;
+    border-bottom: 1px solid var(--du-border-divider, #f2f3f4);
+
+
+    &__close-btn{
+        display: flex;
+        cursor: pointer;
+        padding: 12px;
+        border-right: 1px solid var(--du-border-divider, #f2f3f4);
+        align-items: center;
+        margin: 5px 12px 5px 0;
+    }
+
+    &__content {
+        display: flex;
+        flex: 1;
+        overflow-y: auto;
+        align-items: center;
+    }
+}
