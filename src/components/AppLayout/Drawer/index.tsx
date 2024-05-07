@@ -42,6 +42,7 @@ export const Drawer = ({
     return (
         <>
             <div
+                data-testid="drawer-overlay"
                 className={clsx(
                     "deriv-drawer__overlay",
                     !isOpen && "exit",
