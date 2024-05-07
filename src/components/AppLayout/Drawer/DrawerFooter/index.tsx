@@ -15,3 +15,5 @@ export const DrawerFooter = ({
         </div>
     );
 };
+
+DrawerFooter.displayName = "DrawerFooter";

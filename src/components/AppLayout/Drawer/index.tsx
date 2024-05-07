@@ -70,3 +70,6 @@ export const Drawer = ({
 Drawer.Header = DrawerHeader;
 Drawer.Content = DrawerContent;
 Drawer.Footer = DrawerFooter;
+
+Drawer.displayName = "Drawer";
+

@@ -15,3 +15,6 @@ export const DrawerContent = ({
         </div>
     );
 };
+
+DrawerContent.displayName = "DrawerContent";
+
