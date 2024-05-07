@@ -42,14 +42,22 @@ export const Drawer = ({
     return (
         <>
             <div
-                className={clsx(`deriv-drawer__overlay ${!isOpen ? "exit" : ""}`, overlayClassName)}
+                className={clsx(
+                    "deriv-drawer__overlay",
+                    !isOpen && "exit",
+                    overlayClassName,
+                )}
                 onClick={(e) => {
                     e.stopPropagation();
                     onCloseDrawer();
                 }}
             />
             <div
-                className={clsx(`deriv-drawer__container ${!isOpen ? "exit" : ""}`, className )}
+                className={clsx(
+                    "deriv-drawer__container",
+                    !isOpen && "exit",
+                    className,
+                )}
                 style={{ width }}
                 {...rest}
             >
