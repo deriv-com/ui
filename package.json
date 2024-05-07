@@ -33,6 +33,7 @@
         "test:report": "jest --collectCoverage"
     },
     "dependencies": {
+        "@deriv/quill-icons": "^1.22.5",
         "@types/react-modal": "^3.16.3"
     },
     "devDependencies": {
