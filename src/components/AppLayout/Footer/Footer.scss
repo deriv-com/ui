@@ -1,0 +1,10 @@
+.deriv-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 2rem;
+
+    border-top: 1px solid var(--du-general-section-1, #f2f3f4);
+    background: var(--du-brand-white, #fff);
+    box-shadow: 0px 1px 0px 0px #f2f3f4 inset;
+}
