@@ -62,7 +62,6 @@ const meta: Meta<typeof Table> = {
     args: {
         columns: [],
         data: [],
-        isFetching: false,
         loadMoreFunction: () => {},
         renderHeader: () => <div />,
         rowRender: () => <div />,
@@ -79,7 +78,6 @@ export const Default: Story = {
     args: {
         columns: [],
         data: data,
-        isFetching: false,
         loadMoreFunction: () => {},
         renderHeader: () => <div />,
         rowRender: (item) => rowRender(item as Record<string, string>),
@@ -92,7 +90,6 @@ export const WithHeader: Story = {
     args: {
         columns,
         data: data,
-        isFetching: false,
         loadMoreFunction: () => {},
         renderHeader: (data) => <span>{data}</span>,
         rowRender: (item) => rowRender(item as Record<string, string>),
