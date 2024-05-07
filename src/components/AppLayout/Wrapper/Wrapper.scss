@@ -1,0 +1,14 @@
+.deriv-wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    &__left {
+        justify-content: flex-start;
+    }
+
+    &__right {
+        justify-content: flex-end;
+    }
+}

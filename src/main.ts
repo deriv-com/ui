@@ -3,7 +3,7 @@ export { ActionScreen } from "./components/ActionScreen";
 export { Button } from "./components/Button";
 export { Badge } from "./components/Badge";
 export { Checkbox } from "./components/Checkbox";
-export { CircularProgressBar } from "./components/CircularProgressBar"
+export { CircularProgressBar } from "./components/CircularProgressBar";
 export { Divider } from "./components/Divider";
 export { Dialog } from "./components/Dialog";
 export { Dropdown } from "./components/Dropdown";
@@ -23,4 +23,4 @@ export { ToggleSwitch } from "./components/ToggleSwitch";
 export { Tooltip } from "./components/Tooltip";
 export { useDevice } from "./hooks";
 export { VerticalTab, VerticalTabItems } from "./components/VerticalTab";
-export {Drawer} from "./components/AppLayout/Drawer";
+export { Header, Footer, Wrapper, Drawer } from "./components/AppLayout";
