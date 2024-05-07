@@ -4,30 +4,36 @@ import {
     BrandDerivWordmarkCoralIcon,
 } from "@deriv/quill-icons/Logo";
 
-type TDerivLogo = Omit<ComponentProps<"a">, "href" | "target"> & {
+type TDerivLogo = ComponentProps<"a"> & {
     variant?: "default" | "wallets";
+    logoWidth?: number;
+    logoHeight?: number;
 };
 
 /**
  * Renders the Deriv logo component.
- * @param {TDerivLogo} props - Props for the DerivLogo component.
  * @param {"default" | "wallets"} [variant="default"] - Specifies the variant of the logo.
- * @param {ComponentProps<"a">} rest - Additional props to be spread onto the wrapper.
+ * @param {number} [logoWidth] - Width of the logo.
+ * @param {number} [logoHeight] - Height of the logo.
+ * @param {ComponentProps<'a'>} [props] - HTML a tag props.
  * @returns {JSX.Element} - Rendered Deriv logo component.
  */
-export const DerivLogo = ({ variant = "default", ...rest }: TDerivLogo) => (
-    <a href="https://deriv.com/" target="_blank" {...rest}>
+export const DerivLogo = ({
+    variant = "default",
+    logoHeight,
+    logoWidth,
+    ...props
+}: TDerivLogo) => (
+    <a {...props}>
         {variant == "default" ? (
             <BrandDerivWordmarkCoralIcon
-                title="deriv-logo"
-                width={48.22}
-                height={16}
+                width={logoWidth ?? 48.22}
+                height={logoHeight ?? 16}
             />
         ) : (
             <BrandDerivLogoCoralIcon
-                title="deriv-wallets-logo"
-                width={24}
-                height={24}
+                width={logoWidth ?? 24}
+                height={logoHeight ?? 24}
             />
         )}
     </a>
