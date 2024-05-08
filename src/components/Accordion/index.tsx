@@ -1,11 +1,17 @@
-import React, { useState, useRef, ReactNode, useEffect } from "react";
+import React, {
+    useState,
+    useRef,
+    ReactNode,
+    useEffect,
+    ComponentProps,
+} from "react";
 import Chevron from "./Chevron.svg";
 import clsx from "clsx";
 import "./Accordion.scss";
 
 type AccordionVariants = "underline" | "bordered" | "shadow";
 
-type AccordionProps = {
+type AccordionProps = ComponentProps<"div"> & {
     children: ReactNode;
     defaultOpen?: boolean;
     isCompact?: boolean;
@@ -25,6 +31,8 @@ export const Accordion = ({
     isCompact = false,
     title,
     variant = "underline",
+    className,
+    ...props
 }: AccordionProps) => {
     const [active, setActive] = useState(defaultOpen);
     const [setHeight, setHeightState] = useState(defaultOpen ? "auto" : "0px");
@@ -40,9 +48,15 @@ export const Accordion = ({
 
     return (
         <div
-            className={clsx("deriv-accordion", AccordionVariant[variant], {
-                "deriv-accordion--compact": isCompact,
-            })}
+            className={clsx(
+                "deriv-accordion",
+                AccordionVariant[variant],
+                {
+                    "deriv-accordion--compact": isCompact,
+                },
+                className,
+            )}
+            {...props}
         >
             <button
                 className={clsx("deriv-accordion__header", {

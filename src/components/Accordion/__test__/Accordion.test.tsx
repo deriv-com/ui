@@ -12,6 +12,16 @@ describe("Accordion", () => {
         expect(getByText("Test Title")).toBeInTheDocument();
     });
 
+    it("applies custom classname to accordion", () => {
+        const { getByText } = render(
+            <Accordion title="Test Title" className="test-classname">Test Content</Accordion>,
+        );
+
+        const accordion = getByText("Test Title");
+        expect(accordion.parentElement).toBeInTheDocument();
+        expect(accordion.parentElement?.parentElement).toHaveClass("test-classname");
+    });
+
     it("opens and closes when the header is clicked", async () => {
         const { getByRole } = render(
             <Accordion title="Test Title">Test Content</Accordion>,
