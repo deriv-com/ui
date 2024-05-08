@@ -1,5 +1,6 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import {  render, screen } from "@testing-library/react";
 import { ContextMenu } from ".."; // Adjust the import path to the location of your component file
+import userEvent from "@testing-library/user-event";
 
 describe("ContextMenu Component", () => {
     // Test to check if the component renders children when open
@@ -24,7 +25,7 @@ describe("ContextMenu Component", () => {
 
     // Test to check cleanup of timers to avoid memory leaks
     test("cleans up timers on unmount", () => {
-        const clearTimeout = jest.spyOn(global, "clearTimeout");
+        const clearTimeout = jest.spyOn(window, "clearTimeout");
         const { unmount } = render(
             <ContextMenu isOpen={false}>
                 <div>Test Content</div>
@@ -55,7 +56,7 @@ describe("ContextMenu Component", () => {
         );
 
         const overlayElement = screen.getByTestId("context-menu-overlay");
-        await fireEvent.click(overlayElement);
+        await userEvent.click(overlayElement);
 
         expect(onClickOutside).toHaveBeenCalledTimes(1);
       });

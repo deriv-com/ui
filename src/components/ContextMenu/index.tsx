@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import "./ContextMenu.scss";
-import { useEffect, useRef, useState } from "react";
+import { ComponentProps, PropsWithChildren, useEffect, useRef, useState } from "react";
 
-type ContextMenuProps = React.ComponentProps<"div"> & {
+type ContextMenuProps = ComponentProps<"div"> & {
     isOpen: boolean;
     onClickOutside?: () => void;
 };
@@ -13,7 +13,7 @@ export const ContextMenu = ({
     isOpen,
     onClickOutside,
     ...rest
-}: React.PropsWithChildren<ContextMenuProps>) => {
+}: PropsWithChildren<ContextMenuProps>) => {
     const [hide, setHide] = useState(true);
     const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
