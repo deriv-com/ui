@@ -14,7 +14,6 @@ type TProps<T> = {
     columns?: ColumnDef<T>[];
     data: T[];
     emptyDataMessage?: string;
-    isFetching: boolean;
     loadMoreFunction: () => void;
     renderHeader?: (data: string) => JSX.Element;
     rowRender: (data: T) => JSX.Element;
@@ -25,7 +24,6 @@ export const Table = <T,>({
     columns = [],
     data,
     emptyDataMessage,
-    isFetching,
     loadMoreFunction,
     renderHeader = () => <div />,
     rowRender,
@@ -45,7 +43,6 @@ export const Table = <T,>({
     const { fetchMoreOnBottomReached } = useFetchMore({
         loadMore: loadMoreFunction,
         ref: tableContainerRef,
-        isFetching,
     });
 
     return (

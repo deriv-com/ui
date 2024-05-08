@@ -1,13 +1,12 @@
-import { useCallback, useEffect } from "react";
+import { RefObject, useCallback, useEffect } from "react";
 
 type TProps = {
-    isFetching: boolean;
     loadMore: () => void;
-    ref: React.RefObject<HTMLDivElement>;
+    ref: RefObject<HTMLDivElement>;
 };
 
 /** A custom hook to load more items in the table on scroll to bottom of the table */
-export const useFetchMore = ({ isFetching, loadMore, ref }: TProps) => {
+export const useFetchMore = ({ loadMore, ref }: TProps) => {
     //called on scroll and possibly on mount to fetch more data as the user scrolls and reaches bottom of table
     const fetchMoreOnBottomReached = useCallback(
         (containerRefElement?: HTMLDivElement | null) => {
@@ -15,21 +14,30 @@ export const useFetchMore = ({ isFetching, loadMore, ref }: TProps) => {
                 const { clientHeight, scrollHeight, scrollTop } =
                     containerRefElement;
                 //once the user has scrolled within 200px of the bottom of the table, fetch more data if we can
-                if (
-                    scrollHeight - scrollTop - clientHeight < 200 &&
-                    !isFetching
-                ) {
+                const isBottom = scrollHeight - scrollTop <= clientHeight + 200;
+
+                if (isBottom) {
                     loadMore();
                 }
             }
         },
-        [loadMore, isFetching],
+        [loadMore],
     );
 
-    //a check on mount and after a fetch to see if the table is already scrolled to the bottom and immediately needs to fetch more data
     useEffect(() => {
-        fetchMoreOnBottomReached(ref.current);
-    }, [fetchMoreOnBottomReached]);
+        const currentRef = ref.current;
+        const handleScroll = () => fetchMoreOnBottomReached(currentRef);
+
+        if (currentRef) {
+            currentRef.addEventListener("scroll", handleScroll);
+        }
+
+        return () => {
+            if (currentRef) {
+                currentRef.removeEventListener("scroll", handleScroll);
+            }
+        };
+    }, [fetchMoreOnBottomReached, ref]);
 
     return {
         fetchMoreOnBottomReached,
