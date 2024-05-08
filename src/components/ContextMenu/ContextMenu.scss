@@ -1,0 +1,56 @@
+@keyframes openContextMenu {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes closeContextMenu {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+}
+
+.deriv-context-menu{
+    background-color: white;
+    position: absolute;
+    padding: 8px 0;
+    width:350px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 2px var(--du-shadow-box, transparentize($color-black-7, 0.92));
+    cursor: pointer;
+    z-index: 10000;
+    animation-name: openContextMenu;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    &.exit {
+        animation-name: closeContextMenu;
+        animation-duration: 0.3s;
+        animation-fill-mode: forwards;
+    }
+}
+
+.deriv-context-menu__overlay {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    overflow-y: hidden;
+    z-index: 9999;
+    will-change: transform;
+    transition-delay: 0.4s;
+
+    &.exit {
+        animation: disappear 0.3s;
+        opacity: 0;
+    }
+}
