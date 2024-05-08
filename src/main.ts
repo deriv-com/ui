@@ -24,3 +24,4 @@ export { Tooltip } from "./components/Tooltip";
 export { useDevice } from "./hooks";
 export { VerticalTab, VerticalTabItems } from "./components/VerticalTab";
 export { Header, Footer, Wrapper, Drawer } from "./components/AppLayout";
+export { Notifications } from "./components/AppLayout/Notifications";
