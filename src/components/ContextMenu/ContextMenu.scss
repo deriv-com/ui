@@ -33,7 +33,7 @@
     animation-name: openContextMenu;
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
-    &.exit {
+    &.deriv-fadeout {
         animation-name: closeContextMenu;
         animation-duration: 0.3s;
         animation-fill-mode: forwards;
@@ -49,8 +49,7 @@
     will-change: transform;
     transition-delay: 0.4s;
 
-    &.exit {
-        animation: disappear 0.3s;
-        opacity: 0;
+    &.deriv-fadeout {
+        animation: closeContextMenu 0.3s;
     }
 }

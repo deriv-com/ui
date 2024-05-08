@@ -37,7 +37,7 @@ export const ContextMenu = ({
                 data-testid="context-menu-overlay"
                 className={clsx(
                     "deriv-context-menu__overlay",
-                    !isOpen && "exit",
+                    !isOpen && "deriv-fadeout",
                 )}
                 onClick={(e) => {
                     e.stopPropagation();
@@ -47,7 +47,7 @@ export const ContextMenu = ({
             <div
                 className={clsx(
                     "deriv-context-menu",
-                    !isOpen && "exit",
+                    !isOpen && "deriv-fadeout",
                     className,
                 )}
                 {...rest}
