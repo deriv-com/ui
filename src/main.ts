@@ -25,3 +25,4 @@ export { useDevice } from "./hooks";
 export { VerticalTab, VerticalTabItems } from "./components/VerticalTab";
 export { Header, Footer, Wrapper, Drawer } from "./components/AppLayout";
 export { Notifications } from "./components/AppLayout/Notifications";
+export { ContextMenu } from "./components/ContextMenu";
