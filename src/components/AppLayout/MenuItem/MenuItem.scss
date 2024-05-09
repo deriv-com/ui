@@ -1,0 +1,16 @@
+.deriv-menu-item {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+
+    &:hover {
+        background: var(--du-general-hover, #e6e9e9);
+    }
+
+    &--active {
+        &:hover {
+            background: transparent;
+        }
+    }
+}

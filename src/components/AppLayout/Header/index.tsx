@@ -1,6 +1,5 @@
 import { ComponentProps, PropsWithChildren } from "react";
 import clsx from "clsx";
-import { DerivLogo } from "./DerivLogo";
 import "./Header.scss";
 
 /**
@@ -20,6 +19,5 @@ export const Header = ({
     </header>
 );
 
-Header.DerivLogo = DerivLogo;
 
 Header.displayName = "Header";

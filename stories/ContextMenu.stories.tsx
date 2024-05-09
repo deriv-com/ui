@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button, ContextMenu } from "../src/main";
-import { useEffect, useState } from "react";
+import { ContextMenu } from "../src/main";
 
 const meta = {
     title: "Components/ContextMenu",
@@ -11,7 +10,7 @@ const meta = {
     },
     tags: ["autodocs"],
     args: {
-        isOpen: false,
+        isOpen: true,
     },
     argTypes: {
         isOpen: {
@@ -28,21 +27,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     name: "Default ContextMenu",
-    args: {
-        isOpen: true,
-    },
     render: (args) => {
-        const [isOpen, setIsOpen] = useState(args.isOpen);
-
-        useEffect(() => {
-            setIsOpen(args.isOpen);
-        }, [args.isOpen]);
-
         return (
             <div style={{ width: "800px", height: "500px" }}>
                 <ContextMenu
-                    isOpen={isOpen}
-                    style={{ position: "absolute", top: 60, left: 10 }}
+                    isOpen={args.isOpen}
+                    style={{ position: "absolute", top: 10, left: 10 }}
                 >
                     <ul>
                         <li>Item 1</li>
@@ -50,13 +40,6 @@ export const Default: Story = {
                         <li>Item 3</li>
                     </ul>
                 </ContextMenu>
-                <Button
-                    style={{ position: "relative" }}
-                    size="sm"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    Toggle ContextMenu
-                </Button>
             </div>
         );
     },

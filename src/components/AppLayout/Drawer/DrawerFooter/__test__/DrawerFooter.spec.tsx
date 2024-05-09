@@ -22,7 +22,6 @@ describe("DrawerFooter Component", () => {
         );
 
         const contentElement = screen.getByText("some test content");
-        screen.debug();
         expect(contentElement).toBeInTheDocument();
         expect(contentElement).toHaveClass("deriv-drawer__footer test-class");
     });
