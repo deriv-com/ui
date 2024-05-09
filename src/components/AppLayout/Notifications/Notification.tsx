@@ -1,5 +1,5 @@
 import React from "react";
-import { NotificationProps } from "./types";
+import { TNotificationObject } from "./types";
 
 const Notification = ({
     icon,
@@ -7,7 +7,7 @@ const Notification = ({
     message,
     buttonAction,
     actionText,
-}: NotificationProps) => {
+}: TNotificationObject) => {
     return (
         <div className="notification">
             <div className="notification__container">
