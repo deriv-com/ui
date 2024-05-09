@@ -1,5 +1,5 @@
 import { AccountsItem } from "./AccountsItem";
-import { Accordion } from "../../../../Accordion";
+import { Accordion } from "../../../Accordion";
 
 type AccountsListProps = {
     title: string;

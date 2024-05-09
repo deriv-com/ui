@@ -5,10 +5,10 @@ import {
     LegacyChevronUp2pxIcon,
 } from "@deriv/quill-icons";
 
-import { Modal } from "../../../Modal";
-import { ContextMenu } from "../../../ContextMenu";
-import { useDevice } from "../../../../hooks";
-import { Tab, Tabs } from "../../../Tabs";
+import { Modal } from "../../Modal";
+import { ContextMenu } from "../../ContextMenu";
+import { useDevice } from "../../../hooks";
+import { Tab, Tabs } from "../../Tabs";
 import { AccountsPanel } from "./AccountsPanel";
 
 import "./AccountSwitcher.scss";
