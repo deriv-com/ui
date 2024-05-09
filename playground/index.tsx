@@ -1,32 +1,54 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Button, ContextMenu } from "../src/main";
+import { Header } from "../src/main";
 
 const App = () => {
-    const [isOpen, setIsOpen] = React.useState(false);
+    // const [isOpen, setIsOpen] = React.useState(false);
+
+    const accountsList = [
+        {
+            loginid: "id1",
+            icon: "icon1",
+            title: "title1",
+            isVirtual: true,
+            isEu: true,
+        },
+        {
+            loginid: "id2",
+            icon: "icon2",
+            title: "title2",
+            isVirtual: true,
+            isEu: false,
+        },
+        {
+            loginid: "id3",
+            icon: "icon3",
+            title: "title3",
+            isVirtual: false,
+            isEu: false,
+        },
+        {
+            loginid: "id4",
+            icon: "icon4",
+            title: "title4",
+            isVirtual: true,
+            isEu: true,
+        },
+        {
+            loginid: "id5",
+            icon: "icon5",
+            title: "title5",
+            isVirtual: false,
+            isEu: true,
+        },
+    ]
 
     return (
-        <div>
-            <Button
-                style={{ position: "relative" }}
-                size="sm"
-                onClick={() => setIsOpen(!isOpen)}
-            >
-                Toggle Drawer
-            </Button>
-
-            <ContextMenu
-                onClickOutside={() => setIsOpen(false)}
-                isOpen={isOpen}
-                style={{ position: "absolute", top: 40, left: 0 }}
-            >
-                <ul>
-                    <li>Item 1</li>
-                    <li>Item 2</li>
-                    <li>Item 3</li>
-                </ul>
-            </ContextMenu>
-        </div>
+        <Header>
+            <Header.RightWrapper>
+                <Header.AccountSwitcher accounts={accountsList}/>
+            </Header.RightWrapper>
+        </Header>
     );
 };
 

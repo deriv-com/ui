@@ -1,0 +1,17 @@
+.deriv-account-switcher {
+    &__button {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 16px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    &__container {
+        position: absolute;
+        top: 55px;
+        right: 10px;
+    }
+}

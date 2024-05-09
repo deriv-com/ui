@@ -1,7 +1,10 @@
 import { ComponentProps, PropsWithChildren } from "react";
 import clsx from "clsx";
 import { DerivLogo } from "./DerivLogo";
+import { AccountSwitcher } from "./AccountSwitcher";
+
 import "./Header.scss";
+import { Wrapper } from "../Wrapper";
 
 /**
  * Header component.
@@ -20,6 +23,26 @@ export const Header = ({
     </header>
 );
 
+const HeaderRightWrapper = ({
+    children,
+    ...rest
+}: PropsWithChildren<ComponentProps<"div">>) => (
+    <Wrapper variant="right" {...rest}>
+        {children}
+    </Wrapper>
+);
+const HeaderLefttWrapper = ({
+    children,
+    ...rest
+}: PropsWithChildren<ComponentProps<"div">>) => (
+    <Wrapper variant="left" {...rest}>
+        {children}
+    </Wrapper>
+);
+
 Header.DerivLogo = DerivLogo;
+Header.AccountSwitcher = AccountSwitcher;
+Header.RightWrapper = HeaderRightWrapper;
+Header.LeftWrapper = HeaderLefttWrapper;
 
 Header.displayName = "Header";
