@@ -1,8 +1,8 @@
 import {
     ComponentProps,
+    ElementType,
     PropsWithChildren,
     ReactNode,
-    createElement,
 } from "react";
 import clsx from "clsx";
 import "./MenuItem.scss";
@@ -16,13 +16,13 @@ import "./MenuItem.scss";
  * @property {boolean} disableHover - If true, disables hover effects.
  * @property {boolean} active - If true, applies an active state style.
  */
-type TMenuItem = ComponentProps<"a" | "button"> & {
-    as: "a" | "button";
+interface TMenuItem extends ComponentProps<ElementType> {
+    as?: "a" | "button";
     leftComponent?: ReactNode;
     rightComponent?: ReactNode;
     disableHover?: boolean;
     active?: boolean;
-};
+}
 
 /**
  * MenuItem component that can render as either an anchor or a button element, with optional left and right components.
@@ -41,7 +41,7 @@ type TMenuItem = ComponentProps<"a" | "button"> & {
  * @returns {React.ReactElement} A React Element of type 'a' or 'button' based on the 'as' prop.
  */
 export const MenuItem = ({
-    as,
+    as = "a",
     leftComponent,
     children,
     rightComponent,
@@ -50,21 +50,22 @@ export const MenuItem = ({
     className,
     ...props
 }: PropsWithChildren<TMenuItem>) => {
-    const content = {
-        className: clsx(
-            "deriv-menu-item",
-            { "deriv-menu-item--active": active || disableHover },
-            className,
-        ),
-        children: [
-            createElement("div", { key: "leftComponent" }, leftComponent),
-            createElement("div", { key: "mainChildren" }, children),
-            createElement("div", { key: "rightComponent" }, rightComponent),
-        ],
-        ...props,
-    };
+    const Tag = as;
 
-    return createElement(as, { ...content });
+    return (
+        <Tag
+            className={clsx(
+                "deriv-menu-item",
+                { "deriv-menu-item--active": active || disableHover },
+                className,
+            )}
+            {...props}
+        >
+            {leftComponent}
+            {children}
+            {rightComponent}
+        </Tag>
+    );
 };
 
 MenuItem.displayName = "MenuItem";
