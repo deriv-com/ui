@@ -9,6 +9,6 @@ export type TNotificationObject = {
 };
 export type TNotificationsProps = {
     notifications: TNotificationObject[];
-    clearNotificationCallback: () => void;
+    clearNotificationsCallback: () => void;
     isNotificationsVisible?: boolean;
 };
