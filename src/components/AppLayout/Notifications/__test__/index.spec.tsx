@@ -1,9 +1,13 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { Notifications } from "..";
-
+import userEvent from "@testing-library/user-event";
+// Mocking the useDevice hook
+jest.mock("../../../../hooks", () => ({
+    useDevice: jest.fn().mockReturnValue({ isMobile: false }),
+}));
 describe("Notifications Component", () => {
-    it("renders multiple notifications with their respective properties", () => {
+    it("renders multiple notifications with their respective properties", async () => {
         const mockAction1 = jest.fn();
         const mockAction2 = jest.fn();
         const notifications = [
@@ -24,7 +28,15 @@ describe("Notifications Component", () => {
         ];
 
         const { getByText, getAllByRole } = render(
-            <Notifications notifications={notifications} />,
+            <Notifications
+                notifications={notifications}
+                clearNotificationsCallback={() => {}}
+                isNotificationsVisible={true}
+                componentConfig={{
+                    clearButtonText: "Clear all",
+                    modalTitle: "Notifications",
+                }}
+            />,
         );
 
         // Check if the title, message, and button for each notification are in the document
@@ -36,9 +48,9 @@ describe("Notifications Component", () => {
 
         // Check if buttons are clickable and actions are called
         const buttons = getAllByRole("button");
-        fireEvent.click(buttons[0]);
+        await userEvent.click(buttons[0]);
         expect(mockAction1).toHaveBeenCalled();
-        fireEvent.click(buttons[1]);
+        await userEvent.click(buttons[1]);
         expect(mockAction2).toHaveBeenCalled();
     });
 });
