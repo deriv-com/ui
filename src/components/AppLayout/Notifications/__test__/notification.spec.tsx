@@ -1,9 +1,10 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import Notification from "../Notification";
+import userEvent from "@testing-library/user-event";
 
 describe("Notification Component", () => {
-    it("renders the notification with title, message, and button", () => {
+    it("renders the notification with title, message, and button", async () => {
         const mockAction = jest.fn();
         const { getByText, getByRole } = render(
             <Notification
@@ -12,7 +13,7 @@ describe("Notification Component", () => {
                 message="Test message"
                 buttonAction={mockAction}
                 actionText="Click Me"
-            />
+            />,
         );
 
         // Check if the title and message are in the document
@@ -22,6 +23,6 @@ describe("Notification Component", () => {
         // Check if the button is rendered and clickable
         const button = getByRole("button", { name: "Click Me" });
         await userEvent.click(button);
-        expect(mockAction).toHaveBeenCalled();  // Ensure button action is triggered
+        expect(mockAction).toHaveBeenCalled(); // Ensure button action is triggered
     });
 });
