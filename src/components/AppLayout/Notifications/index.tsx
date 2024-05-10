@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Notification from "./Notification";
 import { TNotificationsProps } from "./types";
 import "./index.scss";
@@ -6,6 +6,7 @@ import { useDevice } from "../../../hooks";
 import { ContextMenu } from "../../ContextMenu";
 import { Modal } from "../../Modal";
 import { Text } from "../../Text";
+import { useOnClickOutside } from "usehooks-ts";
 
 export const Notifications = ({
     notifications,
@@ -15,11 +16,17 @@ export const Notifications = ({
 }: TNotificationsProps) => {
     const { isMobile } = useDevice();
     const [isOpen, setIsOpen] = useState(isNotificationsVisible);
+    const notificationsRef = useRef(null);
 
     React.useEffect(() => {
         if (isNotificationsVisible !== isOpen)
             setIsOpen(isNotificationsVisible);
     }, [isNotificationsVisible]);
+
+    useOnClickOutside(notificationsRef, (e) => {
+        e.stopPropagation();
+        setIsOpen(!isOpen);
+    });
 
     return (
         <React.Fragment>
@@ -64,7 +71,11 @@ export const Notifications = ({
                 </Modal>
             )}
             {!isMobile && (
-                <ContextMenu isOpen={isOpen} className="notifications">
+                <ContextMenu
+                    ref={notificationsRef}
+                    isOpen={isOpen}
+                    className="notifications"
+                >
                     <span className="notifications__header-desktop">
                         {componentConfig.modalTitle}
                     </span>
