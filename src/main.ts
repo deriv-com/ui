@@ -23,5 +23,14 @@ export { ToggleSwitch } from "./components/ToggleSwitch";
 export { Tooltip } from "./components/Tooltip";
 export { useDevice } from "./hooks";
 export { VerticalTab, VerticalTabItems } from "./components/VerticalTab";
-export { Header, Footer, Wrapper, Drawer, DerivLogo, MenuItem } from "./components/AppLayout";
+export {
+    Header,
+    Footer,
+    Wrapper,
+    Drawer,
+    DerivLogo,
+    MenuItem,
+    PlatformSwitcher,
+    PlatformSwitcherItem,
+} from "./components/AppLayout";
 export { ContextMenu } from "./components/ContextMenu";
