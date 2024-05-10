@@ -11,8 +11,10 @@ export type TNotificationsProps = {
     notifications: TNotificationObject[];
     clearNotificationsCallback: () => void;
     isNotificationsVisible?: boolean;
-    componentConfig:{
+    componentConfig: {
         clearButtonText: string;
         modalTitle: string;
-    }
+        noNotificationsTitle: string;
+        noNotificationsMessage: string;
+    };
 };

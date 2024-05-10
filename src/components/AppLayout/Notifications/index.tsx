@@ -7,6 +7,7 @@ import { ContextMenu } from "../../ContextMenu";
 import { Modal } from "../../Modal";
 import { Text } from "../../Text";
 import { useOnClickOutside } from "usehooks-ts";
+import Icon from "./ic-box.svg";
 
 export const Notifications = ({
     notifications,
@@ -51,6 +52,21 @@ export const Notifications = ({
                             {componentConfig.modalTitle}
                         </Text>
                     </Modal.Header>
+                    {notifications.length === 0 && (
+                        <div className="notifications__empty">
+                            <img src={Icon} />
+                            <Text
+                                as="p"
+                                align="center"
+                                className="notifications__empty-text"
+                            >
+                                {componentConfig.noNotificationsTitle}
+                            </Text>
+                            <Text as="span" align="center">
+                                {componentConfig.noNotificationsMessage}
+                            </Text>
+                        </div>
+                    )}
                     {notifications.map((notification) => (
                         <Notification
                             key={notification.title}
@@ -79,6 +95,21 @@ export const Notifications = ({
                     <span className="notifications__header-desktop">
                         {componentConfig.modalTitle}
                     </span>
+                    {notifications.length === 0 && (
+                        <div className="notifications__empty">
+                            <img src={Icon} />
+                            <Text
+                                as="p"
+                                align="center"
+                                className="notifications__empty-text"
+                            >
+                                {componentConfig.noNotificationsTitle}
+                            </Text>
+                            <Text as="span" align="center">
+                                {componentConfig.noNotificationsMessage}
+                            </Text>
+                        </div>
+                    )}
                     {notifications.map((notification) => (
                         <Notification
                             key={notification.title}
