@@ -14,6 +14,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
+        componentConfig: {
+            clearButtonText: "Clear all",
+            modalTitle: "Notifications",
+        },
+        clearNotificationsCallback: () => {},
+        isNotificationsVisible: true,
         notifications: [
             {
                 icon: <LegacyAnnouncementIcon width={16} height={16} />,

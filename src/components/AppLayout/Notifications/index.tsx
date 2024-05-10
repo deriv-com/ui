@@ -11,6 +11,7 @@ export const Notifications = ({
     notifications,
     clearNotificationsCallback = () => {},
     isNotificationsVisible = true,
+    componentConfig,
 }: TNotificationsProps) => {
     const { isMobile } = useDevice();
     const [isOpen, setIsOpen] = useState(isNotificationsVisible);
@@ -40,7 +41,7 @@ export const Notifications = ({
                             weight="bold"
                             className="deriv-modal__header-title"
                         >
-                            Notifications
+                            {componentConfig.modalTitle}
                         </Text>
                     </Modal.Header>
                     {notifications.map((notification) => (
@@ -57,7 +58,7 @@ export const Notifications = ({
                                 setIsOpen(false);
                             }}
                         >
-                            Clear all
+                            {componentConfig.clearButtonText}
                         </button>
                     </Modal.Footer>
                 </Modal>
@@ -65,7 +66,7 @@ export const Notifications = ({
             {!isMobile && (
                 <ContextMenu isOpen={isOpen} className="notifications">
                     <span className="notifications__header-desktop">
-                        Notifications
+                        {componentConfig.modalTitle}
                     </span>
                     {notifications.map((notification) => (
                         <Notification
@@ -82,7 +83,7 @@ export const Notifications = ({
                                     clearNotificationsCallback();
                                 }}
                             >
-                                Clear all
+                                {componentConfig.clearButtonText}
                             </button>
                         </div>
                     </div>
