@@ -12,7 +12,8 @@ describe("Notifications Component", () => {
             <Notifications
                 notifications={[]}
                 clearNotificationsCallback={() => {}}
-                isNotificationsVisible={true}
+                isOpen={true}
+                setIsOpen={() => {}}
                 componentConfig={{
                     clearButtonText: "Clear all",
                     modalTitle: "Notifications",
@@ -22,7 +23,7 @@ describe("Notifications Component", () => {
             />,
         );
         expect(queryByText("No notifications")).toBeInTheDocument();
-    })
+    });
     it("renders multiple notifications with their respective properties", async () => {
         const mockAction1 = jest.fn();
         const mockAction2 = jest.fn();
@@ -47,7 +48,8 @@ describe("Notifications Component", () => {
             <Notifications
                 notifications={notifications}
                 clearNotificationsCallback={() => {}}
-                isNotificationsVisible={true}
+                isOpen={true}
+                setIsOpen={() => {}}
                 componentConfig={{
                     clearButtonText: "Clear all",
                     modalTitle: "Notifications",

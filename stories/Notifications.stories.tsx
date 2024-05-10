@@ -22,7 +22,8 @@ export const Default: Story = {
         },
 
         clearNotificationsCallback: () => {},
-        isNotificationsVisible: true,
+        isOpen: true,
+        setIsOpen: () => {},
         notifications: [
             {
                 icon: <LegacyAnnouncementIcon width={16} height={16} />,
@@ -54,6 +55,19 @@ export const Default: Story = {
             },
         ],
     },
+    render: (args) => {
+        const [isOpen, setIsOpen] = React.useState(args.isOpen);
+        React.useEffect(() => {
+            setIsOpen(args.isOpen);
+        }, [args.isOpen])
+        return (
+            <Notifications
+                {...args}
+                isOpen={isOpen}
+                setIsOpen={(state) => setIsOpen(state)}
+            />
+        );
+    },
 };
 
 export const Empty: Story = {
@@ -66,7 +80,21 @@ export const Empty: Story = {
         },
 
         clearNotificationsCallback: () => {},
-        isNotificationsVisible: true,
+        isOpen: true,
+        setIsOpen: () => {},
         notifications: [],
+    },
+    render: (args) => {
+        const [isOpen, setIsOpen] = React.useState(args.isOpen);
+        React.useEffect(() => {
+            setIsOpen(args.isOpen);
+        }, [args.isOpen])
+        return (
+            <Notifications
+                {...args}
+                isOpen={isOpen}
+                setIsOpen={(state) => setIsOpen(state)}
+            />
+        );
     },
 };

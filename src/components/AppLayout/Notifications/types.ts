@@ -10,7 +10,8 @@ export type TNotificationObject = {
 export type TNotificationsProps = {
     notifications: TNotificationObject[];
     clearNotificationsCallback: () => void;
-    isNotificationsVisible?: boolean;
+    setIsOpen: (state: boolean) => void;
+    isOpen: boolean;
     componentConfig: {
         clearButtonText: string;
         modalTitle: string;

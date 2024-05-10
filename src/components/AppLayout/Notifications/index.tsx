@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import Notification from "./Notification";
 import { TNotificationsProps } from "./types";
 import "./index.scss";
@@ -12,17 +12,12 @@ import Icon from "./ic-box.svg";
 export const Notifications = ({
     notifications,
     clearNotificationsCallback = () => {},
-    isNotificationsVisible = true,
+    isOpen,
+    setIsOpen,
     componentConfig,
 }: TNotificationsProps) => {
     const { isMobile } = useDevice();
-    const [isOpen, setIsOpen] = useState(isNotificationsVisible);
     const notificationsRef = useRef(null);
-
-    React.useEffect(() => {
-        if (isNotificationsVisible !== isOpen)
-            setIsOpen(isNotificationsVisible);
-    }, [isNotificationsVisible]);
 
     useOnClickOutside(notificationsRef, (e) => {
         e.stopPropagation();
