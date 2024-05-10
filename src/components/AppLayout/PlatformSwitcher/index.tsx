@@ -23,7 +23,7 @@ export const PlatformSwitcher = ({
     children,
     bottomLink,
 }: PropsWithChildren<TPlatformSwitcher>) => {
-    const [isExpanded, setExpanded] = useState(true);
+    const [isExpanded, setExpanded] = useState(false);
     const ref = useRef(null);
 
     useOnClickOutside(ref, (e) => {
