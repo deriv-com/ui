@@ -14,6 +14,12 @@ export const Notifications = ({
 }: TNotificationsProps) => {
     const { isMobile } = useDevice();
     const [isOpen, setIsOpen] = useState(isNotificationsVisible);
+
+    React.useEffect(() => {
+        if (isNotificationsVisible !== isOpen)
+            setIsOpen(isNotificationsVisible);
+    }, [isNotificationsVisible]);
+
     return (
         <React.Fragment>
             {isMobile && (
