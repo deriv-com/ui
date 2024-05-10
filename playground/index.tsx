@@ -109,6 +109,7 @@ const App = () => {
                     </Wrapper>
                     <Wrapper variant="right">
                         <AccountSwitcher accounts={accountsList} />
+                        <Button size="sm" style={{margin: "0 10px"}}>Deposit</Button>
                     </Wrapper>
                 </Header>
             ) : (
