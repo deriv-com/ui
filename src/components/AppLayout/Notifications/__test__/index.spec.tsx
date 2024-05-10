@@ -7,6 +7,22 @@ jest.mock("../../../../hooks", () => ({
     useDevice: jest.fn().mockReturnValue({ isMobile: false }),
 }));
 describe("Notifications Component", () => {
+    it("should show no notifications when notifications array is empty", () => {
+        const { queryByText } = render(
+            <Notifications
+                notifications={[]}
+                clearNotificationsCallback={() => {}}
+                isNotificationsVisible={true}
+                componentConfig={{
+                    clearButtonText: "Clear all",
+                    modalTitle: "Notifications",
+                    noNotificationsTitle: "No notifications",
+                    noNotificationsMessage: "You have no notifications",
+                }}
+            />,
+        );
+        expect(queryByText("No notifications")).toBeInTheDocument();
+    })
     it("renders multiple notifications with their respective properties", async () => {
         const mockAction1 = jest.fn();
         const mockAction2 = jest.fn();
@@ -35,6 +51,8 @@ describe("Notifications Component", () => {
                 componentConfig={{
                     clearButtonText: "Clear all",
                     modalTitle: "Notifications",
+                    noNotificationsTitle: "No notifications",
+                    noNotificationsMessage: "You have no notifications",
                 }}
             />,
         );
