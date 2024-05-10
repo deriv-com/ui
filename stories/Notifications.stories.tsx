@@ -17,7 +17,10 @@ export const Default: Story = {
         componentConfig: {
             clearButtonText: "Clear all",
             modalTitle: "Notifications",
+            noNotificationsTitle: "No notifications",
+            noNotificationsMessage: "You currently have no notifications",
         },
+
         clearNotificationsCallback: () => {},
         isNotificationsVisible: true,
         notifications: [
@@ -50,5 +53,20 @@ export const Default: Story = {
                 actionText: "Go to Trustpilot",
             },
         ],
+    },
+};
+
+export const Empty: Story = {
+    args: {
+        componentConfig: {
+            clearButtonText: "Clear all",
+            modalTitle: "Notifications",
+            noNotificationsTitle: "No notifications",
+            noNotificationsMessage: "You currently have no notifications",
+        },
+
+        clearNotificationsCallback: () => {},
+        isNotificationsVisible: true,
+        notifications: [],
     },
 };
