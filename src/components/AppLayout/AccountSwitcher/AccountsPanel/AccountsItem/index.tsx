@@ -1,21 +1,28 @@
+import { TAccount } from "../types";
 
-type AccountsItemProps = {
-    account: {
-        loginid: string;
-        icon: string;
-        title: string;
-    };
+import "./AccountsItem.scss";
+type AccountSwitcherProps = {
+    account: TAccount;
     onClick: () => void;
-}
-export const AccountsItem = ({ account, onClick }: AccountsItemProps) => {
+};
+
+export const AccountsItem = ({ account, onClick }: AccountSwitcherProps) => {
     return (
-        <div className="deriv-account-switcher__item" onClick={onClick}>
-            <div className="deriv-account-switcher__item-icon">
+        <div className="deriv-account-switcher-item" key={account.loginid} onClick={onClick}>
+            <div className="deriv-account-switcher-item__icon">
                 {account.icon}
             </div>
-            <div className="deriv-account-switcher__item-title">
-                {account.title}
+            <div className="deriv-account-switcher-item__detail">
+                <div className="deriv-account-switcher-item__currency">
+                    {account.type}
+                </div>
+                <div className="deriv-account-switcher-item__loginid">
+                    {account.loginid}
+                </div>
+            </div>
+            <div className="deriv-account-switcher-item__balance">
+                {`${account.balance} ${account.currency}`}
             </div>
         </div>
-    )
-}
+    );
+};

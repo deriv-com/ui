@@ -1,13 +1,12 @@
 import { AccountsItem } from "./AccountsItem";
 import { Accordion } from "../../../Accordion";
+import {TAccount} from "./types"
+
+import "./AccountsPanel.scss"
 
 type AccountsListProps = {
     title: string;
-    accounts: {
-        loginid: string;
-        icon: string;
-        title: string;
-    }[];
+    accounts: TAccount[];
     onClick: (loginid: string) => void;
 };
 

@@ -4,7 +4,15 @@ import {
     LegacyReportsIcon,
     LabelPairedHouseBlankMdRegularIcon,
     LegacyChevronRight2pxIcon,
+    CurrencyUsdIcon,
+    CurrencyBtcIcon,
+    CurrencyDemoIcon,
+    CurrencyUsdtIcon,
+    CurrencyEthIcon,
 } from "@deriv/quill-icons";
+
+import { TAccount } from "../src/components/AppLayout/AccountSwitcher/AccountsPanel/types";
+
 import {
     MenuItem,
     useDevice,
@@ -16,39 +24,54 @@ import {
     AccountSwitcher,
 } from "../src/main";
 
-const accountsList = [
+const accountsList : TAccount[]  = [
     {
+        icon: <CurrencyUsdIcon/>,
+        type: "US Dollar",
         loginid: "id1",
-        icon: "icon1",
-        title: "title1",
+        balance: "1000",
+        currency: "USD",
+        token: "token1",
         isVirtual: true,
         isEu: true,
     },
     {
+        icon: <CurrencyBtcIcon/>,
+        type: "Bitcoin",
         loginid: "id2",
-        icon: "icon2",
-        title: "title2",
-        isVirtual: true,
-        isEu: false,
-    },
-    {
-        loginid: "id3",
-        icon: "icon3",
-        title: "title3",
+        balance: "0",
+        currency: "BTC",
+        token: "token2",
         isVirtual: false,
         isEu: false,
     },
     {
+        icon: <CurrencyDemoIcon/>,
+        type: "US Dollar",
+        loginid: "id3",
+        balance: "10000",
+        currency: "USD",
+        token: "token3",
+        isVirtual: false,
+        isEu: false,
+    },
+    {
+        icon: <CurrencyUsdtIcon/>,
+        type: "Tether TRC20",
         loginid: "id4",
-        icon: "icon4",
-        title: "title4",
-        isVirtual: true,
+        balance: "500",
+        currency: "USD",
+        token: "token4",
+        isVirtual: false,
         isEu: true,
     },
     {
+        icon: <CurrencyEthIcon/>,
+        type: "Etherium",
         loginid: "id5",
-        icon: "icon5",
-        title: "title5",
+        balance: "1000",
+        currency: "ETH",
+        token: "token5",
         isVirtual: false,
         isEu: true,
     },

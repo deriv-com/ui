@@ -10,17 +10,12 @@ import { ContextMenu } from "../../ContextMenu";
 import { useDevice } from "../../../hooks";
 import { Tab, Tabs } from "../../Tabs";
 import { AccountsPanel } from "./AccountsPanel";
+import { TAccount } from "./AccountsPanel/types";
 
 import "./AccountSwitcher.scss";
 
 type AccountSwitcherProps = {
-    accounts: {
-        loginid: string;
-        icon: string;
-        title: string;
-        isVirtual: boolean;
-        isEu: boolean;
-    }[];
+    accounts: TAccount[];
 };
 
 export const AccountSwitcher = ({ accounts = [] }: AccountSwitcherProps) => {

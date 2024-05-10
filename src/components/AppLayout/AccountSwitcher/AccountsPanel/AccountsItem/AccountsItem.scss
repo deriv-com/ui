@@ -1,0 +1,38 @@
+.deriv-account-switcher-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px 16px;
+
+    &:hover{
+        border-radius: 4px;
+        background-color: var(--du-general-active, #D6DADB );
+    }
+
+    &__icon {
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__detail{
+        gap:10px;
+    }
+    &__balance {
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
+    }
+
+    &__loginid{
+        font-size: 10px;
+    }
+
+    &__currency{
+        font-size: 14px;
+    }
+
+    &__balance{
+        font-size: 14px;
+    }
+}
