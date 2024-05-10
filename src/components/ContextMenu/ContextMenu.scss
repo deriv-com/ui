@@ -21,18 +21,15 @@
 }
 
 .deriv-context-menu{
-    background-color: white;
     position: absolute;
-    padding: 8px 0;
-    width:350px;
-    height: auto;
-    border-radius: 4px;
+    min-width:100px;
+    min-height: 40px;
     box-shadow: 0 4px 8px 2px var(--du-shadow-box, transparentize($color-black-7, 0.92));
-    cursor: pointer;
     z-index: 10000;
     animation-name: openContextMenu;
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
+
     &.deriv-fadeout {
         animation-name: closeContextMenu;
         animation-duration: 0.3s;
