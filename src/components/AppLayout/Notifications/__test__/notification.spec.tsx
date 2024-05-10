@@ -21,7 +21,7 @@ describe("Notification Component", () => {
 
         // Check if the button is rendered and clickable
         const button = getByRole("button", { name: "Click Me" });
-        fireEvent.click(button);
+        await userEvent.click(button);
         expect(mockAction).toHaveBeenCalled();  // Ensure button action is triggered
     });
 });
