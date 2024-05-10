@@ -1,9 +1,15 @@
 .notifications {
+    border-radius: 9px;
+    background: var(--system-light-8-primary-background, #fff);
+    box-shadow:
+        0px 0px 16px 0px rgba(0, 0, 0, 0.08),
+        0px 16px 16px 0px rgba(0, 0, 0, 0.08);
     .notification {
         background: var(--light-8-primary-background, #fff);
         box-shadow: 0px -1px 0px 0px #f2f3f4 inset;
         padding: 8px 16px;
         font-size: 12px;
+        
         &__container {
             display: flex;
             flex-direction: row;
@@ -18,13 +24,11 @@
         }
         &__title {
             color: var(--system-light-1-prominent-text, #333);
-
             font-family: "IBM Plex Sans";
             font-size: 14px;
             font-style: normal;
             font-weight: 700;
             line-height: 20px;
-            margin-bottom: 4px;
         }
         &__message {
             color: var(--system-light-2-general-text, #333);
@@ -59,6 +63,7 @@
             font-size: 14px;
             font-style: normal;
             font-weight: 700;
+            margin: 8px 0;
         }
     }
     &__footer {
@@ -82,11 +87,11 @@
         @include mobile {
             font-size: 14px;
             padding: 8px 16px !important;
-            align-items: flex-start !important;
+            align-items: flex-start!important;
             min-height: unset !important;
         }
         &__clear-button {
-            margin: 8px 16px 0 0;
+            margin: 8px 16px 8px 0;
             display: inline-flex;
             height: 32px;
             padding: 6px 16px;
