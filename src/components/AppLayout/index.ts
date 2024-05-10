@@ -4,3 +4,4 @@ export { Footer } from "./Footer";
 export { Header } from "./Header";
 export { MenuItem } from "./MenuItem";
 export { Wrapper } from "./Wrapper";
+export { Notifications } from "./Notifications";
