@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { TAccount } from "../types";
 
 import "./AccountsItem.scss";
@@ -8,19 +9,40 @@ type AccountSwitcherProps = {
 
 export const AccountsItem = ({ account, onClick }: AccountSwitcherProps) => {
     return (
-        <div className="deriv-account-switcher-item" key={account.loginid} onClick={onClick}>
+        <div
+            className={clsx("deriv-account-switcher-item", {
+                "deriv-account-switcher-item--active": account.isActive,
+            })}
+            key={account.loginid}
+            onClick={onClick}
+        >
             <div className="deriv-account-switcher-item__icon">
                 {account.icon}
             </div>
             <div className="deriv-account-switcher-item__detail">
-                <div className="deriv-account-switcher-item__currency">
+                <div
+                    className={clsx("deriv-account-switcher-item__currency", {
+                        "deriv-account-switcher-item__currency--active":
+                            account.isActive,
+                    })}
+                >
                     {account.type}
                 </div>
-                <div className="deriv-account-switcher-item__loginid">
+                <div
+                    className={clsx("deriv-account-switcher-item__loginid", {
+                        "deriv-account-switcher-item__loginid--active":
+                            account.isActive,
+                    })}
+                >
                     {account.loginid}
                 </div>
             </div>
-            <div className="deriv-account-switcher-item__balance">
+            <div
+                className={clsx("deriv-account-switcher-item__balance", {
+                    "deriv-account-switcher-item__balance--active":
+                        account.isActive,
+                })}
+            >
                 {`${account.balance} ${account.currency}`}
             </div>
         </div>

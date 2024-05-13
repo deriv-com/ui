@@ -43,18 +43,17 @@ export const ContextMenu = forwardRef<
         if (hide) return null;
 
         return (
-            <div ref={ref}>
-                <div
-                    className={clsx(
-                        "deriv-context-menu",
-                        !isOpen && "deriv-fadeout",
-                        className,
-                    )}
-                    onClick={(e) => e.stopPropagation()}
-                    {...rest}
-                >
-                    {children}
-                </div>
+            <div
+                ref={ref}
+                className={clsx(
+                    "deriv-context-menu",
+                    !isOpen && "deriv-fadeout",
+                    className,
+                )}
+                onClick={(e) => e.stopPropagation()}
+                {...rest}
+            >
+                {children}
             </div>
         );
     },

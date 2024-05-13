@@ -5,7 +5,7 @@ import {TAccount} from "./types"
 import "./AccountsPanel.scss"
 
 type AccountsListProps = {
-    title: string;
+    title: string | JSX.Element;
     accounts: TAccount[];
     onClick: (loginid: string) => void;
 };
@@ -16,7 +16,7 @@ export const AccountsPanel = ({
     title,
 }: AccountsListProps) => {
     return (
-            <Accordion className="deriv-account-switcher__list" title={title}>
+            <Accordion defaultOpen={true} className="deriv-account-switcher__list" title={title}>
                 {accounts.map((account) => (
                     <AccountsItem
                         key={account.loginid}

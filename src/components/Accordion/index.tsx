@@ -11,7 +11,7 @@ import "./Accordion.scss";
 
 type AccordionVariants = "underline" | "bordered" | "shadow";
 
-type AccordionProps = ComponentProps<"div"> & {
+type AccordionProps = Omit<ComponentProps<"div">, "title"> & {
     children: ReactNode;
     defaultOpen?: boolean;
     isCompact?: boolean;

@@ -34,6 +34,7 @@ const accountsList : TAccount[]  = [
         token: "token1",
         isVirtual: true,
         isEu: true,
+        isActive: true,
     },
     {
         icon: <CurrencyBtcIcon/>,
@@ -44,6 +45,7 @@ const accountsList : TAccount[]  = [
         token: "token2",
         isVirtual: false,
         isEu: false,
+        isActive: true,
     },
     {
         icon: <CurrencyDemoIcon/>,
@@ -54,6 +56,7 @@ const accountsList : TAccount[]  = [
         token: "token3",
         isVirtual: false,
         isEu: false,
+        isActive: false,
     },
     {
         icon: <CurrencyUsdtIcon/>,
@@ -64,6 +67,7 @@ const accountsList : TAccount[]  = [
         token: "token4",
         isVirtual: false,
         isEu: true,
+        isActive: false,
     },
     {
         icon: <CurrencyEthIcon/>,
@@ -74,6 +78,7 @@ const accountsList : TAccount[]  = [
         token: "token5",
         isVirtual: false,
         isEu: true,
+        isActive: false,
     },
 ];
 

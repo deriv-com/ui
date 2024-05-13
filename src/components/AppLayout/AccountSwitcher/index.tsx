@@ -20,7 +20,6 @@ type AccountSwitcherProps = {
 };
 
 export const AccountSwitcher = ({ accounts = [] }: AccountSwitcherProps) => {
-    console.log(accounts);
     const [isOpen, setIsOpen] = useState(false);
     const ref = useRef(null);
 
@@ -31,14 +30,19 @@ export const AccountSwitcher = ({ accounts = [] }: AccountSwitcherProps) => {
 
     useOnClickOutside(ref, (e) => {
         e.stopPropagation();
-        setIsOpen(false);
+        setIsOpen(!isOpen);
     });
 
     return (
         <>
             <div
                 className="deriv-account-switcher__button"
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={(e) => {
+                    if (!ref.current) {
+                        e.stopPropagation();
+                        setIsOpen(!isOpen);
+                    }
+                }}
             >
                 <div className="deriv-account-switcher__currency-icon">
                     <CurrencyUsdIcon iconSize="sm" />
@@ -49,7 +53,6 @@ export const AccountSwitcher = ({ accounts = [] }: AccountSwitcherProps) => {
                 ) : (
                     <LegacyChevronDown2pxIcon iconSize="xs" />
                 )}
-
                 {isDesktop ? (
                     <ContextMenu
                         ref={ref}
@@ -57,7 +60,7 @@ export const AccountSwitcher = ({ accounts = [] }: AccountSwitcherProps) => {
                         isOpen={isOpen}
                     >
                         <Tabs activeTab="Real" variant="secondary">
-                            <Tab title="Real">
+                            <Tab title="Real" className="test">
                                 <AccountsPanel
                                     accounts={realAccounts.filter(
                                         (account) => !account.isEu,

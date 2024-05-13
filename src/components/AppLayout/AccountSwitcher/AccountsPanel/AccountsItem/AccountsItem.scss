@@ -1,12 +1,16 @@
 .deriv-account-switcher-item {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     padding: 10px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+        background-color: var(--du-general-active, #d6dadb);
+    }
 
-    &:hover{
-        border-radius: 4px;
-        background-color: var(--du-general-active, #D6DADB );
+    &--active {
+        background-color: var(--du-general-active, #d6dadb);
     }
 
     &__icon {
@@ -15,24 +19,33 @@
         align-items: center;
     }
 
-    &__detail{
-        gap:10px;
+    &__detail {
+        gap: 10px;
+        flex:1;
     }
     &__balance {
-        display: flex;
-        flex: 1;
-        justify-content: flex-end;
+        font-size: 14px;
+        &--active {
+            font-weight: 700;
+        }
     }
 
-    &__loginid{
+    &__loginid {
         font-size: 10px;
+        font-weight: 400;
+        color: var(--du-text-less-prominent, #999999);
+
+        &--active {
+            color : var(--du-text-general, #333333);
+        }
     }
 
-    &__currency{
+    &__currency {
         font-size: 14px;
-    }
-
-    &__balance{
-        font-size: 14px;
+        color: var(--du-text-general, #333333);
+        font-weight: 400;
+        &--active {
+            font-weight: 700;
+        }
     }
 }

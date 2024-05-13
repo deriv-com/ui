@@ -7,5 +7,6 @@ export type TAccount = {
     token: string;
     isVirtual: boolean;
     isEu: boolean;
+    isActive: boolean;
 };
 
