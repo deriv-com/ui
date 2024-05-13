@@ -19,6 +19,10 @@
 
         &:hover {
             background: var(--du-general-hover, #e6e9e9);
+
+            @media (max-width: 600px) {
+                background: transparent;
+            }
         }
     }
 
@@ -27,6 +31,10 @@
         border-radius: 8px;
         width: 360px;
         height: 132px;
+
+        @media (max-width: 600px) {
+            width: 263px;
+        }
 
         &-text {
             margin-top: 8px;
@@ -53,14 +61,35 @@
         bottom: 0;
         z-index: 9999;
         background: rgba(0, 0, 0, 0.72);
+
+        @media (max-width: 600px) {
+            display: none;
+        }
     }
 
     &__context-menu {
-        width: 100%;
+        position: absolute;
+        box-shadow: 0 4px 8px 2px
+            var(--du-shadow-box, transparentize($color-black-7, 0.92));
+        z-index: 10000;
+        inset: 0;
+        top: 47px;
+
+        @media (max-width: 600px) {
+            height: 100%;
+            padding: 16px;
+            padding-top: 9px;
+            top: 123px;
+            background: var(--du-general-main-2, #fff);
+        }
 
         &__wrapper {
             padding: 32px;
             background: var(--du-general-main-2, #fff);
+
+            @media (max-width: 600px) {
+                padding: 0;
+            }
         }
 
         &__items {
@@ -68,6 +97,11 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 32px;
+
+            @media (max-width: 600px) {
+                flex-direction: column;
+                gap: 16px;
+            }
         }
 
         &__link {
@@ -78,6 +112,10 @@
             font-weight: 700;
             line-height: 20px;
             color: var(--du-brand-red-coral, #ff444f);
+
+            @media (max-width: 600px) {
+                margin-top: 16px;
+            }
         }
     }
 }

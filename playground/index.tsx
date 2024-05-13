@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import {
     LegacyReportsIcon,
     LabelPairedHouseBlankMdRegularIcon,
-    LegacyChevronRight2pxIcon,
 } from "@deriv/quill-icons";
 import {
     MenuItem,
@@ -93,27 +92,39 @@ const App = () => {
                         <Drawer.Content>
                             <div
                                 style={{
+                                    padding: "8px",
                                     display: "flex",
-                                    flexDirection: "column",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    height: "72px",
+                                    borderBottom: "1px solid #f2f3f4",
                                 }}
                             >
-                                <MenuItem
-                                    style={{
-                                        gap: "5px",
-                                        display: "flex",
-                                        padding: "10px",
+                                <PlatformSwitcher
+                                    buttonProps={{
+                                        icon: platformsConfig[0].buttonIcon,
                                     }}
-                                    active
-                                    as="button"
-                                    leftComponent={
-                                        <LabelPairedHouseBlankMdRegularIcon />
-                                    }
-                                    rightComponent={
-                                        <LegacyChevronRight2pxIcon iconSize="xs" />
-                                    }
+                                    bottomLink={{
+                                        text: "Looking for CFDs? Go to Trader’s Hub",
+                                    }}
                                 >
-                                    Trader's Hub
-                                </MenuItem>
+                                    {platformsConfig.map(
+                                        ({
+                                            description,
+                                            href,
+                                            icon,
+                                            active,
+                                        }) => (
+                                            <PlatformSwitcherItem
+                                                key={description}
+                                                icon={icon}
+                                                href={href}
+                                                description={description}
+                                                active={active}
+                                            />
+                                        ),
+                                    )}
+                                </PlatformSwitcher>
                             </div>
                         </Drawer.Content>
                         <Drawer.Footer>This is a footer</Drawer.Footer>
