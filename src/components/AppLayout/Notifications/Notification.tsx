@@ -1,4 +1,3 @@
-import React from "react";
 import { TNotificationObject } from "./types";
 
 const Notification = ({
