@@ -19,6 +19,15 @@ type TPlatformSwitcher = {
     bottomLink: ComponentProps<"a"> & { text: string | JSX.Element };
 };
 
+/**
+ * PlatformSwitcher component manages a dropdown-like interface for switching between different platforms or sections.
+ * It includes a button to trigger expansion of the menu and a context menu that renders its children as items.
+ *
+ * @param {PropsWithChildren<TPlatformSwitcher>} props - The properties passed to the component.
+ * @property {Omit<ComponentProps<typeof PlatformSwitcherButton>, "isExpanded" | "onClick">} buttonProps - Properties to pass to the PlatformSwitcherButton component, excluding 'isExpanded' and 'onClick'.
+ * @property {ComponentProps<"a"> & { text: string | JSX.Element }} bottomLink - Properties for the bottom link element, including text content which can be a string or JSX.
+ * @returns {JSX.Element} The PlatformSwitcher component wrapped in a div with overlay and context menu.
+ */
 export const PlatformSwitcher = ({
     buttonProps,
     children,
