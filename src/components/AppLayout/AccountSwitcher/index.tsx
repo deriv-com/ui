@@ -11,7 +11,7 @@ import { useDevice } from "../../../hooks";
 import { Tabs } from "../../Tabs";
 import { AccountsPanel } from "./AccountsPanel";
 import { AccountsItem } from "./AccountsItem";
-import { Footer } from "../Footer";
+import { AccountSwitcherFooter } from "./Footer";
 
 import "./AccountSwitcher.scss";
 import { TotalAsset } from "./TotalAsset";
@@ -33,28 +33,24 @@ export const AccountSwitcher = ({
     const [isOpen, setIsOpen] = useState(false);
     const ref = useRef(null);
 
-    const ref2 = useRef(null);
-
     const { isDesktop } = useDevice();
-    useOnClickOutside([ref, ref2], (e) => {
-        e.stopPropagation();
-        setIsOpen(!isOpen);
-    });
+
+    const closeAccountSwitcher = () => {
+        setIsOpen(false);
+    };
+
+    const openAccountSwitcher = () => {
+        setIsOpen(true);
+    };
+    useOnClickOutside(ref, closeAccountSwitcher);
 
     return (
         <>
             <div
                 className="deriv-account-switcher__button"
-                onClick={(e) => {
-                    // const targetClassList = e.target.classList.value;
-                    // const isModalOpen = targetClassList.includes(
-                    //     "deriv-account-switcher__container--mobile",
-                    // );
+                onClick={() => {
                     if (!ref.current) {
-                        console.log(e.target);
-                        e.stopPropagation();
-
-                        setIsOpen(!isOpen);
+                        openAccountSwitcher();
                     }
                 }}
             >
@@ -72,6 +68,7 @@ export const AccountSwitcher = ({
                 )}
                 {isDesktop ? (
                     <ContextMenu
+                        ref={ref}
                         className="deriv-account-switcher__container"
                         isOpen={isOpen}
                     >
@@ -81,10 +78,10 @@ export const AccountSwitcher = ({
                     </ContextMenu>
                 ) : (
                     <Modal
-                        // contentRef={ref2}
+                        closeTimeoutMS={200}
                         onRequestClose={(e) => {
                             e.stopPropagation();
-                            console.log("modal close");
+                            closeAccountSwitcher();
                         }}
                         className="deriv-account-switcher__container--mobile"
                         isOpen={isOpen}
@@ -104,7 +101,7 @@ AccountSwitcher.AccountsPanel = AccountsPanel;
 AccountSwitcher.AccountsItem = AccountsItem;
 AccountSwitcher.TotalAsset = TotalAsset;
 AccountSwitcher.TradersHubLink = TradershubLink;
-AccountSwitcher.Footer = Footer;
+AccountSwitcher.Footer = AccountSwitcherFooter;
 AccountSwitcher.setAppElement = Modal.setAppElement;
 
 AccountSwitcher.DisplayName = "AccountSwitcher";

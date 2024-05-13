@@ -180,6 +180,8 @@ const App = () => {
                                 <AccountSwitcher.TradersHubLink>
                                     Looking for CFD?{" "}
                                 </AccountSwitcher.TradersHubLink>
+                                <Divider color="#f2f3f4" height="4px" />
+
                                 <AccountSwitcher.Footer>
                                     this is a footer
                                 </AccountSwitcher.Footer>

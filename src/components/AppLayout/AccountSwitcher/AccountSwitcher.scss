@@ -32,14 +32,25 @@
         &--mobile{
             width: 90vw;
             position: unset;
-            height: 90vh;
+            min-height: 400px;
+            height: auto;
             border-radius: 4px;
         }
     }
 
-    &__footer{
-        display: flex;
-        justify-content: space-between;
-        padding: 16px 24px;
-    }
+}
+
+.ReactModal__Overlay {
+    opacity: 0;
+}
+
+.ReactModal__Overlay--after-open{
+    opacity: 1;
+    transition: opacity 200ms ease-in-out;
+}
+
+.ReactModal__Overlay--before-close{
+    opacity: 0;
+    transition: opacity 400ms ease-in-out;
+    transition-delay: 1000ms;
 }
