@@ -1,0 +1,12 @@
+.deriv-account-switcher__tradershub-link {
+    padding: 8px 24px;
+    color: var(--du-status-danger, #ec3f3f);
+    font-size: 14px;
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 type TabProps = {
     children?: ReactNode;
     icon?: ReactNode;
-    title: string;
+    title: string | JSX.Element;
     className?: string;
 };
 

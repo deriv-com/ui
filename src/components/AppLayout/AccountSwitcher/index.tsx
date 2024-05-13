@@ -1,6 +1,5 @@
-import { useRef, useState } from "react";
+import { ReactElement, useRef, useState } from "react";
 import {
-    CurrencyUsdIcon,
     LegacyChevronDown2pxIcon,
     LegacyChevronUp2pxIcon,
 } from "@deriv/quill-icons";
@@ -9,28 +8,35 @@ import { useOnClickOutside } from "usehooks-ts";
 import { Modal } from "../../Modal";
 import { ContextMenu } from "../../ContextMenu";
 import { useDevice } from "../../../hooks";
-import { Tab, Tabs } from "../../Tabs";
+import { Tabs } from "../../Tabs";
 import { AccountsPanel } from "./AccountsPanel";
-import { TAccount } from "./AccountsPanel/types";
+import { AccountsItem } from "./AccountsItem";
+import { Footer } from "../Footer";
 
 import "./AccountSwitcher.scss";
 import { TotalAsset } from "./TotalAsset";
-import { Divider } from "../../Divider";
+import { AccountSwitcherTab as Tab } from "./Tab";
+
+import { TabTitleProps } from "../../Tabs/TabTitle";
+import { TAccount } from "./types";
+import { TradershubLink } from "./TradershubLink";
 
 type AccountSwitcherProps = {
-    accounts: TAccount[];
+    children: ReactElement<TabTitleProps>[];
+    activeAccount: TAccount;
 };
 
-export const AccountSwitcher = ({ accounts = [] }: AccountSwitcherProps) => {
+export const AccountSwitcher = ({
+    children,
+    activeAccount,
+}: AccountSwitcherProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const ref = useRef(null);
 
+    const ref2 = useRef(null);
+
     const { isDesktop } = useDevice();
-
-    const realAccounts = accounts.filter((account) => !account.isVirtual);
-    const demoAccounts = accounts.filter((account) => account.isVirtual);
-
-    useOnClickOutside(ref, (e) => {
+    useOnClickOutside([ref, ref2], (e) => {
         e.stopPropagation();
         setIsOpen(!isOpen);
     });
@@ -40,18 +46,24 @@ export const AccountSwitcher = ({ accounts = [] }: AccountSwitcherProps) => {
             <div
                 className="deriv-account-switcher__button"
                 onClick={(e) => {
+                    // const targetClassList = e.target.classList.value;
+                    // const isModalOpen = targetClassList.includes(
+                    //     "deriv-account-switcher__container--mobile",
+                    // );
                     if (!ref.current) {
+                        console.log(e.target);
                         e.stopPropagation();
+
                         setIsOpen(!isOpen);
                     }
                 }}
             >
                 <div className="deriv-account-switcher__currency-icon">
-                    <CurrencyUsdIcon iconSize="sm" />
+                    {activeAccount.icon}
                 </div>
                 <div className="deriv-account-switcher__balance">
-                    <span>0.00</span>
-                    <span>USD</span>
+                    <span>{activeAccount.balance}</span>
+                    <span>{activeAccount.currency}</span>
                 </div>
                 {isOpen ? (
                     <LegacyChevronUp2pxIcon iconSize="xs" />
@@ -60,59 +72,39 @@ export const AccountSwitcher = ({ accounts = [] }: AccountSwitcherProps) => {
                 )}
                 {isDesktop ? (
                     <ContextMenu
-                        ref={ref}
                         className="deriv-account-switcher__container"
                         isOpen={isOpen}
                     >
                         <Tabs activeTab="Real" variant="secondary">
-                            <Tab title="Real">
-                                <AccountsPanel
-                                    accounts={realAccounts.filter(
-                                        (account) => !account.isEu,
-                                    )}
-                                    onClick={() => {}}
-                                    title="Non-EU Deriv Account"
-                                />
-
-                                <Divider color="#f2f3f4" height="4px" />
-
-                                <AccountsPanel
-                                    accounts={realAccounts.filter(
-                                        (account) => account.isEu,
-                                    )}
-                                    onClick={() => {}}
-                                    title="EU Deriv Account"
-                                />
-                                <Divider color="#f2f3f4" height="4px" />
-
-                                <TotalAsset
-                                    title="Total Asset"
-                                    description="Total assets in your Deriv accounts."
-                                    value="0.00 USD"
-                                />
-                                <Divider color="f2f3f4" height="4px" />
-                            </Tab>
-
-                            <Tab title="Demo">
-                                <AccountsPanel
-                                    accounts={demoAccounts}
-                                    onClick={() => {}}
-                                    title="Deriv Demo Account"
-                                />
-                            </Tab>
+                            {children}
                         </Tabs>
                     </ContextMenu>
                 ) : (
                     <Modal
-                        className="deriv-account-switcher__container"
+                        // contentRef={ref2}
+                        onRequestClose={(e) => {
+                            e.stopPropagation();
+                            console.log("modal close");
+                        }}
+                        className="deriv-account-switcher__container--mobile"
                         isOpen={isOpen}
                     >
-                        test
+                        <Tabs activeTab="Real" variant="secondary">
+                            {children}
+                        </Tabs>
                     </Modal>
                 )}
             </div>
         </>
     );
 };
+
+AccountSwitcher.Tab = Tab;
+AccountSwitcher.AccountsPanel = AccountsPanel;
+AccountSwitcher.AccountsItem = AccountsItem;
+AccountSwitcher.TotalAsset = TotalAsset;
+AccountSwitcher.TradersHubLink = TradershubLink;
+AccountSwitcher.Footer = Footer;
+AccountSwitcher.setAppElement = Modal.setAppElement;
 
 AccountSwitcher.DisplayName = "AccountSwitcher";

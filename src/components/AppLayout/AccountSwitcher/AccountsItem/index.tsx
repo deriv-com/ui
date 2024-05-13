@@ -2,19 +2,20 @@ import clsx from "clsx";
 import { TAccount } from "../types";
 
 import "./AccountsItem.scss";
+
 type AccountSwitcherProps = {
     account: TAccount;
-    onClick: () => void;
+    onSelectAccount: () => void;
 };
 
-export const AccountsItem = ({ account, onClick }: AccountSwitcherProps) => {
+export const AccountsItem = ({ account, onSelectAccount }: AccountSwitcherProps) => {
     return (
         <div
             className={clsx("deriv-account-switcher-item", {
                 "deriv-account-switcher-item--active": account.isActive,
             })}
             key={account.loginid}
-            onClick={onClick}
+            onClick={onSelectAccount}
         >
             <div className="deriv-account-switcher-item__icon">
                 {account.icon}

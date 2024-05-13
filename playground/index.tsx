@@ -11,7 +11,7 @@ import {
     CurrencyEthIcon,
 } from "@deriv/quill-icons";
 
-import { TAccount } from "../src/components/AppLayout/AccountSwitcher/AccountsPanel/types";
+import { TAccount } from "../src/components/AppLayout/AccountSwitcher/types";
 
 import {
     MenuItem,
@@ -22,11 +22,12 @@ import {
     Button,
     Wrapper,
     AccountSwitcher,
+    Divider,
 } from "../src/main";
 
-const accountsList : TAccount[]  = [
+const accountsList: TAccount[] = [
     {
-        icon: <CurrencyUsdIcon/>,
+        icon: <CurrencyUsdIcon />,
         type: "US Dollar",
         loginid: "id1",
         balance: "1000",
@@ -34,13 +35,13 @@ const accountsList : TAccount[]  = [
         token: "token1",
         isVirtual: true,
         isEu: true,
-        isActive: true,
+        isActive: false,
     },
     {
-        icon: <CurrencyBtcIcon/>,
+        icon: <CurrencyBtcIcon />,
         type: "Bitcoin",
         loginid: "id2",
-        balance: "0",
+        balance: "0.00054",
         currency: "BTC",
         token: "token2",
         isVirtual: false,
@@ -48,7 +49,7 @@ const accountsList : TAccount[]  = [
         isActive: true,
     },
     {
-        icon: <CurrencyDemoIcon/>,
+        icon: <CurrencyDemoIcon />,
         type: "US Dollar",
         loginid: "id3",
         balance: "10000",
@@ -59,7 +60,7 @@ const accountsList : TAccount[]  = [
         isActive: false,
     },
     {
-        icon: <CurrencyUsdtIcon/>,
+        icon: <CurrencyUsdtIcon />,
         type: "Tether TRC20",
         loginid: "id4",
         balance: "500",
@@ -70,7 +71,7 @@ const accountsList : TAccount[]  = [
         isActive: false,
     },
     {
-        icon: <CurrencyEthIcon/>,
+        icon: <CurrencyEthIcon />,
         type: "Etherium",
         loginid: "id5",
         balance: "1000",
@@ -81,12 +82,12 @@ const accountsList : TAccount[]  = [
         isActive: false,
     },
 ];
-
+AccountSwitcher.setAppElement(document.getElementById("root") as HTMLElement);
 const App = () => {
     const { isMobile } = useDevice();
     const [is_drawer_open, setDrawerOpen] = React.useState(false);
     return (
-        <div>
+        <>
             {!isMobile ? (
                 <Header>
                     <Wrapper
@@ -113,8 +114,83 @@ const App = () => {
                         </MenuItem>
                     </Wrapper>
                     <Wrapper variant="right">
-                        <AccountSwitcher accounts={accountsList} />
-                        <Button size="sm" style={{margin: "0 10px"}}>Deposit</Button>
+                        <AccountSwitcher
+                            activeAccount={
+                                accountsList.find(
+                                    (account) => account.isActive,
+                                ) || {
+                                    icon: <CurrencyBtcIcon />,
+                                    type: "Bitcoin",
+                                    loginid: "id2",
+                                    balance: "0",
+                                    currency: "BTC",
+                                    token: "token2",
+                                    isVirtual: false,
+                                    isEu: false,
+                                    isActive: true,
+                                }
+                            }
+                        >
+                            <AccountSwitcher.Tab title="Real">
+                                <AccountSwitcher.AccountsPanel
+                                    isOpen
+                                    title="EU Accounts"
+                                >
+                                    {accountsList
+                                        .filter(
+                                            (account) =>
+                                                !account.isVirtual &&
+                                                account.isEu,
+                                        )
+                                        .map((account) => (
+                                            <AccountSwitcher.AccountsItem
+                                                key={account.loginid}
+                                                account={account}
+                                                onSelectAccount={() => {
+                                                    console.log(
+                                                        `account with loginid ${account.loginid} clicked`,
+                                                    );
+                                                }}
+                                            />
+                                        ))}
+                                </AccountSwitcher.AccountsPanel>
+                                <Divider color="#f2f3f4" height="4px" />
+                                <AccountSwitcher.AccountsPanel title="Non-EU">
+                                    {accountsList
+                                        .filter(
+                                            (account) =>
+                                                !account.isVirtual &&
+                                                !account.isEu,
+                                        )
+                                        .map((account) => (
+                                            <AccountSwitcher.AccountsItem
+                                                key={account.loginid}
+                                                account={account}
+                                                onSelectAccount={() => {}}
+                                            />
+                                        ))}
+                                </AccountSwitcher.AccountsPanel>
+                                <Divider color="#f2f3f4" height="4px" />
+                                <AccountSwitcher.TotalAsset
+                                    title="Total assets"
+                                    description="test description text comes here"
+                                    value="10,021 USD"
+                                />
+                                <Divider color="#f2f3f4" height="4px" />
+                                <AccountSwitcher.TradersHubLink>
+                                    Looking for CFD?{" "}
+                                </AccountSwitcher.TradersHubLink>
+                                <AccountSwitcher.Footer>
+                                    this is a footer
+                                </AccountSwitcher.Footer>
+                            </AccountSwitcher.Tab>
+                            <AccountSwitcher.Tab title="Demo">
+                                test 2
+                            </AccountSwitcher.Tab>
+                        </AccountSwitcher>
+                        <Button size="sm" style={{ margin: "0 10px" }}>
+                            Deposit
+                        </Button>
                     </Wrapper>
                 </Header>
             ) : (
@@ -162,7 +238,7 @@ const App = () => {
                     </Drawer>
                 </>
             )}
-        </div>
+        </>
     );
 };
 
