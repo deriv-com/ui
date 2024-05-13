@@ -1,7 +1,7 @@
-import React from "react";
+import { ReactNode } from "react";
 
 export type TNotificationObject = {
-    icon: React.ReactNode;
+    icon: ReactNode;
     title: string;
     message: string;
     buttonAction: () => void;
