@@ -16,7 +16,7 @@ export const AccountsPanel = ({
     title,
 }: AccountsListProps) => {
     return (
-            <Accordion defaultOpen={true} className="deriv-account-switcher__list" title={title}>
+            <Accordion defaultOpen={true} className="deriv-account-switcher__list" headerClassName="deriv-account-switcher__title" title={title}>
                 {accounts.map((account) => (
                     <AccountsItem
                         key={account.loginid}

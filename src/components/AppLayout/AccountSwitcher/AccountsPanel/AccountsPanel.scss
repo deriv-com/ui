@@ -1,7 +1,19 @@
-.deriv-account-switcher__list{
-    padding: 18px 8px 8px 8px;
-    height: auto;
-    border-bottom: 4px solid var(--du-border-divider, #f2f3f4);
-    font-size: 14px;
-    font-weight: 500;
+.deriv-account-switcher{
+
+    &__title{
+        padding: 0 16px;
+        font-weight: 700;
+        font-size: 14px;
+    }
+
+    &__list{
+        padding: 18px 8px 8px 8px;
+        height: auto;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--du-text-general, #333333);
+    }
+
+
+
 }

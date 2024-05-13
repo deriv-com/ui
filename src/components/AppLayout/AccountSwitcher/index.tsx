@@ -14,6 +14,8 @@ import { AccountsPanel } from "./AccountsPanel";
 import { TAccount } from "./AccountsPanel/types";
 
 import "./AccountSwitcher.scss";
+import { TotalAsset } from "./TotalAsset";
+import { Divider } from "../../Divider";
 
 type AccountSwitcherProps = {
     accounts: TAccount[];
@@ -47,7 +49,10 @@ export const AccountSwitcher = ({ accounts = [] }: AccountSwitcherProps) => {
                 <div className="deriv-account-switcher__currency-icon">
                     <CurrencyUsdIcon iconSize="sm" />
                 </div>
-                <div className="deriv-account-switcher__balance">0.00 USD</div>
+                <div className="deriv-account-switcher__balance">
+                    <span>0.00</span>
+                    <span>USD</span>
+                </div>
                 {isOpen ? (
                     <LegacyChevronUp2pxIcon iconSize="xs" />
                 ) : (
@@ -60,7 +65,7 @@ export const AccountSwitcher = ({ accounts = [] }: AccountSwitcherProps) => {
                         isOpen={isOpen}
                     >
                         <Tabs activeTab="Real" variant="secondary">
-                            <Tab title="Real" className="test">
+                            <Tab title="Real">
                                 <AccountsPanel
                                     accounts={realAccounts.filter(
                                         (account) => !account.isEu,
@@ -69,6 +74,8 @@ export const AccountSwitcher = ({ accounts = [] }: AccountSwitcherProps) => {
                                     title="Non-EU Deriv Account"
                                 />
 
+                                <Divider color="#f2f3f4" height="4px" />
+
                                 <AccountsPanel
                                     accounts={realAccounts.filter(
                                         (account) => account.isEu,
@@ -76,6 +83,14 @@ export const AccountSwitcher = ({ accounts = [] }: AccountSwitcherProps) => {
                                     onClick={() => {}}
                                     title="EU Deriv Account"
                                 />
+                                <Divider color="#f2f3f4" height="4px" />
+
+                                <TotalAsset
+                                    title="Total Asset"
+                                    description="Total assets in your Deriv accounts."
+                                    value="0.00 USD"
+                                />
+                                <Divider color="f2f3f4" height="4px" />
                             </Tab>
 
                             <Tab title="Demo">
