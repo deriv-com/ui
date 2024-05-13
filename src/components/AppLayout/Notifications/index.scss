@@ -1,0 +1,138 @@
+.notifications {
+    border-radius: 9px;
+    background: var(--system-light-8-primary-background, #fff);
+    box-shadow:
+        0px 0px 16px 0px rgba(0, 0, 0, 0.08),
+        0px 16px 16px 0px rgba(0, 0, 0, 0.08);
+    min-height: 525px !important;
+    display: flex;
+    flex-direction: column;
+    &__empty {
+        width: 264px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: var(--text-less-prominent, #999);
+        flex-grow: 1;
+
+        @include mobile {
+            width: unset;
+        }
+        p {
+            justify-content: center;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 20px;
+            color: var(--text-less-prominent, #999);
+        }
+        span {
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 18px;
+            color: var(--text-less-prominent, #999);
+        }
+    }
+    .notification {
+        background: var(--light-8-primary-background, #fff);
+        box-shadow: 0px -1px 0px 0px #f2f3f4 inset;
+        padding: 8px 16px;
+        font-size: 12px;
+
+        &__container {
+            display: flex;
+            flex-direction: row;
+        }
+        &__text {
+            margin-left: 8px;
+        }
+        &__icon {
+            width: 16px;
+            height: 16px;
+            padding: 2px 0;
+        }
+        &__title {
+            color: var(--system-light-1-prominent-text, #333);
+            font-family: "IBM Plex Sans";
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 20px;
+        }
+        &__message {
+            color: var(--system-light-2-general-text, #333);
+            font-family: "IBM Plex Sans";
+            font-style: normal;
+            font-weight: 400;
+            line-height: 18px;
+        }
+        &__button {
+            &-container {
+                margin-top: 8px;
+                display: flex;
+                justify-content: flex-end;
+            }
+            display: flex;
+            align-items: center;
+            border-radius: 4px;
+            border: 1px solid var(--light-3-less-prominent-text, #999);
+            height: 24px;
+            padding: 3px 8px;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 18px;
+        }
+    }
+    &__header {
+        &-desktop {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 7px;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            margin: 8px 0;
+        }
+    }
+    &__footer {
+        align-items: flex-end;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 700;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: auto;
+        min-height: unset !important;
+        &-box {
+            width: 100%;
+            box-shadow: 0px 1px 0px 0px #f2f3f4 inset;
+            justify-content: flex-end;
+            display: flex;
+        }
+
+        // width: 100vw;
+        @include mobile {
+            font-size: 14px;
+            padding: 8px 16px !important;
+            align-items: flex-start !important;
+        }
+        &__clear-button {
+            margin: 8px 16px 8px 0;
+            display: inline-flex;
+            height: 32px;
+            padding: 6px 16px;
+            justify-content: flex-end;
+            align-items: center;
+            flex-shrink: 0;
+            border-radius: 4px;
+            border: 1px solid var(--system-light-3-less-prominent-text, #999);
+            @include mobile {
+                margin: 0;
+            }
+        }
+    }
+}
