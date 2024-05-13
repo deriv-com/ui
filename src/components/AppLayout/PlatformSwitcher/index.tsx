@@ -5,8 +5,10 @@ import {
     useState,
     JSX,
 } from "react";
+import clsx from "clsx";
 import { useOnClickOutside } from "usehooks-ts";
 import { PlatformSwitcherButton } from "./PlatformSwitcherButton";
+import { ContextMenu } from "../../ContextMenu";
 import "./PlatformSwitcher.scss";
 
 type TPlatformSwitcher = {
@@ -42,22 +44,28 @@ export const PlatformSwitcher = ({
                 }}
                 {...buttonProps}
             />
-            {isExpanded && <div className="deriv-platform-switcher__overlay" />}
-            {isExpanded && (
-                <div className="deriv-platform-switcher__context-menu">
-                    <div className="deriv-platform-switcher__context-menu__wrapper">
-                        <div className="deriv-platform-switcher__context-menu__items">
-                            {children}
-                        </div>
-
-                        {bottomLink && (
-                            <div className="deriv-platform-switcher__context-menu__link">
-                                <a {...bottomLink}>{bottomLink.text}</a>
-                            </div>
-                        )}
+            <div
+                className={clsx("deriv-platform-switcher__overlay", {
+                    "deriv-platform-switcher__overlay-fadeout": !isExpanded,
+                })}
+            />
+            <ContextMenu
+                ref={ref}
+                className="deriv-platform-switcher__context-menu"
+                isOpen={isExpanded}
+            >
+                <div className="deriv-platform-switcher__context-menu__wrapper">
+                    <div className="deriv-platform-switcher__context-menu__items">
+                        {children}
                     </div>
+
+                    {bottomLink && (
+                        <div className="deriv-platform-switcher__context-menu__link">
+                            <a {...bottomLink}>{bottomLink.text}</a>
+                        </div>
+                    )}
                 </div>
-            )}
+            </ContextMenu>
         </div>
     );
 };

@@ -91,23 +91,4 @@ export const platformsConfig: PlatformsConfig[] = [
             />
         ),
     },
-    {
-        href: "https://app.deriv.com",
-        showInEU: true,
-        active: false,
-        description:
-            "A whole new trading experience on a powerful yet easy to use platform.",
-        icon: (
-            <DerivProductDerivTraderBrandLightLogoWordmarkHorizontalIcon
-                width={148}
-                height={32}
-            />
-        ),
-        buttonIcon: (
-            <DerivProductDerivTraderBrandLightLogoWordmarkHorizontalIcon
-                width={111}
-                height={24}
-            />
-        ),
-    },
 ];

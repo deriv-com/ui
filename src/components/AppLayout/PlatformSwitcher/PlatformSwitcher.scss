@@ -1,3 +1,25 @@
+@keyframes openContextMenu {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes closeContextMenu {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+}
+
 .deriv-platform-switcher {
     height: 100%;
 
@@ -61,6 +83,16 @@
         bottom: 0;
         z-index: 9999;
         background: rgba(0, 0, 0, 0.72);
+        animation-name: openContextMenu;
+        animation-duration: 0.3s;
+        animation-fill-mode: forwards;
+
+        &-fadeout {
+            background-color: transparent;
+            animation-name: closeContextMenu;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
 
         @media (max-width: 600px) {
             display: none;
@@ -68,19 +100,14 @@
     }
 
     &__context-menu {
-        position: absolute;
-        box-shadow: 0 4px 8px 2px
-            var(--du-shadow-box, transparentize($color-black-7, 0.92));
-        z-index: 10000;
-        inset: 0;
+        width: 100%;
+        left: 0;
         top: 47px;
+        background: var(--du-general-main-2, #fff);
 
         @media (max-width: 600px) {
             height: 100%;
-            padding: 16px;
-            padding-top: 9px;
             top: 123px;
-            background: var(--du-general-main-2, #fff);
         }
 
         &__wrapper {
@@ -88,7 +115,8 @@
             background: var(--du-general-main-2, #fff);
 
             @media (max-width: 600px) {
-                padding: 0;
+                padding: 16px;
+                padding-top: 9px;
             }
         }
 
