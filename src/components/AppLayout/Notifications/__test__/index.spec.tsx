@@ -1,4 +1,3 @@
-import React from "react";
 import { render } from "@testing-library/react";
 import { Notifications } from "..";
 import userEvent from "@testing-library/user-event";
