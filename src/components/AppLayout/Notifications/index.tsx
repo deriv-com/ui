@@ -129,3 +129,4 @@ export const Notifications = ({
         </Fragment>
     );
 };
+Notifications.displayName = "Notifications";
