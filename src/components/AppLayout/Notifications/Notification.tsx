@@ -1,3 +1,4 @@
+import { Text } from "../../Text";
 import { TNotificationObject } from "./types";
 
 const Notification = ({
@@ -12,9 +13,10 @@ const Notification = ({
             <div className="notification__container">
                 <div className="notification__icon">{icon}</div>
                 <div className="notification__text">
-                    <h3 className="notification__title">{title}</h3>
+                    <Text
+                     as="h3" className="notification__title">{title}</Text>
                     <div className="notification__message">
-                        <p>{message}</p>
+                        <Text as="p">{message}</Text>
                     </div>
                 </div>
             </div>

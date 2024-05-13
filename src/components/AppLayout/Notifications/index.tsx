@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { Fragment, useRef } from "react";
 import Notification from "./Notification";
 import { TNotificationsProps } from "./types";
 import "./index.scss";
@@ -25,7 +25,7 @@ export const Notifications = ({
     });
 
     return (
-        <React.Fragment>
+        <Fragment>
             {isMobile && (
                 <Modal
                     className="notifications"
@@ -87,9 +87,9 @@ export const Notifications = ({
                     isOpen={isOpen}
                     className="notifications"
                 >
-                    <span className="notifications__header-desktop">
+                    <Text as="span" className="notifications__header-desktop">
                         {componentConfig.modalTitle}
-                    </span>
+                    </Text>
                     {notifications.length === 0 && (
                         <div className="notifications__empty">
                             <img src={Icon} />
@@ -126,6 +126,6 @@ export const Notifications = ({
                     </div>
                 </ContextMenu>
             )}
-        </React.Fragment>
+        </Fragment>
     );
 };
