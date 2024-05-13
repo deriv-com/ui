@@ -1,5 +1,5 @@
 import { Fragment, useRef } from "react";
-import Notification from "./Notification";
+import { Notification } from "./Notification";
 import { TNotificationsProps } from "./types";
 import "./index.scss";
 import { useDevice } from "../../../hooks";

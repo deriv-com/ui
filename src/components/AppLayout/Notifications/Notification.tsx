@@ -1,7 +1,7 @@
 import { Text } from "../../Text";
 import { TNotificationObject } from "./types";
 
-const Notification = ({
+export const Notification = ({
     icon,
     title,
     message,
@@ -28,4 +28,4 @@ const Notification = ({
         </div>
     );
 };
-export default Notification;
+Notification.displayName = 'Notification'
