@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { PlatformSwitcherItem } from "../PlatformSwitcher/PlatformSwitcherItem";
+import { PlatformSwitcherItem } from "../PlatformSwitcherItem";
 
 describe("PlatformSwitcherItem Component", () => {
     const TestIcon = () => <div>Test Icon</div>;

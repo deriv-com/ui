@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { PlatformSwitcher } from "../PlatformSwitcher";
 import userEvent from "@testing-library/user-event";
+import { PlatformSwitcher } from "..";
 
 const PlatformSwitcherComponent = () => (
     <PlatformSwitcher

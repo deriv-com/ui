@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { PlatformSwitcherButton } from "../PlatformSwitcher/PlatformSwitcherButton";
+import { PlatformSwitcherButton } from "../PlatformSwitcherButton";
 
 describe("PlatformSwitcherButton Component", () => {
     const TestIcon = () => <span>Test Icon</span>;
