@@ -1,6 +1,8 @@
 import { ComponentProps } from "react";
-import "./TotalAsset.scss";
 import clsx from "clsx";
+import { Text } from "../../../Text";
+
+import "./TotalAsset.scss";
 
 type TotalAssetProps = Omit<ComponentProps<"div">, "title"> & {
     title: string | JSX.Element;
@@ -17,12 +19,16 @@ export const TotalAsset = ({
     return (
         <div className={clsx("deriv-total-assets", className)} {...rest}>
             <div className="deriv-total-assets__details">
-                <span className="deriv-total-assets__title">{title}</span>
-                <span className="deriv-total-assets__description">
-                    {description}
-                </span>
+                <Text as="span" className="deriv-total-assets__title">
+                    {title}
+                </Text>
+                <Text as="span" className="deriv-total-assets__value">
+                    {value}
+                </Text>
             </div>
-            <div className="deriv-total-assets__value">{value}</div>
+            <Text as="div" className="deriv-total-assets__description">
+                {description}
+            </Text>
         </div>
     );
 };

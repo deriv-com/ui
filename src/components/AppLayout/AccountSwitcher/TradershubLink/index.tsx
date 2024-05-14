@@ -5,21 +5,20 @@ import clsx from "clsx";
 export const TradershubLink = ({
     children,
     className,
-    href ="#",
+    href = "#",
     target = "_blank",
     ...rest
 }: PropsWithChildren<ComponentProps<"a">>) => {
     return (
-        <a
+        <div
             className={clsx(
                 "deriv-account-switcher__tradershub-link",
                 className,
             )}
-            href={href}
-            target={target}
-            {...rest}
         >
-            {children}
-        </a>
+            <a href={href} target={target} {...rest}>
+                {children}
+            </a>
+        </div>
     );
 };

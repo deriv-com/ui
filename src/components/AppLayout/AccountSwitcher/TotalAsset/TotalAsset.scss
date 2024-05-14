@@ -1,12 +1,12 @@
 .deriv-total-assets{
     display: flex;
-    padding: 8px 24px;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    padding: 4px 24px;
+    justify-content: center;
 
     &__details {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
         gap: 5px;
     }
 
