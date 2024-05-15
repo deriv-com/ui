@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { DerivLogo } from "../DerivLogo";
+import { DerivLogo } from "..";
 
 describe("DerivLogo Component", () => {
     it("renders default logo with correct size", () => {

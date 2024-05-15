@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Wrapper } from "../Wrapper";
+import { Wrapper } from "..";
 
 type TWrapperComponent = {
     variant?: "left" | "right";

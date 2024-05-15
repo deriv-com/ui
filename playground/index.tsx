@@ -23,7 +23,11 @@ import {
     Wrapper,
     AccountSwitcher,
     Divider,
+    PlatformSwitcher,
+    Text,
+    PlatformSwitcherItem,
 } from "../src/main";
+import { platformsConfig } from "./platformsConfig";
 
 const accountsList: TAccount[] = [
     {
@@ -86,31 +90,54 @@ AccountSwitcher.setAppElement(document.getElementById("root") as HTMLElement);
 const App = () => {
     const { isMobile } = useDevice();
     const [is_drawer_open, setDrawerOpen] = React.useState(false);
+
     return (
         <>
             {!isMobile ? (
                 <Header>
-                    <Wrapper
-                        variant="left"
-                        style={{ gap: "15px", padding: "10px" }}
-                    >
-                        <DerivLogo variant="default" />
+                    <Wrapper variant="left">
+                        <PlatformSwitcher
+                            buttonProps={{
+                                icon: platformsConfig[0].buttonIcon,
+                                style: { padding: "0 16px" },
+                            }}
+                            bottomLinkLabel="Looking for CFDs? Go to Trader’s Hub"
+                        >
+                            {platformsConfig.map(
+                                ({ description, href, icon, active }) => (
+                                    <PlatformSwitcherItem
+                                        key={description}
+                                        icon={icon}
+                                        href={href}
+                                        description={description}
+                                        active={active}
+                                    />
+                                ),
+                            )}
+                        </PlatformSwitcher>
                         <MenuItem
-                            style={{ marginLeft: "15px", gap: "5px" }}
+                            style={{ gap: "8px", padding: "16px" }}
                             as="button"
                             leftComponent={
                                 <LabelPairedHouseBlankMdRegularIcon />
                             }
                         >
-                            Trader's Hub
+                            <Text size="md">Trader's Hub</Text>
                         </MenuItem>
 
                         <MenuItem
-                            style={{ marginLeft: "15px", gap: "5px" }}
+                            style={{ gap: "8px", padding: "16px" }}
                             as="button"
                             leftComponent={<LegacyReportsIcon iconSize="xs" />}
                         >
-                            Reports
+                            <Text size="md">Reports</Text>
+                        </MenuItem>
+                        <MenuItem
+                            style={{ gap: "8px", padding: "16px" }}
+                            as="button"
+                            leftComponent={<LegacyReportsIcon iconSize="xs" />}
+                        >
+                            <Text size="md">Cashier</Text>
                         </MenuItem>
                     </Wrapper>
                     <Wrapper variant="right">
@@ -213,27 +240,37 @@ const App = () => {
                         <Drawer.Content>
                             <div
                                 style={{
+                                    padding: "8px",
                                     display: "flex",
-                                    flexDirection: "column",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    height: "72px",
+                                    borderBottom: "1px solid #f2f3f4",
                                 }}
                             >
-                                <MenuItem
-                                    style={{
-                                        gap: "5px",
-                                        display: "flex",
-                                        padding: "10px",
+                                <PlatformSwitcher
+                                    buttonProps={{
+                                        icon: platformsConfig[0].buttonIcon,
                                     }}
-                                    active
-                                    as="button"
-                                    leftComponent={
-                                        <LabelPairedHouseBlankMdRegularIcon />
-                                    }
-                                    rightComponent={
-                                        <LegacyChevronRight2pxIcon iconSize="xs" />
-                                    }
+                                    bottomLinkLabel="Looking for CFDs? Go to Trader’s Hub"
                                 >
-                                    Trader's Hub
-                                </MenuItem>
+                                    {platformsConfig.map(
+                                        ({
+                                            description,
+                                            href,
+                                            icon,
+                                            active,
+                                        }) => (
+                                            <PlatformSwitcherItem
+                                                key={description}
+                                                icon={icon}
+                                                href={href}
+                                                description={description}
+                                                active={active}
+                                            />
+                                        ),
+                                    )}
+                                </PlatformSwitcher>
                             </div>
                         </Drawer.Content>
                         <Drawer.Footer>This is a footer</Drawer.Footer>

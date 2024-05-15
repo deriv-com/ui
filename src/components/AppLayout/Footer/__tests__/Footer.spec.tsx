@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Footer } from "../Footer";
+import { Footer } from "..";
 
 const testText = "This is a test content.";
 const mockFn = jest.fn();
