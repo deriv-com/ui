@@ -1,0 +1,19 @@
+.deriv-account-switcher {
+    &__title {
+        padding: 0 16px;
+        font-weight: 700;
+        font-size: 14px;
+        padding-bottom: 8px;
+    }
+
+    &__list {
+        padding: 18px 8px 8px 8px;
+        height: auto;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--du-text-general, #333333);
+        &.deriv-accordion__text {
+            margin-top: 8px !important;
+        }
+    }
+}

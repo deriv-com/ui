@@ -1,0 +1,34 @@
+.deriv-total-assets{
+    display: flex;
+    flex-direction: column;
+    padding: 4px 24px;
+    justify-content: center;
+
+    &__details {
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+    }
+
+    &__title{
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--du-text-general, #333333);
+
+    }
+
+    &__description{
+        font-size: 10px;
+        font-weight: 400;
+        color: var(--du-text-less-prominent, #999999);
+    }
+
+    &__value{
+        text-align: right;
+        font-size: 14px;
+        color: var(--du-text-general, #333333);
+        font-weight: 400;
+    }
+
+
+}

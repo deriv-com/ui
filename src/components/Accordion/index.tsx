@@ -11,12 +11,13 @@ import "./Accordion.scss";
 
 type AccordionVariants = "underline" | "bordered" | "shadow";
 
-type AccordionProps = ComponentProps<"div"> & {
+type AccordionProps = Omit<ComponentProps<"div">, "title"> & {
     children: ReactNode;
     defaultOpen?: boolean;
     isCompact?: boolean;
     title: string | JSX.Element;
     variant?: AccordionVariants;
+    headerClassName?: string;
 };
 
 const AccordionVariant = {
@@ -32,6 +33,7 @@ export const Accordion = ({
     title,
     variant = "underline",
     className,
+    headerClassName,
     ...props
 }: AccordionProps) => {
     const [active, setActive] = useState(defaultOpen);
@@ -59,9 +61,13 @@ export const Accordion = ({
             {...props}
         >
             <button
-                className={clsx("deriv-accordion__header", {
-                    "deriv-accordion__header--active": active,
-                })}
+                className={clsx(
+                    "deriv-accordion__header",
+                    {
+                        "deriv-accordion__header--active": active,
+                    },
+                    headerClassName,
+                )}
                 onClick={toggleAccordion}
                 aria-expanded={active}
                 type="button"

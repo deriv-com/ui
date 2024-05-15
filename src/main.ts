@@ -23,7 +23,6 @@ export { ToggleSwitch } from "./components/ToggleSwitch";
 export { Tooltip } from "./components/Tooltip";
 export { useDevice } from "./hooks";
 export { VerticalTab, VerticalTabItems } from "./components/VerticalTab";
-export { Notifications } from "./components/AppLayout/Notifications";
 export {
     Header,
     Footer,
@@ -31,6 +30,7 @@ export {
     Drawer,
     DerivLogo,
     MenuItem,
+    AccountSwitcher,
     PlatformSwitcher,
     PlatformSwitcherItem,
 } from "./components/AppLayout";

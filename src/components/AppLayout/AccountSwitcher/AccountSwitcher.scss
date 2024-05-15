@@ -1,0 +1,54 @@
+.deriv-account-switcher {
+
+    &__button {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 16px 12px;
+        position: relative;
+        height: 100%;
+        &:hover {
+            background-color: var(--color-grey-1, #f4f4f4);
+        }
+    }
+
+    &__balance {
+        font-size: 16px;
+        display: flex;
+        font-weight: 700;
+        gap: 8px;
+        color: var(--du-text-profit-success, #4bb4b3);
+    }
+
+    &__container {
+        position: absolute;
+        top: 55px;
+        right: 0;
+        border-radius: 4px;
+        width: 336px;
+
+        &--mobile{
+            width: 90vw;
+            position: unset;
+            min-height: 400px;
+            height: auto;
+            border-radius: 4px;
+        }
+    }
+
+}
+
+.ReactModal__Overlay {
+    opacity: 0;
+}
+
+.ReactModal__Overlay--after-open{
+    opacity: 1;
+    transition: opacity 200ms ease-in-out;
+}
+
+.ReactModal__Overlay--before-close{
+    opacity: 0;
+    transition: opacity 400ms ease-in-out;
+}
