@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
+import { Notification } from "../Notifications/Notification";
 import userEvent from "@testing-library/user-event";
-import { Notification } from "../Notification";
 
 describe("Notification Component", () => {
     it("renders the notification with title, message, and button", async () => {
