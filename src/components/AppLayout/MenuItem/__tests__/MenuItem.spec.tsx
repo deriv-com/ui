@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { MenuItem } from "../MenuItem";
+import { MenuItem } from "..";
 
 describe("MenuItem Component", () => {
     it('renders as a button when "as" prop is "button"', () => {

@@ -31,5 +31,7 @@ export {
     Drawer,
     DerivLogo,
     MenuItem,
+    PlatformSwitcher,
+    PlatformSwitcherItem,
 } from "./components/AppLayout";
 export { ContextMenu } from "./components/ContextMenu";
