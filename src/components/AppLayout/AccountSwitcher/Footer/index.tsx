@@ -9,7 +9,10 @@ export const AccountSwitcherFooter = ({
     ...rest
 }: PropsWithChildren<ComponentProps<"div">>) => {
     return (
-        <div className={clsx("deriv-account-switcher__footer", className)} {...rest}>
+        <div
+            className={clsx("deriv-account-switcher__footer", className)}
+            {...rest}
+        >
             {children}
         </div>
     );
