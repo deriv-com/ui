@@ -72,7 +72,12 @@ export const AccountSwitcher = ({
                         className="deriv-account-switcher__container"
                         isOpen={isOpen}
                     >
-                        <Tabs activeTab="Real" variant="secondary">
+                        <Tabs
+                            activeTab={
+                                activeAccount.isVirtual ? "Demo" : "Real"
+                            }
+                            variant="secondary"
+                        >
                             {children}
                         </Tabs>
                     </ContextMenu>
@@ -86,7 +91,12 @@ export const AccountSwitcher = ({
                         className="deriv-account-switcher__container--mobile"
                         isOpen={isOpen}
                     >
-                        <Tabs activeTab="Real" variant="secondary">
+                        <Tabs
+                            activeTab={
+                                activeAccount.isVirtual ? "Demo" : "Real"
+                            }
+                            variant="secondary"
+                        >
                             {children}
                         </Tabs>
                     </Modal>

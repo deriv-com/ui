@@ -1,6 +1,7 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { AccountSwitcher } from "..";
+import userEvent from "@testing-library/user-event";
 
 jest.mock("../../../../hooks", () => ({
     useDevice: jest.fn().mockReturnValue({ isMobile: false }),
@@ -14,12 +15,12 @@ describe("AccountSwitcher Component", () => {
         balance: "0.00054",
         currency: "BTC",
         token: "token2",
-        isVirtual: false,
+        isVirtual: true,
         isEu: false,
         isActive: true,
     };
 
-    it("renders correctly and toggles visibility on click", () => {
+    it("renders account switcher button correctly", () => {
         render(
             <AccountSwitcher activeAccount={mockAccount}>
                 <AccountSwitcher.Tab title="Real">real tab</AccountSwitcher.Tab>
@@ -27,54 +28,47 @@ describe("AccountSwitcher Component", () => {
             </AccountSwitcher>,
         );
 
-        // screen.debug();
+        const AccountSwitcherButton = screen.getByText(mockAccount.currency);
 
-        // Initially, ensure modal or context menu is not visible
-        // expect(screen.queryByText("Tab Content")).toBeNull();
-
-        // // Simulate click to open account switcher
-        // fireEvent.click(screen.getByText("Account Icon"));
-
-        // // Check if content is now visible
-        // expect(screen.getByText("Tab Content")).toBeInTheDocument();
-
-        // // Check for the presence of an open icon
-        // expect(screen.getByTestId("chevron-up-icon")).toBeInTheDocument();
-
-        // // Click again to close
-        // fireEvent.click(screen.getByText("Account Icon"));
-        // expect(screen.queryByText("Tab Content")).toBeNull();
+        expect(AccountSwitcherButton).toBeInTheDocument();
     });
 
-    // it("renders context menu on desktop and modal on mobile", () => {
-    //     jest.mock("../../../../hooks", () => ({
-    //         useDevice: jest.fn().mockReturnValue({ isMobile: true }),
-    //     }));
-    //     const { rerender } = render(
-    //         <AccountSwitcher activeAccount={mockAccount}>
-    //             <AccountSwitcher.Tab title="Real">real tab</AccountSwitcher.Tab>
-    //             <AccountSwitcher.Tab title="Demo">demo Tab</AccountSwitcher.Tab>
-    //         </AccountSwitcher>,
-    //     );
-    //     fireEvent.click(screen.getByText("Account Icon"));
-    //     expect(screen.getByText("Desktop Content")).toBeInTheDocument();
-    //     expect(screen.getByTestId("context-menu")).toBeInTheDocument();
+    it("opens the accountswitcher dropdown in desktop with the corect active tab when click on the button", async () => {
+        render(
+            <AccountSwitcher activeAccount={mockAccount}>
+                <AccountSwitcher.Tab title="Real">real tab</AccountSwitcher.Tab>
+                <AccountSwitcher.Tab title="Demo">demo Tab</AccountSwitcher.Tab>
+            </AccountSwitcher>,
+        );
 
-    //     // Set isDesktop to false and rerender
-    //     jest.mock("../../../../hooks", () => ({
-    //         useDevice: jest.fn().mockReturnValue({ isMobile: false }),
-    //     }));
+        const AccountSwitcherButton = screen.getByText(mockAccount.currency);
 
-    //     rerender(
-    //         <AccountSwitcher activeAccount={mockAccount}>
-    //             <AccountSwitcher.Tab title="Real">real tab</AccountSwitcher.Tab>
-    //             <AccountSwitcher.Tab title="Demo">demo Tab</AccountSwitcher.Tab>
-    //         </AccountSwitcher>,
-    //     );
-    //     fireEvent.click(screen.getByText("Account Icon"));
-    //     expect(screen.getByText("Mobile Content")).toBeInTheDocument();
-    //     expect(screen.getByTestId("mobile-modal")).toBeInTheDocument();
-    // });
+        expect(AccountSwitcherButton).toBeInTheDocument();
 
-    // Additional tests can include checking if outside clicks call closeAccountSwitcher, which requires mocking useOnClickOutside
+        await userEvent.click(AccountSwitcherButton);
+
+        const DemoTabContent = screen.getByText("demo Tab");
+        expect(DemoTabContent).toBeInTheDocument();
+    });
+
+    it("opens the accountswitcher modal in mobile with the corect active tab when click on the button", async () => {
+        jest.mock("../../../../hooks", () => ({
+            useDevice: jest.fn().mockReturnValue({ isMobile: true }),
+        }));
+        render(
+            <AccountSwitcher activeAccount={mockAccount}>
+                <AccountSwitcher.Tab title="Real">real tab</AccountSwitcher.Tab>
+                <AccountSwitcher.Tab title="Demo">demo Tab</AccountSwitcher.Tab>
+            </AccountSwitcher>,
+        );
+
+        const AccountSwitcherButton = screen.getByText(mockAccount.currency);
+
+        expect(AccountSwitcherButton).toBeInTheDocument();
+
+        await userEvent.click(AccountSwitcherButton);
+        const DemoTabContent = screen.getByText("demo Tab");
+
+        expect(DemoTabContent).toBeInTheDocument();
+    });
 });
