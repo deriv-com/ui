@@ -42,7 +42,7 @@
         &:hover {
             background: var(--du-general-hover, #e6e9e9);
 
-            @media (max-width: 600px) {
+            @include mobile {
                 background: transparent;
             }
         }
@@ -54,7 +54,7 @@
         width: 360px;
         height: 132px;
 
-        @media (max-width: 600px) {
+        @include mobile {
             width: 263px;
         }
 
@@ -94,7 +94,7 @@
             animation-fill-mode: forwards;
         }
 
-        @media (max-width: 600px) {
+        @include mobile {
             display: none;
         }
     }
@@ -105,7 +105,7 @@
         top: 47px;
         background: var(--du-general-main-2, #fff);
 
-        @media (max-width: 600px) {
+        @include mobile {
             height: 100%;
             top: 123px;
         }
@@ -114,7 +114,7 @@
             padding: 32px;
             background: var(--du-general-main-2, #fff);
 
-            @media (max-width: 600px) {
+            @include mobile {
                 padding: 16px;
                 padding-top: 9px;
             }
@@ -126,7 +126,7 @@
             flex-wrap: wrap;
             gap: 32px;
 
-            @media (max-width: 600px) {
+            @include mobile {
                 flex-direction: column;
                 gap: 16px;
             }
@@ -141,7 +141,7 @@
             line-height: 20px;
             color: var(--du-brand-red-coral, #ff444f);
 
-            @media (max-width: 600px) {
+            @include mobile {
                 margin-top: 16px;
             }
         }

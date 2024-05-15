@@ -31,7 +31,7 @@ describe("PlatformSwitcherButton Component", () => {
             <PlatformSwitcherButton
                 icon={<TestIcon />}
                 isExpanded={false}
-                chevronIconClassName={customClassName}
+                iconClassName={customClassName}
             />,
         );
         expect(screen.getByRole("img")).toHaveClass(customClassName);

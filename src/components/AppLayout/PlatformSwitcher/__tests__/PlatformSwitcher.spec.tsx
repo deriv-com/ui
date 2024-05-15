@@ -5,7 +5,7 @@ import { PlatformSwitcher } from "..";
 const PlatformSwitcherComponent = () => (
     <PlatformSwitcher
         buttonProps={{ icon: <span>icon</span> }}
-        bottomLink={{ text: "CFD link", href: "#" }}
+        bottomLinkLabel="CFD link"
     >
         <span>platform switcher child</span>
     </PlatformSwitcher>

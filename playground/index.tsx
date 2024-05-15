@@ -32,9 +32,7 @@ const App = () => {
                                 icon: platformsConfig[0].buttonIcon,
                                 style: { padding: "0 16px" },
                             }}
-                            bottomLink={{
-                                text: "Looking for CFDs? Go to Trader’s Hub",
-                            }}
+                            bottomLinkLabel="Looking for CFDs? Go to Trader’s Hub"
                         >
                             {platformsConfig.map(
                                 ({ description, href, icon, active }) => (
@@ -104,9 +102,7 @@ const App = () => {
                                     buttonProps={{
                                         icon: platformsConfig[0].buttonIcon,
                                     }}
-                                    bottomLink={{
-                                        text: "Looking for CFDs? Go to Trader’s Hub",
-                                    }}
+                                    bottomLinkLabel="Looking for CFDs? Go to Trader’s Hub"
                                 >
                                     {platformsConfig.map(
                                         ({

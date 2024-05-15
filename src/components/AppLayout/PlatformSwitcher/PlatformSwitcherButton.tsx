@@ -6,8 +6,8 @@ import "./PlatformSwitcher.scss";
 type TPlatformSwitcherButton = ComponentProps<"button"> & {
     icon: ReactNode;
     isExpanded: boolean;
-    chevronIconSize?: number;
-    chevronIconClassName?: string;
+    iconSize?: number;
+    iconClassName?: string;
 };
 
 /**
@@ -15,15 +15,15 @@ type TPlatformSwitcherButton = ComponentProps<"button"> & {
  * @param {TPlatformSwitcherButton} props - The properties passed to the component.
  * @property {ReactNode} icon - The icon to be displayed inside the button.
  * @property {boolean} isExpanded - Flag to determine if the switcher is expanded.
- * @property {number} [chevronIconSize=16] - Optional size for the chevron icon.
- * @property {string} [chevronIconClassName] - Optional additional class names for the chevron icon.
+ * @property {number} [iconSize=16] - Optional size for the chevron icon.
+ * @property {string} [iconClassName] - Optional additional class names for the chevron icon.
  * @returns {JSX.Element} The PlatformSwitcherButton component.
  */
 export const PlatformSwitcherButton = ({
     icon,
     className,
-    chevronIconSize = 16,
-    chevronIconClassName,
+    iconSize = 16,
+    iconClassName,
     isExpanded,
     ...props
 }: TPlatformSwitcherButton) => (
@@ -39,10 +39,10 @@ export const PlatformSwitcherButton = ({
                     "deriv-platform-switcher__button-chevron__expanded":
                         isExpanded,
                 },
-                chevronIconClassName,
+                iconClassName,
             )}
-            width={chevronIconSize}
-            height={chevronIconSize}
+            width={iconSize}
+            height={iconSize}
         />
     </button>
 );
