@@ -1,8 +1,13 @@
 .deriv-menu-item {
-    display: flex;
     align-items: center;
     height: 100%;
     cursor: pointer;
+    display: inline-flex;
+    justify-content: space-evenly;
+    padding: 0 16px;
+    position: relative;
+    text-decoration: none;
+    transition: background-color .3s;
 
     &:hover {
         background: var(--du-general-hover, #e6e9e9);

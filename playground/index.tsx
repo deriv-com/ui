@@ -3,12 +3,12 @@ import ReactDOM from "react-dom/client";
 import {
     LegacyReportsIcon,
     LabelPairedHouseBlankMdRegularIcon,
-    LegacyChevronRight2pxIcon,
     CurrencyUsdIcon,
     CurrencyBtcIcon,
     CurrencyDemoIcon,
     CurrencyUsdtIcon,
     CurrencyEthIcon,
+    LegacyProfileSmIcon
 } from "@deriv/quill-icons";
 
 import { TAccount } from "../src/components/AppLayout/AccountSwitcher/types";
@@ -26,6 +26,7 @@ import {
     PlatformSwitcher,
     Text,
     PlatformSwitcherItem,
+    IconMenu
 } from "../src/main";
 import { platformsConfig } from "./platformsConfig";
 
@@ -141,6 +142,7 @@ const App = () => {
                         </MenuItem>
                     </Wrapper>
                     <Wrapper variant="right">
+                        <IconMenu icon={<LegacyProfileSmIcon iconSize="sm" />} as="a" tooltipMesaage="test" tooltipClassName="tooltipClassName" className="className" style={{width:"27px"}} />
                         <AccountSwitcher
                             activeAccount={
                                 accountsList.find(

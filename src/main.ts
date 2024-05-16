@@ -24,13 +24,14 @@ export { Tooltip } from "./components/Tooltip";
 export { useDevice } from "./hooks";
 export { VerticalTab, VerticalTabItems } from "./components/VerticalTab";
 export {
+    AccountSwitcher,
     Header,
     Footer,
     Wrapper,
     Drawer,
     DerivLogo,
+    IconMenu,
     MenuItem,
-    AccountSwitcher,
     PlatformSwitcher,
     PlatformSwitcherItem,
 } from "./components/AppLayout";

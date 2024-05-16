@@ -1,4 +1,4 @@
-import React, { ReactNode, useRef, useState } from "react";
+import React, { ComponentProps, ReactNode, useRef, useState } from "react";
 import clsx from "clsx";
 import { useOnClickOutside } from "usehooks-ts";
 import "./Tooltip.scss";
@@ -7,9 +7,10 @@ type TooltipPositionType = "top" | "bottom" | "left" | "right";
 type TooltipTriggerActionType = "hover" | "click";
 type TooltipVariantType = "general" | "dark" | "error";
 
-type TooltipProps = {
+type TooltipProps = ComponentProps<"div"> & {
     children?: ReactNode;
     className?: string;
+    wrapperClassName?: string;
     message: ReactNode;
     position?: TooltipPositionType;
     triggerAction?: TooltipTriggerActionType;
@@ -19,10 +20,12 @@ type TooltipProps = {
 export const Tooltip = ({
     children,
     className,
+    wrapperClassName,
     message,
     position = "top",
     triggerAction = "hover",
     variant = "general",
+    ...rest
 }: TooltipProps) => {
     const [active, setActive] = useState(false);
     const targetRef = useRef<HTMLDivElement>(null);
@@ -45,7 +48,9 @@ export const Tooltip = ({
         }
     };
 
-    const handleClickOutside = (event: MouseEvent | TouchEvent | FocusEvent) => {
+    const handleClickOutside = (
+        event: MouseEvent | TouchEvent | FocusEvent,
+    ) => {
         if (
             triggerAction === "click" &&
             active &&
@@ -79,11 +84,12 @@ export const Tooltip = ({
 
     return (
         <div
-            className="deriv-tooltip-container"
+            className={clsx("deriv-tooltip-container", wrapperClassName)}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onClick={handleClick}
             ref={targetRef}
+            {...rest}
         >
             {children}
             {active && (
