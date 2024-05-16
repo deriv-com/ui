@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Header } from "../src/main";
+import { MenuItem } from "../src/main";
 import { LegacyAdsIcon, LegacyWhatsappIcon } from "@deriv/quill-icons";
 
 const meta = {
     title: "Components/MenuItem",
-    component: Header.MenuItem,
+    component: MenuItem,
     args: {
         as: "a",
         leftComponent: <LegacyWhatsappIcon width={16} height={16} />,
@@ -21,16 +21,16 @@ const meta = {
     },
     parameters: { layout: "centered" },
     tags: ["autodocs"],
-} satisfies Meta<typeof Header.MenuItem>;
+} satisfies Meta<typeof MenuItem>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    name: "Header.MenuItem",
+    name: "MenuItem",
     render: (args) => (
-        <Header.MenuItem {...args}>
+        <MenuItem {...args}>
             <span style={{ margin: "0 10px" }}>Menu Item</span>
-        </Header.MenuItem>
+        </MenuItem>
     ),
 };

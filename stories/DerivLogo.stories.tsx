@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Header } from "../src/main";
+import { DerivLogo } from "../src/main";
 
 const meta = {
     title: "Components/DerivLogo",
-    component: Header.DerivLogo,
+    component: DerivLogo,
     args: {
         variant: "wallets",
         logoHeight: 30,
@@ -28,15 +28,15 @@ const meta = {
     },
     parameters: { layout: "centered" },
     tags: ["autodocs"],
-} satisfies Meta<typeof Header.DerivLogo>;
+} satisfies Meta<typeof DerivLogo>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    name: "Header.DerivLogo",
+    name: "DerivLogo",
     render: (args) => (
-        <Header.DerivLogo
+        <DerivLogo
             variant={args.variant}
             logoHeight={args.logoHeight}
             logoWidth={args.logoWidth}
