@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { MobileLanguagesDrawer } from "../../LanguagesSwitcher/MobileLanguagesDrawer";
+import { FlagFranceIcon, FlagUnitedKingdomIcon } from "@deriv/quill-icons";
 
 jest.mock("./../../LanguagesSwitcher/LanguageItem", () => ({
     LanguageItem: ({ language, onButtonClick, currentLang }) => (
@@ -14,8 +15,8 @@ jest.mock("./../../LanguagesSwitcher/LanguageItem", () => ({
 
 describe("MobileLanguagesDrawer", () => {
     const languages = [
-        { code: "en", displayName: "English", icon: <span>EN</span> },
-        { code: "fr", displayName: "French", icon: <span>FR</span> },
+        { code: "en", displayName: "English", icon: FlagUnitedKingdomIcon },
+        { code: "fr", displayName: "French", icon: FlagFranceIcon },
     ];
     const onClose = jest.fn();
     const onLanguageSwitch = jest.fn();
