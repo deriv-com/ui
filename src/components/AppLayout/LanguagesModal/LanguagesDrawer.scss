@@ -1,0 +1,19 @@
+.languages-drawer {
+    display: flex;
+    flex-wrap: wrap;
+    &__item {
+        display: flex;
+        flex: 0 0 50%;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        
+        &-button {
+            flex-direction: column;
+            height: 100%;
+            span{
+                color: black !important;
+            }
+        }
+    }
+}
