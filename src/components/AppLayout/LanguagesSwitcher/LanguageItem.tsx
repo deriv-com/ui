@@ -21,7 +21,6 @@ export const LanguageItem = ({
     return(
     <Button
         className="languages__body-button"
-        color="black"
         icon={<Icon/>}
         onClick={onButtonClick}
         variant="ghost"
