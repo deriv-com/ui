@@ -245,7 +245,7 @@ const App = () => {
                         >
                             <DerivLogo variant="default" />
                             <Button
-                                icon={<SelectedLanguageIcon />}
+                                icon={SelectedLanguageIcon}
                                 variant="ghost"
                                 onClick={() => {
                                     setIsLanguagesDrawerOpen(

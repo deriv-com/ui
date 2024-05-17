@@ -1,11 +1,11 @@
-import { ReactElement } from "react";
+import { ReactElement, ReactNode } from "react";
 import { Button } from "../../Button";
 import { Text } from "../../Text";
-import { IconTypes } from "@deriv/quill-icons";
+
 type TLanguageItem = {
     code: string;
     displayName: string | ReactElement;
-    icon: IconTypes;
+    icon: ReactNode;
 };
 type TLangComponent = {
     language: TLanguageItem;
@@ -17,11 +17,10 @@ export const LanguageItem = ({
     onButtonClick,
     currentLang,
 }: TLangComponent) => {
-    const Icon = language.icon;
     return(
     <Button
         className="languages__body-button"
-        icon={<Icon/>}
+        icon={language.icon}
         onClick={onButtonClick}
         variant="ghost"
     >

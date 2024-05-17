@@ -1,3 +1,4 @@
+import React from "react";
 import {
     FlagUnitedKingdomIcon,
     FlagChinaIcon,
@@ -10,27 +11,27 @@ export const LanguagesItemsDrawerConfig = {
         {
             code: "en",
             displayName: "English",
-            icon: FlagUnitedKingdomIcon,
+            icon: <FlagUnitedKingdomIcon />,
         },
         {
             code: "id",
             displayName: "Bahasa Indonesia",
-            icon: FlagIndonesiaIcon,
+            icon: <FlagIndonesiaIcon />,
         },
         {
             code: "zh_cn",
             displayName: "简体中文",
-            icon: FlagChinaIcon,
+            icon: <FlagChinaIcon />,
         },
         {
             code: "vi",
             displayName: "Tiếng Việt",
-            icon: FlagVietnamIcon,
+            icon: <FlagVietnamIcon />,
         },
         {
             code: "de",
             displayName: "Deutsch",
-            icon: FlagGermanyIcon,
+            icon: <FlagGermanyIcon />,
         },
     ],
     currentLang: "en",
