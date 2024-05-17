@@ -1,8 +1,9 @@
 import { render } from "@testing-library/react";
 import { Notifications } from "..";
 import userEvent from "@testing-library/user-event";
+
 // Mocking the useDevice hook
-jest.mock("../../../hooks", () => ({
+jest.mock("../../../../hooks", () => ({
     useDevice: jest.fn().mockReturnValue({ isMobile: false }),
 }));
 describe("Notifications Component", () => {
