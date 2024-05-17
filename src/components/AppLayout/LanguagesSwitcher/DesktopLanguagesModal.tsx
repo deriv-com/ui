@@ -8,7 +8,7 @@ type TLanguagesModalProps = {
     isModalOpen: boolean;
     languages: {
         code: string;
-        display_name: string | ReactElement;
+        displayName: string | ReactElement;
         icon: IconTypes;
     }[];
     onClose: () => void;

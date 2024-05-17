@@ -4,7 +4,7 @@ import { Text } from "../../Text";
 import { IconTypes } from "@deriv/quill-icons";
 export type TLanguageItem = {
     code: string;
-    display_name: string | ReactElement;
+    displayName: string | ReactElement;
     icon: IconTypes;
 };
 export type TLangComponent = {
@@ -29,7 +29,7 @@ export const LanguageItem = ({
             size="sm"
             weight={currentLang === language.code ? "bold" : "normal"}
         >
-            {language.display_name}
+            {language.displayName}
         </Text>
     </Button>
 )};

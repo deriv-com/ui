@@ -6,7 +6,7 @@ jest.mock("./../../LanguagesSwitcher/LanguageItem", () => ({
     LanguageItem: ({ language, onButtonClick, currentLang }) => (
         <div onClick={onButtonClick}>
             <span>{language.icon}</span>
-            <span>{language.display_name}</span>
+            <span>{language.displayName}</span>
             <span>{currentLang === language.code ? "bold" : "normal"}</span>
         </div>
     ),
@@ -14,8 +14,8 @@ jest.mock("./../../LanguagesSwitcher/LanguageItem", () => ({
 
 describe("MobileLanguagesDrawer", () => {
     const languages = [
-        { code: "en", display_name: "English", icon: <span>EN</span> },
-        { code: "fr", display_name: "French", icon: <span>FR</span> },
+        { code: "en", displayName: "English", icon: <span>EN</span> },
+        { code: "fr", displayName: "French", icon: <span>FR</span> },
     ];
     const onClose = jest.fn();
     const onLanguageSwitch = jest.fn();

@@ -9,27 +9,27 @@ export const LanguagesItemsDrawerConfig = {
     languages: [
         {
             code: "en",
-            display_name: "English",
+            displayName: "English",
             icon: FlagUnitedKingdomIcon,
         },
         {
             code: "id",
-            display_name: "Bahasa Indonesia",
+            displayName: "Bahasa Indonesia",
             icon: FlagIndonesiaIcon,
         },
         {
             code: "zh_cn",
-            display_name: "简体中文",
+            displayName: "简体中文",
             icon: FlagChinaIcon,
         },
         {
             code: "vi",
-            display_name: "Tiếng Việt",
+            displayName: "Tiếng Việt",
             icon: FlagVietnamIcon,
         },
         {
             code: "de",
-            display_name: "Deutsch",
+            displayName: "Deutsch",
             icon: FlagGermanyIcon,
         },
     ],

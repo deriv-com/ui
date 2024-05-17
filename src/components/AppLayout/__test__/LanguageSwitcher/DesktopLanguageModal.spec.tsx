@@ -5,8 +5,8 @@ import { FlagFranceIcon, FlagUnitedKingdomIcon } from "@deriv/quill-icons";
 
 describe("DesktopLanguagesModal", () => {
     const languages = [
-        { code: "en", display_name: "English", icon: FlagUnitedKingdomIcon },
-        { code: "fr", display_name: "French", icon: FlagFranceIcon },
+        { code: "en", displayName: "English", icon: FlagUnitedKingdomIcon },
+        { code: "fr", displayName: "French", icon: FlagFranceIcon },
     ];
     const onClose = jest.fn();
     const onLanguageSwitch = jest.fn();
