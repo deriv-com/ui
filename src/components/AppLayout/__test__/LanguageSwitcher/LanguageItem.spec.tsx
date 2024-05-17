@@ -10,7 +10,7 @@ jest.mock("../../../../main", () => ({
 }));
 
 describe("LanguageItem", () => {
-    const language = { code: "en", display_name: "English", icon: FlagUnitedKingdomIcon };
+    const language = { code: "en", displayName: "English", icon: FlagUnitedKingdomIcon };
     const onButtonClick = jest.fn();
     const currentLang = "en";
 
