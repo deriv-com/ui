@@ -32,7 +32,7 @@ export const MobileLanguagesDrawer = ({
     wrapperClassName
 }: TLanguagesItemsDrawerProps) => {
     return (
-        <div className={clsx("languages-drawer", wrapperClassName)}>
+        <div className={clsx("languages-body", wrapperClassName)}>
             {isOpen &&
                 languages.map((language) => {
                     const Icon = () => language.icon;
@@ -41,9 +41,9 @@ export const MobileLanguagesDrawer = ({
                         onClose();
                     };
                     return (
-                        <div key={language.code} className={"languages-drawer__item"}>
+                        <div key={language.code} className="languages-body__item">
                             <Button
-                                className="languages-drawer__item-button"
+                                className="languages-body__item-button"
                                 icon={<Icon />}
                                 onClick={onButtonClick}
                                 variant="ghost"

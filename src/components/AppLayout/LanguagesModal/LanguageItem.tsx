@@ -18,7 +18,7 @@ export const LanguageItem = ({
     currentLang,
 }: TLangComponent) => (
     <Button
-        className="languages-modal__body-button"
+        className="languages__body-button"
         color="black"
         icon={<language.icon />}
         onClick={onButtonClick}
