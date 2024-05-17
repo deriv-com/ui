@@ -1,6 +1,7 @@
 import "./LanguagesDrawer.scss";
 import clsx from "clsx";
-import { LanguageItem, TLanguageItem } from "./LanguageItem";
+import { LanguageItem } from "./LanguageItem";
+import { ComponentProps } from "react";
 
 type TLanguageDrawer = {
     onClose: () => void;
@@ -12,7 +13,7 @@ type TLanguageDrawer = {
 
 // Define the props for the component using intersection type
 type TLanguagesItemsDrawerProps = {
-    languages: TLanguageItem[];
+    languages: ComponentProps<typeof LanguageItem>['language'][];
 } & TLanguageDrawer;
 
 export const MobileLanguagesDrawer = ({

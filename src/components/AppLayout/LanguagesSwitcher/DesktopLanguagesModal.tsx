@@ -1,16 +1,11 @@
-import React, { ReactElement } from "react";
+import React, { ComponentProps, ReactElement } from "react";
 import { Modal, Text } from "../../../main";
 import "./LanguagesModal.scss";
-import { IconTypes } from "@deriv/quill-icons";
 import { LanguageItem } from "./LanguageItem";
 
 type TLanguagesModalProps = {
     isModalOpen: boolean;
-    languages: {
-        code: string;
-        displayName: string | ReactElement;
-        icon: IconTypes;
-    }[];
+    languages: ComponentProps<typeof LanguageItem>['language'][]
     onClose: () => void;
     onLanguageSwitch: (code: string) => void;
     currentLang: string;

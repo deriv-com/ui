@@ -2,12 +2,12 @@ import { ReactElement } from "react";
 import { Button } from "../../Button";
 import { Text } from "../../Text";
 import { IconTypes } from "@deriv/quill-icons";
-export type TLanguageItem = {
+type TLanguageItem = {
     code: string;
     displayName: string | ReactElement;
     icon: IconTypes;
 };
-export type TLangComponent = {
+type TLangComponent = {
     language: TLanguageItem;
     onButtonClick: () => void;
     currentLang: string;
