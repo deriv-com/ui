@@ -1,35 +1,36 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { DesktopLanguagesModal } from "../../LanguagesSwitcher/DesktopLanguagesModal";
+import { MobileLanguagesDrawer } from "../MobileLanguagesDrawer";
 import { FlagFranceIcon, FlagUnitedKingdomIcon } from "@deriv/quill-icons";
 
-describe("DesktopLanguagesModal", () => {
+
+describe("MobileLanguagesDrawer", () => {
     const languages = [
         { code: "en", displayName: "English", icon: FlagUnitedKingdomIcon },
         { code: "fr", displayName: "French", icon: FlagFranceIcon },
     ];
     const onClose = jest.fn();
     const onLanguageSwitch = jest.fn();
-    const currentLang = "en";
-    const headerTitle = "Select Language";
+    const selectedLang = "en";
+    const isOpen = true;
+    const wrapperClassName = "custom-wrapper";
 
     beforeEach(() => {
         render(
-            <DesktopLanguagesModal
-                isModalOpen={true}
+            <MobileLanguagesDrawer
                 languages={languages}
                 onClose={onClose}
                 onLanguageSwitch={onLanguageSwitch}
-                currentLang={currentLang}
-                headerTitle={headerTitle}
-            />,
+                selectedLang={selectedLang}
+                isOpen={isOpen}
+                wrapperClassName={wrapperClassName}
+            />
         );
     });
 
     test("renders correctly when open", () => {
-        expect(screen.getByText("Select Language")).toBeTruthy();
-        expect(screen.getByText("English")).toBeTruthy();
-        expect(screen.getByText("French")).toBeTruthy();
+        expect(screen.getByText("English")).toBeInTheDocument();
+        expect(screen.getByText("French")).toBeInTheDocument();
     });
 
     test("calls onLanguageSwitch and onClose when a language is clicked", () => {
@@ -38,11 +39,8 @@ describe("DesktopLanguagesModal", () => {
         expect(onClose).toHaveBeenCalled();
     });
 
-    test("applies bold weight to current language", () => {
-        const englishText = screen.getByText("English")
-        expect(englishText).toHaveClass("derivs-text__weight--bold");
-
-        const frenchText = screen.getByText("French").closest("span");
-        expect(frenchText).not.toHaveClass("derivs-text__weight--bold");
+    test("applies bold weight to selected language", () => {
+        expect(screen.getByText("English")).toHaveClass("derivs-text__weight--bold");
+        expect(screen.getByText("French")).not.toHaveClass("derivs-text__weight--bold");
     });
 });

@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { LanguageItem } from "../../LanguagesSwitcher/LanguageItem";
+import { LanguageItem } from "../LanguageItem";
 import { FlagUnitedKingdomIcon } from "@deriv/quill-icons";
 
 jest.mock("../../../../main", () => ({

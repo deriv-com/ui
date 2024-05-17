@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import { Notifications } from "../Notifications";
+import { Notifications } from "..";
 import userEvent from "@testing-library/user-event";
 // Mocking the useDevice hook
 jest.mock("../../../hooks", () => ({
