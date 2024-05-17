@@ -36,15 +36,16 @@ export const DesktopLanguagesModal = ({
             </Modal.Header>
             <Modal.Body className="languages-modal__body">
                 {languages.map((language) => {
+                    const onButtonClick = () => {
+                        onLanguageSwitch(language.code);
+                        onClose();
+                    };
                     return (
                         <LanguageItem
                             language={language}
                             currentLang={currentLang}
                             key={language.code}
-                            onButtonClick={() => {
-                                onLanguageSwitch(language.code);
-                                onClose();
-                            }}
+                            onButtonClick={onButtonClick}
                         />
                     );
                 })}
