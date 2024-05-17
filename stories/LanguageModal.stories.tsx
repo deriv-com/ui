@@ -17,27 +17,27 @@ const meta: Meta = {
             {
                 code: "en",
                 display_name: "English",
-                icon: () => <FlagUnitedKingdomIcon />,
+                icon: FlagUnitedKingdomIcon,
             },
             {
                 code: "id",
                 display_name: "Bahasa Indonesia",
-                icon: () => <FlagIndonesiaIcon />,
+                icon: FlagIndonesiaIcon,
             },
             {
                 code: "zh_cn",
                 display_name: "简体中文",
-                icon: () => <FlagChinaIcon />,
+                icon: FlagChinaIcon,
             },
             {
                 code: "vi",
                 display_name: "Tiếng Việt",
-                icon: () => <FlagVietnamIcon />,
+                icon: FlagVietnamIcon,
             },
             {
                 code: "de",
                 display_name: "Deutsch",
-                icon: () => <FlagGermanyIcon />,
+                icon: FlagGermanyIcon,
             },
         ],
         currentLang: "en",
