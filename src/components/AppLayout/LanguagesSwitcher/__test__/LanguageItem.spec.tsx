@@ -18,17 +18,17 @@ describe("LanguageItem", () => {
     const language = {
         code: "en",
         displayName: "English",
-        icon: FlagUnitedKingdomIcon,
+        icon: <FlagUnitedKingdomIcon />,
     };
     const onButtonClick = jest.fn();
-    const currentLang = "en";
+    const selectedLanguage = "en";
 
     beforeEach(() => {
         render(
             <LanguageItem
                 language={language}
                 onButtonClick={onButtonClick}
-                currentLang={currentLang}
+                selectedLanguage={selectedLanguage}
             />,
         );
     });

@@ -3,11 +3,10 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { MobileLanguagesDrawer } from "../MobileLanguagesDrawer";
 import { FlagFranceIcon, FlagUnitedKingdomIcon } from "@deriv/quill-icons";
 
-
 describe("MobileLanguagesDrawer", () => {
     const languages = [
-        { code: "en", displayName: "English", icon: FlagUnitedKingdomIcon },
-        { code: "fr", displayName: "French", icon: FlagFranceIcon },
+        { code: "en", displayName: "English", icon: <FlagUnitedKingdomIcon /> },
+        { code: "fr", displayName: "French", icon: <FlagFranceIcon /> },
     ];
     const onClose = jest.fn();
     const onLanguageSwitch = jest.fn();
@@ -24,7 +23,7 @@ describe("MobileLanguagesDrawer", () => {
                 selectedLang={selectedLang}
                 isOpen={isOpen}
                 wrapperClassName={wrapperClassName}
-            />
+            />,
         );
     });
 
@@ -40,7 +39,11 @@ describe("MobileLanguagesDrawer", () => {
     });
 
     test("applies bold weight to selected language", () => {
-        expect(screen.getByText("English")).toHaveClass("derivs-text__weight--bold");
-        expect(screen.getByText("French")).not.toHaveClass("derivs-text__weight--bold");
+        expect(screen.getByText("English")).toHaveClass(
+            "derivs-text__weight--bold",
+        );
+        expect(screen.getByText("French")).not.toHaveClass(
+            "derivs-text__weight--bold",
+        );
     });
 });
