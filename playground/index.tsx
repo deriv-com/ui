@@ -247,6 +247,7 @@ const App = () => {
                             <Button
                                 icon={SelectedLanguageIcon}
                                 variant="ghost"
+                                color="white"
                                 onClick={() => {
                                     setIsLanguagesDrawerOpen(
                                         !isLanguageDrawerOpen,

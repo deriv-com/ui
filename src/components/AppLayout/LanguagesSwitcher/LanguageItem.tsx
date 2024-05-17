@@ -23,8 +23,8 @@ export const LanguageItem = ({
         icon={language.icon}
         onClick={onButtonClick}
         variant="ghost"
-        hideHoverStyles={true}
-    >
+        color="white"
+        >
         <Text
             size="sm"
             weight={selectedLanguage === language.code ? "bold" : "normal"}
