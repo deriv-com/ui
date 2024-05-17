@@ -94,10 +94,11 @@ const App = () => {
     const [selectedLang, setSelectedLang] = React.useState("en");
     const [isLanguageDrawerOpen, setIsLanguagesDrawerOpen] =
         React.useState(false);
-    const SelectedLanguageIcon = () =>
-        LanguagesItemsDrawerConfig.languageItems.find(
-            (language) => language.code === selectedLang,
-        )?.icon;
+    const SelectedLanguageIcon =
+        LanguagesItemsDrawerConfig.languages.find((language) => {
+            return language.code === selectedLang;
+        })?.icon ?? LanguagesItemsDrawerConfig.languages[0].icon;
+    console.log(SelectedLanguageIcon);
     return (
         <>
             {!isMobile ? (
@@ -290,22 +291,21 @@ const App = () => {
                                     </PlatformSwitcher>
                                 </div>
                             )}
-                                {isLanguageDrawerOpen && (
-                                    <MobileLanguagesDrawer
-                                        className="languages-modal__body-button"
-                                        languages={
-                                            LanguagesItemsDrawerConfig.languageItems
-                                        }
-                                        onClose={() =>
-                                            setIsLanguagesDrawerOpen(false)
-                                        }
-                                        onLanguageSwitch={(code) =>
-                                            setSelectedLang(code)
-                                        }
-                                        selectedLang={selectedLang}
-                                        isOpen={isLanguageDrawerOpen}
-                                    />
-                                )}
+                            {isLanguageDrawerOpen && (
+                                <MobileLanguagesDrawer
+                                    languages={
+                                        LanguagesItemsDrawerConfig.languages
+                                    }
+                                    onClose={() =>
+                                        setIsLanguagesDrawerOpen(false)
+                                    }
+                                    onLanguageSwitch={(code) =>
+                                        setSelectedLang(code)
+                                    }
+                                    selectedLang={selectedLang}
+                                    isOpen={isLanguageDrawerOpen}
+                                />
+                            )}
                         </Drawer.Content>
                         <Drawer.Footer>This is a footer</Drawer.Footer>
                     </Drawer>
