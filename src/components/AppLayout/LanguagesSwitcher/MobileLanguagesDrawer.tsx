@@ -37,7 +37,7 @@ export const MobileLanguagesDrawer = ({
                             key={language.code}
                             language={language}
                             onButtonClick={onButtonClick}
-                            currentLang={selectedLang}
+                            selectedLanguage={selectedLang}
                         />
                     );
                 })}

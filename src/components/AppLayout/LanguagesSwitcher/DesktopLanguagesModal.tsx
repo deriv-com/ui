@@ -8,7 +8,7 @@ type TLanguagesModalProps = {
     languages: ComponentProps<typeof LanguageItem>['language'][]
     onClose: () => void;
     onLanguageSwitch: (code: string) => void;
-    currentLang: string;
+    selectedLanguage: string;
     headerTitle: string | ReactElement;
 };
 
@@ -17,7 +17,7 @@ export const DesktopLanguagesModal = ({
     languages,
     onClose,
     onLanguageSwitch,
-    currentLang,
+    selectedLanguage,
     headerTitle,
 }: TLanguagesModalProps) => {
     return (
@@ -38,7 +38,7 @@ export const DesktopLanguagesModal = ({
                     return (
                         <LanguageItem
                             language={language}
-                            currentLang={currentLang}
+                            selectedLanguage={selectedLanguage}
                             key={language.code}
                             onButtonClick={onButtonClick}
                         />

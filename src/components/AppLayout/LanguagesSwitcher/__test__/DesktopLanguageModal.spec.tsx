@@ -5,12 +5,12 @@ import { FlagFranceIcon, FlagUnitedKingdomIcon } from "@deriv/quill-icons";
 
 describe("DesktopLanguagesModal", () => {
     const languages = [
-        { code: "en", displayName: "English", icon: FlagUnitedKingdomIcon },
-        { code: "fr", displayName: "French", icon: FlagFranceIcon },
+        { code: "en", displayName: "English", icon: <FlagUnitedKingdomIcon/> },
+        { code: "fr", displayName: "French", icon: <FlagFranceIcon/> },
     ];
     const onClose = jest.fn();
     const onLanguageSwitch = jest.fn();
-    const currentLang = "en";
+    const selectedLanguage = "en";
     const headerTitle = "Select Language";
 
     beforeEach(() => {
@@ -20,7 +20,7 @@ describe("DesktopLanguagesModal", () => {
                 languages={languages}
                 onClose={onClose}
                 onLanguageSwitch={onLanguageSwitch}
-                currentLang={currentLang}
+                selectedLanguage={selectedLanguage}
                 headerTitle={headerTitle}
             />,
         );

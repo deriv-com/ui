@@ -34,7 +34,7 @@ export const LanguagesItemsDrawerConfig = {
             icon: <FlagGermanyIcon />,
         },
     ],
-    currentLang: "en",
+    selectedLanguage: "en",
     headerTitle: "Select Language",
     onClose: () => {},
     onLanguageSwitch: (code: string) => {

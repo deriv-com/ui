@@ -17,30 +17,30 @@ const meta: Meta = {
             {
                 code: "en",
                 displayName: "English",
-                icon: FlagUnitedKingdomIcon,
+                icon: <FlagUnitedKingdomIcon/>,
             },
             {
                 code: "id",
                 displayName: "Bahasa Indonesia",
-                icon: FlagIndonesiaIcon,
+                icon: <FlagIndonesiaIcon/>,
             },
             {
                 code: "zh_cn",
                 displayName: "简体中文",
-                icon: FlagChinaIcon,
+                icon: <FlagChinaIcon/>,
             },
             {
                 code: "vi",
                 displayName: "Tiếng Việt",
-                icon: FlagVietnamIcon,
+                icon: <FlagVietnamIcon/>,
             },
             {
                 code: "de",
                 displayName: "Deutsch",
-                icon: FlagGermanyIcon,
+                icon: <FlagGermanyIcon/>,
             },
         ],
-        currentLang: "en",
+        selectedLanguage: "en",
         headerTitle: "Select Language",
         onClose: () => {},
         onLanguageSwitch: (code: string) => {
@@ -75,7 +75,7 @@ export const Default: Story = {
             <DesktopLanguagesModal
                 {...args}
                 onLanguageSwitch={(arg) => setValue(arg)}
-                currentLang={value}
+                selectedLanguage={value}
                 isModalOpen={isModalOpen}
                 languages={args.languages}
                 headerTitle={args.headerTitle}

@@ -10,12 +10,12 @@ type TLanguageItem = {
 type TLangComponent = {
     language: TLanguageItem;
     onButtonClick: () => void;
-    currentLang: string;
+    selectedLanguage: string;
 };
 export const LanguageItem = ({
     language,
     onButtonClick,
-    currentLang,
+    selectedLanguage,
 }: TLangComponent) => {
     return(
     <Button
@@ -26,7 +26,7 @@ export const LanguageItem = ({
     >
         <Text
             size="sm"
-            weight={currentLang === language.code ? "bold" : "normal"}
+            weight={selectedLanguage === language.code ? "bold" : "normal"}
         >
             {language.displayName}
         </Text>
