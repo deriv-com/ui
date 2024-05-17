@@ -35,5 +35,5 @@ export {
     PlatformSwitcherItem,
 } from "./components/AppLayout";
 export { ContextMenu } from "./components/ContextMenu";
-export { DesktopLanguagesModal } from "./components/AppLayout/LanguagesModal/DesktopLanguagesModal";
-export { MobileLanguagesDrawer } from "./components/AppLayout/LanguagesModal/MobileLanguagesDrawer";
+export { DesktopLanguagesModal } from "./components/AppLayout/LanguagesSwitcher/DesktopLanguagesModal";
+export { MobileLanguagesDrawer } from "./components/AppLayout/LanguagesSwitcher/MobileLanguagesDrawer";
