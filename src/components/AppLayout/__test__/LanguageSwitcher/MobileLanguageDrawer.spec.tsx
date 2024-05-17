@@ -3,15 +3,6 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { MobileLanguagesDrawer } from "../../LanguagesSwitcher/MobileLanguagesDrawer";
 import { FlagFranceIcon, FlagUnitedKingdomIcon } from "@deriv/quill-icons";
 
-jest.mock("./../../LanguagesSwitcher/LanguageItem", () => ({
-    LanguageItem: ({ language, onButtonClick, currentLang }) => (
-        <div onClick={onButtonClick}>
-            <span>{language.icon}</span>
-            <span>{language.displayName}</span>
-            <span>{currentLang === language.code ? "bold" : "normal"}</span>
-        </div>
-    ),
-}));
 
 describe("MobileLanguagesDrawer", () => {
     const languages = [
@@ -49,7 +40,7 @@ describe("MobileLanguagesDrawer", () => {
     });
 
     test("applies bold weight to selected language", () => {
-        expect(screen.getByText("bold")).toBeInTheDocument();
-        expect(screen.getByText("normal")).toBeInTheDocument();
+        expect(screen.getByText("English")).toHaveClass("derivs-text__weight--bold");
+        expect(screen.getByText("French")).not.toHaveClass("derivs-text__weight--bold");
     });
 });

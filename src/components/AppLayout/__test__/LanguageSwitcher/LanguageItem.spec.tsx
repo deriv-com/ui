@@ -1,16 +1,25 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { LanguageItem } from "../../LanguagesSwitcher/LanguageItem";
 import { FlagUnitedKingdomIcon } from "@deriv/quill-icons";
 
 jest.mock("../../../../main", () => ({
-    Button: ({ children, onClick }) => <button onClick={onClick}>{children}</button>,
-    Text: ({ children }) => <span>{children}</span>,
-
+    Button: ({
+        children,
+        onClick,
+    }: {
+        children: ReactNode;
+        onClick: () => void;
+    }) => <button onClick={onClick}>{children}</button>,
+    Text: ({ children }: { children: ReactNode }) => <span>{children}</span>,
 }));
 
 describe("LanguageItem", () => {
-    const language = { code: "en", displayName: "English", icon: FlagUnitedKingdomIcon };
+    const language = {
+        code: "en",
+        displayName: "English",
+        icon: FlagUnitedKingdomIcon,
+    };
     const onButtonClick = jest.fn();
     const currentLang = "en";
 
@@ -20,7 +29,7 @@ describe("LanguageItem", () => {
                 language={language}
                 onButtonClick={onButtonClick}
                 currentLang={currentLang}
-            />
+            />,
         );
     });
 
@@ -34,6 +43,8 @@ describe("LanguageItem", () => {
     });
 
     test("applies bold weight to current language", () => {
-        expect(screen.getByText("English")).toHaveClass("derivs-text__weight--bold");
+        expect(screen.getByText("English")).toHaveClass(
+            "derivs-text__weight--bold",
+        );
     });
 });
