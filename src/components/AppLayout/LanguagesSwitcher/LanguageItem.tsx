@@ -23,6 +23,7 @@ export const LanguageItem = ({
         icon={language.icon}
         onClick={onButtonClick}
         variant="ghost"
+        hideHoverStyles={true}
     >
         <Text
             size="sm"
