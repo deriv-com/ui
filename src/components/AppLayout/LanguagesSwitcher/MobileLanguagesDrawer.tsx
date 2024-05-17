@@ -43,3 +43,4 @@ export const MobileLanguagesDrawer = ({
         </div>
     );
 };
+MobileLanguagesDrawer.displayName = "MobileLanguagesDrawer";

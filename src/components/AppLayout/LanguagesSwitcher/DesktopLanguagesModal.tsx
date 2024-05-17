@@ -53,3 +53,4 @@ export const DesktopLanguagesModal = ({
         </Modal>
     );
 };
+DesktopLanguagesModal.displayName = "DesktopLanguagesModal";
