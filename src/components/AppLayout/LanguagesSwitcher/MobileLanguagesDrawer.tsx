@@ -6,7 +6,7 @@ import { ComponentProps } from "react";
 type TLanguageDrawer = {
     onClose: () => void;
     onLanguageSwitch: (code: string) => void;
-    selectedLang: string;
+    selectedLanguage: string;
     isOpen: boolean;
     wrapperClassName?: string;
 };
@@ -20,7 +20,7 @@ export const MobileLanguagesDrawer = ({
     languages,
     onClose,
     onLanguageSwitch,
-    selectedLang,
+    selectedLanguage,
     isOpen,
     wrapperClassName,
 }: TLanguagesItemsDrawerProps) => {
@@ -37,7 +37,7 @@ export const MobileLanguagesDrawer = ({
                             key={language.code}
                             language={language}
                             onButtonClick={onButtonClick}
-                            selectedLanguage={selectedLang}
+                            selectedLanguage={selectedLanguage}
                         />
                     );
                 })}

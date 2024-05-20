@@ -91,14 +91,13 @@ AccountSwitcher.setAppElement(document.getElementById("root") as HTMLElement);
 const App = () => {
     const { isMobile } = useDevice();
     const [is_drawer_open, setDrawerOpen] = React.useState(false);
-    const [selectedLang, setSelectedLang] = React.useState("en");
-    const [isLanguageDrawerOpen, setIsLanguagesDrawerOpen] =
+    const [selectedLanguage, setSelectedLanguage] = React.useState("en");
+    const [isLanguagesDrawerOpen, setIsLanguagesDrawerOpen] =
         React.useState(false);
     const SelectedLanguageIcon =
         LanguagesItemsDrawerConfig.languages.find((language) => {
-            return language.code === selectedLang;
+            return language.code === selectedLanguage;
         })?.icon ?? LanguagesItemsDrawerConfig.languages[0].icon;
-    console.log(SelectedLanguageIcon);
     return (
         <>
             {!isMobile ? (
@@ -250,13 +249,13 @@ const App = () => {
                                 color="white"
                                 onClick={() => {
                                     setIsLanguagesDrawerOpen(
-                                        !isLanguageDrawerOpen,
+                                        !isLanguagesDrawerOpen,
                                     );
                                 }}
                             />
                         </Drawer.Header>
                         <Drawer.Content>
-                            {!isLanguageDrawerOpen && (
+                            {!isLanguagesDrawerOpen && (
                                 <div
                                     style={{
                                         padding: "8px",
@@ -292,7 +291,7 @@ const App = () => {
                                     </PlatformSwitcher>
                                 </div>
                             )}
-                            {isLanguageDrawerOpen && (
+                            {isLanguagesDrawerOpen && (
                                 <MobileLanguagesDrawer
                                     languages={
                                         LanguagesItemsDrawerConfig.languages
@@ -301,10 +300,10 @@ const App = () => {
                                         setIsLanguagesDrawerOpen(false)
                                     }
                                     onLanguageSwitch={(code) =>
-                                        setSelectedLang(code)
+                                        setSelectedLanguage(code)
                                     }
-                                    selectedLang={selectedLang}
-                                    isOpen={isLanguageDrawerOpen}
+                                    selectedLanguage={selectedLanguage}
+                                    isOpen={isLanguagesDrawerOpen}
                                 />
                             )}
                         </Drawer.Content>
