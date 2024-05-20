@@ -10,7 +10,7 @@ describe("MobileLanguagesDrawer", () => {
     ];
     const onClose = jest.fn();
     const onLanguageSwitch = jest.fn();
-    const selectedLang = "en";
+    const selectedLanguage = "en";
     const isOpen = true;
     const wrapperClassName = "custom-wrapper";
 
@@ -20,7 +20,7 @@ describe("MobileLanguagesDrawer", () => {
                 languages={languages}
                 onClose={onClose}
                 onLanguageSwitch={onLanguageSwitch}
-                selectedLang={selectedLang}
+                selectedLanguage={selectedLanguage}
                 isOpen={isOpen}
                 wrapperClassName={wrapperClassName}
             />,
