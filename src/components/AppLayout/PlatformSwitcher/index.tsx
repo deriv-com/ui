@@ -5,7 +5,6 @@ import {
     useState,
     JSX,
 } from "react";
-import clsx from "clsx";
 import { useOnClickOutside } from "usehooks-ts";
 import { PlatformSwitcherButton } from "./PlatformSwitcherButton";
 import { ContextMenu } from "../../ContextMenu";
@@ -67,11 +66,7 @@ export const PlatformSwitcher = ({
                 }}
                 {...buttonProps}
             />
-            <div
-                className={clsx("deriv-platform-switcher__overlay", {
-                    "deriv-platform-switcher__overlay-fadeout": !isExpanded,
-                })}
-            />
+            {isExpanded && <div className="deriv-platform-switcher__overlay" />}
             <ContextMenu
                 ref={ref}
                 className="deriv-platform-switcher__context-menu"
