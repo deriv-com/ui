@@ -1,4 +1,4 @@
-import { ComponentProps, ReactElement } from "react";
+import { ComponentProps, ReactElement, ReactNode } from "react";
 import clsx from "clsx";
 import { TGenericSizes } from "../../types";
 import { Loader } from "../Loader";
@@ -10,7 +10,7 @@ type TColor = "black" | "primary-light" | "primary" | "white";
 
 interface ButtonProps extends ComponentProps<"button"> {
     color?: TColor;
-    icon?: ReactElement;
+    icon?: ReactElement | ReactNode;
     isFullWidth?: boolean;
     isLoading?: boolean;
     rounded?: Extract<TGenericSizes, "lg" | "md" | "sm">;

@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { Notification } from "../Notifications/Notification";
+import { Notification } from "../Notification";
 import userEvent from "@testing-library/user-event";
 
 describe("Notification Component", () => {

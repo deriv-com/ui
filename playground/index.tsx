@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import {
     LegacyReportsIcon,
     LabelPairedHouseBlankMdRegularIcon,
-    LegacyChevronRight2pxIcon,
     CurrencyUsdIcon,
     CurrencyBtcIcon,
     CurrencyDemoIcon,
@@ -26,8 +25,10 @@ import {
     PlatformSwitcher,
     Text,
     PlatformSwitcherItem,
+    MobileLanguagesDrawer,
 } from "../src/main";
 import { platformsConfig } from "./platformsConfig";
+import { LanguagesItemsDrawerConfig } from "./LanguageItemsDrawerConfig";
 
 const accountsList: TAccount[] = [
     {
@@ -90,7 +91,13 @@ AccountSwitcher.setAppElement(document.getElementById("root") as HTMLElement);
 const App = () => {
     const { isMobile } = useDevice();
     const [is_drawer_open, setDrawerOpen] = React.useState(false);
-
+    const [selectedLanguage, setSelectedLanguage] = React.useState("en");
+    const [isLanguagesDrawerOpen, setIsLanguagesDrawerOpen] =
+        React.useState(false);
+    const SelectedLanguageIcon =
+        LanguagesItemsDrawerConfig.languages.find((language) => {
+            return language.code === selectedLanguage;
+        })?.icon ?? LanguagesItemsDrawerConfig.languages[0].icon;
     return (
         <>
             {!isMobile ? (
@@ -236,42 +243,69 @@ const App = () => {
                             onCloseDrawer={() => setDrawerOpen(false)}
                         >
                             <DerivLogo variant="default" />
+                            <Button
+                                icon={SelectedLanguageIcon}
+                                variant="ghost"
+                                color="white"
+                                onClick={() => {
+                                    setIsLanguagesDrawerOpen(
+                                        !isLanguagesDrawerOpen,
+                                    );
+                                }}
+                            />
                         </Drawer.Header>
                         <Drawer.Content>
-                            <div
-                                style={{
-                                    padding: "8px",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    height: "72px",
-                                    borderBottom: "1px solid #f2f3f4",
-                                }}
-                            >
-                                <PlatformSwitcher
-                                    buttonProps={{
-                                        icon: platformsConfig[0].buttonIcon,
+                            {!isLanguagesDrawerOpen && (
+                                <div
+                                    style={{
+                                        padding: "8px",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        height: "72px",
+                                        borderBottom: "1px solid #f2f3f4",
                                     }}
-                                    bottomLinkLabel="Looking for CFDs? Go to Trader’s Hub"
                                 >
-                                    {platformsConfig.map(
-                                        ({
-                                            description,
-                                            href,
-                                            icon,
-                                            active,
-                                        }) => (
-                                            <PlatformSwitcherItem
-                                                key={description}
-                                                icon={icon}
-                                                href={href}
-                                                description={description}
-                                                active={active}
-                                            />
-                                        ),
-                                    )}
-                                </PlatformSwitcher>
-                            </div>
+                                    <PlatformSwitcher
+                                        buttonProps={{
+                                            icon: platformsConfig[0].buttonIcon,
+                                        }}
+                                        bottomLinkLabel="Looking for CFDs? Go to Trader’s Hub"
+                                    >
+                                        {platformsConfig.map(
+                                            ({
+                                                description,
+                                                href,
+                                                icon,
+                                                active,
+                                            }) => (
+                                                <PlatformSwitcherItem
+                                                    key={description}
+                                                    icon={icon}
+                                                    href={href}
+                                                    description={description}
+                                                    active={active}
+                                                />
+                                            ),
+                                        )}
+                                    </PlatformSwitcher>
+                                </div>
+                            )}
+                            {isLanguagesDrawerOpen && (
+                                <MobileLanguagesDrawer
+                                    languages={
+                                        LanguagesItemsDrawerConfig.languages
+                                    }
+                                    onClose={() =>
+                                        setIsLanguagesDrawerOpen(false)
+                                    }
+                                    onLanguageSwitch={(code) =>
+                                        setSelectedLanguage(code)
+                                    }
+                                    selectedLanguage={selectedLanguage}
+                                    isOpen={isLanguagesDrawerOpen}
+                                />
+                            )}
                         </Drawer.Content>
                         <Drawer.Footer>This is a footer</Drawer.Footer>
                     </Drawer>

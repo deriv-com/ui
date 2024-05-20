@@ -33,5 +33,7 @@ export {
     AccountSwitcher,
     PlatformSwitcher,
     PlatformSwitcherItem,
+    DesktopLanguagesModal,
+    MobileLanguagesDrawer,
 } from "./components/AppLayout";
 export { ContextMenu } from "./components/ContextMenu";
