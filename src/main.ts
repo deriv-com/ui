@@ -33,5 +33,6 @@ export {
     AccountSwitcher,
     PlatformSwitcher,
     PlatformSwitcherItem,
+    TooltipMenuIcon,
 } from "./components/AppLayout";
 export { ContextMenu } from "./components/ContextMenu";

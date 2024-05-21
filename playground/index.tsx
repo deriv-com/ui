@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import {
     LegacyReportsIcon,
     LabelPairedHouseBlankMdRegularIcon,
-    LegacyChevronRight2pxIcon,
     CurrencyUsdIcon,
     CurrencyBtcIcon,
     CurrencyDemoIcon,
@@ -26,6 +25,7 @@ import {
     PlatformSwitcher,
     Text,
     PlatformSwitcherItem,
+    TooltipMenuIcon,
 } from "../src/main";
 import { platformsConfig } from "./platformsConfig";
 
@@ -141,6 +141,17 @@ const App = () => {
                         </MenuItem>
                     </Wrapper>
                     <Wrapper variant="right">
+                        <TooltipMenuIcon
+                            as="a"
+                            href=""
+                            target=""
+                            tooltipContent="Full Screen"
+                            tooltipPosition="bottom"
+                            style={{ padding: "16px" }}
+                        >
+                            click me
+                        </TooltipMenuIcon>
+
                         <AccountSwitcher
                             activeAccount={
                                 accountsList.find(

@@ -1,0 +1,12 @@
+.tooltip-content {
+    padding: 8px;
+    border-radius: 4px;
+    color: #333333;
+    font-size: 12px;
+}
+
+.tooltip-menu-icon {
+    &:hover {
+        background: #e6e9e9;
+    }
+}

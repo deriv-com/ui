@@ -8,3 +8,4 @@ export { Wrapper } from "./Wrapper";
 export { Notifications } from "./Notifications";
 export { PlatformSwitcher } from "./PlatformSwitcher";
 export { PlatformSwitcherItem } from "./PlatformSwitcher/PlatformSwitcherItem";
+export { TooltipMenuIcon } from "./TooltipMenuIcon";
