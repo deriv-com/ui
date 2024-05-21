@@ -34,7 +34,8 @@
     },
     "dependencies": {
         "@deriv/quill-icons": "^1.22.5",
-        "@types/react-modal": "^3.16.3"
+        "@types/react-modal": "^3.16.3",
+        "react-tiny-popover": "^8.0.4"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.24.3",
