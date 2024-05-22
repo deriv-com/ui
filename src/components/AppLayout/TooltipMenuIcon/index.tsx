@@ -11,7 +11,7 @@ import "./TooltipMenuIcon.scss";
 type AsElement = "a" | "div" | "button";
 type TTooltipMenuIcon<T extends AsElement> = ComponentProps<T> & {
     as: T;
-    tooltipContent: string;
+    tooltipContent: string | JSX.Element;
     tooltipPosition?: "top" | "bottom" | "left" | "right";
     tooltipColor?: string;
     disableHover?: boolean;
