@@ -3,15 +3,24 @@ $border: 1px solid var(--du-general-active);
 $animation-duration: 0.3s;
 
 .deriv-accordion {
+    --bg-color: var(--du-general-main-2);
+    --padding-x: 24px;
+    --padding-y: 24px;
+    --header-text-color: var(--du-text-general);
+    --content-bg-color: white;
+    --content-text-color: var(--du-text-general);
+    --content-margin-top: 24px;
     position: relative;
     display: inline-flex;
     flex-direction: column;
     min-width: 100%;
-    background-color: var(--du-general-main-2);
-    padding: 24px;
+    background-color: var(--bg-color);
+    padding-inline: var(--padding-x);
+    padding-block: var(--padding-x);
 
     &--compact {
-        padding: 16px;
+        --padding-x: 16px;
+        --padding-y: 16px;
     }
 
     &--underline {
@@ -42,7 +51,7 @@ $animation-duration: 0.3s;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        color: var(--du-text-general);
+        color: var(--header-text-color);
         cursor: pointer;
     }
 
@@ -59,7 +68,7 @@ $animation-duration: 0.3s;
         width: 100%;
         overflow: auto;
         opacity: 0;
-        background-color: white;
+        background-color: var(--content-bg-color);
         transition: all $animation-duration ease;
 
         &--active {
@@ -68,11 +77,11 @@ $animation-duration: 0.3s;
     }
 
     &__text {
-        margin-top: 24px;
-        color: var(--du-text-general);
+        margin-top: var(--content-margin-top);
+        color: var(--content-text-color);
 
         &--compact {
-            margin-top: 16px;
+            --content-margin-top: 16px;
         }
     }
 }
