@@ -16,7 +16,7 @@ $animation-duration: 0.3s;
     min-width: 100%;
     background-color: var(--bg-color);
     padding-inline: var(--padding-x);
-    padding-block: var(--padding-x);
+    padding-block: var(--padding-y);
 
     &--compact {
         --padding-x: 16px;
