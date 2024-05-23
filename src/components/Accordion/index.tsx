@@ -18,6 +18,7 @@ type AccordionProps = Omit<ComponentProps<"div">, "title"> & {
     title: string | JSX.Element;
     variant?: AccordionVariants;
     headerClassName?: string;
+    contentClassName?: string;
 };
 
 const AccordionVariant = {
@@ -34,6 +35,7 @@ export const Accordion = ({
     variant = "underline",
     className,
     headerClassName,
+    contentClassName,
     ...props
 }: AccordionProps) => {
     const [active, setActive] = useState(defaultOpen);
@@ -83,9 +85,13 @@ export const Accordion = ({
             <div
                 ref={content}
                 style={{ maxHeight: setHeight }}
-                className={clsx("deriv-accordion__content", {
-                    "deriv-accordion__content--active": active,
-                })}
+                className={clsx(
+                    "deriv-accordion__content", 
+                    {
+                        "deriv-accordion__content--active": active,
+                    },
+                    contentClassName
+                )}
             >
                 <div
                     className={clsx("deriv-accordion__text", {
