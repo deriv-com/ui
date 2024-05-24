@@ -10,13 +10,11 @@ jest.mock("../../../../hooks", () => ({
 describe("AccountSwitcher Component", () => {
     const mockAccount = {
         icon: <div>Icon</div>,
-        type: "Bitcoin",
+        currencyLabel: "Bitcoin",
         loginid: "id2",
         balance: "0.00054",
         currency: "BTC",
-        token: "token2",
         isVirtual: true,
-        isEu: false,
         isActive: true,
     };
 
