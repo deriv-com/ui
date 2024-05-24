@@ -18,17 +18,22 @@ import { TotalAsset } from "./TotalAsset";
 import { AccountSwitcherTab as Tab } from "./Tab";
 
 import { TabTitleProps } from "../../Tabs/TabTitle";
-import { TAccount } from "./types";
 import { TradershubLink } from "./TradershubLink";
+import type { TAccount } from "./types";
+import clsx from "clsx";
 
 type AccountSwitcherProps = {
-    children: ReactElement<TabTitleProps>[];
     activeAccount: TAccount;
+    buttonClassName?: string;
+    children: ReactElement<TabTitleProps>[];
+    isDisabled?: boolean;
 };
 
 export const AccountSwitcher = ({
     children,
     activeAccount,
+    isDisabled = false,
+    buttonClassName,
 }: AccountSwitcherProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const ref = useRef(null);
@@ -47,7 +52,10 @@ export const AccountSwitcher = ({
     return (
         <>
             <div
-                className="deriv-account-switcher__button"
+                className={clsx(
+                    "deriv-account-switcher__button",
+                    buttonClassName,
+                )}
                 onClick={() => {
                     if (!ref.current) {
                         openAccountSwitcher();
@@ -61,46 +69,50 @@ export const AccountSwitcher = ({
                     <span>{activeAccount.balance}</span>
                     <span>{activeAccount.currency}</span>
                 </div>
-                {isOpen ? (
-                    <LegacyChevronUp2pxIcon iconSize="xs" />
-                ) : (
-                    <LegacyChevronDown2pxIcon iconSize="xs" />
-                )}
-                {isDesktop ? (
-                    <ContextMenu
-                        ref={ref}
-                        className="deriv-account-switcher__container"
-                        isOpen={isOpen}
-                    >
-                        <Tabs
-                            activeTab={
-                                activeAccount.isVirtual ? "Demo" : "Real"
-                            }
-                            variant="secondary"
+                {!isDisabled ? (
+                    isOpen ? (
+                        <LegacyChevronUp2pxIcon iconSize="xs" />
+                    ) : (
+                        <LegacyChevronDown2pxIcon iconSize="xs" />
+                    )
+                ) : null}
+                {!isDisabled ? (
+                    isDesktop ? (
+                        <ContextMenu
+                            ref={ref}
+                            className="deriv-account-switcher__container"
+                            isOpen={isOpen}
                         >
-                            {children}
-                        </Tabs>
-                    </ContextMenu>
-                ) : (
-                    <Modal
-                        closeTimeoutMS={200}
-                        onRequestClose={(e) => {
-                            e.stopPropagation();
-                            closeAccountSwitcher();
-                        }}
-                        className="deriv-account-switcher__container--mobile"
-                        isOpen={isOpen}
-                    >
-                        <Tabs
-                            activeTab={
-                                activeAccount.isVirtual ? "Demo" : "Real"
-                            }
-                            variant="secondary"
+                            <Tabs
+                                activeTab={
+                                    activeAccount.isVirtual ? "Demo" : "Real"
+                                }
+                                variant="secondary"
+                            >
+                                {children}
+                            </Tabs>
+                        </ContextMenu>
+                    ) : (
+                        <Modal
+                            closeTimeoutMS={200}
+                            onRequestClose={(e) => {
+                                e.stopPropagation();
+                                closeAccountSwitcher();
+                            }}
+                            className="deriv-account-switcher__container--mobile"
+                            isOpen={isOpen}
                         >
-                            {children}
-                        </Tabs>
-                    </Modal>
-                )}
+                            <Tabs
+                                activeTab={
+                                    activeAccount.isVirtual ? "Demo" : "Real"
+                                }
+                                variant="secondary"
+                            >
+                                {children}
+                            </Tabs>
+                        </Modal>
+                    )
+                ) : null}
             </div>
         </>
     );

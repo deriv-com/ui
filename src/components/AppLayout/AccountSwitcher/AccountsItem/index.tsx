@@ -27,7 +27,7 @@ export const AccountsItem = ({ account, onSelectAccount }: AccountSwitcherProps)
                             account.isActive,
                     })}
                 >
-                    {account.type}
+                    {account.currencyLabel}
                 </div>
                 <div
                     className={clsx("deriv-account-switcher-item__loginid", {

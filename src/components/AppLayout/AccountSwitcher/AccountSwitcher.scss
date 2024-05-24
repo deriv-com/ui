@@ -9,8 +9,13 @@
         position: relative;
         height: 100%;
         &:hover {
+            cursor: pointer;
             background-color: var(--color-grey-1, #f4f4f4);
         }
+    }
+
+    &__currency-icon{
+        display: flex;
     }
 
     &__balance {
