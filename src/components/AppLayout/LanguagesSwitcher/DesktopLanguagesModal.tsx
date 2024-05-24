@@ -25,6 +25,7 @@ export const DesktopLanguagesModal = ({
             ariaHideApp={false}
             className="languages-modal"
             isOpen={isModalOpen}
+            onRequestClose={onClose}
         >
             <Modal.Header onRequestClose={onClose}>
                 <Text weight="bold">{headerTitle}</Text>
@@ -33,7 +34,7 @@ export const DesktopLanguagesModal = ({
                 {languages.map((language) => {
                     const onButtonClick = () => {
                         onLanguageSwitch(language.code);
-                        // onClose();
+                        onClose();
                     };
                     return (
                         <LanguageItem
