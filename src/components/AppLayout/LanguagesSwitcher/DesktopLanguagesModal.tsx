@@ -26,14 +26,14 @@ export const DesktopLanguagesModal = ({
             className="languages-modal"
             isOpen={isModalOpen}
         >
-            <Modal.Header hideBorder onRequestClose={onClose}>
+            <Modal.Header onRequestClose={onClose}>
                 <Text weight="bold">{headerTitle}</Text>
             </Modal.Header>
             <Modal.Body className="languages-modal__body">
                 {languages.map((language) => {
                     const onButtonClick = () => {
                         onLanguageSwitch(language.code);
-                        onClose();
+                        // onClose();
                     };
                     return (
                         <LanguageItem
