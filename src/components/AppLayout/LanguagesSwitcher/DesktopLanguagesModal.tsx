@@ -25,8 +25,9 @@ export const DesktopLanguagesModal = ({
             ariaHideApp={false}
             className="languages-modal"
             isOpen={isModalOpen}
+            onRequestClose={onClose}
         >
-            <Modal.Header hideBorder onRequestClose={onClose}>
+            <Modal.Header onRequestClose={onClose}>
                 <Text weight="bold">{headerTitle}</Text>
             </Modal.Header>
             <Modal.Body className="languages-modal__body">

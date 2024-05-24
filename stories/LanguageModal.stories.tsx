@@ -21,7 +21,7 @@ const meta: Meta = {
             },
             {
                 code: "id",
-                displayName: "Bahasa Indonesia",
+                displayName: "Bahasa",
                 icon: <FlagIndonesiaIcon/>,
             },
             {
