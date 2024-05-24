@@ -7,12 +7,10 @@ import { AccountsItem } from "..";
 const mockAccount = {
     loginid: "id123",
     icon: <div>icon</div>,
-    type: "Demo",
+    currencyLabel: "Demo",
     balance: "1000",
     currency: "USD",
-    token: "token123",
     isVirtual: false,
-    isEu: true,
     isActive: true,
 };
 
