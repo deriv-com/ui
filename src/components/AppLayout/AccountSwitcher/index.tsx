@@ -25,7 +25,7 @@ import clsx from "clsx";
 type AccountSwitcherProps = {
     activeAccount: TAccount;
     buttonClassName?: string;
-    children: ReactElement<TabTitleProps>[];
+    children?: ReactElement<TabTitleProps>[];
     isDisabled?: boolean;
 };
 
@@ -83,14 +83,18 @@ export const AccountSwitcher = ({
                             className="deriv-account-switcher__container"
                             isOpen={isOpen}
                         >
-                            <Tabs
-                                activeTab={
-                                    activeAccount.isVirtual ? "Demo" : "Real"
-                                }
-                                variant="secondary"
-                            >
-                                {children}
-                            </Tabs>
+                            {children && (
+                                <Tabs
+                                    activeTab={
+                                        activeAccount.isVirtual
+                                            ? "Demo"
+                                            : "Real"
+                                    }
+                                    variant="secondary"
+                                >
+                                    {children}
+                                </Tabs>
+                            )}
                         </ContextMenu>
                     ) : (
                         <Modal
@@ -102,14 +106,18 @@ export const AccountSwitcher = ({
                             className="deriv-account-switcher__container--mobile"
                             isOpen={isOpen}
                         >
-                            <Tabs
-                                activeTab={
-                                    activeAccount.isVirtual ? "Demo" : "Real"
-                                }
-                                variant="secondary"
-                            >
-                                {children}
-                            </Tabs>
+                            {children && (
+                                <Tabs
+                                    activeTab={
+                                        activeAccount.isVirtual
+                                            ? "Demo"
+                                            : "Real"
+                                    }
+                                    variant="secondary"
+                                >
+                                    {children}
+                                </Tabs>
+                            )}
                         </Modal>
                     )
                 ) : null}
