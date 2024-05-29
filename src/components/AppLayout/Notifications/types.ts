@@ -7,7 +7,7 @@ export type TNotificationObject = {
     buttonAction: () => void;
     actionText: string;
 };
-export type TNotificationsProps = ComponentProps<"div"> &{
+export type TNotificationsProps = ComponentProps<"div"> & {
     notifications: TNotificationObject[];
     clearNotificationsCallback: () => void;
     setIsOpen: (state: boolean) => void;
