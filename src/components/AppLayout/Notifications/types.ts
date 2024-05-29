@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ComponentProps, ReactNode } from "react";
 
 export type TNotificationObject = {
     icon: ReactNode;
@@ -7,7 +7,7 @@ export type TNotificationObject = {
     buttonAction: () => void;
     actionText: string;
 };
-export type TNotificationsProps = {
+export type TNotificationsProps = ComponentProps<"div"> &{
     notifications: TNotificationObject[];
     clearNotificationsCallback: () => void;
     setIsOpen: (state: boolean) => void;

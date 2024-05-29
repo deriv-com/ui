@@ -15,6 +15,7 @@ type TTooltipMenuIcon<T extends AsElement> = ComponentProps<T> & {
     tooltipPosition?: "top" | "bottom" | "left" | "right";
     tooltipColor?: string;
     disableHover?: boolean;
+    tooltipClassName?: string;
 };
 
 /**
@@ -35,10 +36,10 @@ export const TooltipMenuIcon = <T extends AsElement>({
     disableHover = false,
     children,
     className,
+    tooltipClassName,
     ...rest
 }: PropsWithChildren<TTooltipMenuIcon<T>>) => {
     const [showTooltip, setShowTooltip] = useState(false);
-
     const onMouseEnter = () => setShowTooltip(true);
     const onMouseLeave = () => setShowTooltip(false);
 
@@ -49,6 +50,7 @@ export const TooltipMenuIcon = <T extends AsElement>({
             isOpen={showTooltip}
             positions={tooltipPosition}
             padding={4}
+            containerClassName={tooltipClassName}
             content={({ position, childRect, popoverRect }) => (
                 <ArrowContainer
                     position={position}
