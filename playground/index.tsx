@@ -283,6 +283,56 @@ const App = () => {
                         </Drawer.Content>
                         <Drawer.Footer>This is a footer</Drawer.Footer>
                     </Drawer>
+                    <Wrapper variant="right">
+                        <AccountSwitcher
+                            activeAccount={
+                                accountsList.find(
+                                    (account) => account.isActive,
+                                ) || {
+                                    icon: <CurrencyBtcIcon />,
+                                    currencyLabel: "Bitcoin",
+                                    loginid: "id2",
+                                    balance: "0",
+                                    currency: "BTC",
+                                    isVirtual: false,
+                                    isActive: true,
+                                }
+                            }
+                        >
+                            <AccountSwitcher.Tab title="Real">
+                                <Divider color="#f2f3f4" height="4px" />
+                                <AccountSwitcher.AccountsPanel title="Non-EU">
+                                    {accountsList
+                                        .filter((account) => !account.isVirtual)
+                                        .map((account) => (
+                                            <AccountSwitcher.AccountsItem
+                                                key={account.loginid}
+                                                account={account}
+                                                onSelectAccount={() => {}}
+                                            />
+                                        ))}
+                                </AccountSwitcher.AccountsPanel>
+                                <Divider color="#f2f3f4" height="4px" />
+                                <AccountSwitcher.TotalAsset
+                                    title="Total assets"
+                                    description="test description text comes here"
+                                    value="10,021 USD"
+                                />
+                                <Divider color="#f2f3f4" height="4px" />
+                                <AccountSwitcher.TradersHubLink>
+                                    Looking for CFD?{" "}
+                                </AccountSwitcher.TradersHubLink>
+                                <Divider color="#f2f3f4" height="4px" />
+
+                                <AccountSwitcher.Footer>
+                                    this is a footer
+                                </AccountSwitcher.Footer>
+                            </AccountSwitcher.Tab>
+                            <AccountSwitcher.Tab title="Demo">
+                                test 2
+                            </AccountSwitcher.Tab>
+                        </AccountSwitcher>
+                    </Wrapper>
                 </>
             )}
         </>
