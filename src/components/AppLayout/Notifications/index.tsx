@@ -74,10 +74,14 @@ export const Notifications = ({
                     ))}
                     <Modal.Footer className="notifications__footer">
                         <button
-                            className="notifications__footer__clear-button"
+                            className={clsx("notifications__footer__clear-button", {
+                                "notifications__footer__clear-button--disabled": notifications.length === 0
+                            })}
                             onClick={() => {
-                                clearNotificationsCallback();
-                                setIsOpen(false);
+                                if (notifications.length > 0) {
+                                    setIsOpen(false);
+                                    clearNotificationsCallback();
+                                }
                             }}
                         >
                             {componentConfig.clearButtonText}
@@ -119,10 +123,14 @@ export const Notifications = ({
                     <div className="notifications__footer">
                         <div className="notifications__footer-box">
                             <button
-                                className="notifications__footer__clear-button"
+                                className={clsx("notifications__footer__clear-button", {
+                                    "notifications__footer__clear-button--disabled": notifications.length === 0
+                                })}
                                 onClick={() => {
-                                    setIsOpen(false);
-                                    clearNotificationsCallback();
+                                    if (notifications.length > 0) {
+                                        setIsOpen(false);
+                                        clearNotificationsCallback();
+                                    }
                                 }}
                             >
                                 {componentConfig.clearButtonText}
