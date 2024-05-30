@@ -35,6 +35,7 @@ export {
     PlatformSwitcherItem,
     DesktopLanguagesModal,
     MobileLanguagesDrawer,
+    Notifications,
     TooltipMenuIcon,
 } from "./components/AppLayout";
 export { ContextMenu } from "./components/ContextMenu";
