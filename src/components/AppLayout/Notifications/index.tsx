@@ -8,14 +8,17 @@ import { Modal } from "../../Modal";
 import { Text } from "../../Text";
 import { useOnClickOutside } from "usehooks-ts";
 import Icon from "./ic-box.svg";
+import clsx from "clsx";
 
 export const Notifications = ({
     notifications,
-    clearNotificationsCallback = () => {},
+    clearNotificationsCallback = () => { },
     isOpen,
     setIsOpen,
     componentConfig,
-}: TNotificationsProps) => {
+    className,
+    ...rest
+}: Omit<TNotificationsProps, "style">) => {
     const { isMobile } = useDevice();
     const notificationsRef = useRef(null);
 
@@ -28,11 +31,12 @@ export const Notifications = ({
         <Fragment>
             {isMobile && (
                 <Modal
-                    className="notifications"
+                    className={clsx("notifications", className)}
                     isOpen={isOpen}
                     onRequestClose={() => {
                         setIsOpen(false);
                     }}
+                    {...rest}
                 >
                     <Modal.Header
                         onRequestClose={() => {
@@ -85,7 +89,8 @@ export const Notifications = ({
                 <ContextMenu
                     ref={notificationsRef}
                     isOpen={isOpen}
-                    className="notifications"
+                    className={clsx("notifications", className)}
+                    {...rest}
                 >
                     <Text as="span" className="notifications__header-desktop">
                         {componentConfig.modalTitle}
