@@ -9,7 +9,7 @@
         height: 100%;
         &:hover {
             cursor: pointer;
-            background-color: var(--color-grey-1, #f4f4f4);
+            background-color: var(--du-general-hover, #e6e9e9);
         }
     }
 
@@ -21,7 +21,7 @@
         font-size: 16px;
         display: flex;
         font-weight: 700;
-        gap: 8px;
+        gap: 4px;
         color: var(--du-text-profit-success, #4bb4b3);
         @include mobile {
             font-size: 14px;
