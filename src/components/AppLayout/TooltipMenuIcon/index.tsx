@@ -15,7 +15,7 @@ type TTooltipMenuIcon<T extends AsElement> = ComponentProps<T> & {
     tooltipPosition?: "top" | "bottom" | "left" | "right";
     tooltipColor?: string;
     disableHover?: boolean;
-    tooltipClassName?: string;
+    tooltipContainerClassName?: string;
 };
 
 /**
