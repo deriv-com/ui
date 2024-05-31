@@ -1,5 +1,6 @@
 import { ComponentProps, ReactNode, JSX } from "react";
 import clsx from "clsx";
+import { Text } from "../../Text";
 import "./PlatformSwitcher.scss";
 
 type TPlatformSwitcherItem = ComponentProps<"a"> & {
@@ -38,7 +39,14 @@ export const PlatformSwitcherItem = ({
         {...props}
     >
         {icon}
-        <p className="deriv-platform-switcher__item-text">{description}</p>
+        <Text
+            className="deriv-platform-switcher__item-text"
+            size="sm"
+            as="p"
+            color="general"
+        >
+            {description}
+        </Text>
     </a>
 );
 

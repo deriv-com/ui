@@ -65,9 +65,11 @@
 
         &-text {
             margin-top: 8px;
-            font-size: 14px;
-            line-height: 20px;
-            color: var(--du-text-general, #333333);
+
+            @include mobile {
+                font-size: 14px;
+                line-height: 20px;
+            }
         }
 
         &:hover {
