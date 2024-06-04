@@ -50,17 +50,26 @@
     }
 
     &__item {
-        padding: 16px;
+        width: 320px;
         border-radius: 8px;
-        width: 360px;
-        height: 132px;
+        padding: 24px 16px;
+        margin: 24px 16px 16px;
+        height: 143px;
 
         @include mobile {
             width: 263px;
+            height: unset;
+            padding: 14px 16px;
+            margin: 14px 16px;
         }
 
         &-text {
             margin-top: 8px;
+
+            @include mobile {
+                font-size: 14px;
+                line-height: 20px;
+            }
         }
 
         &:hover {
@@ -112,39 +121,27 @@
         }
 
         &__wrapper {
-            padding: 32px;
+            padding-bottom: 24px;
             background: var(--du-general-main-2, #fff);
-
-            @include mobile {
-                padding: 16px;
-                padding-top: 9px;
-            }
         }
 
         &__items {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            gap: 32px;
 
             @include mobile {
                 flex-direction: column;
-                gap: 16px;
             }
         }
 
         &__link {
             text-align: center;
-            padding: 10px 0;
-            margin-top: 8px;
             font-size: 14px;
             font-weight: 700;
-            line-height: 20px;
-            color: var(--du-brand-red-coral, #ff444f);
-
-            @include mobile {
-                margin-top: 16px;
-            }
+            line-height: 15px;
+            margin-top: 16px;
+            color: var(--du-status-danger, #ec3f3f);
         }
     }
 }
