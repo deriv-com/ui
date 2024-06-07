@@ -41,7 +41,7 @@ export const Submenu = ({
     className,
     isOpen,
 }: PropsWithChildren<TSubmenu>) => {
-    const timerRef = useRef<NodeJS.Timeout | null>(null);
+    const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
     const [isMounted, setIsMounted] = useState(isOpen);
     const [isClosing, setIsClosing] = useState(false);
 
