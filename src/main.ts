@@ -37,5 +37,6 @@ export {
     MobileLanguagesDrawer,
     Notifications,
     TooltipMenuIcon,
+    Submenu,
 } from "./components/AppLayout";
 export { ContextMenu } from "./components/ContextMenu";

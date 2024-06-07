@@ -11,3 +11,4 @@ export { PlatformSwitcherItem } from "./PlatformSwitcher/PlatformSwitcherItem";
 export { DesktopLanguagesModal } from "./LanguagesSwitcher/DesktopLanguagesModal";
 export { MobileLanguagesDrawer } from "./LanguagesSwitcher/MobileLanguagesDrawer";
 export { TooltipMenuIcon } from "./TooltipMenuIcon";
+export { Submenu } from "./Submenu ";
