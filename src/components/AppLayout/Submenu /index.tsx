@@ -40,6 +40,7 @@ export const Submenu = ({
     children,
     className,
     isOpen,
+    ...rest
 }: PropsWithChildren<TSubmenu>) => {
     const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
     const [isMounted, setIsMounted] = useState(isOpen);
@@ -66,6 +67,7 @@ export const Submenu = ({
     return (
         <div
             className={clsx("submenu", { submenu_exit: isClosing }, className)}
+            {...rest}
         >
             {children}
         </div>
