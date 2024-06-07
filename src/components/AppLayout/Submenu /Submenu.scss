@@ -27,18 +27,6 @@
     animation-fill-mode: forwards;
     overflow: hidden;
 
-    &_button {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-    }
-
-    &_wrapper {
-        display: flex;
-        align-items: center;
-    }
-
     &_exit {
         animation: closeDrawer 0.3s;
     }

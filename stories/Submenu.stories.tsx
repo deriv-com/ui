@@ -1,56 +1,32 @@
+import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Submenu } from "../src/main";
-import { LegacyAdsIcon } from "@deriv/quill-icons";
 
 const meta = {
     title: "Components/Submenu",
     component: Submenu,
     args: {
         children: <span>Test Children</span>,
-        icon: <LegacyAdsIcon iconSize="xs" />,
-        label: "test settings",
         className: "",
-        labelSize: "md",
-        submenuContent: <span>Close</span>,
-        submenuClassName: "",
+        isOpen: false,
     },
     argTypes: {
-        icon: {
+        children: {
             control: false,
             description:
-                "The icon displayed in the button that toggles the submenu.",
+                "The children nodes provided to the submenu panel, which are displayed below the submenuContent.",
         },
-        label: {
-            control: false,
+        isOpen: {
             description:
-                "The label text displayed next to the icon in the toggle button.",
-        },
-        labelSize: {
-            control: false,
-            description: 'The size of the label text, defaults to "md".',
-        },
-        submenuContent: {
-            control: false,
-            description:
-                "The content displayed inside the submenu when it is open.",
-        },
-        submenuClassName: {
-            control: false,
-            description:
-                "Optional custom class name for styling the submenu container.",
+                "A boolean flag to control the visibility of the submenu. When set to true, the submenu is open or visible. When set to false, the submenu will start the exit animation and then unmount.",
         },
         className: {
             control: false,
             description:
                 "Optional custom class name for styling the toggle button.",
         },
-        children: {
-            control: false,
-            description:
-                "The children nodes provided to the submenu panel, which are displayed below the submenuContent.",
-        },
     },
-    parameters: { layout: "centered" },
+    parameters: { layout: "left" },
     tags: ["autodocs"],
 } satisfies Meta<typeof Submenu>;
 
@@ -59,19 +35,25 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     name: "Submenu",
-    render: (args) => (
-        <div
-            style={{
-                height: "400px",
-                width: "300px",
-                backgroundColor: "orange",
-                position: "relative",
-                padding: "20px",
-            }}
-        >
-            <Submenu {...args}>
-                <div>Test children</div>
-            </Submenu>
-        </div>
-    ),
+    render: () => {
+        const [isOpen, setIsOpen] = useState(false);
+
+        return (
+            <div
+                style={{
+                    height: "400px",
+                    width: "300px",
+                    backgroundColor: "yellowgreen",
+                    position: "relative",
+                    padding: "20px",
+                }}
+            >
+                <button onClick={() => setIsOpen(true)}>Click me</button>
+                <Submenu isOpen={isOpen}>
+                    <div>Test children</div>
+                    <button onClick={() => setIsOpen(false)}>Close me</button>
+                </Submenu>
+            </div>
+        );
+    },
 };

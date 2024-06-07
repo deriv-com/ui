@@ -1,83 +1,74 @@
-import { ReactNode, useState, ComponentProps, PropsWithChildren } from "react";
+import {
+    useState,
+    ComponentProps,
+    PropsWithChildren,
+    useRef,
+    useEffect,
+} from "react";
 import clsx from "clsx";
-import { LegacyChevronRight1pxIcon } from "@deriv/quill-icons";
-import { Text } from "../../Text";
 import "./Submenu.scss";
 
-type TSubmenu = {
-    icon: ReactNode;
-    label: string;
-    labelSize?: ComponentProps<typeof Text>["size"];
-    submenuContent: ReactNode;
-    submenuClassName?: ComponentProps<"div">["className"];
-    className?: ComponentProps<"button">["className"];
+type TSubmenu = ComponentProps<"div"> & {
+    isOpen: boolean;
 };
 
 /**
- * Represents a submenu component with expandable/collapsible functionality.
- * This component displays a button that, when clicked, toggles the visibility
- * of a submenu panel. The submenu can contain any ReactNode elements provided
- * through props and has customizable text and icon components.
+ * `Submenu` is a component that renders a collapsible/expandable menu which supports an exit animation when closed.
+ * The component will remain in the DOM just long enough to perform the exit animation before it is unmounted,
+ * ensuring a smooth user experience. It utilizes the CSS class `submenu_exit` to apply styles for the exit animation.
  *
  * @component
- * @param {ReactNode} props.icon - The icon displayed in the button that toggles the submenu.
- * @param {string} props.label - The label text displayed next to the icon in the toggle button.
- * @param {string} [props.labelSize="md"] - The size of the label text, defaults to "md".
- * @param {ReactNode} props.submenuContent - The content displayed inside the submenu when it is open.
- * @param {string} [props.submenuClassName] - Optional custom class name for styling the submenu container.
- * @param {string} [props.className] - Optional custom class name for styling the toggle button.
- * @param {ReactNode} props.children - The children nodes provided to the submenu panel, which are displayed below the submenuContent.
- * @returns {JSX.Element} The rendered Submenu component with toggle functionality.
+ * @param {React.ReactNode} [props.children] - The content to be rendered inside the submenu. This is optional and can be any React node.
+ * @param {string} [props.className] - Optional CSS class to be applied to the submenu container for additional styling.
+ * @param {boolean} props.isOpen - A boolean flag to control the visibility of the submenu. When set to true, the submenu is open or visible. When set to false, the submenu will start the exit animation and then unmount.
+ *
+ * @returns {JSX.Element|null} The JSX code for the submenu if it is mounted; otherwise, null if it is not mounted.
+ *
+ * @example
+ * // To use the Submenu component:
+ * <Submenu isOpen={true} className="custom-submenu">
+ *   <p>Menu Content Here</p>
+ * </Submenu>
+ *
+ * @example
+ * // To trigger an exit animation, change isOpen to false:
+ * <Submenu isOpen={false} className="custom-submenu">
+ *   <p>Menu Content Here</p>
+ * </Submenu>
  */
 export const Submenu = ({
-    icon,
-    label,
-    labelSize = "md",
-    className,
     children,
-    submenuContent,
-    submenuClassName,
+    className,
+    isOpen,
 }: PropsWithChildren<TSubmenu>) => {
-    const [submenuOpen, SetSubmenuOpen] = useState(false);
+    const timerRef = useRef<NodeJS.Timeout | null>(null);
+    const [isMounted, setIsMounted] = useState(isOpen);
     const [isClosing, setIsClosing] = useState(false);
 
-    const onCloseSubmenu = () => {
-        setIsClosing(true);
-
-        setTimeout(() => {
-            SetSubmenuOpen(false);
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
             setIsClosing(false);
-        }, 500);
-    };
+        } else {
+            setIsClosing(true);
+            timerRef.current = setTimeout(() => {
+                setIsMounted(false);
+                setIsClosing(false);
+            }, 400);
+        }
 
-    const onOpenSubmenu = () => SetSubmenuOpen(true);
+        return () => {
+            if (timerRef.current) clearTimeout(timerRef.current);
+        };
+    }, [isOpen]);
 
+    if (!isMounted) return null;
     return (
-        <>
-            <button
-                className={clsx("submenu_button", className)}
-                onClick={onOpenSubmenu}
-            >
-                <span className="submenu_wrapper">
-                    {icon}
-                    <Text size={labelSize}>{label}</Text>
-                </span>
-                <LegacyChevronRight1pxIcon iconSize="xs" />
-            </button>
-
-            {submenuOpen && (
-                <div
-                    className={clsx(
-                        "submenu",
-                        { submenu_exit: isClosing },
-                        submenuClassName,
-                    )}
-                >
-                    <button onClick={onCloseSubmenu}>{submenuContent}</button>
-                    {children}
-                </div>
-            )}
-        </>
+        <div
+            className={clsx("submenu", { submenu_exit: isClosing }, className)}
+        >
+            {children}
+        </div>
     );
 };
 
