@@ -1,0 +1,33 @@
+@keyframes openSubmenu {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes closeSubmenu {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.submenu {
+    background-color: #fff;
+    position: absolute;
+    inset: 0;
+    will-change: transform;
+    transform: translateX(-100%);
+    animation-name: openSubmenu;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+    overflow: hidden;
+
+    &_exit {
+        animation: closeDrawer 0.3s;
+    }
+}
