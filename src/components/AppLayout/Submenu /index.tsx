@@ -43,30 +43,24 @@ export const Submenu = ({
     ...rest
 }: PropsWithChildren<TSubmenu>) => {
     const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-    const [isMounted, setIsMounted] = useState(isOpen);
-    const [isClosing, setIsClosing] = useState(false);
+    const [isClosing, setIsClosing] = useState(true);
 
     useEffect(() => {
-        if (isOpen) {
-            setIsMounted(true);
-            setIsClosing(false);
-        } else {
-            setIsClosing(true);
+        if (isOpen) setIsClosing(false);
+        else {
             timerRef.current = setTimeout(() => {
-                setIsMounted(false);
-                setIsClosing(false);
+                setIsClosing(!isOpen);
             }, 400);
         }
-
         return () => {
-            if (timerRef.current) clearTimeout(timerRef.current);
+            timerRef.current && clearTimeout(timerRef.current);
         };
     }, [isOpen]);
 
-    if (!isMounted) return null;
+    if (isClosing) return null;
     return (
         <div
-            className={clsx("submenu", { submenu_exit: isClosing }, className)}
+            className={clsx("submenu", { submenu_exit: !isOpen }, className)}
             {...rest}
         >
             {children}
