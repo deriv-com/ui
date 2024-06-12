@@ -6,6 +6,7 @@ const PlatformSwitcherComponent = () => (
     <PlatformSwitcher
         buttonProps={{ icon: <span>icon</span> }}
         bottomLinkLabel="CFD link"
+        itemsWrapperClassName="test-class"
     >
         <span>platform switcher child</span>
     </PlatformSwitcher>
@@ -22,5 +23,11 @@ describe("PlatformSwitcher Component", () => {
         render(<PlatformSwitcherComponent />);
         await userEvent.click(screen.getByRole("button"));
         expect(screen.getByText("CFD link")).toBeInTheDocument();
+    });
+
+    it("renders the passed className for items wrapper", async () => {
+        render(<PlatformSwitcherComponent />);
+        await userEvent.click(screen.getByRole("button"));
+        expect(screen.getByTestId("dt_context_Menu")).toHaveClass("test-class");
     });
 });

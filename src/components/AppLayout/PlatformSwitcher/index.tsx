@@ -5,6 +5,7 @@ import {
     useState,
     JSX,
 } from "react";
+import clsx from "clsx";
 import { useOnClickOutside } from "usehooks-ts";
 import { PlatformSwitcherButton } from "./PlatformSwitcherButton";
 import { ContextMenu } from "../../ContextMenu";
@@ -17,6 +18,7 @@ type TPlatformSwitcher = {
     >;
     bottomLinkLabel?: string | JSX.Element;
     bottomLinkProps?: ComponentProps<"a">;
+    itemsWrapperClassName?: string;
 };
 
 /**
@@ -29,6 +31,7 @@ type TPlatformSwitcher = {
  * @param {React.ReactNode} props.children - The children elements to be rendered inside the context menu. These could be additional links, buttons, or other interactive elements.
  * @param {string | JSX.Element} [props.bottomLinkLabel] - Optional label for a bottom link in the context menu, can be a string or JSX element.
  * @param {ComponentProps<"a">} [props.bottomLinkProps] - Optional props for the bottom link, assuming it's rendered as an `<a>` tag.
+ * @param {string} props.itemsWrapperClassName - Optional prop for adding additional className to the item's wrapper.
  *
  * @example
  * <PlatformSwitcher
@@ -45,6 +48,7 @@ export const PlatformSwitcher = ({
     children,
     bottomLinkLabel,
     bottomLinkProps,
+    itemsWrapperClassName,
 }: PropsWithChildren<TPlatformSwitcher>) => {
     const [isExpanded, setExpanded] = useState(false);
     const ref = useRef(null);
@@ -69,7 +73,11 @@ export const PlatformSwitcher = ({
             {isExpanded && <div className="deriv-platform-switcher__overlay" />}
             <ContextMenu
                 ref={ref}
-                className="deriv-platform-switcher__context-menu"
+                className={clsx(
+                    "deriv-platform-switcher__context-menu",
+                    itemsWrapperClassName,
+                )}
+                data-testid="dt_context_Menu"
                 isOpen={isExpanded}
             >
                 <div className="deriv-platform-switcher__context-menu__wrapper">
