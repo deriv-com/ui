@@ -77,6 +77,7 @@ export const PlatformSwitcher = ({
                     "deriv-platform-switcher__context-menu",
                     itemsWrapperClassName,
                 )}
+                data-testid="dt_context_Menu"
                 isOpen={isExpanded}
             >
                 <div className="deriv-platform-switcher__context-menu__wrapper">
