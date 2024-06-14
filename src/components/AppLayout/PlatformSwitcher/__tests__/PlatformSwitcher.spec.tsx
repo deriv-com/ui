@@ -7,6 +7,7 @@ const PlatformSwitcherComponent = () => (
         buttonProps={{ icon: <span>icon</span> }}
         bottomLinkLabel="CFD link"
         itemsWrapperClassName="test-class"
+        overlayClassName="test-overlay-class"
     >
         <span>platform switcher child</span>
     </PlatformSwitcher>
@@ -29,5 +30,13 @@ describe("PlatformSwitcher Component", () => {
         render(<PlatformSwitcherComponent />);
         await userEvent.click(screen.getByRole("button"));
         expect(screen.getByTestId("dt_context_Menu")).toHaveClass("test-class");
+    });
+
+    it("renders the passed className for overlay", async () => {
+        render(<PlatformSwitcherComponent />);
+        await userEvent.click(screen.getByRole("button"));
+        expect(screen.getByTestId("dt_overlay")).toHaveClass(
+            "test-overlay-class",
+        );
     });
 });
