@@ -19,6 +19,7 @@ type TPlatformSwitcher = {
     bottomLinkLabel?: string | JSX.Element;
     bottomLinkProps?: ComponentProps<"a">;
     itemsWrapperClassName?: string;
+    overlayClassName?: string;
 };
 
 /**
@@ -32,6 +33,7 @@ type TPlatformSwitcher = {
  * @param {string | JSX.Element} [props.bottomLinkLabel] - Optional label for a bottom link in the context menu, can be a string or JSX element.
  * @param {ComponentProps<"a">} [props.bottomLinkProps] - Optional props for the bottom link, assuming it's rendered as an `<a>` tag.
  * @param {string} props.itemsWrapperClassName - Optional prop for adding additional className to the item's wrapper.
+ * @param {string} props.overlayClassName - Optional prop for adding additional className to the overlay.
  *
  * @example
  * <PlatformSwitcher
@@ -49,6 +51,7 @@ export const PlatformSwitcher = ({
     bottomLinkLabel,
     bottomLinkProps,
     itemsWrapperClassName,
+    overlayClassName,
 }: PropsWithChildren<TPlatformSwitcher>) => {
     const [isExpanded, setExpanded] = useState(false);
     const ref = useRef(null);
@@ -70,7 +73,14 @@ export const PlatformSwitcher = ({
                 }}
                 {...buttonProps}
             />
-            {isExpanded && <div className="deriv-platform-switcher__overlay" />}
+            {isExpanded && (
+                <div
+                    className={clsx(
+                        "deriv-platform-switcher__overlay",
+                        overlayClassName,
+                    )}
+                />
+            )}
             <ContextMenu
                 ref={ref}
                 className={clsx(
