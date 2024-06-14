@@ -12,6 +12,8 @@ const meta = {
             icon: <DerivTraderLogo width={114.97} height={25} />,
             style: { padding: "0 16px" },
         },
+        overlayClassName: "",
+        itemsWrapperClassName: "",
     },
     argTypes: {
         bottomLinkLabel: {
@@ -28,6 +30,16 @@ const meta = {
             control: false,
             description:
                 "Props for the PlatformSwitcherButton, like `icon` excluding `isExpanded` and `onClick`.",
+        },
+        itemsWrapperClassName: {
+            control: false,
+            description:
+                "Optional prop for adding additional className to the item's wrapper.",
+        },
+        overlayClassName: {
+            control: false,
+            description:
+                "Optional prop for adding additional className to the overlay.",
         },
     },
     parameters: { layout: "centered" },

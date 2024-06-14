@@ -79,6 +79,7 @@ export const PlatformSwitcher = ({
                         "deriv-platform-switcher__overlay",
                         overlayClassName,
                     )}
+                    data-testid="dt_overlay"
                 />
             )}
             <ContextMenu
