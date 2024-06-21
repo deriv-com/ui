@@ -1,16 +1,16 @@
 import React, {
-    isValidElement,
     HtmlHTMLAttributes,
+    isValidElement,
     useCallback,
     useEffect,
     useState,
 } from "react";
 import clsx from "clsx";
 import { useCombobox } from "downshift";
+import "./Dropdown.scss";
+import { Input } from "../Input";
 import { TGenericSizes } from "../../types";
 import { Text } from "../Text";
-import { Input } from "../Input/index";
-import "./Dropdown.scss";
 
 type InputProps = React.ComponentProps<typeof Input>;
 type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
@@ -18,17 +18,18 @@ type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
     dropdownIcon: React.ReactNode;
     errorMessage?: InputProps["message"];
     icon?: React.ReactNode;
-    isRequired?: boolean;
     isFullWidth?: boolean;
+    isRequired?: boolean;
     label?: InputProps["label"];
     list: {
-        text?: React.ReactNode;
+        text?: string;
         value?: string;
     }[];
     listHeight?: Extract<TGenericSizes, "lg" | "md" | "sm" | "xs">;
     name: InputProps["name"];
     onSearch?: (inputValue: string) => void;
     onSelect: (value: string) => void;
+    shouldClearValue?: boolean;
     value?: InputProps["value"];
     variant?: "comboBox" | "prompt";
 };
@@ -45,6 +46,7 @@ export const Dropdown = ({
     name,
     onSearch,
     onSelect,
+    shouldClearValue = false,
     value,
     variant = "prompt",
     ...rest
@@ -78,6 +80,7 @@ export const Dropdown = ({
         getToggleButtonProps,
         isOpen,
         openMenu,
+        setInputValue,
     } = useCombobox({
         defaultSelectedItem: items.find((item) => item.value === value) ?? null,
         items,
@@ -132,6 +135,16 @@ export const Dropdown = ({
 
     useEffect(() => {
         setItems(list);
+        if (
+            shouldClearValue &&
+            !list.some((item) => item.text === getInputProps().value)
+        ) {
+            const result = value
+                ? list.find((item) => item.value && item.value === value)?.text
+                : "";
+            setInputValue(result ?? "");
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [list]);
 
     return (
@@ -144,13 +157,13 @@ export const Dropdown = ({
             <div className="deriv-dropdown__content">
                 <Input
                     disabled={disabled}
-                    message={errorMessage}
                     label={reactNodeToString(label)}
+                    leftPlaceholder={icon || undefined}
+                    message={errorMessage}
                     name={name}
                     onClickCapture={handleInputClick}
                     onKeyUp={() => setShouldFilterList(true)}
                     readOnly={variant !== "prompt"}
-                    leftPlaceholder={icon ? icon : undefined}
                     rightPlaceholder={<DropdownButton />}
                     type="text"
                     value={value}

@@ -18,7 +18,7 @@ const meta = {
         ],
         listHeight: "md",
         name: "dropdownName",
-        onChange: (inputValue: string) =>
+        onSearch: (inputValue: string) =>
             console.log(`Input value changed: ${inputValue}`),
         onSelect: (value: string) => console.log(`Selected value: ${value}`),
         value: "option1",
