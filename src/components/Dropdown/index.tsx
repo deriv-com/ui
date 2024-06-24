@@ -184,7 +184,7 @@ export const Dropdown = ({
                 {...getMenuProps()}
             >
                 {isOpen &&
-                    (items.length > 0
+                    (items.length
                         ? items.map((item, index) => (
                               <li
                                   className={clsx("deriv-dropdown__item", {
