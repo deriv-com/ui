@@ -102,10 +102,8 @@ export const Dropdown = ({
             }
         },
         onIsOpenChange({ isOpen }) {
-            if (!isOpen) {
-                if (!emptyResultMessage) {
-                    clearFilter();
-                }
+            if (!isOpen && !emptyResultMessage) {
+                clearFilter();  
             }
         },
         onSelectedItemChange({ selectedItem }) {
