@@ -16,6 +16,7 @@ type InputProps = React.ComponentProps<typeof Input>;
 type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
     disabled?: boolean;
     dropdownIcon: React.ReactNode;
+    emptyResultMessage?: string;
     errorMessage?: InputProps["message"];
     icon?: React.ReactNode;
     isFullWidth?: boolean;
@@ -37,6 +38,7 @@ type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
 export const Dropdown = ({
     disabled,
     dropdownIcon,
+    emptyResultMessage = "",
     errorMessage,
     icon = false,
     isFullWidth = false,
@@ -101,7 +103,9 @@ export const Dropdown = ({
         },
         onIsOpenChange({ isOpen }) {
             if (!isOpen) {
-                clearFilter();
+                if (!emptyResultMessage) {
+                    clearFilter();
+                }
             }
         },
         onSelectedItemChange({ selectedItem }) {
@@ -182,26 +186,34 @@ export const Dropdown = ({
                 {...getMenuProps()}
             >
                 {isOpen &&
-                    items.map((item, index) => (
-                        <li
-                            className={clsx("deriv-dropdown__item", {
-                                "deriv-dropdown__item--active":
-                                    value === item.value,
-                            })}
-                            key={item.value}
-                            onClick={() => clearFilter()}
-                            {...getItemProps({ index, item })}
-                        >
-                            <Text
-                                size="sm"
-                                weight={
-                                    value === item.value ? "bold" : "normal"
-                                }
-                            >
-                                {item.text}
-                            </Text>
-                        </li>
-                    ))}
+                    (items.length > 0
+                        ? items.map((item, index) => (
+                              <li
+                                  className={clsx("deriv-dropdown__item", {
+                                      "deriv-dropdown__item--active":
+                                          value === item.value,
+                                  })}
+                                  key={item.value}
+                                  onClick={() => clearFilter()}
+                                  {...getItemProps({ index, item })}
+                              >
+                                  <Text
+                                      size="sm"
+                                      weight={
+                                          value === item.value
+                                              ? "bold"
+                                              : "normal"
+                                      }
+                                  >
+                                      {item.text}
+                                  </Text>
+                              </li>
+                          ))
+                        : emptyResultMessage && (
+                              <li className="deriv-dropdown__item">
+                                  <Text size="sm">{emptyResultMessage}</Text>
+                              </li>
+                          ))}
             </ul>
         </div>
     );

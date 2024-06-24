@@ -52,3 +52,18 @@ export const Prompt: Story = {
         label: "Choose an option",
     },
 };
+
+export const PromptNoResults: Story = {
+    name: "Prompt With No Search Results Message",
+    args: {
+        variant: "prompt",
+        list: [
+            { text: "Option A", value: "optionA" },
+            { text: "Option B", value: "optionB" },
+            { text: "Option C", value: "optionC" },
+        ],
+        label: "Choose an option",
+        emptyResultMessage: "No search results"
+    }
+
+}
