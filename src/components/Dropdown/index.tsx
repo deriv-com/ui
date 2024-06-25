@@ -23,7 +23,7 @@ type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
     isRequired?: boolean;
     label?: InputProps["label"];
     list: {
-        text?: string;
+        text?: string | JSX.Element;
         value?: string;
     }[];
     listHeight?: Extract<TGenericSizes, "lg" | "md" | "sm" | "xs">;
@@ -144,7 +144,7 @@ export const Dropdown = ({
             const result = value
                 ? list.find((item) => item.value && item.value === value)?.text
                 : "";
-            setInputValue(result ?? "");
+            setInputValue(reactNodeToString(result) ?? "");
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [list]);
