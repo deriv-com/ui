@@ -154,16 +154,16 @@ export const Input = forwardRef(
                         </div>
                     )}
                 </div>
-                <div className="deriv-input__helper-message">
-                    {!hideMessage && message && (
+                {!hideMessage && message && (
+                    <div className="deriv-input__helper-message">
                         <HelperMessage
                             message={message}
                             variant={variant}
                             error={error}
                             disabled={disabled}
                         />
-                    )}
-                </div>
+                    </div>
+                )}
             </div>
         );
     },

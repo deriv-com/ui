@@ -159,10 +159,9 @@ export const Dropdown = ({
             <div className="deriv-dropdown__content">
                 <Input
                     disabled={disabled}
-                    hideMessage={isOpen}
                     label={reactNodeToString(label)}
                     leftPlaceholder={icon || undefined}
-                    message={errorMessage}
+                    message={isOpen ? " " : errorMessage}
                     name={name}
                     onClickCapture={handleInputClick}
                     onKeyUp={() => setShouldFilterList(true)}
