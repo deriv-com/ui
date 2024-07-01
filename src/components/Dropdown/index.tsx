@@ -160,7 +160,7 @@ export const Dropdown = ({
                 <Input
                     disabled={disabled}
                     label={reactNodeToString(label)}
-                    leftPlaceholder={icon || undefined}
+                    leftPlaceholder={icon}
                     message={isOpen ? " " : errorMessage}
                     name={name}
                     onClickCapture={handleInputClick}
