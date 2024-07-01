@@ -24,6 +24,7 @@ const meta = {
         onSelect: (value: string) => console.log(`Selected value: ${value}`),
         value: "option1",
         variant: "comboBox",
+        islabelAnimationDisabled: false,
     },
 } satisfies Meta<typeof Dropdown>;
 
