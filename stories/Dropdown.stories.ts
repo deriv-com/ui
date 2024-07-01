@@ -4,6 +4,7 @@ import { Dropdown } from "../src/components/Dropdown";
 const meta = {
     title: "Components/Dropdown",
     component: Dropdown,
+    tags: ["autodocs"],
     args: {
         disabled: false,
         dropdownIcon: "",
@@ -23,6 +24,7 @@ const meta = {
         onSelect: (value: string) => console.log(`Selected value: ${value}`),
         value: "option1",
         variant: "comboBox",
+        islabelAnimationDisabled: false,
     },
 } satisfies Meta<typeof Dropdown>;
 
@@ -63,7 +65,6 @@ export const PromptNoResults: Story = {
             { text: "Option C", value: "optionC" },
         ],
         label: "Choose an option",
-        emptyResultMessage: "No search results"
-    }
-
-}
+        emptyResultMessage: "No search results",
+    },
+};

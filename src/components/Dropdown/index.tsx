@@ -103,7 +103,7 @@ export const Dropdown = ({
         },
         onIsOpenChange({ isOpen }) {
             if (!isOpen && !emptyResultMessage) {
-                clearFilter();  
+                clearFilter();
             }
         },
         onSelectedItemChange({ selectedItem }) {
@@ -160,8 +160,8 @@ export const Dropdown = ({
                 <Input
                     disabled={disabled}
                     label={reactNodeToString(label)}
-                    leftPlaceholder={icon || undefined}
-                    message={errorMessage}
+                    leftPlaceholder={icon}
+                    message={isOpen ? " " : errorMessage}
                     name={name}
                     onClickCapture={handleInputClick}
                     onKeyUp={() => setShouldFilterList(true)}

@@ -125,6 +125,10 @@ $input-placement: 16px;
         }
     }
 
+    &__left-content {
+        margin-right: 8px;
+    }
+
     &__right-content {
         margin-left: $input-placement;
     }

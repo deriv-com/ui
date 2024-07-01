@@ -88,7 +88,7 @@ export const Input = forwardRef(
             hideMessage,
             id,
             isFullWidth = false,
-            islabelAnimationDisabled=false,
+            islabelAnimationDisabled = false,
             label,
             leftPlaceholder,
             message,
@@ -126,7 +126,11 @@ export const Input = forwardRef(
                     )}
                     <input
                         placeholder={label}
-                        className={islabelAnimationDisabled? "deriv-input--label-animation-disabled" : "deriv-input__field" }
+                        className={
+                            islabelAnimationDisabled
+                                ? "deriv-input--label-animation-disabled"
+                                : "deriv-input__field"
+                        }
                         id={id}
                         disabled={disabled}
                         ref={ref}
@@ -150,16 +154,16 @@ export const Input = forwardRef(
                         </div>
                     )}
                 </div>
-                    {!hideMessage && message && (
-                         <div className="deriv-input__helper-message">
+                {!hideMessage && message && (
+                    <div className="deriv-input__helper-message">
                         <HelperMessage
                             message={message}
                             variant={variant}
                             error={error}
                             disabled={disabled}
                         />
-                        </div>
-                    )}
+                    </div>
+                )}
             </div>
         );
     },
