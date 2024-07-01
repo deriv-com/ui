@@ -125,6 +125,10 @@ $input-placement: 16px;
         }
     }
 
+    &__left-content {
+        margin-right: 8px;
+    }
+
     &__right-content {
         margin-left: $input-placement;
     }
@@ -152,4 +156,6 @@ $input-placement: 16px;
     padding: 2px 0 0 16px;
     height: 20px;
     width: 100%;
+    display: flex;
+    align-items: center;
 }

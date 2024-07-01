@@ -103,7 +103,7 @@ export const Dropdown = ({
         },
         onIsOpenChange({ isOpen }) {
             if (!isOpen && !emptyResultMessage) {
-                clearFilter();  
+                clearFilter();
             }
         },
         onSelectedItemChange({ selectedItem }) {
@@ -159,6 +159,7 @@ export const Dropdown = ({
             <div className="deriv-dropdown__content">
                 <Input
                     disabled={disabled}
+                    hideMessage={isOpen}
                     label={reactNodeToString(label)}
                     leftPlaceholder={icon || undefined}
                     message={errorMessage}
