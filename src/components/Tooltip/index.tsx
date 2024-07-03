@@ -1,6 +1,6 @@
 import React, { ComponentProps, ElementType, ReactNode, useState } from "react";
-import { usePopper } from "react-popper";
 import { Placement } from "@popperjs/core";
+import { usePopper } from "react-popper";
 import clsx from "clsx";
 import "./Tooltip.scss";
 
@@ -11,7 +11,7 @@ type TooltipProps<T extends AsElement> = ComponentProps<T> & {
     children: ReactNode;
     tooltipContainerClassName?: string;
     tooltipContent: ReactNode;
-    tooltipPosition: Placement;
+    tooltipPosition?: Placement;
     variant?: "general" | "error";
 };
 
@@ -20,16 +20,15 @@ type TooltipProps<T extends AsElement> = ComponentProps<T> & {
  *
  * @param {"a" | "div" | "button"} as - The HTML element or React component to render, which can be "a", "div", or "button".
  * @param {string} tooltipContent - The content to display inside the tooltip.
- * @param {"top" | "bottom" | "left" | "right"} tooltipPosition - The position of the tooltip relative to the element.
+ * @param {import("@popperjs/core").Placement} tooltipPosition - The position of the tooltip relative to the element, using the Placement type from Popper.js.
  * @param {string} tooltipColor - The background color of the tooltip. Defaults to '#D6DADB'.
- * @param {boolean} [disabled=false] - If true, the element will be disabled. Applicable only when `as` is "button".
  * @param {string} [href] - The URL the link points to. Required and applicable only when `as` is "a".
  * @param {React.ReactNode} [icon] - The icon to display. This can be any React node.
  * @param {ComponentProps<"a" | "div" | "button">} ...rest - Component props based on the `as` property.
  *
  * @example
  * // To render a button with a tooltip
- * <YourComponent as="button" tooltipContent="Save" tooltipPosition="bottom" disabled={false}>
+ * <YourComponent as="button" tooltipContent="Save" tooltipPosition="bottom">
  *   Save
  * </YourComponent>
  *
@@ -46,7 +45,7 @@ export const Tooltip = <T extends AsElement>({
     children,
     tooltipContainerClassName,
     tooltipContent,
-    tooltipPosition,
+    tooltipPosition = "auto",
     variant = "general",
     ...rest
 }: TooltipProps<T>) => {
