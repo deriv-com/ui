@@ -1,0 +1,46 @@
+.deriv-tooltip-v2 {
+    z-index: 999;
+    position: absolute;
+    padding: 8px;
+    cursor: default;
+    border-radius: $border-radius;
+    width: max-content;
+    max-width: 280px;
+    animation: fadeIn ease-in-out 0.2s;
+    background-color: var(--du-general-active, #d6dadb);
+    color: var(--du-text-general, #333);
+}
+
+.deriv-tooltip-v2__arrow,
+.deriv-tooltip-v2__arrow::before {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: inherit;
+}
+
+.deriv-tooltip-v2__arrow {
+    visibility: hidden;
+}
+
+.deriv-tooltip-v2__arrow::before {
+    visibility: visible;
+    content: "";
+    transform: rotate(45deg);
+}
+
+.deriv-tooltip-v2[data-popper-placement^="top"] > .deriv-tooltip-v2__arrow {
+    bottom: -4px;
+}
+
+.deriv-tooltip-v2[data-popper-placement^="bottom"] > .deriv-tooltip-v2__arrow {
+    top: -4px;
+}
+
+.deriv-tooltip-v2[data-popper-placement^="left"] > .deriv-tooltip-v2__arrow {
+    right: -4px;
+}
+
+.deriv-tooltip-v2[data-popper-placement^="right"] > .deriv-tooltip-v2__arrow {
+    left: -4px;
+}
