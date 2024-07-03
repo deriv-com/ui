@@ -1,149 +1,63 @@
-$general-background: #d6dadb;
-$general-text: #333333;
-$error-background: #ec3f3f;
-$error-text: #ffffff;
-$dark-background: #323738;
-$dark-text: #ffffff;
-$border: 8px solid;
-$arrow-size: 8px;
-
-// Tooltip Classes
-.deriv-tooltip-container {
-    position: relative;
-    display: inline-flex;
-    user-select: none;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-}
-
+// Tooltip Container
 .deriv-tooltip {
-    z-index: 999;
-    position: absolute;
+    z-index: 9999;
     padding: 8px;
-    cursor: default;
-    border-radius: 4px;
+    border-radius: $border-radius;
     width: max-content;
     max-width: 280px;
     animation: fadeIn ease-in-out 0.2s;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+
     &--general {
-        background-color: $general-background;
-        color: $general-text;
-    }
-    &--dark {
-        background-color: $dark-background;
-        color: $dark-text;
+        background-color: var(--du-general-active, #d6dadb);
+        color: var(--du-text-general, #333);
     }
     &--error {
-        background-color: $error-background;
-        color: $error-text;
+        background-color: var(--du-status-danger, #ec3f3f);
+        color: var(--du-text-colored-background, #ffffff);
     }
 }
 
-.deriv-arrow {
+// Tooltip Arrow
+.deriv-tooltip__arrow,
+.deriv-tooltip__arrow::before {
     position: absolute;
-    width: 0;
-    height: 0;
+    width: 8px;
+    height: 8px;
+    background: inherit;
 }
 
-// Position Classes
-
-.deriv-top {
-    bottom: calc(100% + 18px);
-    left: 50%;
-    transform: translateX(-50%);
-
-    .deriv-arrow {
-        bottom: calc(1px + $arrow-size * -1);
-        left: calc(50% - $arrow-size);
-        border-right: $border transparent;
-        border-left: $border transparent;
-        &--general {
-            border-top: $border $general-background;
-        }
-        &--dark {
-            border-top: $border $dark-background;
-        }
-        &--error {
-            border-top: $border $error-background;
-        }
-    }
+.deriv-tooltip__arrow {
+    visibility: hidden;
 }
 
-.deriv-right,
-.deriv-left {
-    top: 50%;
-    transform: translateY(-50%);
-
-    .deriv-arrow {
-        top: calc(50% - $arrow-size);
-        border-top: $border transparent;
-        border-bottom: $border transparent;
-    }
+.deriv-tooltip__arrow::before {
+    visibility: visible;
+    content: "";
+    transform: rotate(45deg);
 }
 
-.deriv-right {
-    left: calc(100% + 18px);
-
-    .deriv-arrow {
-        left: -$arrow-size;
-        &--general {
-            border-right: $border $general-background;
-        }
-        &--dark {
-            border-right: $border $dark-background;
-        }
-        &--error {
-            border-right: $border $error-background;
-        }
-    }
+// Tooltip Arrow Position
+.deriv-tooltip[data-popper-placement^="top"] > .deriv-tooltip__arrow {
+    bottom: -4px;
 }
 
-.deriv-left {
-    right: calc(100% + 18px);
-
-    .deriv-arrow {
-        right: -$arrow-size;
-        &--general {
-            border-left: $border $general-background;
-        }
-        &--dark {
-            border-left: $border $dark-background;
-        }
-        &--error {
-            border-left: $border $error-background;
-        }
-    }
+.deriv-tooltip[data-popper-placement^="bottom"] > .deriv-tooltip__arrow {
+    top: -4px;
 }
 
-.deriv-bottom {
-    top: calc(100% + 18px);
-    left: 50%;
-    transform: translateX(-50%);
-
-    .deriv-arrow {
-        top: calc(1px + $arrow-size * -1);
-        left: calc(50% - $arrow-size);
-        border-right: $border transparent;
-        border-left: $border transparent;
-        &--general {
-            border-bottom: $border $general-background;
-        }
-        &--dark {
-            border-bottom: $border $dark-background;
-        }
-        &--error {
-            border-bottom: $border $error-background;
-        }
-    }
+.deriv-tooltip[data-popper-placement^="left"] > .deriv-tooltip__arrow {
+    right: -4px;
 }
 
-// Tooltip popup animation
+.deriv-tooltip[data-popper-placement^="right"] > .deriv-tooltip__arrow {
+    left: -4px;
+}
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+// Tooltip Trigger Class
+.deriv-tooltip__trigger {
+    cursor: pointer;
 }
