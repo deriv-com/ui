@@ -1,24 +1,35 @@
-import React, { ElementType, ReactNode, useState } from "react";
+import React, { ComponentProps, ElementType, ReactNode, useState } from "react";
 import { usePopper } from "react-popper";
+import { Placement } from "@popperjs/core";
 import clsx from "clsx";
 import "./NewTooltip.scss";
-import { Placement } from "@popperjs/core";
 
-type NewTooltipProps = {
-    as?: ElementType;
+type AsElement = "a" | "div" | "button";
+type NewTooltipProps<T extends AsElement> = ComponentProps<T> & {
+    as: T;
     children: ReactNode;
-    className?: string;
+    tooltipContainerClassName?: string;
     tooltipContent: ReactNode;
     tooltipPosition: Placement;
 };
 
-export const NewTooltip = ({
+/**
+ * A component that renders an icon | a link | a div with a tooltip.
+ * @param {"a" | "div" | "button"} as - The HTML element or React component to render which can be "a" | "div" | "button".
+ * @param {string} tooltipContent - The content to display inside the tooltip.
+ * @param {"top" | "bottom" | "left" | "right"} tooltipPosition - The position of the tooltip relative to the element.
+ * @param {string} tooltipColor - The background color of the tooltip. Defaults to '#D6DADB'.
+ * @param {ComponentProps<"a" | "div" | "button">} ...rest - component props base on the as property.
+ * @returns {JSX.Element} The rendered component.
+ */
+export const NewTooltip = <T extends AsElement>({
     as,
     children,
-    className,
+    tooltipContainerClassName,
     tooltipContent,
     tooltipPosition,
-}: NewTooltipProps) => {
+    ...rest
+}: NewTooltipProps<T>) => {
     const [referenceElement, setReferenceElement] = useState(null);
     const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
         null,
@@ -45,14 +56,19 @@ export const NewTooltip = ({
         <>
             <Tag
                 ref={setReferenceElement}
+                className={clsx("deriv-tooltip-v2__trigger", rest.className)}
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
+                {...rest}
             >
                 {children}
             </Tag>
             {showTooltip && (
                 <div
-                    className={clsx("deriv-tooltip-v2", className)}
+                    className={clsx(
+                        "deriv-tooltip-v2",
+                        tooltipContainerClassName,
+                    )}
                     ref={setPopperElement}
                     style={styles.popper}
                     {...attributes.popper}
