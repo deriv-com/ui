@@ -26,7 +26,6 @@ import {
     Text,
     PlatformSwitcherItem,
     MobileLanguagesDrawer,
-    TooltipMenuIcon,
 } from "../src/main";
 import { platformsConfig } from "./platformsConfig";
 import { LanguagesItemsDrawerConfig } from "./LanguageItemsDrawerConfig";
@@ -139,17 +138,6 @@ const App = () => {
                         </MenuItem>
                     </Wrapper>
                     <Wrapper variant="right">
-                        <TooltipMenuIcon
-                            as="a"
-                            href=""
-                            target=""
-                            tooltipContent="Full Screen"
-                            tooltipPosition="bottom"
-                            style={{ padding: "16px" }}
-                        >
-                            click me
-                        </TooltipMenuIcon>
-
                         <AccountSwitcher
                             activeAccount={
                                 accountsList.find(
