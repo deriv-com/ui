@@ -6,7 +6,7 @@ const meta: Meta = {
     title: "Components/Tooltip",
     component: Tooltip,
     args: {
-        as: "a",
+        as: "button",
         tooltipContent: "tooltip content",
         tooltipPosition: "top",
         children: "Hover over me",
@@ -15,11 +15,6 @@ const meta: Meta = {
         as: {
             description:
                 'The HTML element or React component to render which can be "a" | "div" | "button".',
-            control: {
-                type: "select",
-                options: ["a", "div", "button"],
-            },
-            defaultValue: "a",
         },
         tooltipContent: {
             description: "The content to display inside the tooltip.",
@@ -45,12 +40,14 @@ const meta: Meta = {
                     "left-start",
                     "left-end",
                 ],
-                defaultValue: "auto",
             },
         },
         tooltipContainerClassName: {
             description: "The class name for the tooltip container.",
             control: false,
+        },
+        tooltipOffset: {
+            description: "The distance between the tooltip and the content.",
         },
         variant: {
             description: "The variant of the tooltip.",

@@ -1,6 +1,7 @@
 import React, {
     ComponentProps,
     ElementType,
+    PropsWithChildren,
     ReactNode,
     useRef,
     useState,
@@ -14,9 +15,9 @@ type AsElement = "a" | "div" | "button";
 type TooltipVariantType = "error" | "general";
 export type TooltipProps<T extends AsElement> = ComponentProps<T> & {
     as: T;
-    children: ReactNode;
     tooltipContainerClassName?: string;
     tooltipContent: ReactNode;
+    tooltipOffset?: number;
     tooltipPosition?: Placement;
     variant?: "general" | "error";
 };
@@ -30,12 +31,13 @@ const TooltipVariantClass: Record<TooltipVariantType, string> = {
  * A component that renders an icon, a link, or a div with a tooltip.
  *
  * @param {"a" | "div" | "button"} as - The HTML element or React component to render, which can be "a", "div", or "button".
- * @param {string} tooltipContent - The content to display inside the tooltip.
- * @param {import("@popperjs/core").Placement} tooltipPosition - The position of the tooltip relative to the element, using the Placement type from Popper.js.
- * @param {string} tooltipColor - The background color of the tooltip. Defaults to '#D6DADB'.
- * @param {string} [href] - The URL the link points to. Required and applicable only when `as` is "a".
- * @param {React.ReactNode} [icon] - The icon to display. This can be any React node.
  * @param {ComponentProps<"a" | "div" | "button">} ...rest - Component props based on the `as` property.
+ * @param {import("@popperjs/core").Placement} tooltipPosition - The position of the tooltip relative to the element, using the Placement type from Popper.js.
+ * @param {number} tooltipOffset - The distance between the tooltip and the content.
+ * @param {React.ReactNode} [icon] - The icon to display. This can be any React node.
+ * @param {string} [href] - The URL the link points to. Required and applicable only when `as` is "a".
+ * @param {string} tooltipColor - The background color of the tooltip. Defaults to '#D6DADB'.
+ * @param {string} tooltipContent - The content to display inside the tooltip.
  *
  * @example
  * // To render a button with a tooltip
@@ -58,8 +60,9 @@ export const Tooltip = <T extends AsElement>({
     tooltipContent,
     tooltipPosition = "auto",
     variant = "general",
+    tooltipOffset = 8,
     ...rest
-}: TooltipProps<T>) => {
+}: PropsWithChildren<TooltipProps<T>>) => {
     const referenceElement = useRef<HTMLElement | null>(null);
     const popperElement = useRef<HTMLDivElement | null>(null);
     const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(
@@ -73,7 +76,10 @@ export const Tooltip = <T extends AsElement>({
             placement: tooltipPosition,
             modifiers: [
                 { name: "arrow", options: { element: arrowElement } },
-                { name: "offset", options: { offset: [0, 8] } },
+                {
+                    name: "offset",
+                    options: { offset: [0, tooltipOffset] },
+                },
             ],
         },
     );
