@@ -1,4 +1,10 @@
-import React, { ComponentProps, ElementType, ReactNode, useState } from "react";
+import React, {
+    ComponentProps,
+    ElementType,
+    ReactNode,
+    useRef,
+    useState,
+} from "react";
 import { Placement } from "@popperjs/core";
 import { usePopper } from "react-popper";
 import clsx from "clsx";
@@ -6,13 +12,18 @@ import "./Tooltip.scss";
 
 type AsElement = "a" | "div" | "button";
 type TooltipVariantType = "error" | "general";
-type TooltipProps<T extends AsElement> = ComponentProps<T> & {
+export type TooltipProps<T extends AsElement> = ComponentProps<T> & {
     as: T;
     children: ReactNode;
     tooltipContainerClassName?: string;
     tooltipContent: ReactNode;
     tooltipPosition?: Placement;
     variant?: "general" | "error";
+};
+
+const TooltipVariantClass: Record<TooltipVariantType, string> = {
+    error: "deriv-tooltip--error",
+    general: "deriv-tooltip--general",
 };
 
 /**
@@ -49,26 +60,23 @@ export const Tooltip = <T extends AsElement>({
     variant = "general",
     ...rest
 }: TooltipProps<T>) => {
-    const [referenceElement, setReferenceElement] = useState(null);
-    const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
-        null,
-    );
+    const referenceElement = useRef<HTMLElement | null>(null);
+    const popperElement = useRef<HTMLDivElement | null>(null);
     const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(
         null,
     );
 
-    const { styles, attributes } = usePopper(referenceElement, popperElement, {
-        placement: tooltipPosition,
-        modifiers: [
-            { name: "arrow", options: { element: arrowElement } },
-            { name: "offset", options: { offset: [0, 8] } },
-        ],
-    });
-
-    const TooltipVariantClass: Record<TooltipVariantType, string> = {
-        error: "deriv-tooltip--error",
-        general: "deriv-tooltip--general",
-    };
+    const { styles, attributes } = usePopper(
+        referenceElement.current,
+        popperElement.current,
+        {
+            placement: tooltipPosition,
+            modifiers: [
+                { name: "arrow", options: { element: arrowElement } },
+                { name: "offset", options: { offset: [0, 8] } },
+            ],
+        },
+    );
 
     const [showTooltip, setShowTooltip] = useState(false);
     const onMouseEnter = () => setShowTooltip(true);
@@ -79,7 +87,7 @@ export const Tooltip = <T extends AsElement>({
     return (
         <>
             <Tag
-                ref={setReferenceElement}
+                ref={referenceElement}
                 className={clsx("deriv-tooltip__trigger", rest.className)}
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
@@ -94,7 +102,7 @@ export const Tooltip = <T extends AsElement>({
                         TooltipVariantClass[variant],
                         tooltipContainerClassName,
                     )}
-                    ref={setPopperElement}
+                    ref={popperElement}
                     style={styles.popper}
                     {...attributes.popper}
                 >
