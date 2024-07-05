@@ -1,109 +1,141 @@
-import React, { ReactNode, useRef, useState } from "react";
+import React, {
+    ComponentProps,
+    ElementType,
+    forwardRef,
+    PropsWithChildren,
+    ReactNode,
+    useImperativeHandle,
+    useRef,
+    useState,
+} from "react";
+import { Placement } from "@popperjs/core";
+import { usePopper } from "react-popper";
 import clsx from "clsx";
-import { useOnClickOutside } from "usehooks-ts";
 import "./Tooltip.scss";
 
-type TooltipPositionType = "top" | "bottom" | "left" | "right";
-type TooltipTriggerActionType = "hover" | "click";
-type TooltipVariantType = "general" | "dark" | "error";
-
-type TooltipProps = {
-    children?: ReactNode;
-    className?: string;
-    message: ReactNode;
-    position?: TooltipPositionType;
-    triggerAction?: TooltipTriggerActionType;
-    variant?: TooltipVariantType;
+type AsElement = "a" | "div" | "button";
+type TooltipVariantType = "error" | "general";
+export type TooltipProps<T extends AsElement> = ComponentProps<T> & {
+    as: T;
+    tooltipContainerClassName?: string;
+    tooltipContent: ReactNode;
+    tooltipOffset?: number;
+    tooltipPosition?: Placement;
+    variant?: "general" | "error";
 };
 
-export const Tooltip = ({
-    children,
-    className,
-    message,
-    position = "top",
-    triggerAction = "hover",
-    variant = "general",
-}: TooltipProps) => {
-    const [active, setActive] = useState(false);
-    const targetRef = useRef<HTMLDivElement>(null);
+const TooltipVariantClass: Record<TooltipVariantType, string> = {
+    error: "deriv-tooltip--error",
+    general: "deriv-tooltip--general",
+};
 
-    const handleMouseEnter = () => {
-        if (triggerAction === "hover") {
-            setActive(true);
-        }
-    };
+/**
+ * A component that renders an icon, a link, or a div with a tooltip.
+ *
+ * @param {"a" | "div" | "button"} as - The HTML element or React component to render, which can be "a", "div", or "button".
+ * @param {ComponentProps<"a" | "div" | "button">} ...rest - Component props based on the `as` property.
+ * @param {import("@popperjs/core").Placement} tooltipPosition - The position of the tooltip relative to the element, using the Placement type from Popper.js.
+ * @param {number} tooltipOffset - The distance between the tooltip and the content.
+ * @param {React.ReactNode} [icon] - The icon to display. This can be any React node.
+ * @param {string} [href] - The URL the link points to. Required and applicable only when `as` is "a".
+ * @param {string} tooltipColor - The background color of the tooltip. Defaults to '#D6DADB'.
+ * @param {string} tooltipContent - The content to display inside the tooltip.
+ *
+ * @example
+ * // To render a button with a tooltip
+ * <YourComponent as="button" tooltipContent="Save" tooltipPosition="bottom">
+ *   Save
+ * </YourComponent>
+ *
+ * @example
+ * // To render a link with a tooltip and an icon
+ * <YourComponent as="a" href="https://example.com" tooltipContent="Go to Example" tooltipPosition="right" icon={<YourIcon />}>
+ *   Visit Example.com
+ * </YourComponent>
+ *
+ * @returns {JSX.Element} The rendered component.
+ */
 
-    const handleMouseLeave = () => {
-        if (triggerAction === "hover") {
-            setActive(false);
-        }
-    };
+export const Tooltip = forwardRef<
+    HTMLElement | null,
+    PropsWithChildren<TooltipProps<AsElement>>
+>(
+    (
+        {
+            as,
+            children,
+            tooltipContainerClassName,
+            tooltipContent,
+            tooltipPosition = "auto",
+            variant = "general",
+            tooltipOffset = 8,
+            ...rest
+        },
+        ref,
+    ) => {
+        const referenceElement = useRef<HTMLElement | null>(null);
+        const popperElement = useRef<HTMLDivElement | null>(null);
+        const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(
+            null,
+        );
 
-    const handleClick = () => {
-        if (triggerAction === "click") {
-            setActive(!active);
-        }
-    };
+        const { styles, attributes } = usePopper(
+            referenceElement.current,
+            popperElement.current,
+            {
+                placement: tooltipPosition,
+                modifiers: [
+                    { name: "arrow", options: { element: arrowElement } },
+                    {
+                        name: "offset",
+                        options: { offset: [0, tooltipOffset] },
+                    },
+                ],
+            },
+        );
 
-    const handleClickOutside = (event: MouseEvent | TouchEvent | FocusEvent) => {
-        if (
-            triggerAction === "click" &&
-            active &&
-            targetRef.current &&
-            !targetRef.current.contains(event.target as Node)
-        ) {
-            setActive(false);
-        }
-    };
+        const [showTooltip, setShowTooltip] = useState(false);
+        const onMouseEnter = () => setShowTooltip(true);
+        const onMouseLeave = () => setShowTooltip(false);
 
-    useOnClickOutside(targetRef, (e) => handleClickOutside(e));
+        useImperativeHandle(ref, () => referenceElement.current as HTMLElement);
 
-    const TooltipVariantClass: Record<TooltipVariantType, string> = {
-        dark: "deriv-tooltip--dark",
-        error: "deriv-tooltip--error",
-        general: "deriv-tooltip--general",
-    };
+        const Tag = as as ElementType;
 
-    const TooltipPositionClass: Record<TooltipPositionType, string> = {
-        top: "deriv-top",
-        bottom: "deriv-bottom",
-        right: "deriv-right",
-        left: "deriv-left",
-    };
-
-    const TooltipArrowVariantClass: Record<TooltipVariantType, string> = {
-        dark: "deriv-arrow--dark",
-        error: "deriv-arrow--error",
-        general: "deriv-arrow--general",
-    };
-
-    return (
-        <div
-            className="deriv-tooltip-container"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onClick={handleClick}
-            ref={targetRef}
-        >
-            {children}
-            {active && (
-                <div
-                    className={clsx(
-                        "deriv-tooltip",
-                        TooltipPositionClass[position],
-                        TooltipVariantClass[variant],
-                        className,
-                    )}
+        return (
+            <>
+                <Tag
+                    ref={referenceElement}
+                    className={clsx("deriv-tooltip__trigger", rest.className)}
+                    onMouseEnter={onMouseEnter}
+                    onMouseLeave={onMouseLeave}
+                    {...rest}
                 >
-                    <span
+                    {children}
+                </Tag>
+                {showTooltip && (
+                    <div
                         className={clsx(
-                            "deriv-arrow",
-                            TooltipArrowVariantClass[variant],
+                            "deriv-tooltip",
+                            TooltipVariantClass[variant],
+                            tooltipContainerClassName,
                         )}
-                    ></span>
-                    {message}
-                </div>
-            )}
-        </div>
-    );
-};
+                        ref={popperElement}
+                        style={styles.popper}
+                        {...attributes.popper}
+                    >
+                        {tooltipContent}
+                        <div
+                            className="deriv-tooltip__arrow"
+                            data-popper-arrow
+                            ref={setArrowElement}
+                            style={styles.arrow}
+                        />
+                    </div>
+                )}
+            </>
+        );
+    },
+);
+
+Tooltip.displayName = "Tooltip";
