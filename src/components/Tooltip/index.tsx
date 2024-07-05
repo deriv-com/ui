@@ -1,8 +1,10 @@
 import React, {
     ComponentProps,
     ElementType,
+    forwardRef,
     PropsWithChildren,
     ReactNode,
+    useImperativeHandle,
     useRef,
     useState,
 } from "react";
@@ -53,76 +55,87 @@ const TooltipVariantClass: Record<TooltipVariantType, string> = {
  *
  * @returns {JSX.Element} The rendered component.
  */
-export const Tooltip = <T extends AsElement>({
-    as,
-    children,
-    tooltipContainerClassName,
-    tooltipContent,
-    tooltipPosition = "auto",
-    variant = "general",
-    tooltipOffset = 8,
-    ...rest
-}: PropsWithChildren<TooltipProps<T>>) => {
-    const referenceElement = useRef<HTMLElement | null>(null);
-    const popperElement = useRef<HTMLDivElement | null>(null);
-    const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(
-        null,
-    );
 
-    const { styles, attributes } = usePopper(
-        referenceElement.current,
-        popperElement.current,
+export const Tooltip = forwardRef<
+    HTMLElement | null,
+    PropsWithChildren<TooltipProps<AsElement>>
+>(
+    (
         {
-            placement: tooltipPosition,
-            modifiers: [
-                { name: "arrow", options: { element: arrowElement } },
-                {
-                    name: "offset",
-                    options: { offset: [0, tooltipOffset] },
-                },
-            ],
+            as,
+            children,
+            tooltipContainerClassName,
+            tooltipContent,
+            tooltipPosition = "auto",
+            variant = "general",
+            tooltipOffset = 8,
+            ...rest
         },
-    );
+        ref,
+    ) => {
+        const referenceElement = useRef<HTMLElement | null>(null);
+        const popperElement = useRef<HTMLDivElement | null>(null);
+        const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(
+            null,
+        );
 
-    const [showTooltip, setShowTooltip] = useState(false);
-    const onMouseEnter = () => setShowTooltip(true);
-    const onMouseLeave = () => setShowTooltip(false);
+        const { styles, attributes } = usePopper(
+            referenceElement.current,
+            popperElement.current,
+            {
+                placement: tooltipPosition,
+                modifiers: [
+                    { name: "arrow", options: { element: arrowElement } },
+                    {
+                        name: "offset",
+                        options: { offset: [0, tooltipOffset] },
+                    },
+                ],
+            },
+        );
 
-    const Tag = as as ElementType;
+        const [showTooltip, setShowTooltip] = useState(false);
+        const onMouseEnter = () => setShowTooltip(true);
+        const onMouseLeave = () => setShowTooltip(false);
 
-    return (
-        <>
-            <Tag
-                ref={referenceElement}
-                className={clsx("deriv-tooltip__trigger", rest.className)}
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-                {...rest}
-            >
-                {children}
-            </Tag>
-            {showTooltip && (
-                <div
-                    className={clsx(
-                        "deriv-tooltip",
-                        TooltipVariantClass[variant],
-                        tooltipContainerClassName,
-                    )}
-                    ref={popperElement}
-                    style={styles.popper}
-                    {...attributes.popper}
+        useImperativeHandle(ref, () => referenceElement.current as HTMLElement);
+
+        const Tag = as as ElementType;
+
+        return (
+            <>
+                <Tag
+                    ref={referenceElement}
+                    className={clsx("deriv-tooltip__trigger", rest.className)}
+                    onMouseEnter={onMouseEnter}
+                    onMouseLeave={onMouseLeave}
+                    {...rest}
                 >
-                    {tooltipContent}
+                    {children}
+                </Tag>
+                {showTooltip && (
                     <div
-                        className="deriv-tooltip__arrow"
-                        data-popper-arrow
-                        ref={setArrowElement}
-                        style={styles.arrow}
-                    />
-                </div>
-            )}
-        </>
-    );
-};
+                        className={clsx(
+                            "deriv-tooltip",
+                            TooltipVariantClass[variant],
+                            tooltipContainerClassName,
+                        )}
+                        ref={popperElement}
+                        style={styles.popper}
+                        {...attributes.popper}
+                    >
+                        {tooltipContent}
+                        <div
+                            className="deriv-tooltip__arrow"
+                            data-popper-arrow
+                            ref={setArrowElement}
+                            style={styles.arrow}
+                        />
+                    </div>
+                )}
+            </>
+        );
+    },
+);
 
 Tooltip.displayName = "Tooltip";
