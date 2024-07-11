@@ -139,6 +139,7 @@ export const Dropdown = ({
         <div
             className={clsx("deriv-dropdown", {
                 "deriv-dropdown--disabled": disabled,
+                "deriv-dropdown--full": isFullWidth,
             })}
             {...getToggleButtonProps()}
         >
@@ -169,6 +170,7 @@ export const Dropdown = ({
                     }
                     type="text"
                     value={value}
+                    isFullWidth={isFullWidth}
                     {...getInputProps()}
                     {...rest}
                 />

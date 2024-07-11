@@ -1,5 +1,5 @@
 .deriv-dropdown {
-    width: 100%;
+    display: inline-block;
     position: relative;
     cursor: pointer;
 
@@ -11,6 +11,10 @@
         }
     }
 
+    &--full {
+        width: 100%;
+    }
+
     &__button {
         display: flex;
         align-items: center;
@@ -19,10 +23,10 @@
     }
 
     &__chevron {
-        transition: all 0.3s ease-in-out;
+        transition: all 0.2s ease-in-out;
 
         &--open {
-            transform: rotate(-180deg);
+            transform: rotate(180deg);
         }
 
         &--disabled {
