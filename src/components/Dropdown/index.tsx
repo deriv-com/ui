@@ -7,15 +7,15 @@ import React, {
 } from "react";
 import clsx from "clsx";
 import { useCombobox } from "downshift";
-import "./Dropdown.scss";
+import { LegacyChevronDown2pxIcon } from "@deriv/quill-icons";
 import { Input } from "../Input";
 import { TGenericSizes } from "../../types";
 import { Text } from "../Text";
+import "./Dropdown.scss";
 
 type InputProps = React.ComponentProps<typeof Input>;
 type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
     disabled?: boolean;
-    dropdownIcon: React.ReactNode;
     emptyResultMessage?: string;
     errorMessage?: InputProps["message"];
     icon?: React.ReactNode;
@@ -37,7 +37,6 @@ type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
 
 export const Dropdown = ({
     disabled,
-    dropdownIcon,
     emptyResultMessage = "",
     errorMessage,
     icon = false,
@@ -122,19 +121,6 @@ export const Dropdown = ({
         }
     }, [closeMenu, isOpen, openMenu, variant]);
 
-    const DropdownButton = () => {
-        return (
-            <button
-                className={clsx("deriv-dropdown__button", {
-                    "deriv-dropdown__button--active": isOpen,
-                })}
-                type="button"
-            >
-                {dropdownIcon}
-            </button>
-        );
-    };
-
     useEffect(() => {
         setItems(list);
         if (
@@ -166,7 +152,21 @@ export const Dropdown = ({
                     onClickCapture={handleInputClick}
                     onKeyUp={() => setShouldFilterList(true)}
                     readOnly={variant !== "prompt"}
-                    rightPlaceholder={<DropdownButton />}
+                    rightPlaceholder={
+                        <button
+                            className="deriv-dropdown__button"
+                            aria-expanded={isOpen}
+                        >
+                            <LegacyChevronDown2pxIcon
+                                className={clsx("deriv-dropdown__chevron", {
+                                    "deriv-dropdown__chevron--open": isOpen,
+                                    "deriv-dropdown__chevron--disabled":
+                                        disabled,
+                                })}
+                                iconSize="xs"
+                            />
+                        </button>
+                    }
                     type="text"
                     value={value}
                     {...getInputProps()}
