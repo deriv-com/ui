@@ -81,7 +81,7 @@ $input-placement: 16px;
             }
         }
     }
-    &--label-animation-disabled{
+    &--label-animation-disabled {
         width: 100%;
         outline: none;
         &::placeholder {
@@ -131,6 +131,11 @@ $input-placement: 16px;
 
     &__right-content {
         margin-left: $input-placement;
+    }
+
+    &__helper-message {
+        position: absolute;
+        top: 100%;
     }
 }
 
