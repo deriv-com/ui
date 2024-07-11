@@ -8,7 +8,6 @@ import {
     CurrencyDemoIcon,
     CurrencyUsdtIcon,
     CurrencyEthIcon,
-    LegacyChevronDown2pxIcon,
 } from "@deriv/quill-icons";
 
 import { TAccount } from "../src/components/AppLayout/AccountSwitcher/types";
@@ -27,7 +26,6 @@ import {
     Text,
     PlatformSwitcherItem,
     MobileLanguagesDrawer,
-    Dropdown,
 } from "../src/main";
 import { platformsConfig } from "./platformsConfig";
 import { LanguagesItemsDrawerConfig } from "./LanguageItemsDrawerConfig";
@@ -90,8 +88,6 @@ const App = () => {
         LanguagesItemsDrawerConfig.languages.find((language) => {
             return language.code === selectedLanguage;
         })?.icon ?? LanguagesItemsDrawerConfig.languages[0].icon;
-
-    const [message, setMessage] = React.useState("");
     return (
         <>
             {!isMobile ? (
@@ -327,88 +323,6 @@ const App = () => {
                     </Wrapper>
                 </>
             )}
-            {/* Playground */}
-            <div
-                style={{
-                    width: "100vw",
-                    height: "100vh",
-                    display: "grid",
-                    placeContent: "center",
-                }}
-            >
-                <div
-                    style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "24px",
-                    }}
-                >
-                    <Dropdown
-                        label="Dropdown Label"
-                        list={[
-                            { text: "Option 1", value: "option1" },
-                            { text: "Option 2", value: "option2" },
-                            { text: "Option 3", value: "option3" },
-                        ]}
-                        listHeight="md"
-                        name="dropdownName1"
-                        onSearch={(inputValue: string) =>
-                            console.log(`Input value changed: ${inputValue}`)
-                        }
-                        onSelect={(value: string) => {
-                            console.log(`Selected value: ${value}`);
-                            setMessage("This is an error message");
-                        }}
-                        variant="comboBox"
-                        errorMessage={message}
-                        isFullWidth
-                        dropdownIcon={
-                            <LegacyChevronDown2pxIcon iconSize="xs" />
-                        }
-                    />
-                    <Dropdown
-                        label="Dropdown Label"
-                        list={[
-                            { text: "Option 1", value: "option1" },
-                            { text: "Option 2", value: "option2" },
-                            { text: "Option 3", value: "option3" },
-                        ]}
-                        listHeight="md"
-                        name="dropdownName2"
-                        onSearch={(inputValue: string) =>
-                            console.log(`Input value changed: ${inputValue}`)
-                        }
-                        onSelect={(value: string) => {
-                            console.log(`Selected value: ${value}`);
-                            setMessage("This is an error message");
-                        }}
-                        variant="comboBox"
-                        errorMessage={message}
-                        disabled
-                        isFullWidth
-                    />
-                    <Dropdown
-                        label="Dropdown Label"
-                        list={[
-                            { text: "Option 1", value: "option1" },
-                            { text: "Option 2", value: "option2" },
-                            { text: "Option 3", value: "option3" },
-                        ]}
-                        listHeight="md"
-                        name="dropdownName3"
-                        onSearch={(inputValue: string) =>
-                            console.log(`Input value changed: ${inputValue}`)
-                        }
-                        onSelect={(value: string) => {
-                            console.log(`Selected value: ${value}`);
-                            setMessage("This is an error message");
-                        }}
-                        variant="comboBox"
-                        errorMessage={message}
-                        disabled
-                    />
-                </div>
-            </div>
         </>
     );
 };
