@@ -26,6 +26,15 @@ const meta = {
         variant: "comboBox",
         islabelAnimationDisabled: false,
     },
+    argTypes: {
+        list: { control: { type: false } },
+        listHeight: {
+            options: ["lg", "md", "sm", "xs"],
+            control: { type: "select" },
+        },
+        shouldClearValue: { control: { type: "boolean" } },
+        emptyResultMessage: { control: { type: "text" } },
+    },
 } satisfies Meta<typeof Dropdown>;
 
 export default meta;

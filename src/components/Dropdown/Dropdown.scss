@@ -1,5 +1,5 @@
 .deriv-dropdown {
-    width: 100%;
+    display: inline-block;
     position: relative;
     cursor: pointer;
 
@@ -11,17 +11,30 @@
         }
     }
 
-    &__button {
-        all: unset;
-        right: 16px;
-        transform: rotate(0);
-        transform-origin: 50% 45%;
-        transition: transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+    &--full {
+        width: 100%;
+    }
 
-        &--active {
+    &__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    &__chevron {
+        transition: all 0.2s ease-in-out;
+
+        &--open {
             transform: rotate(180deg);
         }
+
+        &--disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
     }
+
     &__content {
         width: 100%;
         background: var(--du-system-light-8-primary-background, #fff);
@@ -89,7 +102,7 @@
 
     &__items {
         position: absolute;
-        top: 40px;
+        top: 100%;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
