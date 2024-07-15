@@ -68,7 +68,7 @@ const BorderWidth = {
 } as const;
 
 export const Button = ({
-    borderWidth = 'sm',
+    borderWidth = 'md',
     className,
     color = "primary",
     icon,
