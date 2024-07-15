@@ -7,7 +7,7 @@ import "./Button.scss";
 
 type TVariant = "contained" | "ghost" | "outlined";
 type TColor = "black" | "primary-light" | "primary" | "white";
-type TBorderWidth = Extract<TGenericSizes, 'md' | 'sm'> | 'none';
+type TBorderWidth = Extract<TGenericSizes, 'md' | 'sm' | 'lg'> | 'none';
 
 interface ButtonProps extends ComponentProps<"button"> {
     borderWidth?: TBorderWidth;
@@ -61,9 +61,10 @@ const LoaderColor = {
 } as const;
 
 const BorderWidth = {
-    md: "deriv-button__border-width--md",
-    sm: "deriv-button__border-width--sm",
     none: "deriv-button__border-width--none",
+    sm: "deriv-button__border-width--sm",
+    md: "deriv-button__border-width--md",
+    lg: "deriv-button__border-width--lg",
 } as const;
 
 export const Button = ({
