@@ -11,6 +11,9 @@ $color-map: (
     "blue": var(--du-text-info-blue, #377cfc),
     "green": var(--du-text-green, #17eabd),
     "white": var(--du-text-white, #ffffff),
+    "black": var(--du-text-black, #000000),
+    "orange": var(--du-text-orange, #ff9c13),
+    "system-dark-2-general-text": var(--du-system-dark-2-general-text,#c2c2c2),
 );
 
 $desktop-font-size-map: (
