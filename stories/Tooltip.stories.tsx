@@ -56,6 +56,10 @@ const meta: Meta = {
                 options: ["general", "error"],
             },
         },
+        hideTooltip: {
+            description: "Hide the tooltip.",
+            control: { type: "boolean" },
+        },
     },
     parameters: { layout: "centered" },
     tags: ["autodocs"],
