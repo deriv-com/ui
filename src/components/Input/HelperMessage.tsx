@@ -49,7 +49,7 @@ const HelperMessage = ({
 }: HelperMessageProps) => (
     <p
         className={clsx("deriv-helper-message", {
-            [MessageVariant["general"]]: disabled,
+            "deriv-helper-message--disabled": disabled,
             [MessageVariant[error ? "error" : (variant as TMessageVariant)]]:
                 !disabled,
         })}

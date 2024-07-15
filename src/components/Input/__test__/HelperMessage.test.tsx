@@ -42,7 +42,7 @@ describe("HelperMessage", () => {
         render(<HelperMessage {...props} disabled variant="disabled" />);
 
         const helperMessage = screen.getByText(props.message);
-        expect(helperMessage).toHaveClass("deriv-helper-message--general");
+        expect(helperMessage).toHaveClass("deriv-helper-message--disabled");
     });
 
     it("should show Error variant", () => {
