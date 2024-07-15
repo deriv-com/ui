@@ -7,8 +7,10 @@ import "./Button.scss";
 
 type TVariant = "contained" | "ghost" | "outlined";
 type TColor = "black" | "primary-light" | "primary" | "white";
+type TBorderWidth = Extract<TGenericSizes, 'md' | 'sm'> | 'none';
 
 interface ButtonProps extends ComponentProps<"button"> {
+    borderWidth?: TBorderWidth;
     color?: TColor;
     icon?: ReactElement | ReactNode;
     isFullWidth?: boolean;
@@ -58,7 +60,14 @@ const LoaderColor = {
     white: "#85ACB0",
 } as const;
 
+const BorderWidth = {
+    md: "deriv-button__border-width--md",
+    sm: "deriv-button__border-width--sm",
+    none: "deriv-button__border-width--none",
+} as const;
+
 export const Button = ({
+    borderWidth = 'sm',
     className,
     color = "primary",
     icon,
@@ -80,6 +89,7 @@ export const Button = ({
                 ButtonColor[color],
                 ButtonSize[size],
                 ButtonRounded[rounded],
+                BorderWidth[borderWidth],
                 {
                     "deriv-button__full-width": isFullWidth,
                     "deriv-button__hover--disabled": hideHoverStyles,
