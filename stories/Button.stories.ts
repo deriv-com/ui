@@ -9,6 +9,7 @@ const meta = {
     },
     tags: ["autodocs"],
     args: {
+        borderWidth: "sm",
         variant: "contained",
         children: "Click Me!",
         color: "primary",
@@ -23,6 +24,10 @@ const meta = {
     },
 
     argTypes: {
+        borderWidth: {
+            options: ["none", "sm", "md"],
+            control: { type: "radio" },
+        },
         variant: {
             options: ["contained", "outlined", "ghost"],
             control: { type: "radio" },
