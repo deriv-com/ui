@@ -16,7 +16,7 @@ import "./Tooltip.scss";
 type AsElement = "a" | "div" | "button";
 type TooltipVariantType = "error" | "general";
 export type TooltipProps<T extends AsElement> = ComponentProps<T> & {
-    as: T;
+    as?: T;
     tooltipContainerClassName?: string;
     tooltipContent: ReactNode;
     tooltipOffset?: number;
@@ -65,7 +65,7 @@ export const Tooltip = forwardRef<
 >(
     (
         {
-            as,
+            as = "div",
             children,
             hideTooltip = false,
             tooltipContainerClassName,
