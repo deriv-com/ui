@@ -57,6 +57,18 @@
     left: -4px;
 }
 
+// Hide Tooltip
+.deriv-tooltip[data-popper-reference-hidden] {
+    visibility: hidden;
+    pointer-events: none;
+
+    > .deriv-tooltip__arrow,
+    .deriv-tooltip__arrow::before {
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
 // Tooltip Trigger Class
 .deriv-tooltip__trigger {
     cursor: pointer;

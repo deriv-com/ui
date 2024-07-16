@@ -16,12 +16,13 @@ import "./Tooltip.scss";
 type AsElement = "a" | "div" | "button";
 type TooltipVariantType = "error" | "general";
 export type TooltipProps<T extends AsElement> = ComponentProps<T> & {
-    as: T;
+    as?: T;
     tooltipContainerClassName?: string;
     tooltipContent: ReactNode;
     tooltipOffset?: number;
     tooltipPosition?: Placement;
     variant?: "general" | "error";
+    hideTooltip?: boolean;
 };
 
 const TooltipVariantClass: Record<TooltipVariantType, string> = {
@@ -38,20 +39,22 @@ const TooltipVariantClass: Record<TooltipVariantType, string> = {
  * @param {number} tooltipOffset - The distance between the tooltip and the content.
  * @param {React.ReactNode} [icon] - The icon to display. This can be any React node.
  * @param {string} [href] - The URL the link points to. Required and applicable only when `as` is "a".
- * @param {string} tooltipColor - The background color of the tooltip. Defaults to '#D6DADB'.
  * @param {string} tooltipContent - The content to display inside the tooltip.
+ * @param {string} [tooltipContainerClassName] - Optional class name for the tooltip container.
+ * @param {TooltipVariantType} [variant="general"] - The variant of the tooltip, which can be "general" or "error".
+ * @param {boolean} [hideTooltip=false] - If true, the tooltip will not be displayed.
  *
  * @example
  * // To render a button with a tooltip
- * <YourComponent as="button" tooltipContent="Save" tooltipPosition="bottom">
+ * <Tooltip as="button" tooltipContent="Save" tooltipPosition="bottom">
  *   Save
- * </YourComponent>
+ * </Tooltip>
  *
  * @example
  * // To render a link with a tooltip and an icon
- * <YourComponent as="a" href="https://example.com" tooltipContent="Go to Example" tooltipPosition="right" icon={<YourIcon />}>
+ * <Tooltip as="a" href="https://example.com" tooltipContent="Go to Example" tooltipPosition="right" icon={<YourIcon />}>
  *   Visit Example.com
- * </YourComponent>
+ * </Tooltip>
  *
  * @returns {JSX.Element} The rendered component.
  */
@@ -62,13 +65,14 @@ export const Tooltip = forwardRef<
 >(
     (
         {
-            as,
+            as = "div",
             children,
+            hideTooltip = false,
             tooltipContainerClassName,
             tooltipContent,
-            tooltipPosition = "auto",
-            variant = "general",
             tooltipOffset = 8,
+            tooltipPosition = "top",
+            variant = "general",
             ...rest
         },
         ref,
@@ -90,6 +94,7 @@ export const Tooltip = forwardRef<
                         name: "offset",
                         options: { offset: [0, tooltipOffset] },
                     },
+                    { name: "hide", enabled: hideTooltip },
                 ],
             },
         );
