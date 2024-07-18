@@ -6,7 +6,7 @@ import { Text } from "../Text";
 import "./Button.scss";
 
 type TVariant = "contained" | "ghost" | "outlined";
-type TColor = "black" | "primary-light" | "primary" | "white";
+type TColor = "black" | "primary-light" | "primary-transparent" | "primary" | "white";
 type TBorderWidth = Extract<TGenericSizes, 'md' | 'sm' | 'lg'> | 'none';
 
 interface ButtonProps extends ComponentProps<"button"> {
@@ -32,6 +32,7 @@ const ButtonColor = {
     black: "deriv-button__color--black",
     primary: "deriv-button__color--primary",
     "primary-light": "deriv-button__color--primary-light",
+    "primary-transparent": "deriv-button__color--primary-transparent",
     white: "deriv-button__color--white",
 } as const;
 

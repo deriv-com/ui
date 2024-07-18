@@ -50,7 +50,7 @@ const meta = {
             control: { type: "radio" },
         },
         color: {
-            options: ["primary", "primary-light", "black", "white"],
+            options: ["primary", "primary-light", "primary-transparent", "black", "white"],
             control: { type: "radio" },
         },
         onClick: {
@@ -176,6 +176,15 @@ export const GhostPrimaryLight: Story = {
         ...meta.args,
         variant: "ghost",
         color: "primary-light",
+    },
+};
+
+export const GhostPrimaryTransparent: Story = {
+    name: "Ghost (Primary Transparent)",
+    args: {
+        ...meta.args,
+        variant: "ghost",
+        color: "primary-transparent",
     },
 };
 
