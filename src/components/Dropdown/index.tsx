@@ -171,6 +171,7 @@ export const Dropdown = ({
                     type="text"
                     value={value}
                     isFullWidth={isFullWidth}
+                    error={!!errorMessage}
                     {...getInputProps()}
                     {...rest}
                 />
