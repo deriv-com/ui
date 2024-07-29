@@ -13,7 +13,10 @@ type TextColors =
     | "red"
     | "blue"
     | "green"
-    | "white";
+    | "white"
+    | "black"
+    | "orange"
+    | "system-dark-2-general-text";
 
 type TGenericSizes =
     | "2xl"
