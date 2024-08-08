@@ -141,10 +141,7 @@ $black-outline-hover: rgba(0, 0, 0, 0.08);
                     color: $primary;
                 }
                 &:hover:not(:disabled) {
-                    background-color: #eb3e48;
-                    span {
-                        color: $white;
-                    }
+                    background-color: #ff444f14;
                 }
             }
             &.deriv-button__color--primary-light {
