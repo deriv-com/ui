@@ -46,6 +46,11 @@ export const Default: Story = {
             },
             {
                 icon: <LegacyAnnouncementIcon width={16} height={16} />,
+                title: "Your account got verified!",
+                message: "Account verification is complete.",
+            },
+            {
+                icon: <LegacyAnnouncementIcon width={16} height={16} />,
                 title: "We’d love to hear your thoughts",
                 message: "Drop your review on Trustpilot.",
                 buttonAction: () => {

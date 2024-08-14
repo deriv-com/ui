@@ -4,8 +4,8 @@ export type TNotificationObject = {
     icon: ReactNode;
     title: string;
     message: string;
-    buttonAction: () => void;
-    actionText: string;
+    buttonAction?: () => void;
+    actionText?: string;
 };
 export type TNotificationsProps = ComponentProps<"div"> & {
     notifications: TNotificationObject[];
