@@ -20,11 +20,13 @@ export const Notification = ({
                     </div>
                 </div>
             </div>
-            <div className="notification__button-container">
-                <button className="notification__button" onClick={buttonAction}>
-                    {actionText}
-                </button>
-            </div>
+            {buttonAction && actionText && (
+                <div className="notification__button-container">
+                    <button className="notification__button" onClick={buttonAction}>
+                        {actionText}
+                    </button>
+                </div>
+            )}
         </div>
     );
 };

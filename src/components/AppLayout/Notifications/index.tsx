@@ -24,7 +24,7 @@ export const Notifications = ({
 
     useOnClickOutside(notificationsRef, (e) => {
         e.stopPropagation();
-        setIsOpen(!isOpen);
+        setIsOpen(false);
     });
 
     return (
