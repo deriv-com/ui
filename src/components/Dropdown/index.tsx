@@ -15,8 +15,8 @@ import "./Dropdown.scss";
 
 type InputProps = React.ComponentProps<typeof Input>;
 type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
+    chevronIcon?: React.ReactNode;
     disabled?: boolean;
-    dropdownIcon?: React.ReactNode;
     emptyResultMessage?: string;
     errorMessage?: InputProps["message"];
     icon?: React.ReactNode;
@@ -37,8 +37,8 @@ type TProps = HtmlHTMLAttributes<HTMLInputElement> & {
 };
 
 export const Dropdown = ({
+    chevronIcon,
     disabled,
-    dropdownIcon,
     emptyResultMessage = "",
     errorMessage,
     icon = false,
@@ -161,7 +161,7 @@ export const Dropdown = ({
                             aria-expanded={isOpen}
                         >
                             {
-                                dropdownIcon ?? (
+                                chevronIcon ?? (
                                         <LegacyChevronDown2pxIcon
                                             className={clsx("deriv-dropdown__chevron", {
                                                 "deriv-dropdown__chevron--open": isOpen,
