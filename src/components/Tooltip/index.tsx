@@ -88,6 +88,7 @@ export const Tooltip = forwardRef<
             popperElement.current,
             {
                 placement: tooltipPosition,
+                strategy: "fixed",
                 modifiers: [
                     { name: "arrow", options: { element: arrowElement } },
                     {
