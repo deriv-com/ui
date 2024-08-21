@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
+import { LabelPairedSearchMdRegularIcon } from "@deriv/quill-icons";
 import { Dropdown } from "../src/components/Dropdown";
 
 const meta = {
@@ -7,7 +8,6 @@ const meta = {
     tags: ["autodocs"],
     args: {
         disabled: false,
-        dropdownIcon: "",
         errorMessage: "Error message",
         icon: "",
         isRequired: true,
@@ -75,5 +75,19 @@ export const PromptNoResults: Story = {
         ],
         label: "Choose an option",
         emptyResultMessage: "No search results",
+    },
+};
+
+export const ComboBoxWithIcon: Story = {
+    name: "ComboBox With passed Chevron Icon",
+    args: {
+        variant: "comboBox",
+        list: [
+            { text: "Option 1", value: "option1" },
+            { text: "Option 2", value: "option2" },
+            { text: "Option 3", value: "option3" },
+        ],
+        label: "Select an option",
+        chevronIcon: <LabelPairedSearchMdRegularIcon />,
     },
 };
