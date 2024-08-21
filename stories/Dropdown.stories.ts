@@ -7,7 +7,6 @@ const meta = {
     tags: ["autodocs"],
     args: {
         disabled: false,
-        dropdownIcon: "",
         errorMessage: "Error message",
         icon: "",
         isRequired: true,
