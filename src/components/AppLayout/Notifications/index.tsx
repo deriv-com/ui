@@ -37,7 +37,6 @@ export const Notifications = ({
         ref: notificationsRef,
     });
 
-
     return (
         <Fragment>
             {isMobile && (
@@ -81,6 +80,7 @@ export const Notifications = ({
                         className="notifications__content" 
                         ref={notificationsScrollRef} 
                         onScroll={(e) => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
+                        data-testid="notifications-content"
                     >
                         {notifications.map((notification) => (
                             <Notification
@@ -89,7 +89,7 @@ export const Notifications = ({
                             />
                         ))}
                         {isLoading && (
-                            <div className="notifications__loader">
+                            <div className="notifications__loader" data-testid="notifications-loader">
                                 <Loader isFullScreen={false}/>
                             </div>
                         )}
@@ -142,6 +142,7 @@ export const Notifications = ({
                         className="notifications__content" 
                         ref={notificationsScrollRef} 
                         onScroll={(e) => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
+                        data-testid="notifications-content"
                     >
                         {notifications.map((notification) => (
                             <Notification
@@ -150,7 +151,7 @@ export const Notifications = ({
                             />
                         ))}
                         {isLoading && (
-                            <div className="notifications__loader">
+                            <div className="notifications__loader" data-testid="notifications-loader">
                                 <Loader isFullScreen={false}/>
                             </div>
                         )}
