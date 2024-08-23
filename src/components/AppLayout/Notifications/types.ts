@@ -12,6 +12,8 @@ export type TNotificationsProps = ComponentProps<"div"> & {
     clearNotificationsCallback: () => void;
     setIsOpen: (state: boolean) => void;
     isOpen: boolean;
+    loadMoreFunction: () => void;
+    isLoading: boolean;
     componentConfig: {
         clearButtonText: string;
         modalTitle: string;
