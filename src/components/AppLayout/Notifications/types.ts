@@ -2,9 +2,9 @@ import { ComponentProps, ReactNode } from "react";
 
 export type TNotificationObject = {
     icon: ReactNode;
-    title: string;
-    message: string;
-    buttonAction?: () => void;
+    title: string | React.ReactNode;
+    message: string | React.ReactNode;
+    buttonAction?: (() => void) | false | void;
     actionText?: string;
 };
 export type TNotificationsProps = ComponentProps<"div"> & {
@@ -18,4 +18,5 @@ export type TNotificationsProps = ComponentProps<"div"> & {
         noNotificationsTitle: string;
         noNotificationsMessage: string;
     };
+    actionButtonClassName: string;
 };

@@ -59,6 +59,7 @@ export const Default: Story = {
                 actionText: "Go to Trustpilot",
             },
         ],
+        actionButtonClassName: 'notifications__label',
     },
     render: (args) => {
         const [isOpen, setIsOpen] = React.useState(args.isOpen);
@@ -88,6 +89,7 @@ export const Empty: Story = {
         isOpen: true,
         setIsOpen: () => {},
         notifications: [],
+        actionButtonClassName: 'notifications__label',
     },
     render: (args) => {
         const [isOpen, setIsOpen] = React.useState(args.isOpen);

@@ -20,6 +20,7 @@ describe("Notifications Component", () => {
                     noNotificationsTitle: "No notifications",
                     noNotificationsMessage: "You have no notifications",
                 }}
+                actionButtonClassName='notifications__label'
             />,
         );
         expect(queryByText("No notifications")).toBeInTheDocument();
@@ -56,6 +57,7 @@ describe("Notifications Component", () => {
                     noNotificationsTitle: "No notifications",
                     noNotificationsMessage: "You have no notifications",
                 }}
+                actionButtonClassName='notifications__label'
             />,
         );
 

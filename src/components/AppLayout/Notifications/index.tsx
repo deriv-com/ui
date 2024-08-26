@@ -17,14 +17,18 @@ export const Notifications = ({
     setIsOpen,
     componentConfig,
     className,
+    actionButtonClassName,
     ...rest
 }: Omit<TNotificationsProps, "style">) => {
     const { isMobile } = useDevice();
     const notificationsRef = useRef(null);
 
-    useOnClickOutside(notificationsRef, (e) => {
+    useOnClickOutside(notificationsRef, (e: Event) => {
         e.stopPropagation();
-        setIsOpen(false);
+        // To enable the button to open this component in the upper scope
+        if (!(e.target as HTMLElement).className.split(' ').includes(actionButtonClassName)) {
+            setIsOpen(false);
+        }
     });
 
     return (
