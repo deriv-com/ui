@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 import { Notifications } from "..";
 import userEvent from "@testing-library/user-event";
 
@@ -6,6 +6,17 @@ import userEvent from "@testing-library/user-event";
 jest.mock("../../../../hooks", () => ({
     useDevice: jest.fn().mockReturnValue({ isMobile: false }),
 }));
+
+function generateNotification(idx: number, action: () => void) {
+    return {
+        icon: <span>Icon{idx}</span>,
+        title: `Title ${idx}`,
+        message: `Message ${idx}`,
+        buttonAction: action || jest.fn(),
+        actionText: `Action ${idx}`,
+    };
+}
+
 describe("Notifications Component", () => {
     it("should show no notifications when notifications array is empty", () => {
         const { queryByText } = render(
@@ -14,6 +25,8 @@ describe("Notifications Component", () => {
                 clearNotificationsCallback={() => {}}
                 isOpen={true}
                 setIsOpen={() => {}}
+                loadMoreFunction={() => {}}
+                isLoading={false}
                 componentConfig={{
                     clearButtonText: "Clear all",
                     modalTitle: "Notifications",
@@ -29,20 +42,8 @@ describe("Notifications Component", () => {
         const mockAction1 = jest.fn();
         const mockAction2 = jest.fn();
         const notifications = [
-            {
-                icon: <span>Icon1</span>,
-                title: "Title 1",
-                message: "Message 1",
-                buttonAction: mockAction1,
-                actionText: "Action 1",
-            },
-            {
-                icon: <span>Icon2</span>,
-                title: "Title 2",
-                message: "Message 2",
-                buttonAction: mockAction2,
-                actionText: "Action 2",
-            },
+            generateNotification(1, mockAction1),
+            generateNotification(2, mockAction2),
         ];
 
         const { getByText, getAllByRole } = render(
@@ -51,6 +52,8 @@ describe("Notifications Component", () => {
                 clearNotificationsCallback={() => {}}
                 isOpen={true}
                 setIsOpen={() => {}}
+                loadMoreFunction={() => {}}
+                isLoading={false}
                 componentConfig={{
                     clearButtonText: "Clear all",
                     modalTitle: "Notifications",
@@ -74,5 +77,56 @@ describe("Notifications Component", () => {
         expect(mockAction1).toHaveBeenCalled();
         await userEvent.click(buttons[1]);
         expect(mockAction2).toHaveBeenCalled();
+    });
+
+    it('displays a loading spinner when "isLoading" is true', async() => {
+        const { queryByTestId } = render(
+            <Notifications
+                notifications={[]}
+                clearNotificationsCallback={() => {}}
+                isOpen={true}
+                setIsOpen={() => {}}
+                loadMoreFunction={() => {}}
+                isLoading={true}
+                componentConfig={{
+                    clearButtonText: "Clear all",
+                    modalTitle: "Notifications",
+                    noNotificationsTitle: "No notifications",
+                    noNotificationsMessage: "You have no notifications",
+                }}
+            />,
+        );
+        expect(queryByTestId("notifications-loader")).toBeInTheDocument();
+    });
+
+    it('calls the "loadMoreFunction" when content is scrolled to the bottom', async() => {
+        const mockLoadMore = jest.fn();
+
+        const notifications = Array.from({ length: 20 }, (_, idx) => generateNotification(idx, jest.fn()));
+
+        const { getByTestId } = render(
+            <Notifications
+                notifications={notifications}
+                clearNotificationsCallback={() => {}}
+                isOpen={true}
+                setIsOpen={() => {}}
+                loadMoreFunction={mockLoadMore}
+                isLoading={false}
+                componentConfig={{
+                    clearButtonText: "Clear all",
+                    modalTitle: "Notifications",
+                    noNotificationsTitle: "No notifications",
+                    noNotificationsMessage: "You have no notifications",
+                }}
+            />,
+        );
+
+        const content = getByTestId("notifications-content");
+        content.scrollTop = content.scrollHeight;
+        content.dispatchEvent(new Event("scroll"));
+        // Wait for any asynchronous effects
+        await waitFor(() => {
+            expect(mockLoadMore).toHaveBeenCalled();
+        });
     });
 });

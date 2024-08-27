@@ -9,6 +9,8 @@ import { Text } from "../../Text";
 import { useOnClickOutside } from "usehooks-ts";
 import Icon from "./ic-box.svg";
 import clsx from "clsx";
+import { useFetchMore } from "../../../hooks/useFetchMore";
+import { Loader } from "../../Loader";
 
 export const Notifications = ({
     notifications,
@@ -18,10 +20,13 @@ export const Notifications = ({
     componentConfig,
     className,
     actionButtonClassName,
+    loadMoreFunction,
+    isLoading,
     ...rest
 }: Omit<TNotificationsProps, "style">) => {
     const { isMobile } = useDevice();
     const notificationsRef = useRef(null);
+    const notificationsScrollRef = useRef(null);
 
     useOnClickOutside(notificationsRef, (e: Event) => {
         e.stopPropagation();
@@ -29,6 +34,11 @@ export const Notifications = ({
         if (!(e.target as HTMLElement).className.split(' ').includes(actionButtonClassName)) {
             setIsOpen(false);
         }
+    });
+
+    const { fetchMoreOnBottomReached } = useFetchMore({
+        loadMore: loadMoreFunction,
+        ref: notificationsRef,
     });
 
     return (
@@ -70,12 +80,24 @@ export const Notifications = ({
                             </Text>
                         </div>
                     )}
-                    {notifications.map((notification) => (
-                        <Notification
-                            key={notification.title}
-                            {...notification}
-                        />
-                    ))}
+                    <div 
+                        className="notifications__content" 
+                        ref={notificationsScrollRef} 
+                        onScroll={(e) => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
+                        data-testid="notifications-content"
+                    >
+                        {notifications.map((notification) => (
+                            <Notification
+                                key={notification.title}
+                                {...notification}
+                            />
+                        ))}
+                        {isLoading && (
+                            <div className="notifications__loader" data-testid="notifications-loader">
+                                <Loader isFullScreen={false}/>
+                            </div>
+                        )}
+                    </div>
                     <Modal.Footer className="notifications__footer">
                         <button
                             className={clsx("notifications__footer__clear-button", {
@@ -93,6 +115,8 @@ export const Notifications = ({
                     </Modal.Footer>
                 </Modal>
             )}
+
+
             {!isMobile && (
                 <ContextMenu
                     ref={notificationsRef}
@@ -118,12 +142,24 @@ export const Notifications = ({
                             </Text>
                         </div>
                     )}
-                    {notifications.map((notification) => (
-                        <Notification
-                            key={notification.title}
-                            {...notification}
-                        />
-                    ))}
+                    <div 
+                        className="notifications__content" 
+                        ref={notificationsScrollRef} 
+                        onScroll={(e) => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
+                        data-testid="notifications-content"
+                    >
+                        {notifications.map((notification) => (
+                            <Notification
+                                key={notification.title}
+                                {...notification}
+                            />
+                        ))}
+                        {isLoading && (
+                            <div className="notifications__loader" data-testid="notifications-loader">
+                                <Loader isFullScreen={false}/>
+                            </div>
+                        )}
+                    </div>
                     <div className="notifications__footer">
                         <div className="notifications__footer-box">
                             <button
