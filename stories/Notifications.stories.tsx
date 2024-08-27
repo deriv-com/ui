@@ -237,7 +237,6 @@ export const LoadMore: Story = {
                 notifications={notifications}
                 isLoading={isLoading} 
                 loadMoreFunction={() => {
-                    console.log("Load more");
 
                     function genNewNotification(idx: number) { 
                         return {
