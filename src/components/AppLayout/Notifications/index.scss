@@ -5,6 +5,7 @@
         0px 0px 16px 0px rgba(0, 0, 0, 0.08),
         0px 16px 16px 0px rgba(0, 0, 0, 0.08);
     min-height: 562px !important;
+    height: 562px;
     display: flex;
     flex-direction: column;
     &__empty {
@@ -100,6 +101,14 @@
             padding: 8px 0;
             border-bottom: 1px solid var(--du-border-normal, #d6dadb);
         }
+    }
+    &__content {
+        overflow-y: auto;
+    }
+    &__loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     &__footer {
         align-items: flex-end;
