@@ -1,6 +1,7 @@
 import { ComponentProps, ReactNode } from "react";
 
 export type TNotificationObject = {
+    id: string;
     icon: ReactNode;
     title: string | React.ReactNode;
     message: string | React.ReactNode;
