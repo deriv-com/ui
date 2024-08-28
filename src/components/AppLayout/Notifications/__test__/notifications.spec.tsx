@@ -9,6 +9,7 @@ jest.mock("../../../../hooks", () => ({
 
 function generateNotification(idx: number, action: () => void) {
     return {
+        id: `${idx}`,
         icon: <span>Icon{idx}</span>,
         title: `Title ${idx}`,
         message: `Message ${idx}`,
@@ -94,6 +95,7 @@ describe("Notifications Component", () => {
                     noNotificationsTitle: "No notifications",
                     noNotificationsMessage: "You have no notifications",
                 }}
+                actionButtonClassName='notifications_label'
             />,
         );
         expect(queryByTestId("notifications-loader")).toBeInTheDocument();
@@ -118,6 +120,7 @@ describe("Notifications Component", () => {
                     noNotificationsTitle: "No notifications",
                     noNotificationsMessage: "You have no notifications",
                 }}
+                actionButtonClassName='notifications_label'
             />,
         );
 
