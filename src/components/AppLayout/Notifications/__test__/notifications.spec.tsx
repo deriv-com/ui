@@ -23,10 +23,10 @@ describe("Notifications Component", () => {
         const { queryByText } = render(
             <Notifications
                 notifications={[]}
-                clearNotificationsCallback={() => {}}
+                clearNotificationsCallback={() => { }}
                 isOpen={true}
-                setIsOpen={() => {}}
-                loadMoreFunction={() => {}}
+                setIsOpen={() => { }}
+                loadMoreFunction={() => { }}
                 isLoading={false}
                 componentConfig={{
                     clearButtonText: "Clear all",
@@ -34,7 +34,7 @@ describe("Notifications Component", () => {
                     noNotificationsTitle: "No notifications",
                     noNotificationsMessage: "You have no notifications",
                 }}
-                actionButtonClassName='notifications__label'
+                excludedClickOutsideClass='notifications__label'
             />,
         );
         expect(queryByText("No notifications")).toBeInTheDocument();
@@ -50,10 +50,10 @@ describe("Notifications Component", () => {
         const { getByText, getAllByRole } = render(
             <Notifications
                 notifications={notifications}
-                clearNotificationsCallback={() => {}}
+                clearNotificationsCallback={() => { }}
                 isOpen={true}
-                setIsOpen={() => {}}
-                loadMoreFunction={() => {}}
+                setIsOpen={() => { }}
+                loadMoreFunction={() => { }}
                 isLoading={false}
                 componentConfig={{
                     clearButtonText: "Clear all",
@@ -61,7 +61,7 @@ describe("Notifications Component", () => {
                     noNotificationsTitle: "No notifications",
                     noNotificationsMessage: "You have no notifications",
                 }}
-                actionButtonClassName='notifications__label'
+                excludedClickOutsideClass='notifications__label'
             />,
         );
 
@@ -80,14 +80,14 @@ describe("Notifications Component", () => {
         expect(mockAction2).toHaveBeenCalled();
     });
 
-    it('displays a loading spinner when "isLoading" is true', async() => {
+    it('displays a loading spinner when "isLoading" is true', async () => {
         const { queryByTestId } = render(
             <Notifications
                 notifications={[]}
-                clearNotificationsCallback={() => {}}
+                clearNotificationsCallback={() => { }}
                 isOpen={true}
-                setIsOpen={() => {}}
-                loadMoreFunction={() => {}}
+                setIsOpen={() => { }}
+                loadMoreFunction={() => { }}
                 isLoading={true}
                 componentConfig={{
                     clearButtonText: "Clear all",
@@ -95,13 +95,13 @@ describe("Notifications Component", () => {
                     noNotificationsTitle: "No notifications",
                     noNotificationsMessage: "You have no notifications",
                 }}
-                actionButtonClassName='notifications_label'
+                excludedClickOutsideClass='notifications_label'
             />,
         );
         expect(queryByTestId("notifications-loader")).toBeInTheDocument();
     });
 
-    it('calls the "loadMoreFunction" when content is scrolled to the bottom', async() => {
+    it('calls the "loadMoreFunction" when content is scrolled to the bottom', async () => {
         const mockLoadMore = jest.fn();
 
         const notifications = Array.from({ length: 20 }, (_, idx) => generateNotification(idx, jest.fn()));
@@ -109,9 +109,9 @@ describe("Notifications Component", () => {
         const { getByTestId } = render(
             <Notifications
                 notifications={notifications}
-                clearNotificationsCallback={() => {}}
+                clearNotificationsCallback={() => { }}
                 isOpen={true}
-                setIsOpen={() => {}}
+                setIsOpen={() => { }}
                 loadMoreFunction={mockLoadMore}
                 isLoading={false}
                 componentConfig={{
@@ -120,7 +120,7 @@ describe("Notifications Component", () => {
                     noNotificationsTitle: "No notifications",
                     noNotificationsMessage: "You have no notifications",
                 }}
-                actionButtonClassName='notifications_label'
+                excludedClickOutsideClass='notifications_label'
             />,
         );
 

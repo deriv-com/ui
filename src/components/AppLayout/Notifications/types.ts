@@ -21,5 +21,5 @@ export type TNotificationsProps = ComponentProps<"div"> & {
         noNotificationsTitle: string;
         noNotificationsMessage: string;
     };
-    actionButtonClassName: string;
+    excludedClickOutsideClass: string;
 };

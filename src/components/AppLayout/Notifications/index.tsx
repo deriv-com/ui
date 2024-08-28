@@ -19,7 +19,7 @@ export const Notifications = ({
     setIsOpen,
     componentConfig,
     className,
-    actionButtonClassName,
+    excludedClickOutsideClass,
     loadMoreFunction,
     isLoading,
     ...rest
@@ -31,7 +31,7 @@ export const Notifications = ({
     useOnClickOutside(notificationsRef, (e: Event) => {
         e.stopPropagation();
         // To enable the button to open this component in the upper scope
-        if (!(e.target as HTMLElement).className.split(' ').includes(actionButtonClassName)) {
+        if (!(e.target as HTMLElement).className.split(' ').includes(excludedClickOutsideClass)) {
             setIsOpen(false);
         }
     });
@@ -80,9 +80,9 @@ export const Notifications = ({
                             </Text>
                         </div>
                     )}
-                    <div 
-                        className="notifications__content" 
-                        ref={notificationsScrollRef} 
+                    <div
+                        className="notifications__content"
+                        ref={notificationsScrollRef}
                         onScroll={(e) => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
                         data-testid="notifications-content"
                     >
@@ -94,7 +94,7 @@ export const Notifications = ({
                         ))}
                         {isLoading && (
                             <div className="notifications__loader" data-testid="notifications-loader">
-                                <Loader isFullScreen={false}/>
+                                <Loader isFullScreen={false} />
                             </div>
                         )}
                     </div>
@@ -142,9 +142,9 @@ export const Notifications = ({
                             </Text>
                         </div>
                     )}
-                    <div 
-                        className="notifications__content" 
-                        ref={notificationsScrollRef} 
+                    <div
+                        className="notifications__content"
+                        ref={notificationsScrollRef}
                         onScroll={(e) => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
                         data-testid="notifications-content"
                     >
@@ -156,7 +156,7 @@ export const Notifications = ({
                         ))}
                         {isLoading && (
                             <div className="notifications__loader" data-testid="notifications-loader">
-                                <Loader isFullScreen={false}/>
+                                <Loader isFullScreen={false} />
                             </div>
                         )}
                     </div>
