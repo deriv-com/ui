@@ -8,6 +8,7 @@ export const Notification = ({
     buttonAction,
     actionText,
 }: TNotificationObject) => {
+    const haveAction = typeof buttonAction === 'function' && actionText;
     return (
         <div className="notification">
             <div className="notification__container">
@@ -20,7 +21,7 @@ export const Notification = ({
                     </div>
                 </div>
             </div>
-            {buttonAction && actionText && (
+            {haveAction && (
                 <div className="notification__button-container">
                     <button className="notification__button" onClick={buttonAction}>
                         {actionText}
