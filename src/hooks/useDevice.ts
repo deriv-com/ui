@@ -10,6 +10,9 @@ export const useDevice = () => {
     const isTabletPortrait = useMediaQuery(
         `(min-width: 601px) and (max-width: 1279px) and (orientation: portrait)`,
     );
+    const isLandscape = useMediaQuery(
+        `(max-width: 1279px) and (orientation: landscape)`,
+    );
     return {
         /** returns Larger screen tablets [min-width: 1280px] */
         isDesktop,
@@ -19,5 +22,7 @@ export const useDevice = () => {
         isTablet,
         /** returns tablet screen with portrait orientation [min-width: 601px and max-width: 1279px and orientation: portrait] */
         isTabletPortrait,
+        /** returns landscape mode for smaller device [max-width: 1279px and orientation: landscape] */
+        isLandscape
     };
 };
