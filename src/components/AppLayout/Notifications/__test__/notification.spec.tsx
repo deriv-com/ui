@@ -7,6 +7,7 @@ describe("Notification Component", () => {
     it("renders the notification with title, message", async () => {
         const { getByText } = render(
             <Notification
+                id='0'
                 icon={<span>Icon</span>}
                 title="Test Title"
                 message="Test message"
@@ -22,6 +23,7 @@ describe("Notification Component", () => {
         const mockAction = jest.fn();
         const { getByRole } = render(
             <Notification
+                id='0'
                 icon={<span>Icon</span>}
                 title="Test Title"
                 message="Test message"
@@ -39,6 +41,7 @@ describe("Notification Component", () => {
         const mockAction = jest.fn();
         const { getByRole } = render(
             <Notification
+                id='0'
                 icon={<span>Icon</span>}
                 title="Test Title"
                 message="Test message"

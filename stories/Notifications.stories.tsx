@@ -21,10 +21,10 @@ export const Default: Story = {
             noNotificationsMessage: "You currently have no notifications",
         },
 
-        clearNotificationsCallback: () => {},
+        clearNotificationsCallback: () => { },
         isOpen: true,
-        setIsOpen: () => {},
-        loadMoreFunction: () => {},
+        setIsOpen: () => { },
+        loadMoreFunction: () => { },
         isLoading: false,
         notifications: [
             {
@@ -61,6 +61,7 @@ export const Default: Story = {
                 actionText: "Go to Trustpilot",
             },
         ],
+        excludedClickOutsideClass: 'notifications__label',
     },
     render: (args) => {
         const [isOpen, setIsOpen] = React.useState(args.isOpen);
@@ -86,11 +87,12 @@ export const Empty: Story = {
             noNotificationsMessage: "You currently have no notifications",
         },
 
-        clearNotificationsCallback: () => {},
+        clearNotificationsCallback: () => { },
         isOpen: true,
-        setIsOpen: () => {},
+        setIsOpen: () => { },
         notifications: [],
-        loadMoreFunction: () => {},
+        excludedClickOutsideClass: 'notifications__label',
+        loadMoreFunction: () => { },
         isLoading: false,
     },
     render: (args) => {
@@ -118,9 +120,9 @@ export const LoadMore: Story = {
             noNotificationsTitle: "No notifications",
             noNotificationsMessage: "You currently have no notifications",
         },
-        clearNotificationsCallback: () => {},
+        clearNotificationsCallback: () => { },
         isOpen: true,
-        setIsOpen: () => {},
+        setIsOpen: () => { },
         notifications: [
             {
                 icon: <LegacyAnnouncementIcon width={16} height={16} />,
@@ -218,14 +220,14 @@ export const LoadMore: Story = {
                     console.log("Check Your Portfolio Performance Clicked");
                 },
                 actionText: "View Reports",
-            },      
+            },
         ],
     },
     render: (args) => {
         const [isOpen, setIsOpen] = React.useState(args.isOpen);
         const [notifications, setNotifications] = React.useState(args.notifications);
         const [isLoading, setIsLoading] = React.useState(false);
-        
+
         React.useEffect(() => {
             setIsOpen(args.isOpen);
         }, [args.isOpen])
@@ -235,10 +237,10 @@ export const LoadMore: Story = {
                 isOpen={isOpen}
                 setIsOpen={(state) => setIsOpen(state)}
                 notifications={notifications}
-                isLoading={isLoading} 
+                isLoading={isLoading}
                 loadMoreFunction={() => {
 
-                    function genNewNotification(idx: number) { 
+                    function genNewNotification(idx: number) {
                         return {
                             icon: <LegacyAnnouncementIcon width={16} height={16} />,
                             title: `New Notification #${idx}`,
