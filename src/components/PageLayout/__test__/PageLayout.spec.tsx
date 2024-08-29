@@ -32,6 +32,7 @@ describe("PageLayout Component", () => {
             isDesktop: false,
             isTablet: false,
             isTabletPortrait: false,
+            isMobileOrTabletLandscape: false
         }));
         const sidebar = <div>Sidebar</div>;
         render(<PageLayout sidebar={sidebar} />);
