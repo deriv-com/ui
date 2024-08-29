@@ -19,7 +19,7 @@ export const Notifications = ({
     setIsOpen,
     componentConfig,
     className,
-    excludedClickOutsideClass,
+    excludedClickOutsideClass = '',
     loadMoreFunction,
     isLoading,
     ...rest
