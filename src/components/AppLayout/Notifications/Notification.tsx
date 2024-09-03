@@ -8,7 +8,7 @@ export const Notification = ({
     buttonAction,
     actionText,
 }: TNotificationObject) => {
-    const haveAction = typeof buttonAction === 'function' && actionText;
+    const haveAction = typeof buttonAction === 'function' && typeof actionText === 'string';
     return (
         <div className="notification">
             <div className="notification__container">

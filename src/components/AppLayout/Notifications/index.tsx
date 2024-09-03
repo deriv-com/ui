@@ -20,7 +20,7 @@ export const Notifications = ({
     componentConfig,
     className,
     excludedClickOutsideClass = '',
-    loadMoreFunction,
+    loadMoreFunction = () => { },
     isLoading,
     ...rest
 }: Omit<TNotificationsProps, "style">) => {
