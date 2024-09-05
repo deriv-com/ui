@@ -30,23 +30,23 @@ $general-color: #f2f3f4;
         align-self: flex-start;
     }
 
-    &__info {
+    &--info {
         background-color: $info-bgColor;
     }
 
-    &__success {
+    &--success {
         background-color: $success-bgColor;
     }
 
-    &__warning {
+    &--warning {
         background-color: $warning-bgColor;
     }
 
-    &__error {
+    &--error {
         background-color: $error-bgColor;
     }
 
-    &__general {
+    &--general {
         background-color: $general-color;
     }
 }

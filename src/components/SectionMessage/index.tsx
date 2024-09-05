@@ -27,11 +27,11 @@ const VariantIcons: Record<Exclude<TVariant, "general">, JSX.Element> = {
 };
 
 const VariantClasses = {
-    error: "deriv-section-message__error",
-    general: "deriv-section-message__general",
-    info: "deriv-section-message__info",
-    success: "deriv-section-message__success",
-    warning: "deriv-section-message__warning",
+    error: "deriv-section-message--error",
+    general: "deriv-section-message--general",
+    info: "deriv-section-message--info",
+    success: "deriv-section-message--success",
+    warning: "deriv-section-message--warning",
 };
 
 /**

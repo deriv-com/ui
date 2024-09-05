@@ -20,7 +20,7 @@ describe("SectionMessage Component", () => {
             <SectionMessage variant="error">Error Message</SectionMessage>,
         );
         expect(container.firstChild).toHaveClass(
-            "deriv-section-message__error",
+            "deriv-section-message--error",
         );
     });
 
