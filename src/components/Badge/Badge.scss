@@ -6,9 +6,9 @@ $white_color: linear-gradient(#e6e9e9, #f2f3f4);
 $success_color: $gradient-color-blue-5;
 $warning_color: $gradient-color-yellow;
 $danger_color: var(--du-badge-danger, #ec3f3f);
-$blue_color: var(--du-badge-blue, #115BFF);
-$purple_color: var(--du-badge-purple, #722FE4);
-$light_blue_color: var(--du-badge-light-blue, #0DC2E7);
+$blue_color: var(--du-badge-blue, #115bff);
+$purple_color: var(--du-badge-purple, #722fe4);
+$light_blue_color: var(--du-badge-light-blue, #0dc2e7);
 $gold_color: $gradient-color-gold;
 $gold_color_border: $color_yellow;
 $green_color: $gradient-color-green-4;
@@ -168,7 +168,7 @@ $green_color_border: $color-green-6;
         }
 
         &--bordered {
-            border-style: solid;
+            border: solid 1px;
             background: none;
 
             &.deriv-badge__color--general {
@@ -242,7 +242,6 @@ $green_color_border: $color-green-6;
                     color: $font-color-gray;
                 }
             }
-
         }
 
         &--bold-text {
@@ -265,9 +264,7 @@ $green_color_border: $color-green-6;
             border-radius: 24px;
         }
     }
-
 }
-
 
 @include desktop {
     .deriv-badge {
@@ -424,7 +421,7 @@ $green_color_border: $color-green-6;
             }
 
             &--bordered {
-                border-style: solid;
+                border: solid 1px;
                 background: none;
 
                 &.deriv-badge__color--general {
@@ -498,7 +495,6 @@ $green_color_border: $color-green-6;
                         color: $font-color-gray;
                     }
                 }
-
             }
 
             &--bold-text {
@@ -521,6 +517,5 @@ $green_color_border: $color-green-6;
                 border-radius: 24px;
             }
         }
-
     }
 }
