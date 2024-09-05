@@ -1,0 +1,52 @@
+$error-bgColor: rgba(230, 25, 14, 0.08);
+$warning-bgColor: rgba(255, 156, 19, 0.08);
+$success-bgColor: rgba(0, 136, 50, 0.08);
+$info-bgColor: rgba(44, 154, 255, 0.08);
+$description-color: rgba(0, 0, 0, 0.72);
+$general-color: #f2f3f4;
+
+.deriv-section-message {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    column-gap: 8px;
+    border-radius: 16px;
+    padding: 16px;
+
+    &__title {
+        margin-bottom: 8px;
+    }
+
+    &__description {
+        color: $description-color;
+    }
+
+    &__cta-section {
+        margin-top: 16px;
+    }
+
+    &__icon {
+        display: flex;
+        align-self: flex-start;
+    }
+
+    &__info {
+        background-color: $info-bgColor;
+    }
+
+    &__success {
+        background-color: $success-bgColor;
+    }
+
+    &__warning {
+        background-color: $warning-bgColor;
+    }
+
+    &__error {
+        background-color: $error-bgColor;
+    }
+
+    &__general {
+        background-color: $general-color;
+    }
+}

@@ -14,6 +14,7 @@ export { Loader } from "./components/Loader";
 export { Modal } from "./components/Modal";
 export { PageLayout } from "./components/PageLayout";
 export { PasswordInput } from "./components/PasswordInput";
+export { SectionMessage } from "./components/SectionMessage";
 export { SideNote } from "./components/SideNote";
 export { Tab, Tabs } from "./components/Tabs";
 export { Table } from "./components/Table";
