@@ -1,9 +1,13 @@
-$error-bgColor: rgba(230, 25, 14, 0.08);
-$warning-bgColor: rgba(255, 156, 19, 0.08);
-$success-bgColor: rgba(0, 136, 50, 0.08);
-$info-bgColor: rgba(44, 154, 255, 0.08);
-$description-color: rgba(0, 0, 0, 0.72);
-$general-color: #f2f3f4;
+$error-bgColor: $color-status-error-1;
+$error-icColor: $color-red-11;
+$warning-bgColor: $color-status-warning-1;
+$warning-icColor: $color-yellow-4;
+$success-bgColor: $color-status-success;
+$success-icColor: $color-green-9;
+$info-bgColor: $color-status-information-1;
+$info-icColor: $color-blue-11;
+$description-color: $alpha-color-black-8;
+$general-color: $color-gray-2;
 
 .deriv-section-message {
     width: 100%;
@@ -28,6 +32,22 @@ $general-color: #f2f3f4;
     &__icon {
         display: flex;
         align-self: flex-start;
+
+        &--info {
+            fill: $info-icColor;
+        }
+
+        &--success {
+            fill: $success-icColor;
+        }
+
+        &--warning {
+            fill: $warning-icColor;
+        }
+
+        &--error {
+            fill: $error-icColor;
+        }
     }
 
     &--info {

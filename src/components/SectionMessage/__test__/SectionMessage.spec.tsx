@@ -24,10 +24,25 @@ describe("SectionMessage Component", () => {
         );
     });
 
-    it("renders with icon", () => {
+    it("renders with predefined error icon", () => {
         const { container } = render(
             <SectionMessage variant="error">Message with Icon</SectionMessage>,
         );
+        expect(
+            container.querySelector(".deriv-section-message__icon"),
+        ).toBeInTheDocument();
+        expect(
+            container.querySelector(".deriv-section-message__icon--error"),
+        ).toBeInTheDocument();
+    });
+
+    it("renders with custom icon", () => {
+        const Img = <img src="" alt="icon" />;
+
+        const { container, getByAltText } = render(
+            <SectionMessage icon={Img}>Message with Icon</SectionMessage>,
+        );
+        expect(getByAltText("icon")).toBeInTheDocument();
         expect(
             container.querySelector(".deriv-section-message__icon"),
         ).toBeInTheDocument();
