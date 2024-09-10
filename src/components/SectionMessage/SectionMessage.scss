@@ -6,7 +6,7 @@ $success-bgColor: $color-status-success;
 $success-icColor: $color-green-9;
 $info-bgColor: $color-status-information-1;
 $info-icColor: $color-blue-11;
-$description-color: $alpha-color-black-8;
+$description-color: var(--du-text-black-transparent, $alpha-color-black-8);
 $general-color: $color-gray-2;
 
 .deriv-section-message {
