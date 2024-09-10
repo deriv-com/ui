@@ -168,7 +168,6 @@ export const Notifications = ({
                                 })}
                                 onClick={() => {
                                     if (notifications.length > 0) {
-                                        setIsOpen(false);
                                         clearNotificationsCallback();
                                     }
                                 }}
