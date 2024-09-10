@@ -105,6 +105,7 @@
         --du-text-status-info-blue: #{$color-blue};
         --du-text-hint: #{$color-black-1};
         --du-text-white: #{$color-white};
+        --du-text-black-transparent: #{$alpha-color-black-8};
         // Purchase
         --du-purchase-main-1: #{$color-green-1};
         --du-purchase-section-1: #{$color-green-2};
@@ -262,6 +263,7 @@
         --du-icon-dark-background: #{$color-white};
         --du-icon-gray-background: #{$color-black-1};
         --du-icon-black-plus: #{$color-white};
+        --du-text-black-transparent: #{$alpha-color-white-5};
         // Purchase
         --du-purchase-main-1: #{$color-green-3};
         --du-purchase-section-1: #{$color-green-4};
