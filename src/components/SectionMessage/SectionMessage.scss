@@ -1,0 +1,72 @@
+$error-bgColor: $color-status-error-1;
+$error-icColor: $color-red-11;
+$warning-bgColor: $color-status-warning-1;
+$warning-icColor: $color-yellow-4;
+$success-bgColor: $color-status-success;
+$success-icColor: $color-green-9;
+$info-bgColor: $color-status-information-1;
+$info-icColor: $color-blue-11;
+$description-color: $alpha-color-black-8;
+$general-color: $color-gray-2;
+
+.deriv-section-message {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    column-gap: 8px;
+    border-radius: 16px;
+    padding: 16px;
+
+    &__title {
+        margin-bottom: 8px;
+    }
+
+    &__description {
+        color: $description-color;
+    }
+
+    &__cta-section {
+        margin-top: 16px;
+    }
+
+    &__icon {
+        display: flex;
+        align-self: flex-start;
+
+        &--info {
+            fill: $info-icColor;
+        }
+
+        &--success {
+            fill: $success-icColor;
+        }
+
+        &--warning {
+            fill: $warning-icColor;
+        }
+
+        &--error {
+            fill: $error-icColor;
+        }
+    }
+
+    &--info {
+        background-color: $info-bgColor;
+    }
+
+    &--success {
+        background-color: $success-bgColor;
+    }
+
+    &--warning {
+        background-color: $warning-bgColor;
+    }
+
+    &--error {
+        background-color: $error-bgColor;
+    }
+
+    &--general {
+        background-color: $general-color;
+    }
+}
