@@ -11,11 +11,11 @@ const meta = {
     args: {
         variant: "contained",
         children: "label",
-        color: "light-blue",
+        color: "lightblue",
         badgeSize: "md",
         isBold: true,
         rightIcon: <span>👉</span>,
-        rounded:"sm",
+        rounded: "sm",
         leftIcon: <span>👈</span>,
         padding: "tight",
         textSize: undefined,
@@ -29,10 +29,14 @@ const meta = {
             options: [
                 "primary",
                 "blue",
+                "blue-secondary",
                 "purple",
                 "success",
+                "success-secondary",
                 "danger",
+                "danger-secondary",
                 "warning",
+                "warning-secondary",
             ],
         },
     },
@@ -76,7 +80,7 @@ export const ContainedPurpleRounded: Story = {
     args: {
         ...meta.args,
         color: "general",
-        rounded:"lg"
+        rounded: "lg",
     },
 };
 
@@ -94,7 +98,7 @@ export const ContainedGold: Story = {
     args: {
         ...meta.args,
         color: "gold",
-        padding: "loose"
+        padding: "loose",
     },
 };
 
