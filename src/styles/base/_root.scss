@@ -185,11 +185,15 @@
         --du-payment-deriv: #{$gradient-color-red-4};
         // Transparentize
         --du-transparent-success: #{$alpha-color-green-1};
+        --du-transparent-success-secondary: #{$alpha-color-green-3};
+        --du-transparent-blue-secondary: #{$alpha-color-blue-4};
         --du-transparent-info: #{$alpha-color-blue-1};
         --du-transparent-hint: #{$alpha-color-blue-3};
         --du-transparent-danger: #{$alpha-color-red-2};
+        --du-transparent-danger-secondary: #{$alpha-color-red-4};
         --du-transparent-correct-message: #{$color-green-5};
         --du-transparent-fake-message: #{$color-red-6};
+        --du-transparent-warning-secondary: #{$alpha-color-yellow-2};
         // Gradient
         --du-gradient-success: #{$gradient-color-green-1};
         --du-gradient-danger: #{$gradient-color-red-1};
@@ -209,7 +213,7 @@
         --du-badge-warning: #{$color-yellow};
         --du-badge-warning-secondary: #{$color-yellow-4};
         --du-badge-danger: #{$color-red-1};
-        --du-badge-danger-secondary: #{$color-red-11};
+        --du-badge-danger-secondary: #{$color-red-12};
         --du-badge-purple: #{$color-purple};
         //TradersHub Banner
         --du-traders-hub-banner-border-color: #{$color-gray-4};
@@ -328,11 +332,15 @@
         --du-status-alert-background: #{$color-yellow-3};
         // Transparentize
         --du-transparent-success: #{$alpha-color-green-2};
+        --du-transparent-success-secondary: #{$alpha-color-green-3};
+        --du-transparent-blue-secondary: #{$alpha-color-blue-4};
         --du-transparent-info: #{$alpha-color-blue-1};
         --du-transparent-hint: #{$alpha-color-blue-1};
         --du-transparent-danger: #{$alpha-color-red-2};
+        --du-transparent-danger-secondary: #{$alpha-color-red-4};
         --du-transparent-correct-message: #{$color-green-5};
         --du-transparent-fake-message: #{$color-red-6};
+        --du-transparent-warning-secondary: #{$alpha-color-yellow-2};
         // Gradient
         --du-gradient-success: #{$gradient-color-green-2};
         --du-gradient-danger: #{$gradient-color-red-2};
@@ -352,7 +360,7 @@
         --du-badge-warning: #{$color-yellow};
         --du-badge-warning-secondary: #{$color-yellow-4};
         --du-badge-danger: #{$color-red-2};
-        --du-badge-danger-secondary: #{$color-red-11};
+        --du-badge-danger-secondary: #{$color-red-12};
         --du-badge-purple: #{$color-purple-1};
         //TradersHub Banner
         --du-traders-hub-banner-border-color: #{$color-black-5};
