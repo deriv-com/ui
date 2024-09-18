@@ -1,12 +1,32 @@
 $font-color-white: var(--du-badge-white, #ffffff);
 $font-color-gray: var(--du-text-general, #868686);
 $success_color_border: var(--du-badge-success, #4bb4b3);
+$success-secondary_color_border: var(--du-badge-success-secondary, #007a22);
 $warning_color_border: var(--du-badge-warning, #ffad3a);
+$warning-secondary_color_border: var(--du-badge-warning-secondary, #c47d00);
 $white_color: linear-gradient(#e6e9e9, #f2f3f4);
 $success_color: $gradient-color-blue-5;
+$success-secondary_color: var(
+    --du-transparent-success-secondary,
+    $alpha-color-green-3
+);
 $warning_color: $gradient-color-yellow;
+$warning-secondary_color: var(
+    --du-transparent-warning-secondary,
+    $alpha-color-yellow-2
+);
 $danger_color: var(--du-badge-danger, #ec3f3f);
+$danger-secondary_color: var(
+    --du-transparent-danger-secondary,
+    $alpha-color-red-4
+);
+$danger-secondary_color_border: var(--du-badge-danger-secondary, #c40000);
 $blue_color: var(--du-badge-blue, #115bff);
+$blue-secondary_color: var(
+    --du-transparent-blue-secondary,
+    $alpha-color-blue-4
+);
+$blue-secondary_color_border: var(--du-badge-blue-secondary, #0777c4);
 $purple_color: var(--du-badge-purple, #722fe4);
 $light_blue_color: var(--du-badge-light-blue, #0dc2e7);
 $gold_color: $gradient-color-gold;
@@ -102,7 +122,7 @@ $green_color_border: $color-green-6;
                 }
             }
 
-            &.deriv-badge__color--lightblue {
+            &.deriv-badge__color--light-blue {
                 background-color: $light_blue_color;
 
                 span {
@@ -118,11 +138,19 @@ $green_color_border: $color-green-6;
                 }
             }
 
-            &.deriv-badge__color--warning {
-                background-image: $warning_color;
+            &.deriv-badge__color--success-secondary {
+                background: $success-secondary_color;
 
                 span {
-                    color: $font-color-white;
+                    color: $success-secondary_color_border;
+                }
+            }
+
+            &.deriv-badge__color--warning-secondary {
+                background: $warning-secondary_color;
+
+                span {
+                    color: $warning-secondary_color_border;
                 }
             }
 
@@ -134,11 +162,27 @@ $green_color_border: $color-green-6;
                 }
             }
 
+            &.deriv-badge__color--danger-secondary {
+                background: $danger-secondary_color;
+
+                span {
+                    color: $danger-secondary_color_border;
+                }
+            }
+
             &.deriv-badge__color--blue {
                 background-color: $blue_color;
 
                 span {
                     color: $font-color-white;
+                }
+            }
+
+            &.deriv-badge__color--blue-secondary {
+                background: $blue-secondary_color;
+
+                span {
+                    color: $blue-secondary_color_border;
                 }
             }
 
@@ -179,11 +223,11 @@ $green_color_border: $color-green-6;
                 }
             }
 
-            &.deriv-badge__color--lightblue {
+            &.deriv-badge__color--light-blue {
                 border-color: $light_blue_color;
 
                 span {
-                    color: $font-color-gray;
+                    color: $light_blue_color;
                 }
             }
 
@@ -191,7 +235,15 @@ $green_color_border: $color-green-6;
                 border-color: $success_color_border;
 
                 span {
-                    color: $font-color-gray;
+                    color: $success_color_border;
+                }
+            }
+
+            &.deriv-badge__color--success-secondary {
+                border-color: $success-secondary_color_border;
+
+                span {
+                    color: $success-secondary_color_border;
                 }
             }
 
@@ -199,7 +251,15 @@ $green_color_border: $color-green-6;
                 border-color: $warning_color_border;
 
                 span {
-                    color: $font-color-gray;
+                    color: $warning_color_border;
+                }
+            }
+
+            &.deriv-badge__color--warning-secondary {
+                border-color: $warning-secondary_color_border;
+
+                span {
+                    color: $warning-secondary_color_border;
                 }
             }
 
@@ -207,15 +267,23 @@ $green_color_border: $color-green-6;
                 border-color: $danger_color;
 
                 span {
-                    color: $font-color-gray;
+                    color: $danger_color;
                 }
             }
 
-            &.deriv-badge__color--blue {
-                border-color: $blue_color;
+            &.deriv-badge__color--danger-secondary {
+                border-color: $danger-secondary_color_border;
 
                 span {
-                    color: $font-color-gray;
+                    color: $danger-secondary_color_border;
+                }
+            }
+
+            &.deriv-badge__color--blue-secondary {
+                border-color: $blue-secondary_color_border;
+
+                span {
+                    color: $blue-secondary_color_border;
                 }
             }
 
@@ -223,7 +291,7 @@ $green_color_border: $color-green-6;
                 border-color: $purple_color;
 
                 span {
-                    color: $font-color-gray;
+                    color: $purple_color;
                 }
             }
 
@@ -231,7 +299,7 @@ $green_color_border: $color-green-6;
                 border-color: $gold_color_border;
 
                 span {
-                    color: $font-color-gray;
+                    color: $gold_color_border;
                 }
             }
 
@@ -239,7 +307,7 @@ $green_color_border: $color-green-6;
                 border-color: $green_color_border;
 
                 span {
-                    color: $font-color-gray;
+                    color: $green_color_border;
                 }
             }
         }
@@ -355,7 +423,7 @@ $green_color_border: $color-green-6;
                     }
                 }
 
-                &.deriv-badge__color--lightblue {
+                &.deriv-badge__color--light-blue {
                     background-color: $light_blue_color;
 
                     span {
@@ -371,11 +439,27 @@ $green_color_border: $color-green-6;
                     }
                 }
 
+                &.deriv-badge__color--success-secondary {
+                    background-image: $success-secondary_color;
+
+                    span {
+                        color: $success-secondary_color_border;
+                    }
+                }
+
                 &.deriv-badge__color--warning {
                     background-image: $warning_color;
 
                     span {
                         color: $font-color-white;
+                    }
+                }
+
+                &.deriv-badge__color--warning-secondary {
+                    background: $warning-secondary_color;
+
+                    span {
+                        color: $warning-secondary_color_border;
                     }
                 }
 
@@ -387,11 +471,27 @@ $green_color_border: $color-green-6;
                     }
                 }
 
+                &.deriv-badge__color--danger-secondary {
+                    background: $danger-secondary_color;
+
+                    span {
+                        color: $danger-secondary_color_border;
+                    }
+                }
+
                 &.deriv-badge__color--blue {
                     background-color: $blue_color;
 
                     span {
                         color: $font-color-white;
+                    }
+                }
+
+                &.deriv-badge__color--blue-secondary {
+                    background: $blue-secondary_color;
+
+                    span {
+                        color: $blue-secondary_color_border;
                     }
                 }
 
@@ -432,11 +532,11 @@ $green_color_border: $color-green-6;
                     }
                 }
 
-                &.deriv-badge__color--lightblue {
+                &.deriv-badge__color--light-blue {
                     border-color: $light_blue_color;
 
                     span {
-                        color: $font-color-gray;
+                        color: $light_blue_color;
                     }
                 }
 
@@ -444,7 +544,15 @@ $green_color_border: $color-green-6;
                     border-color: $success_color_border;
 
                     span {
-                        color: $font-color-gray;
+                        color: $success_color_border;
+                    }
+                }
+
+                &.deriv-badge__color--success-secondary {
+                    border-color: $success-secondary_color_border;
+
+                    span {
+                        color: $success-secondary_color_border;
                     }
                 }
 
@@ -452,7 +560,15 @@ $green_color_border: $color-green-6;
                     border-color: $warning_color_border;
 
                     span {
-                        color: $font-color-gray;
+                        color: $warning_color_border;
+                    }
+                }
+
+                &.deriv-badge__color--warning-secondary {
+                    border-color: $warning-secondary_color_border;
+
+                    span {
+                        color: $warning-secondary_color_border;
                     }
                 }
 
@@ -460,7 +576,15 @@ $green_color_border: $color-green-6;
                     border-color: $danger_color;
 
                     span {
-                        color: $font-color-gray;
+                        color: $danger_color;
+                    }
+                }
+
+                &.deriv-badge__color--danger-secondary {
+                    border-color: $danger-secondary_color_border;
+
+                    span {
+                        color: $danger-secondary_color_border;
                     }
                 }
 
@@ -468,7 +592,15 @@ $green_color_border: $color-green-6;
                     border-color: $blue_color;
 
                     span {
-                        color: $font-color-gray;
+                        color: $blue_color;
+                    }
+                }
+
+                &.deriv-badge__color--blue-secondary {
+                    border-color: $blue-secondary_color_border;
+
+                    span {
+                        color: $blue-secondary_color_border;
                     }
                 }
 
@@ -476,7 +608,7 @@ $green_color_border: $color-green-6;
                     border-color: $purple_color;
 
                     span {
-                        color: $font-color-gray;
+                        color: $purple_color;
                     }
                 }
 
@@ -484,7 +616,7 @@ $green_color_border: $color-green-6;
                     border-color: $gold_color_border;
 
                     span {
-                        color: $font-color-gray;
+                        color: $gold_color_border;
                     }
                 }
 
@@ -492,7 +624,7 @@ $green_color_border: $color-green-6;
                     border-color: $green_color_border;
 
                     span {
-                        color: $font-color-gray;
+                        color: $green_color_border;
                     }
                 }
             }
