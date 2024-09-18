@@ -14,7 +14,7 @@ type TVariant = "contained" | "bordered";
 type TColor =
     | "blue"
     | "blue-secondary"
-    | "lightblue"
+    | "light-blue"
     | "general"
     | "purple"
     | "success"
