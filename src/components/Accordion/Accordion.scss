@@ -66,7 +66,7 @@ $animation-duration: 0.3s;
     }
     &__content {
         width: 100%;
-        overflow: auto;
+        overflow: scroll;
         opacity: 0;
         background-color: var(--content-bg-color);
         transition: all $animation-duration ease;
