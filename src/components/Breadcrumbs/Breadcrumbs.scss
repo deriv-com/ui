@@ -1,0 +1,38 @@
+.deriv-breadcrumbs {
+    margin: 0;
+    padding: 0;
+
+    &__item {
+        float: left;
+        list-style-type: none;
+    }
+
+    &__text {
+        color: var(--du-text-less-prominent, #999999);
+
+        &--active {
+            color: var(--du-text-prominent, #333333);
+        }
+
+        &:not(:last-child) {
+            cursor: pointer;
+
+            &:hover {
+                color: var(--du-text-general, #333333);
+            }
+        }
+    }
+
+    &__chevron-icon {
+        margin: 0 5px;
+        vertical-align: middle;
+
+        path {
+            fill: var(--du-text-less-prominent, #999999);
+        }
+
+        @include mobile {
+            margin: 0 2.5px;
+        }
+    }
+}

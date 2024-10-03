@@ -11,7 +11,7 @@ const meta = {
     args: {
         variant: "contained",
         children: "label",
-        color: "lightblue",
+        color: "light-blue",
         badgeSize: "md",
         isBold: true,
         rightIcon: <span>👉</span>,
