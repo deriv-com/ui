@@ -5,7 +5,7 @@ import { Text } from "../Text";
 import "./Breadcrumbs.scss";
 
 type TItem = {
-    value: string | number;
+    value?: string | number;
     text: string | JSX.Element;
 };
 
@@ -30,7 +30,10 @@ export const Breadcrumbs = ({
                 const isLastItem = idx === items.length - 1;
 
                 return (
-                    <li key={item.value} className="deriv-breadcrumbs__item">
+                    <li
+                        key={item.value ?? idx}
+                        className="deriv-breadcrumbs__item"
+                    >
                         <Text
                             className={clsx("deriv-breadcrumbs__text", {
                                 "deriv-breadcrumbs__text--active": isLastItem,
@@ -40,7 +43,7 @@ export const Breadcrumbs = ({
                         >
                             {item.text}
                         </Text>
-                        {idx < items.length - 1 &&
+                        {!isLastItem &&
                             (separator ?? (
                                 <LegacyChevronRight1pxIcon
                                     className="deriv-breadcrumbs__chevron-icon"
