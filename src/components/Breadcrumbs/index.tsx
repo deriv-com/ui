@@ -43,13 +43,16 @@ export const Breadcrumbs = ({
                         >
                             {item.text}
                         </Text>
-                        {!isLastItem &&
-                            (separator ?? (
-                                <LegacyChevronRight1pxIcon
-                                    className="deriv-breadcrumbs__chevron-icon"
-                                    iconSize="xs"
-                                />
-                            ))}
+                        {!isLastItem && (
+                            <span className="deriv-breadcrumbs__separator-container">
+                                {separator || (
+                                    <LegacyChevronRight1pxIcon
+                                        className="deriv-breadcrumbs__chevron-icon"
+                                        iconSize="xs"
+                                    />
+                                )}
+                            </span>
+                        )}
                     </li>
                 );
             })}

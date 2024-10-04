@@ -1,10 +1,23 @@
 .deriv-breadcrumbs {
+    width: 100%;
     margin: 0;
     padding: 0;
 
     &__item {
         float: left;
         list-style-type: none;
+
+        @include rtl {
+            float: right;
+        }
+
+        &:not(:last-child) {
+            cursor: pointer;
+
+            .deriv-breadcrumbs__text:hover {
+                color: var(--du-text-general, #333333);
+            }
+        }
     }
 
     &__text {
@@ -13,19 +26,15 @@
         &--active {
             color: var(--du-text-prominent, #333333);
         }
+    }
 
-        &:not(:last-child) {
-            cursor: pointer;
-
-            &:hover {
-                color: var(--du-text-general, #333333);
-            }
-        }
+    &__separator-container {
+        cursor: default;
     }
 
     &__chevron-icon {
         margin: 0 5px;
-        vertical-align: middle;
+        vertical-align: sub;
 
         path {
             fill: var(--du-text-less-prominent, #999999);
@@ -33,6 +42,10 @@
 
         @include mobile {
             margin: 0 2.5px;
+        }
+
+        @include rtl {
+            transform: rotate(180deg);
         }
     }
 }
