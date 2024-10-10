@@ -35,11 +35,10 @@ export const Breadcrumbs = ({
                         className="deriv-breadcrumbs__item"
                     >
                         <Text
-                            className={clsx("deriv-breadcrumbs__text", {
-                                "deriv-breadcrumbs__text--active": isLastItem,
-                            })}
-                            size={textSize}
+                            className="deriv-breadcrumbs__text"
+                            color={isLastItem ? 'prominent' : 'less-prominent'}
                             onClick={() => handleOnClick(item)}
+                            size={textSize}
                         >
                             {item.text}
                         </Text>

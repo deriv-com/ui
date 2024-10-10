@@ -20,14 +20,6 @@
         }
     }
 
-    &__text {
-        color: var(--du-text-less-prominent, #999999);
-
-        &--active {
-            color: var(--du-text-prominent, #333333);
-        }
-    }
-
     &__separator-container {
         cursor: default;
     }

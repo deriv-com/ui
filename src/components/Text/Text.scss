@@ -1,6 +1,6 @@
 // TODO: Refactor this file to use css variables
 $color-map: (
-    "prominent": var(--du-text-prominent),
+    "prominent": var(--du-text-prominent, #333333),
     "less-prominent": var(--du-text-less-prominent, #999999),
     "general": var(--du-text-general, #333333),
     "primary": var(--du-text-primary, #999999),
