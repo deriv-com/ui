@@ -27,7 +27,7 @@ type AccountSwitcherProps = {
     buttonClassName?: string;
     children?: ReactElement<TabTitleProps>[];
     isDisabled?: boolean;
-    tabsLabels: {
+    tabsLabels?: {
         demo: string;
         real: string;
     };
@@ -92,8 +92,8 @@ export const AccountSwitcher = ({
                                 <Tabs
                                     activeTab={
                                         activeAccount.isVirtual
-                                            ? tabsLabels.demo
-                                            : tabsLabels.real
+                                            ? tabsLabels?.demo ?? "Demo"
+                                            : tabsLabels?.real ?? "Real"
                                     }
                                     variant="secondary"
                                 >
@@ -115,8 +115,8 @@ export const AccountSwitcher = ({
                                 <Tabs
                                     activeTab={
                                         activeAccount.isVirtual
-                                            ? tabsLabels.demo
-                                            : tabsLabels.real
+                                            ? tabsLabels?.demo ?? "Demo"
+                                            : tabsLabels?.real ?? "Real"
                                     }
                                     variant="secondary"
                                 >
