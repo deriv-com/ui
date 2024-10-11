@@ -94,8 +94,12 @@ export const Default: Story = {
             isActive: false,
         },
         children: [], // Add an empty array for the children property
+        tabsLabels: {
+            demo: "Demo",
+            real: "Real",
+        },
     },
-    render: () => {
+    render: (args) => {
         return (
             <div style={{ width: "800px", height: "500px" }}>
                 <Header>
@@ -116,8 +120,9 @@ export const Default: Story = {
                                     isActive: true,
                                 }
                             }
+                            tabsLabels={args.tabsLabels}
                         >
-                            <AccountSwitcher.Tab title="Real">
+                            <AccountSwitcher.Tab title={args.tabsLabels?.real ?? "Real"}>
                                 <AccountSwitcher.AccountsPanel
                                     isOpen
                                     title="EU Accounts"
@@ -172,7 +177,7 @@ export const Default: Story = {
                                     this is a footer
                                 </AccountSwitcher.Footer>
                             </AccountSwitcher.Tab>
-                            <AccountSwitcher.Tab title="Demo">
+                            <AccountSwitcher.Tab title={args.tabsLabels?.demo ?? "Demo"}>
                                 test 2
                             </AccountSwitcher.Tab>
                         </AccountSwitcher>
