@@ -90,4 +90,46 @@ describe("AccountsItem Component", () => {
         await userEvent.click(accountElement!);
         expect(onSelectAccount).toHaveBeenCalledTimes(1);
     });
+
+    it("displays Reset balance button when onResetBalance prop is provided", () => {
+        const onResetBalance = jest.fn();
+        render(
+            <AccountsItem
+                account={mockAccount}
+                onSelectAccount={jest.fn()}
+                onResetBalance={onResetBalance}
+            />,
+        );
+
+        const resetButton = screen.getByText("Reset balance");
+        expect(resetButton).toBeInTheDocument();
+        expect(screen.queryByText("1000 USD")).not.toBeInTheDocument();
+    });
+
+    it("calls onResetBalance when Reset balance button is clicked", async () => {
+        const onResetBalance = jest.fn();
+        render(
+            <AccountsItem
+                account={mockAccount}
+                onSelectAccount={jest.fn()}
+                onResetBalance={onResetBalance}
+            />,
+        );
+
+        const resetButton = screen.getByText("Reset balance");
+        await userEvent.click(resetButton);
+        expect(onResetBalance).toHaveBeenCalledTimes(1);
+    });
+
+    it("displays balance when onResetBalance is not provided", () => {
+        render(
+            <AccountsItem
+                account={mockAccount}
+                onSelectAccount={jest.fn()}
+            />,
+        );
+
+        expect(screen.getByText("1000 USD")).toBeInTheDocument();
+        expect(screen.queryByText("Reset balance")).not.toBeInTheDocument();
+    });
 });

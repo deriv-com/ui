@@ -33,6 +33,11 @@ $black-outline-hover: rgba(0, 0, 0, 0.08);
     }
 
     &__size {
+        &--xs {
+            height: 1.6rem;
+            border-width: 1px;
+            padding: 0rem 1.1rem;
+        }
         &--sm {
             height: 2.4rem;
             border-width: 1px;
@@ -227,5 +232,4 @@ $black-outline-hover: rgba(0, 0, 0, 0.08);
             border-width: 3px;
         }
     }
-
 }
