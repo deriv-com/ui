@@ -2,13 +2,19 @@ import clsx from "clsx";
 import { TAccount } from "../types";
 
 import "./AccountsItem.scss";
+import { Button } from "../../../Button";
 
 type AccountSwitcherProps = {
     account: TAccount;
     onSelectAccount: () => void;
+    onResetBalance?: () => void;
 };
 
-export const AccountsItem = ({ account, onSelectAccount }: AccountSwitcherProps) => {
+export const AccountsItem = ({
+    account,
+    onSelectAccount,
+    onResetBalance,
+}: AccountSwitcherProps) => {
     return (
         <div
             className={clsx("deriv-account-switcher-item", {
@@ -44,7 +50,21 @@ export const AccountsItem = ({ account, onSelectAccount }: AccountSwitcherProps)
                         account.isActive,
                 })}
             >
-                {`${account.balance} ${account.currency}`}
+                {onResetBalance ? (
+                    <Button
+                        borderWidth="sm"
+                        textSize="xs"
+                        size="xs"
+                        variant="outlined"
+                        color="black"
+                        isFullWidth
+                        onClick={onResetBalance}
+                    >
+                        Reset balance
+                    </Button>
+                ) : (
+                    `${account.balance} ${account.currency}`
+                )}
             </div>
         </div>
     );

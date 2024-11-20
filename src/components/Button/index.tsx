@@ -16,8 +16,8 @@ interface ButtonProps extends ComponentProps<"button"> {
     isFullWidth?: boolean;
     isLoading?: boolean;
     rounded?: Extract<TGenericSizes, "lg" | "md" | "sm">;
-    size?: Extract<TGenericSizes, "lg" | "md" | "sm">;
-    hideHoverStyles?:boolean;
+    size?: Extract<TGenericSizes, "lg" | "md" | "sm" | "xs">;
+    hideHoverStyles?: boolean;
     textSize?: ComponentProps<typeof Text>["size"];
     variant?: TVariant;
 }
@@ -40,6 +40,7 @@ const ButtonSize = {
     lg: "deriv-button__size--lg",
     md: "deriv-button__size--md",
     sm: "deriv-button__size--sm",
+    xs: "deriv-button__size--xs",
 } as const;
 
 const ButtonRounded = {
@@ -52,6 +53,7 @@ const FontSize = {
     lg: "lg",
     md: "sm",
     sm: "xs",
+    xs: "xs",
 } as const;
 
 const LoaderColor = {
@@ -78,7 +80,7 @@ export const Button = ({
     isLoading = false,
     rounded = "sm",
     size = "md",
-    hideHoverStyles=false,
+    hideHoverStyles = false,
     textSize,
     variant = "contained",
     ...rest
@@ -115,7 +117,7 @@ export const Button = ({
             {rest.children && !isLoading && (
                 <Text
                     align="center"
-                    size={ textSize ?? FontSize[size]}
+                    size={textSize ?? FontSize[size]}
                     weight="bold"
                     as="span"
                 >
