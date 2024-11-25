@@ -1,27 +1,27 @@
-import ReactModal from 'react-modal';
-import clsx from 'clsx';
+import ReactModal from "react-modal";
+import clsx from "clsx";
 
-import { ModalHeader } from './ModalHeader';
-import { ModalBody } from './ModalBody';
-import { ModalFooter } from './ModalFooter';
+import { ModalHeader } from "./ModalHeader";
+import { ModalBody } from "./ModalBody";
+import { ModalFooter } from "./ModalFooter";
 
-import './Modal.scss'
+import "./Modal.scss";
 
 export const CUSTOM_STYLES = {
     content: {
         background: 'none',
         border: 'none',
-        borderRadius: 0,
+        borderRadius: '10px',
         bottom: 'auto',
         left: '50%',
         margin: 0,
         marginRight: '-50%',
         padding: 0,
         right: 'auto',
-        top: '50%',
+        top: '20%',
         transform: 'translate(-50%, -50%)',
         transition: 'all 0.35s ease-in-out',
-        boxShadow: '0px 32px 64px 0px rgba(14, 14, 14, 0.14)'
+        boxShadow: '0px 32px 64px 0px rgba(14, 14, 14, 0.14)',
     },
     overlay: {
         backgroundColor: 'rgba(0, 0, 0, 0.72)',
@@ -35,7 +35,6 @@ interface ModalProps extends ReactModal.Props {
         overlay?: React.CSSProperties,
     }
 }
-
 
 /**
  * Represents a modal component.it's a wrapper around react-modal.
