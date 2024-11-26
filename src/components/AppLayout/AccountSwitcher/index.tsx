@@ -31,6 +31,9 @@ type AccountSwitcherProps = {
         demo: string;
         real: string;
     };
+    modalContentStyle?: {
+        content?: React.CSSProperties;
+    };
 };
 
 export const AccountSwitcher = ({
@@ -39,6 +42,7 @@ export const AccountSwitcher = ({
     isDisabled = false,
     buttonClassName,
     tabsLabels,
+    modalContentStyle,
 }: AccountSwitcherProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const ref = useRef(null);
@@ -110,6 +114,7 @@ export const AccountSwitcher = ({
                             }}
                             className="deriv-account-switcher__container--mobile"
                             isOpen={isOpen}
+                            style={modalContentStyle ?? {}}
                         >
                             {children && (
                                 <Tabs
