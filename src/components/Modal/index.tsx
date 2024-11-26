@@ -1,11 +1,11 @@
-import ReactModal from "react-modal";
-import clsx from "clsx";
+import ReactModal from 'react-modal';
+import clsx from 'clsx';
 
-import { ModalHeader } from "./ModalHeader";
-import { ModalBody } from "./ModalBody";
-import { ModalFooter } from "./ModalFooter";
+import { ModalHeader } from './ModalHeader';
+import { ModalBody } from './ModalBody';
+import { ModalFooter } from './ModalFooter';
 
-import "./Modal.scss";
+import './Modal.scss'
 
 export const CUSTOM_STYLES = {
     content: {
